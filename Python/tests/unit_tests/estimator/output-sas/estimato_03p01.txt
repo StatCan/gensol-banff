@@ -1,0 +1,350 @@
+1                                                                                                                        The SAS System                                                                                             09:45 Thursday, June 1, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.77 seconds
+      cpu time            0.24 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* Test Est 03p01 */
+2          
+3          /* To verify that a variance variable may not have zero values, missing values,
+4          negative values, and values with a status in the STATUS= data sets. */
+5          options linesize=100 pagesize=3000 nodate;
+6          %let test=e03p01;
+7          
+8          data indata;
+9          infile cards;
+10         input ident   $ V X Y Z;
+11         cards;
+
+NOTE: The data set WORK.INDATA has 4 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+16         ;
+17         run ;
+18         
+19         *proc print;
+20         title "Test &Test Current Input Data";
+21         run;
+22         
+23         data instatus;
+24         infile cards;
+25         input ident $ fieldid $ status $;
+26         cards;
+
+NOTE: The data set WORK.INSTATUS has 4 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+31         ;
+32         run;
+33         
+34         *proc print;
+35         title "Test &Test Input Status";
+36         run;
+37         
+38         data inhist;
+39         infile cards;
+40         input ident   $ V X Y Z;
+41         cards ;
+
+NOTE: The data set WORK.INHIST has 4 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+46         ;
+47         run ;
+48         
+49         *proc print;
+50         title "Test &Test Historical Input Data";
+51         run;
+52         
+53         data inhiststatus;
+54         infile cards;
+55         input ident $ fieldid $ status $;
+56         cards;
+
+NOTE: The data set WORK.INHISTSTATUS has 2 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+59         ;
+60         run;
+61         
+62         *proc print;
+63         title "Test &Test Historical Input Status";
+64         run;
+65         
+66         data algor;
+67         length formula $22.;
+68         length description $22.;
+69         input algorithmname $ type $ status $ formula $ description $50;
+70         cards;
+
+NOTE: The data set WORK.ALGOR has 1 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+72         ;
+73         run;
+74         *proc print;
+75         title "Test &Test Algorithms";
+76         run;
+77         
+78         data estimat;
+79         input active 1 excludeimputed $3 excludeoutliers $5 randomerror $7
+80            countcriteria 8-9 percentcriteria 10-11 weightvariable $13
+81            variancevariable $15 varianceperiod $17 varianceexponent 19
+82            algorithmname $21-31 fieldid $33-35 auxvariables $37-45;
+83         cards;
+
+NOTE: The data set WORK.ESTIMAT has 4 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+88         ;
+89         run;
+90         
+91         *proc print;
+92         title "Test &Test Estimators";
+93         run;
+94         
+95         proc ESTIMATOR
+96            data=indata
+97            datastatus=instatus
+98            hist=inhist
+99            histstatus=inhiststatus
+100           out=outdata&test
+101           outstatus=outstatus&test
+102           algorithm=algor
+103           estimator=estimat
+104           acceptnegative
+105           ;
+106           id IDENT;
+107           *dataexclvar EXCL;
+108           *histexclvar EXCL;
+109           *by area;
+110        run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ESTIMATOR Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:54:27
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: DATASTATUS = WORK.INSTATUS
+NOTE: HIST = WORK.INHIST
+NOTE: HISTSTATUS = WORK.INHISTSTATUS
+NOTE: ALGORITHM = WORK.ALGOR
+NOTE: ESTIMATOR = WORK.ESTIMAT
+NOTE: OUTDATA = WORK.OUTDATAE03P01
+NOTE: OUTSTATUS = WORK.OUTSTATUSE03P01
+NOTE: OUTRANDOMERROR = _NULL_
+NOTE: OUTACCEPTABLE = _NULL_
+NOTE: OUTESTPARMS = _NULL_
+NOTE: OUTESTEF = _NULL_
+NOTE: OUTESTLR = _NULL_
+NOTE: SEED = 1685627111 (value chosen by the system) 
+NOTE: ACCEPTNEGATIVE
+NOTE: ID = ident
+NOTE: DATAEXCLVAR not specified.
+NOTE: HISTEXCLVAR not specified.
+NOTE: BY not specified.
+
+Set of estimator specifications:
+-------------------------------
+
+Estimator 0.
+Algorithm name           : HISTREG
+Description              : A linear regression based on the historical value of the variable to 
+                           impute.
+Type                     : LR
+Status                   : HLR
+Formula                  : INTERCEPT,FIELDID(H)
+Field id                 : V
+Auxiliary variables      : 
+Weight variable          : 
+Variance variable        : X
+Variance exponent        : 1.000000
+Variance period          : H
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+Estimator 1.
+Algorithm name           : HISTREG2
+Description              : 
+Type                     : LR
+Status                   : HR2
+Formula                  : INTERCEPT,AUX1(H)
+Field id                 : X
+Auxiliary variables      : V
+Weight variable          : 
+Variance variable        : Y
+Variance exponent        : 2.000000
+Variance period          : H
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+Estimator 2.
+Algorithm name           : HISTREG2
+Description              : 
+Type                     : LR
+Status                   : HR2
+Formula                  : INTERCEPT,AUX1(H)
+Field id                 : Y
+Auxiliary variables      : V
+Weight variable          : 
+Variance variable        : Z
+Variance exponent        : 3.000000
+Variance period          : H
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+Estimator 3.
+Algorithm name           : HISTREG2
+Description              : 
+Type                     : LR
+Status                   : HR2
+Formula                  : INTERCEPT,AUX1(H)
+Field id                 : Z
+Auxiliary variables      : Y
+Weight variable          : 
+Variance variable        : V
+Variance exponent        : 1.000000
+Variance period          : C
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+
+Formula of estimator specifications:
+-----------------------------------
+
+Estimator 0.
+V = INTERCEPT,V(H)
+
+Estimator 1.
+X = INTERCEPT,V(H)
+
+Estimator 2.
+Y = INTERCEPT,V(H)
+
+Estimator 3.
+Z = INTERCEPT,Y(H)
+
+
+ERROR: Estimator: Estimator 0: key A1 has a 0.0 value for the historical VARIANCEVARIABLE.
+ERROR: Estimator: Estimator 1: key A1 has a negative historical VARIANCEVARIABLE.
+ERROR: Estimator: Estimator 2: key A1 has a status for the historical VARIANCEVARIABLE.
+ERROR: Estimator: Estimator 3: key A1 has a status for the current VARIANCEVARIABLE.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 4 observations read from the data set WORK.INSTATUS.
+NOTE: There were 4 observations read from the data set WORK.INHIST.
+NOTE: There were 2 observations read from the data set WORK.INHISTSTATUS.
+NOTE: There were 1 observations read from the data set WORK.ALGOR.
+NOTE: There were 4 observations read from the data set WORK.ESTIMAT.
+WARNING: The data set WORK.OUTDATAE03P01 may be incomplete.  When this step was stopped there were 
+         0 observations and 5 variables.
+WARNING: The data set WORK.OUTSTATUSE03P01 may be incomplete.  When this step was stopped there 
+         were 0 observations and 3 variables.
+NOTE: PROCEDURE ESTIMATOR used (Total process time):
+      real time           0.19 seconds
+      cpu time            0.03 seconds
+      
+111        
+112        *proc print data=outdata&test ;
+113        title "Test &Test Imputation Results";
+114        run;
+115        
+116        *proc print data=outstatus&test ;
+117        title "Test &Test Output Status Codes";
+118        run;
+
+
+ERROR: Errors printed on page 1.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.19 seconds
+      cpu time            0.37 seconds
+      

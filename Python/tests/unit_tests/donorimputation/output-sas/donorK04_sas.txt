@@ -1,0 +1,294 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+2514  proc donorimputation
+2515     data=indata
+2516     instatus=instat
+2517     out=outdata
+2518     outstatus=outstat
+2519     donormap=map
+2520     edits="Q1 + Q2 + Q3 + Q4 = total;"
+2521     postedits="Q1 + Q2 + Q3*Q4 - total <= 0;"
+2522     mindonors=1
+2523     pcentdonors=1
+2524     n=3
+2525     matchfieldstat
+2526     eligdon=any
+2527     ;
+2528     id ident;
+2529     mustmatch STAFF;
+2530     dataexclvar toexcl;
+2531  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3*Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671572624 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+ERROR: Invalid POSTEDITS.
+ERROR: Edits parser: Looking for 'Coefficient' but found 'Variable' instead.
+       
+       Error at or before:
+       Q1 + Q2 + Q3*Q4 - TOTAL <= 0;
+                      ^
+       
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.00 seconds
+      
+2532  
+2533  
+
+
+2534  proc donorimputation
+2535     data=indata
+2536     instatus=instat
+2537     out=outdata
+2538     outstatus=outstat
+2539     donormap=map
+2540     edits="Q1 + Q2 + Q3 + Q4 = total;"
+2541     postedits="Q1 + Q2 + Q3/Q4 - total <= 0;"
+2542     mindonors=1
+2543     pcentdonors=1
+2544     n=3
+2545     matchfieldstat
+2546     eligdon=any
+2547     ;
+2548     id ident;
+2549     mustmatch STAFF;
+2550     dataexclvar toexcl;
+2551  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3/Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671572625 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+ERROR: Invalid POSTEDITS.
+ERROR: Edits parser: Looking for 'Operator' but found 'Unknown character' instead.
+       
+       Error at or before:
+       Q1 + Q2 + Q3/Q4 - TOTAL <= 0;
+                    ^
+       
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.25 seconds
+      cpu time            0.00 seconds
+      
+2552  
+2553  
+
+
+2554  proc donorimputation
+2555     data=indata
+2556     instatus=instat
+2557     out=outdata
+2558     outstatus=outstat
+2559     donormap=map
+2560     edits="Q1 + Q2 + Q3 + Q4 = total;"
+2561     postedits="Q1 + Q2 + Q3+ Q4 - 1/total <= 0;"
+2562     mindonors=1
+2563     pcentdonors=1
+2564     n=3
+2565     matchfieldstat
+2566     eligdon=any
+2567     ;
+2568     id ident;
+2569     mustmatch STAFF;
+2570     dataexclvar toexcl;
+2571  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3+ Q4 - 1/total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671572625 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+ERROR: Invalid POSTEDITS.
+ERROR: Edits parser: Looking for 'Operator' but found 'Unknown character' instead.
+       
+       Error at or before:
+       Q1 + Q2 + Q3+ Q4 - 1/TOTAL <= 0;
+                            ^
+       
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.00 seconds
+      
+
+
+2572  proc printto;
+2573  run;
+

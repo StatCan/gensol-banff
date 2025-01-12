@@ -1,0 +1,205 @@
+[build-system]
+# PEP 518 recommends both setuptools and wheel be required
+requires = ["setuptools>=70.00", "wheel", "pip>=23.3"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "banff"
+version = "3.01.001"
+authors = [
+  { name="Stephen Arsenualt", email="stephen.arsenault@statcan.gc.ca" },
+]
+description = "Initial Banff package"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+dependencies = [
+    "pandas>=2.0.0,<3",  # SAS support fails below 2.0.0, pandas 3 compatibility untested
+    "pandas[parquet]>=2.0.0",  # incase pandas requires a newer version of pyarrow
+    "pyarrow>=14.0.0",  # things fail below 14.0.0
+    "nanoarrow>=0.5.0,<0.7",  # this library in early development, adjust for each release
+    "duckdb>=0.7.0",  # things fail below 0.7.0
+]
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov",
+]
+performance = ["pandas[performance]"]
+diagnostics = ["psutil"]
+dev = [
+  "banff[test]", 
+  "ruff",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/StatCan/gensol-banff"
+"Bug Tracker" = "https://github.com/StatCan/gensol-banff/issues"
+
+[tool.pytest.ini_options]
+# look in tests/run_pytest.[sh,cmd] for what markers to select
+addopts = '-v -m "m_auto_pass and not m_needs_sas_data" --cache-clear -rf --cov=banff --cov-report=term --cov-report=html --cov-report=xml'
+console_output_style = "count"
+testpaths = ["tests"]
+markers = [ # keep markers in sync with `Python/tests/pytest.ini`
+  "m_auto_pass: tests which should always pass and run quickly (ideal for automated tests)",
+  "m_needs_sas_data: tests which require SAS to generate data prior to running",
+  "m_new: tests written since the start of the redesign",
+  "m_pass: tests that, as implemented, are expected to pass",
+  "m_modified: tests that are modified from their 2.08 specification",
+  "m_pass_as_is: tests that should pass without modification of test specification",
+  "m_fail_as_is: tests designed for Banff 2.08 or earlier that fail 'as-is' in SAS-free Banff",
+  "m_missing_feature: tests a feature that isnt implemented",
+  "m_randomness: test results must show randomness",
+  "m_sas_dataset: test relies upon a SAS dataset file being available",
+  "m__default_var_list: tests which may have triggered sas-based proc outliers 'SetDefaultVarList()'",
+  "m_for_review: tests which warrant review",
+  "m_incomplete: tests which are not complete",
+  "m_performance_test: test of performance, typically with large dataset",
+  "m_precision: test which validates precision of outputs",
+  "j_ITSLMBANFF_159: related to a JIRA ticket",
+  "j_ITSLMBANFF_156: related to a JIRA ticket",
+  "j_ITSLMBANFF_155: related to a JIRA ticket",
+  "j_ITSLMBANFF_154: related to a JIRA ticket",
+  "j_ITSLMBANFF_86: related to a JIRA ticket",
+  "j_ITSLMBANFF_157: related to a JIRA ticket",
+  "m_jira_63: related to a JIRA ticket",
+  "m_jira_64: related to a JIRA ticket",
+  "m_jira_69: related to a JIRA ticket"
+]
+
+# `tools.coverage` configures `pytest-cov` plugin (package)
+[tool.coverage.run]
+# for `omit` use prefix '*/banff' so it works for installed packages and editable installs
+omit = [
+  "*/banff/testing/*",
+  "*/banff/_common/src/testing/*",
+]
+
+[tool.coverage.xml]
+# to be used as artifact, "cobertura" format
+output = "pytest-coverage.xml"
+
+[tool.ruff]
+output-format = "concise"
+include = ["pyproject.toml", "src/**/*.py", "scripts/**/*.py"]
+exclude = [
+  "scripts/i18n/msgfmt.py",  # this script part of Python distribution
+  "scripts/i18n/pygettext.py",  # this script part of Python distribution
+  "scripts/process_sast_output.py",  # used for development purposes only
+]
+line-length = 160
+
+# See https://docs.astral.sh/ruff/rules/ for documentation on rules and rule sets
+lint.select = [
+  # Basic rules
+  "ALL",
+  "E",  # Errors in pycodestyle
+  "F",  # Pyflakes 
+  "UP", # Pyupgrade
+
+  # These are rules recommended by cyber security
+  "S", 
+  "BLE",
+  "B",
+  "T10", 
+  "EM",
+  "LOG", 
+  "G", 
+  "PYI",
+  "PTH", 
+  "SLF", 
+  "PTH",
+  "ERA",
+  "PGH",
+]
+
+# Ignored rules should be associated with a comment indicating why is it being ignored 
+lint.ignore = [
+  "ICN001",  # sometimes we want unaliased imports, but this rule doesn't allow that
+  "FBT",
+  "PD008",
+  "PD901",
+  "SIM115",
+  "SIM108",
+  "SIM118",
+  "RET504",
+  "PLR0913",
+  "RUF100",  # doesn't work as expected
+  "RUF005",
+  "RUF010",
+  "RUF012",
+  "ANN",  # disable if adding annotations
+  "UP038",    # rule looks bad, others agree: https://github.com/astral-sh/ruff/issues/7871
+  "UP015",    # bad rule
+#  "E402",    # PEP8 recommendation, should follow
+#  "F401",     # To be reviewed - Library imported but not used
+#  "SLF001",   # Don't ignore, ignore specific files instead with `[tool.ruff.lint.per-file-ignores]`
+#  "S608",     # don't ignore: https://duckdb.org/docs/sql/query_syntax/prepared_statements.html
+#  "PTH118",   # On the fence about this one
+#  "PTH120",   # On the fence about this one
+]
+
+# exceptions to rule SLF001
+lint.flake8-self.extend-ignore-names = [
+  ###  allow accessing internally defined private class members ###
+  "_load_c",
+  "_unload_c",
+  "_reload_c",
+  "_enabled_global",
+  "_outdata",
+  "_outstatus",
+  "_outdata",
+  "_outstatus",
+  "_outdonormap",
+  "_outmatching_fields",
+  "_outedit_applic",
+  "_outedit_status",
+  "_outglobal_status",
+  "_outk_edits_status",
+  "_outedits_reduced",
+  "_outvars_role",
+  "_outstatus",
+  "_outreject",
+  "_outstatus",
+  "_outdata",
+  "_outacceptable",
+  "_outest_ef",
+  "_outest_lr",
+  "_outest_parm",
+  "_outrand_err",
+  "_outdata",
+  "_outstatus",
+  "_outdonormap",
+  "_outstatus",
+  "_outstatus_detailed",
+  "_outsummary",
+  "_outstatus",
+  "_outdata",
+  "_outreject",
+]
+
+[tool.ruff.lint.per-file-ignores]
+  "src/banff/**/testing/**/*.py" = [
+    "S101",  # using `assert` allowed in `banff.testing` subpackage
+    "UP032",  # we use `.format` since it's easier to add NLS support later
+    "C",
+    "T201",
+    "PLR",
+    "PLW",
+    "PD",
+    "N",
+    "D",
+  ]
+  "src/banff/_common/**/*.py" = [
+    "TID252",
+    "D1",  # this code generally considered non-public
+  ]
+  "src/banff/**/io_util/**/*.py" = [
+    "N802",  # many violations here, uncomment this if addressing them
+  ]
+

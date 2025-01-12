@@ -1,0 +1,153 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+400  proc donorimputation
+401     data=indata
+402     instatus=instat
+403     out=outdata
+404     outstatus=outstat
+405     donormap=map
+406     edits="Q1 + Q2 + Q3 + Q4 = total;"
+407     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+408     mindonors=1
+409     pcentdonors=1
+410     n=3
+411     matchfieldstat
+412     ;
+413     id ident;
+414     mustmatch staff;
+415     dataexclvar toexcl;
+416  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671571232 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+ERROR: Variable ident is not character in INSTATUS data set.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there were 0 
+         observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there were 0 
+         observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 0 
+         observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.00 seconds
+      
+
+
+417  proc printto;
+418  run;
+

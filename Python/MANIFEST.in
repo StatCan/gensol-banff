@@ -1,0 +1,3 @@
+# exclude all except `src` from `_common` subpackage
+exclude src/banff/_common/docs/*
+exclude src/banff/_common/scripts/*

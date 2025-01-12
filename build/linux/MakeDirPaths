@@ -1,0 +1,130 @@
+# this file defines absolute paths and metadata required for builds
+# It uses `realpath` and the relative path from the "current directory"
+# to this file. As this files relative location to other Makefiles is 
+# known, giving the relative path from any directory to this files 
+# location allows resolution of the below-defined paths to occur
+#
+# To access the variables defined here in your makefile
+# 1- define `REL_ROOT=<relative-path-to-this-dir>`
+# 2- `include $(REL_ROOT)MakeDirPaths`
+# Flag variable `INIT_DIR_PATH` indicates that this file has already ran
+
+##### DETERMINE REPO ROOT #####################################################
+ifeq ($(REL_ROOT),)
+REL_ROOT=.
+endif
+
+# `realpath` turns relative path into absolute path to GIT repo's root
+# must manually add `/` at end
+DIR_REPO_ROOT      = $(realpath $(REL_ROOT)/../../)/
+
+
+##### BUILD METADATA ##########################################################
+export BANFF_VERSION_SYSTEM  = 3.01.001
+export BANFF_VERSION_PROC    = $(BANFF_VERSION_SYSTEM)
+
+
+##### internal variables, used to build exported variables ####################
+DIR_C_ROOT                             = $(DIR_REPO_ROOT)C/
+
+DIR_C_PROCEDURES                       = $(DIR_C_ROOT)procedures/
+
+DIR_BANFF_LIBRARIES                    = $(DIR_C_ROOT)libraries/
+DIR_BANFF_LIBRARIES_SUBMODULES         = $(DIR_BANFF_LIBRARIES)_submodules/
+DIR_BANFF_LIBRARIES_VENDORED           = $(DIR_BANFF_LIBRARIES)_vendored/
+DIR_STC_C_LIBRARIES                    = $(DIR_BANFF_LIBRARIES_SUBMODULES)STC_C_Libraries/
+
+##### C MAKEFILE PATHS ########################################################
+export DIR_C_MAKEFILE        = $(DIR_C_ROOT)build/unix-like/
+export DIR_C_MAKE_INCLUDE    = $(DIR_C_MAKEFILE)make_include/
+
+##### C LIBRARY PATHS #########################################################
+export DIR_BANFFAPI          = $(DIR_BANFF_LIBRARIES)BanffAPI/
+export DIR_BANFFAPI_SRC      = $(DIR_BANFFAPI)
+
+export DIR_COMMONAPI         = $(DIR_BANFF_LIBRARIES)CommonAPI/
+export DIR_COMMONAPI_SRC     = $(DIR_STC_C_LIBRARIES)CommonAPI/
+
+export DIR_GLPK              = $(DIR_BANFF_LIBRARIES)glpk/
+export DIR_GLPK_SRC          = $(DIR_BANFF_LIBRARIES_SUBMODULES)stc-glpk/
+
+export DIR_LPINTERFACE       = $(DIR_BANFF_LIBRARIES)LPInterface/
+export DIR_LPINTERFACE_SRC   = $(DIR_STC_C_LIBRARIES)LPInterface/
+
+export DIR_IOUTIL          = $(DIR_BANFF_LIBRARIES)IOUtilities/
+export DIR_IOUTIL_SRC      = $(DIR_STC_C_LIBRARIES)IOUtilities/
+
+export DIR_JANSSON           = $(DIR_BANFF_LIBRARIES)jansson/
+export DIR_JANSSON_SRC       = $(DIR_BANFF_LIBRARIES_SUBMODULES)jansson/
+
+export DIR_ARROW             = $(DIR_BANFF_LIBRARIES)arrow/
+export DIR_ARROW_SRC         = $(DIR_BANFF_LIBRARIES_SUBMODULES)arrow-nanoarrow/
+
+
+##### C PROCEDURE PATHS #######################################################
+export DIR_DETERMIN          = $(DIR_C_PROCEDURES)deterministic/
+export DIR_DONORIMP          = $(DIR_C_PROCEDURES)DonorImputation/
+export DIR_EDITSTAT          = $(DIR_C_PROCEDURES)editstats/
+export DIR_ERRORLOC          = $(DIR_C_PROCEDURES)Errorloc/
+export DIR_ESTIMATO          = $(DIR_C_PROCEDURES)estimator/
+export DIR_MASSIMPU          = $(DIR_C_PROCEDURES)massimputation/
+export DIR_OUTLIER           = $(DIR_C_PROCEDURES)outlier/
+export DIR_PRORATE           = $(DIR_C_PROCEDURES)prorate/
+export DIR_VERIFYED          = $(DIR_C_PROCEDURES)verifyedits/
+
+
+##### PYTHON PACKAGE PATHS ####################################################
+export DIR_PYTHON_ROOT       = $(DIR_REPO_ROOT)Python/
+export DIR_PYTHON_PKG        = $(DIR_PYTHON_ROOT)
+export DIR_PYTHON_BIN        = $(DIR_PYTHON_PKG)src/banff/proc/bin/linux/x64/
+
+
+##### TEST SCRIPT PATHS #######################################################
+export DIR_TEST_ROOT         = $(DIR_PYTHON_PKG)tests/
+export DIR_TEST_LOW_LEVEL    = $(DIR_TEST_ROOT)low_level/
+export DIR_TEST_REGRESSION   = $(DIR_TEST_ROOT)regression_tests/
+
+# flag that this file has been executed
+export INIT_DIR_PATH = COMPLETE
+
+# uncomment the following to print the variables to the console when running
+$(info MakeDirPaths defined the following)
+$(info DIR_REPO_ROOT                   = $(DIR_REPO_ROOT))
+$(info BANFF_VERSION_SYSTEM            = $(BANFF_VERSION_SYSTEM))
+$(info BANFF_VERSION_PROC              = $(BANFF_VERSION_PROC))
+$(info DIR_C_ROOT                      = $(DIR_C_ROOT))
+$(info DIR_C_PROCEDURES                = $(DIR_C_PROCEDURES))
+$(info DIR_BANFF_LIBRARIES             = $(DIR_BANFF_LIBRARIES))
+$(info DIR_BANFF_LIBRARIES_SUBMODULES  = $(DIR_BANFF_LIBRARIES_SUBMODULES))
+$(info DIR_BANFF_LIBRARIES_VENDORED    = $(DIR_BANFF_LIBRARIES_VENDORED))
+$(info DIR_STC_C_LIBRARIES             = $(DIR_STC_C_LIBRARIES))
+$(info DIR_C_MAKEFILE                  = $(DIR_C_MAKEFILE))
+$(info DIR_C_MAKE_INCLUDE              = $(DIR_C_MAKE_INCLUDE))
+$(info DIR_BANFFAPI                    = $(DIR_BANFFAPI))
+$(info DIR_BANFFAPI_SRC                = $(DIR_BANFFAPI_SRC))
+$(info DIR_COMMONAPI                   = $(DIR_COMMONAPI))
+$(info DIR_COMMONAPI_SRC               = $(DIR_COMMONAPI_SRC))
+$(info DIR_GLPK                        = $(DIR_GLPK))
+$(info DIR_GLPK_SRC                    = $(DIR_GLPK_SRC))
+$(info DIR_LPINTERFACE                 = $(DIR_LPINTERFACE))
+$(info DIR_LPINTERFACE_SRC             = $(DIR_LPINTERFACE_SRC))
+$(info DIR_IOUTIL                    = $(DIR_IOUTIL))
+$(info DIR_IOUTIL_SRC                = $(DIR_IOUTIL_SRC))
+$(info DIR_JANSSON                     = $(DIR_JANSSON))
+$(info DIR_JANSSON_SRC                 = $(DIR_JANSSON_SRC))
+$(info DIR_ARROW                       = $(DIR_ARROW))
+$(info DIR_ARROW_SRC                   = $(DIR_ARROW_SRC))
+$(info DIR_DETERMIN                    = $(DIR_DETERMIN))
+$(info DIR_DONORIMP                    = $(DIR_DONORIMP))
+$(info DIR_EDITSTAT                    = $(DIR_EDITSTAT))
+$(info DIR_ERRORLOC                    = $(DIR_ERRORLOC))
+$(info DIR_ESTIMATO                    = $(DIR_ESTIMATO))
+$(info DIR_MASSIMPU                    = $(DIR_MASSIMPU))
+$(info DIR_OUTLIER                     = $(DIR_OUTLIER))
+$(info DIR_PRORATE                     = $(DIR_PRORATE))
+$(info DIR_VERIFYED                    = $(DIR_VERIFYED))
+$(info DIR_PYTHON_ROOT                 = $(DIR_PYTHON_ROOT))
+$(info DIR_PYTHON_PKG                  = $(DIR_PYTHON_PKG))
+$(info DIR_PYTHON_BIN                  = $(DIR_PYTHON_BIN))
+$(info DIR_TEST_LOW_LEVEL              = $(DIR_TEST_LOW_LEVEL))
+$(info INIT_DIR_PATH                   = $(INIT_DIR_PATH))

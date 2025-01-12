@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug_en|x64">
+      <Configuration>debug_en</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_fr|x64">
+      <Configuration>release_fr</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_en|x64">
+      <Configuration>release_en</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9955ac03-6181-4015-bf99-dd9e2a4f0f46}</ProjectGuid>
+    <RootNamespace>IOUtilities</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_en|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\build\windows\PropertySheets\DebugMemory.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageEnglish.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+    <Import Project="..\STC_Library_location.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageEnglish.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+    <Import Project="..\STC_Library_location.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageFrench.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+    <Import Project="..\STC_Library_location.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)libraries\_vendored\ccan;$(SolutionDir)libraries\jansson\builds\$(Platform)\include;$(SolutionDir)libraries\_submodules\STC_C_Libraries\CommonAPI;$(SolutionDir)Libraries\BanffAPI;$(SolutionDir)procedures\BanffHeaderFiles;$(SolutionDir)libraries\_submodules\arrow-nanoarrow\src;$(SolutionDir)libraries\arrow\build\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsC</CompileAs>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <OpenMPSupport>false</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)libraries\jansson\builds\$(Platform)\lib\Debug;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>jansson_d.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <AdditionalIncludeDirectories>$(SolutionDir)libraries\jansson\builds\$(Platform)\include;$(SolutionDir)libraries\_submodules\STC_C_Libraries\CommonAPI;$(SolutionDir)Libraries\BanffAPI;$(SolutionDir)procedures\BanffHeaderFiles;$(SolutionDir)libraries\_submodules\arrow-nanoarrow\src;$(SolutionDir)libraries\arrow\build\src</AdditionalIncludeDirectories>
+      <OpenMPSupport>false</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <AdditionalIncludeDirectories>$(SolutionDir)libraries\jansson\builds\$(Platform)\include;$(SolutionDir)libraries\_submodules\STC_C_Libraries\CommonAPI;$(SolutionDir)Libraries\BanffAPI;$(SolutionDir)procedures\BanffHeaderFiles;$(SolutionDir)libraries\_submodules\arrow-nanoarrow\src;$(SolutionDir)libraries\arrow\build\src</AdditionalIncludeDirectories>
+      <OpenMPSupport>false</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(SRC_DIR_IOUTILITIES)\PlatformSupport.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\RuntimeDiagnostics.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\PublicHelpers.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\IO_Arrow.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\IO_Jansson.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\JLM_jansson.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\IOUtil.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\IO_Messages.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\SUtil.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\ValueHelpers.c" />
+    <ClCompile Include="$(SRC_DIR_IOUtilities)\SDataSet.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\ExportHelper.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\IO_Messages_en.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\IO_Messages_fr.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\RuntimeDiagnostics.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\PublicHelpers.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\IO_Arrow.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\IO_Jansson.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\JLM_jansson.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\IO_Messages.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\PlatformSupport.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\IOUtil.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\SUtil.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\ValueHelpers.h" />
+    <ClInclude Include="$(SRC_DIR_IOUtilities)\SDataSet.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

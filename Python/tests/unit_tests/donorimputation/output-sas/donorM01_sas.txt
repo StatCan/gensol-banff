@@ -1,0 +1,335 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+699  proc donorimputation
+700     data=indata
+701     instatus=instat
+702     out=outdata
+703     outstatus=outstat
+704     donormap=map
+705     edits="Q1 + Q2 + Q3 + Q4 = total;"
+706     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+707     mindonors=1
+708     /*pcentdonors=1*/
+709     n=3
+710     matchfieldstat
+711     eligdon=any
+712     ;
+713     id ident;
+714     mustmatch STAFF;
+715     dataexclvar toexcl;
+716  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 30.00% (default)
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671571619 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+NOTE: There were 1 observations dropped from DATA data set because they are potential 
+      donors but toexcl value is 'E' for these observations.
+
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:       4
+Number of observations dropped ....................:       1
+    missing key ...................................:       0
+    missing data ..................................:       0
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       1
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:       3     100.00%
+Number of donors ..................................:       1      33.33%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       2      66.67%
+    with matching fields ..........................:       2      66.67%
+        imputed ...................................:       1      33.33%
+        not imputed ...............................:       1      33.33%
+    without matching fields .......................:       0       0.00%
+
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 4 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 1 observations and 6 variables.
+NOTE: The data set WORK.OUTSTAT has 6 observations and 3 variables.
+NOTE: The data set WORK.MAP has 1 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.03 seconds
+      
+
+717  data instat;
+718     infile cards;
+719     input ident $ fieldid $ status $;
+720     cards;
+
+NOTE: The data set WORK.INSTAT has 5 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+726  ;
+727  proc donorimputation
+728     data=indata
+729     instatus=instat
+730     out=outdata
+731     outstatus=outstat
+732     donormap=map
+733     edits="Q1 + Q2 + Q3 + Q4 = total;"
+734     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+735     mindonors=1
+736     /*pcentdonors=1*/
+737     n=3
+738     matchfieldstat
+739     eligdon=any
+740     ;
+741     id ident;
+742     mustmatch STAFF;
+743     dataexclvar toexcl;
+744  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 30.00% (default)
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671571619 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+WARNING: There are not enough donors in the group processed. No imputation will be done.
+Number of observations ............................:       4
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:       4     100.00%
+Number of donors ..................................:       1      25.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       3      75.00%
+    not imputed (insufficient number of donors) ...:       3      75.00%
+
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 5 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 0 observations and 6 variables.
+NOTE: The data set WORK.OUTSTAT has 0 observations and 3 variables.
+NOTE: The data set WORK.MAP has 0 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.00 seconds
+      
+
+745  proc printto;
+746  run;
+

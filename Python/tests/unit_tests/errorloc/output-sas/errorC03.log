@@ -1,0 +1,56 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ERRORLOC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:51:08
+                                      The SAS System
+
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUSC03
+NOTE: OUTREJECT = WORK.OUTREJECTC03
+NOTE: EDITS = x1+x2<=50; x3>=100;
+NOTE: WEIGHTS not specified. Weight will be set to 1 for each variable in EDITS.
+NOTE: CARDINALITY not specified. The result will not be constrained by cardinality.
+NOTE: TIMEPEROBS = 20 (default)
+NOTE: SEED = 1
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = REC
+NOTE: RANDNUMVAR not specified.
+NOTE: BY not specified.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+2
+                                                       - X1  <= 0
+
+3
+                                                       - X2  <= 0
+
+4
+                                                       - X3  <= 0
+
+0
+                                                    X1 + X2  <= 50
+
+1
+                                                       - X3  <= -100
+
+REDUCED set of EDITS:
+
+2
+                                                       - X1  <= 0
+
+3
+                                                       - X2  <= 0
+
+0
+                                                    X1 + X2  <= 50
+
+1
+                                                       - X3  <= -100
+
+ERROR: DATA data set is not sorted in ascending order. The current key is 101 and the 
+       previous key was 102.

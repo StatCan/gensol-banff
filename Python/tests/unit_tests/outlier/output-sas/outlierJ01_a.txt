@@ -1,0 +1,22 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE OUTLIER Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:00:52
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATAJ01
+NOTE: METHOD = CURRENT
+NOTE: SIDE = BOTH (default)
+NOTE: MII not specified.
+NOTE: MEI = -2
+NOTE: MDM = 0.05 (default)
+NOTE: MINOBS = 10 (default)
+NOTE: OUTLIERSTAT not specified.
+NOTE: ACCEPTNEGATIVE
+NOTE: ACCEPTZERO (default)
+NOTE: ID = ident 
+NOTE: VAR = V1 V2 
+NOTE: WEIGHT not specified.
+NOTE: BY not specified.
+ERROR: Invalid MEI. The value must be greater than 0.

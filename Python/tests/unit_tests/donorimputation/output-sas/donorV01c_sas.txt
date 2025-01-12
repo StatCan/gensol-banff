@@ -1,0 +1,75 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE:
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATACV01
+NOTE: OUTSTATUS = WORK.OUTSTATUSCV01
+NOTE: DONORMAP = WORK.OUTMAPCV01
+NOTE: EDITS = x=y;
+NOTE: POSTEDITS = x<=y;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 1
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 1
+NOTE: ID = REC
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR = randkey
+NOTE: MUSTMATCH not specified.
+NOTE: BY not specified.
+
+
+Set of EDITS:
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y  <= 0
+
+
+REDUCED set of EDITS:
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                        - X  <= 0
+
+0
+                                                      X - Y  <= 0
+
+ERROR: DONOR: The random number from the recipient record 1.01 is greater than 1. Please
+       fix the random number and rerun the procedure.

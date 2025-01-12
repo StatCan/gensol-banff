@@ -1,0 +1,578 @@
+1                                                                                                                        The SAS System                                                                                               12:03 Friday, June 2, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           2.76 seconds
+      cpu time            0.23 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* Test Est 17d02 */
+2          
+3          /* To verify that the data is processed by BY group with two BY variables. */
+4          options linesize=120 pagesize=3000 nodate;
+5          %let test=17d02;
+6          
+7          data indata;
+8          infile cards;
+9          input ident   $ V X Y Z R1 $ R2 $;
+10         cards ;
+
+NOTE: The data set WORK.INDATA has 8 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.00 seconds
+      
+
+19         ;
+20         run ;
+21         
+22         proc print;
+23         title "Test &Test Current Input Data";
+24         run;
+
+NOTE: There were 8 observations read from the data set WORK.INDATA.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.57 seconds
+      cpu time            0.03 seconds
+      
+
+25         
+26         data instatus;
+27         infile cards;
+28         input ident $ fieldid $ status $ ;
+29         cards;
+
+NOTE: The data set WORK.INSTATUS has 8 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+38         ;
+39         run;
+40         
+41         proc print;
+42         title "Test &Test Input Status";
+43         run;
+
+NOTE: There were 8 observations read from the data set WORK.INSTATUS.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+44         
+45         data inhist;
+46         infile cards;
+47         input ident   $ V X Y Z R1 $ R2 $;
+48         cards ;
+
+NOTE: The data set WORK.INHIST has 8 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+57         ;
+58         run ;
+59         
+60         proc print;
+61         title "Test &Test Historical Input Data";
+62         run;
+
+NOTE: There were 8 observations read from the data set WORK.INHIST.
+NOTE: The PROCEDURE PRINT printed page 3.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+63         
+64         data inhiststatus;
+65         infile cards;
+66         input ident $ fieldid $ status $ ;
+67         cards;
+
+NOTE: The data set WORK.INHISTSTATUS has 4 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+72         ;
+73         run;
+74         
+75         proc print;
+76         title "Test &Test Historical Input Status";
+77         run;
+
+NOTE: There were 4 observations read from the data set WORK.INHISTSTATUS.
+NOTE: The PROCEDURE PRINT printed page 4.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+78         
+79         data algor;
+80         length formula $22.;
+81         length description $22.;
+82         input algorithmname $ type $ status $ formula $ description $;
+83         cards;
+
+NOTE: The data set WORK.ALGOR has 2 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+86         ;
+87         proc print;
+88         title "Test &Test Algorithms";
+89         run;
+
+NOTE: There were 2 observations read from the data set WORK.ALGOR.
+NOTE: The PROCEDURE PRINT printed page 5.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+90         
+91         data estimat;
+92         input active 1 excludeimputed $3 excludeoutliers $5 randomerror $7
+93            countcriteria 8-9 percentcriteria 10-11 weightvariable $13
+94            variancevariable $15 varianceperiod $17 varianceexponent 19
+95            algorithmname $21-31 fieldid $33-35 auxvariables $37-45;
+96         cards;
+
+NOTE: The data set WORK.ESTIMAT has 4 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+101        ;
+102        run;
+103        proc print;
+104        title "Test &Test Estimators";
+105        run;
+
+NOTE: There were 4 observations read from the data set WORK.ESTIMAT.
+NOTE: The PROCEDURE PRINT printed page 6.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+106        
+107        proc ESTIMATOR
+108           data=indata
+109           datastatus=instatus
+110           hist=inhist
+111           histstatus=inhiststatus
+112           out=outdata&test
+113           outstatus=outstatus&test
+114           algorithm=algor
+115           estimator=estimat
+116           seed=3000
+117           ;
+118           id IDENT;
+119           *dataexclvar EXCL;
+120           *histexclvar EXCL;
+121           by R1 R2 ;
+122        run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ESTIMATOR Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:54:27
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: DATASTATUS = WORK.INSTATUS
+NOTE: HIST = WORK.INHIST
+NOTE: HISTSTATUS = WORK.INHISTSTATUS
+NOTE: ALGORITHM = WORK.ALGOR
+NOTE: ESTIMATOR = WORK.ESTIMAT
+NOTE: OUTDATA = WORK.OUTDATA17D02
+NOTE: OUTSTATUS = WORK.OUTSTATUS17D02
+NOTE: OUTRANDOMERROR = _NULL_
+NOTE: OUTACCEPTABLE = _NULL_
+NOTE: OUTESTPARMS = _NULL_
+NOTE: OUTESTEF = _NULL_
+NOTE: OUTESTLR = _NULL_
+NOTE: SEED = 3000
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: DATAEXCLVAR not specified.
+NOTE: HISTEXCLVAR not specified.
+NOTE: BY = R1 R2 
+
+Set of estimator specifications:
+-------------------------------
+
+Estimator 0.
+Algorithm name           : CURAUXMEAN
+Description              : The current average of a proxy variable is imputed.
+Type                     : EF
+Status                   : CAM
+Formula                  : AUX1(A)
+Field id                 : V
+Auxiliary variables      : X
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+Estimator 1.
+Algorithm name           : PREMEAN
+Description              : The mean value from the previous survey of all (user-defined) respondents is imputed.
+Type                     : EF
+Status                   : PM
+Formula                  : FIELDID(H,A)
+Field id                 : X
+Auxiliary variables      : 
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+Estimator 2.
+Algorithm name           : ALG2
+Description              : SumCrAux1CrAux2
+Type                     : EF
+Status                   : AL2
+Formula                  : AUX1+AUX2
+Field id                 : Y
+Auxiliary variables      : X,Z
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 3.
+Algorithm name           : ALG3
+Description              : SumHsAux1CrAux2
+Type                     : EF
+Status                   : AL3
+Formula                  : AUX1(H)+AUX2
+Field id                 : Z
+Auxiliary variables      : X,Y
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+
+Formula of estimator specifications:
+-----------------------------------
+
+Estimator 0.
+V = X(A)
+
+Estimator 1.
+X = X(H,A)
+
+Estimator 2.
+Y = X+Z
+
+Estimator 3.
+Z = X(H)+Y
+
+WARNING: BY variable R1 is not on input data set WORK.INSTATUS.
+
+WARNING: BY variable R2 is not on input data set WORK.INSTATUS.
+
+NOTE: This procedure can perform faster if the DATASTATUS data set contains the BY variables.
+
+WARNING: BY variable R1 is not on input data set WORK.INHISTSTATUS.
+
+WARNING: BY variable R2 is not on input data set WORK.INHISTSTATUS.
+
+NOTE: This procedure can perform faster if the HISTSTATUS data set contains the BY variables.
+
+
+Statistics on observations:
+--------------------------
+
+Number of observations in DATA data set ...........:       2
+Number of observations in HIST data set ...........:       2
+Number of valid observations in DATA data set .....:       2
+Number of valid observations in HIST data set .....:       2
+
+Statistics on estimators:
+------------------------
+
+Estimator 0.
+Count = 1 Percent = 50.00 not weighted.
+Average    Period              Variable                        
+1.00000    CURR                X                               
+
+Estimator 1.
+Count = 2 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+3.50000    HIST                X                               
+
+Estimator 2.
+No parameters.
+
+Estimator 3.
+No parameters.
+
+
+
+Statistics on imputation:
+------------------------
+
+Est Variable                            FTI    Imp    */0    Neg
+0   V                                     1      1      0      0
+1   X                                     1      1      0      0
+2   Y                                     0      0      0      0
+3   Z                                     0      0      0      0
+
+NOTE: The above message was for the following BY group:
+      R1=A R2=C
+
+Statistics on observations:
+--------------------------
+
+Number of observations in DATA data set ...........:       2
+Number of observations in HIST data set ...........:       2
+Number of valid observations in DATA data set .....:       2
+Number of valid observations in HIST data set .....:       2
+
+Statistics on estimators:
+------------------------
+
+Estimator 0.
+Count = 2 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+3.50000    CURR                X                               
+
+Estimator 1.
+Count = 2 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+1.50000    HIST                X                               
+
+Estimator 2.
+No parameters.
+
+Estimator 3.
+No parameters.
+
+
+
+Statistics on imputation:
+------------------------
+
+Est Variable                            FTI    Imp    */0    Neg
+0   V                                     0      0      0      0
+1   X                                     0      0      0      0
+2   Y                                     1      1      0      0
+3   Z                                     1      1      0      0
+
+NOTE: The above message was for the following BY group:
+      R1=A R2=D
+
+Statistics on observations:
+--------------------------
+
+Number of observations in DATA data set ...........:       2
+Number of observations in HIST data set ...........:       2
+Number of valid observations in DATA data set .....:       2
+Number of valid observations in HIST data set .....:       2
+
+Statistics on estimators:
+------------------------
+
+Estimator 0.
+Count = 1 Percent = 50.00 not weighted.
+Average    Period              Variable                        
+5.00000    CURR                X                               
+
+Estimator 1.
+Count = 2 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+7.50000    HIST                X                               
+
+Estimator 2.
+No parameters.
+
+Estimator 3.
+No parameters.
+
+
+
+Statistics on imputation:
+------------------------
+
+Est Variable                            FTI    Imp    */0    Neg
+0   V                                     1      1      0      0
+1   X                                     1      1      0      0
+2   Y                                     0      0      0      0
+3   Z                                     0      0      0      0
+
+NOTE: The above message was for the following BY group:
+      R1=B R2=C
+
+Statistics on observations:
+--------------------------
+
+Number of observations in DATA data set ...........:       2
+Number of observations in HIST data set ...........:       2
+Number of valid observations in DATA data set .....:       2
+Number of valid observations in HIST data set .....:       2
+
+Statistics on estimators:
+------------------------
+
+Estimator 0.
+Count = 2 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+7.50000    CURR                X                               
+
+Estimator 1.
+Count = 2 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+5.50000    HIST                X                               
+
+Estimator 2.
+No parameters.
+
+Estimator 3.
+No parameters.
+
+
+
+Statistics on imputation:
+------------------------
+
+Est Variable                            FTI    Imp    */0    Neg
+0   V                                     0      0      0      0
+1   X                                     0      0      0      0
+2   Y                                     1      1      0      0
+3   Z                                     1      1      0      0
+
+NOTE: The above message was for the following BY group:
+      R1=B R2=D
+
+NOTE: There were 8 observations read from the data set WORK.INDATA.
+NOTE: There were 8 observations read from the data set WORK.INSTATUS.
+NOTE: There were 8 observations read from the data set WORK.INHIST.
+NOTE: There were 4 observations read from the data set WORK.INHISTSTATUS.
+NOTE: There were 2 observations read from the data set WORK.ALGOR.
+NOTE: There were 4 observations read from the data set WORK.ESTIMAT.
+NOTE: The data set WORK.OUTDATA17D02 has 8 observations and 7 variables.
+NOTE: The data set WORK.OUTSTATUS17D02 has 8 observations and 5 variables.
+NOTE: PROCEDURE ESTIMATOR used (Total process time):
+      real time           0.35 seconds
+      cpu time            0.00 seconds
+      
+
+123        proc sort data=outdata&test;
+124        by ident;
+125        run;
+
+NOTE: There were 8 observations read from the data set WORK.OUTDATA17D02.
+NOTE: The data set WORK.OUTDATA17D02 has 8 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.01 seconds
+      
+
+126        proc print data=outdata&test ;
+127        title "Test &Test Imputation Results";
+128        run;
+
+NOTE: There were 8 observations read from the data set WORK.OUTDATA17D02.
+NOTE: The PROCEDURE PRINT printed page 7.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+129        
+130        proc print data=outstatus&test ;
+131        title "Test &Test Output Status Codes";
+132        run;
+
+NOTE: There were 8 observations read from the data set WORK.OUTSTATUS17D02.
+NOTE: The PROCEDURE PRINT printed page 8.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           4.83 seconds
+      cpu time            0.40 seconds
+      

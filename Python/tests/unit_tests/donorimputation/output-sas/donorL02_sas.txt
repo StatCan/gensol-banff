@@ -1,0 +1,183 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+618  
+619  proc donorimputation
+620     data=indata
+621     instatus=instat
+622     out=outdata
+623     outstatus=outstat
+624     donormap=map
+625     edits="Q1 + Q2 + Q3 + Q4 = total;"
+626     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+627     mindonors=0
+628     /*pcentdonors=1*/
+629     n=3
+630     matchfieldstat
+631     eligdon=any
+632     ;
+633     id ident;
+634     mustmatch STAFF;
+635     dataexclvar toexcl;
+636  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 0
+NOTE: PCENTDONORS = 30.00% (default)
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671571566 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+ERROR: MINDONORS must be an integer greater than or equal to 1.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.00 seconds
+      
+637  
+
+
+638  proc donorimputation
+639     data=indata
+640     instatus=instat
+641     out=outdata
+642     outstatus=outstat
+643     donormap=map
+644     edits="Q1 + Q2 + Q3 + Q4 = total;"
+645     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+646     mindonors=-4
+647     /*pcentdonors=1*/
+648     n=3
+649     matchfieldstat
+650     eligdon=any
+651     ;
+652     id ident;
+653     mustmatch STAFF;
+654     dataexclvar toexcl;
+655  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = -4
+NOTE: PCENTDONORS = 30.00% (default)
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671571566 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+ERROR: MINDONORS must be an integer greater than or equal to 1.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.01 seconds
+      
+656  
+
+
+657  proc donorimputation
+658     data=indata
+659     instatus=instat
+660     out=outdata
+661     outstatus=outstat
+662     donormap=map
+663     edits="Q1 + Q2 + Q3 + Q4 = total;"
+664     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+665     mindonors=2.2
+                  ---
+                  22
+                  200
+ERROR 22-322: Expecting an integer constant.  
+ERROR 200-322: The symbol is not recognized and will be ignored.
+666     /*pcentdonors=1*/
+667     n=3
+668     matchfieldstat
+669     eligdon=any
+670     ;
+671     id ident;
+672     mustmatch STAFF;
+673     dataexclvar toexcl;
+674  run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+
+675  proc printto;
+676  run;
+

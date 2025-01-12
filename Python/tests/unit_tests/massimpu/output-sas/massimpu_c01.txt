@@ -1,0 +1,138 @@
+1                                                                                                                        The SAS System                                                                                          10:18 Friday, September 1, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           2.94 seconds
+      cpu time            0.20 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* If the RANDOM option is not specified, MustMatch variables
+2          are mandatory.  If not specified, MassImp should not proceed.
+3          Error messages should be printed to the log file.*/
+4          options nodate nonumber ls=90 ps=90;
+5          data indata;
+6             infile cards;
+7             input ident $ area total Q1 Q2 Q3 Q4 staff;
+8             cards;
+
+NOTE: The data set WORK.INDATA has 5 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.01 seconds
+      
+
+14         ;
+15         proc massimputation
+16            data = indata
+17            out = outdata
+18            donormap=donormap
+19            mindonors=2
+20            pcentdonors=10
+21            ;
+22            id ident;
+23            mustimpute Q1 Q2 Q3 Q4;
+24             *mustmatch total staff;
+25            *random;
+26         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE MASSIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:57:36
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUT = WORK.OUTDATA
+                                      The SAS System
+
+NOTE: DONORMAP = WORK.DONORMAP
+NOTE: MINDONORS = 2
+NOTE: PCENTDONORS = 10.00%
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: SEED = 1693577934 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: MUSTIMPUTE = Q1 Q2 Q3 Q4 
+NOTE: MUSTMATCH not specified.
+NOTE: BY not specified.
+
+ERROR: Invalid options. At least one of MUSTMATCH and RANDOM must be specified.
+NOTE: Logging access was not successful.  The procedure will continue.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: The data set WORK.DONORMAP may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+NOTE: PROCEDURE MASSIMPUTATION used (Total process time):
+      real time           3.21 seconds
+      cpu time            0.03 seconds
+      
+27         
+28         
+29         
+30         
+31         
+32         
+33         
+34         
+35         
+36         
+37         
+
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           7.09 seconds
+      cpu time            0.28 seconds
+      

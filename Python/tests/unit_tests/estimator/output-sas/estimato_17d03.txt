@@ -1,0 +1,170 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ESTIMATOR Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:54:27
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: DATASTATUS = WORK.INSTATUS
+NOTE: HIST = WORK.INHIST
+NOTE: HISTSTATUS = WORK.INHISTSTATUS
+NOTE: ALGORITHM = WORK.ALGOR
+NOTE: ESTIMATOR = WORK.ESTIMAT
+NOTE: OUTDATA = WORK.OUTDATA17D03
+NOTE: OUTSTATUS = WORK.OUTSTATUS17D03
+NOTE: OUTRANDOMERROR = _NULL_
+NOTE: OUTACCEPTABLE = _NULL_
+NOTE: OUTESTPARMS = _NULL_
+NOTE: OUTESTEF = _NULL_
+NOTE: OUTESTLR = _NULL_
+NOTE: SEED = 3000
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: DATAEXCLVAR not specified.
+NOTE: HISTEXCLVAR not specified.
+NOTE: BY = area 
+
+Set of estimator specifications:
+-------------------------------
+
+Estimator 0.
+Algorithm name           : CURAUXMEAN
+Description              : The current average of a proxy variable is imputed.
+Type                     : EF
+Status                   : CAM
+Formula                  : AUX1(A)
+Field id                 : V
+Auxiliary variables      : X
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+Estimator 1.
+Algorithm name           : PREMEAN
+Description              : The mean value from the previous survey of all (user-defined) 
+                           respondents is imputed.
+Type                     : EF
+Status                   : PM
+Formula                  : FIELDID(H,A)
+Field id                 : X
+Auxiliary variables      : 
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 1.000000
+
+Estimator 2.
+Algorithm name           : ALG2
+Description              : SumCrAux1CrAux2
+Type                     : EF
+Status                   : AL2
+Formula                  : AUX1+AUX2
+Field id                 : Y
+Auxiliary variables      : X,Z
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 3.
+Algorithm name           : ALG3
+Description              : SumHsAux1CrAux2
+Type                     : EF
+Status                   : AL3
+Formula                  : AUX1(H)+AUX2
+Field id                 : Z
+Auxiliary variables      : X,Y
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+
+Formula of estimator specifications:
+-----------------------------------
+
+Estimator 0.
+V = X(A)
+
+Estimator 1.
+X = X(H,A)
+
+Estimator 2.
+Y = X+Z
+
+Estimator 3.
+Z = X(H)+Y
+
+WARNING: BY variable area is not on input data set WORK.INSTATUS.
+
+NOTE: This procedure can perform faster if the DATASTATUS data set contains the BY variables.
+
+WARNING: BY variable area is not on input data set WORK.INHISTSTATUS.
+
+NOTE: This procedure can perform faster if the HISTSTATUS data set contains the BY variables.
+
+
+Statistics on observations:
+--------------------------
+
+Number of observations in DATA data set ...........:       1
+Number of observations in HIST data set ...........:       4
+Number of valid observations in DATA data set .....:       1
+Number of valid observations in HIST data set .....:       1
+
+Statistics on estimators:
+------------------------
+
+Estimator 0.
+Count = 1 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+1.00000    CURR                X                               
+
+Estimator 1.
+Count = 1 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+4.00000    HIST                X                               
+
+Estimator 2.
+No parameters.
+
+Estimator 3.
+No parameters.
+
+
+
+Statistics on imputation:
+------------------------
+
+Est Variable                            FTI    Imp    */0    Neg
+0   V                                     1      1      0      0
+1   X                                     0      0      0      0
+2   Y                                     0      0      0      0
+3   Z                                     0      0      0      0
+
+NOTE: The above message was for the following BY group:
+      area=A
+
+ERROR: Data set WORK.INDATA is not sorted in ascending sequence. The current BY group has area = B 
+       and the next BY group has area = A.

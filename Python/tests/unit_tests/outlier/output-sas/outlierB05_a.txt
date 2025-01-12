@@ -1,0 +1,45 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE OUTLIER Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:00:52
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA1
+NOTE: OUTSTATUS = WORK.OUTSTATAB05
+NOTE: METHOD = CURRENT
+NOTE: SIDE = BOTH (default)
+NOTE: MII = 3
+NOTE: MEI = 2
+NOTE: MDM = 0.05 (default)
+NOTE: MINOBS = 10 (default)
+NOTE: OUTLIERSTAT not specified.
+NOTE: ACCEPTNEGATIVE
+NOTE: ACCEPTZERO (default)
+NOTE: ID = ident 
+NOTE: VAR not specified.
+NOTE: WEIGHT not specified.
+NOTE: BY = area 
+
+NOTE: The following messages are for the BY group:
+      area=1
+
+NOTE: Number of observations in DATA data set .....................:      10
+NOTE: Number of valid observations in DATA data set ...............:      10
+
+NOTE: The following messages are for the variable:
+      V1
+
+NOTE: Logging access was not successful.  The procedure will continue.
+NOTE: Number of records used in Outlier Detection : 10.
+      
+NOTE: Value of the 25th percentile : 1.25000
+      Value of the 50th percentile : 4.50000
+      Value of the 75th percentile : 8.75000
+      
+NOTE: Acceptance interval  : [ -2.00000 , 13.00000 ]
+      Exclusion  intervals : [ -5.25000 , -2.00000 [ U ] 13.00000 , 17.25000 ]
+      Imputation intervals : ] -infinity , -5.25000 [ U ] 17.25000 , +infinity [
+      
+
+NOTE: The above message was for the following BY group:
+      area=1

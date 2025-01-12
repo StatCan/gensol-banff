@@ -1,0 +1,73 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+892  proc donorimputation
+893     data=indata
+894     instatus=instat
+895     out=outdata
+896     outstatus=outstat
+897     donormap=map
+898     edits="Q1 + Q2 + Q3 + Q4 = total;"
+899     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+900     mindonors=1
+901     pcentdonors=1
+902     n=3
+903     matchfieldstat
+904     ;
+905     /*id ident;*/
+906     mustmatch staff;
+907     dataexclvar toexcl;
+908  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671571730 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID not specified.
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+ERROR: ID is mandatory.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.01 seconds
+      
+
+
+909  proc printto;
+910  run;
+

@@ -1,0 +1,74 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-10 14:41+0000\n"
+"PO-Revision-Date: 2025-01-10 14:41+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../../src/banff/__init__.py:45
+msgid "Importing Banff package version {}"
+msgstr "Importing Banff package version {}"
+
+#: ../../src/banff/__init__.py:56
+msgid "Banff package imported"
+msgstr "Banff package imported"
+
+#: ../../src/banff/nls/__init__.py:14
+msgid "TEST MESSAGE for Native Language Support: Forest, naive, French, Creme Brulee"
+msgstr "TEST MESSAGE for Native Language Support: Forest, naive, French, Creme Brulee"
+
+#: ../../src/banff/proc/banff_proc.py:84
+msgid "Configuring procedure-level logging for Banff Processor log redirection"
+msgstr "Configuring procedure-level logging for Banff Processor log redirection"
+
+#: ../../src/banff/proc/banff_proc.py:108
+#: ../../src/banff/proc/banff_proc.py:117
+msgid "Internal error: subclass must implement `{}` method"
+msgstr "Internal error: subclass must implement `{}` method"
+
+#: ../../src/banff/proc/banff_proc.py:130
+msgid "Parameter `{}` cannot contain the substring '{}'"
+msgstr "Parameter `{}` cannot contain the substring '{}'"
+
+#: ../../src/banff/proc/banff_proc.py:135
+msgid "Ignoring option `{}='{}'` (empty string)"
+msgstr "Ignoring option `{}='{}'` (empty string)"
+
+#: ../../src/banff/proc/banff_proc.py:147
+msgid "Preprocessing: `exclude_where_indata='{}'`"
+msgstr "Preprocessing: `exclude_where_indata='{}'`"
+
+#: ../../src/banff/proc/banff_proc.py:149
+msgid "exclude_where_indata"
+msgstr "exclude_where_indata"
+
+#: ../../src/banff/proc/banff_proc.py:154
+msgid "Preprocessing: `exclude_where_indata_hist='{}'`"
+msgstr "Preprocessing: `exclude_where_indata_hist='{}'`"
+
+#: ../../src/banff/proc/banff_proc.py:156
+msgid "exclude_where_indata_hist"
+msgstr "exclude_where_indata_hist"
+
+#: ../../src/banff/proc/banff_proc.py:262
+#: ../../src/banff/proc/banff_proc.py:267
+#: ../../src/banff/proc/proc_donorimp.py:308
+msgid "Option `{}` is deprecated, use `{}` instead"
+msgstr "Option `{}` is deprecated, use `{}` instead"
+
+#: ../../src/banff/proc/banff_proc.py:291
+#: ../../src/banff/proc/banff_proc.py:301
+msgid "options `{}` and `{}` cannot be specified together"
+msgstr "options `{}` and `{}` cannot be specified together"

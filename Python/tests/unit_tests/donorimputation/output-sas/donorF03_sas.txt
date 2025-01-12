@@ -1,0 +1,472 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1639  proc donorimputation
+1640     data=indata
+1641     instatus=instat
+1642     out=outdata
+1643     outstatus=outstat
+1644     donormap=map
+1645     edits="Q1 + Q2 + Q3 + Q4 = total;"
+1646     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+1647     mindonors=1
+1648     pcentdonors=1
+1649     n=3
+1650     matchfieldstat
+1651     eligdon=any
+1652     ;
+1653     id ident;
+1654     mustmatch STAFF;
+1655     dataexclvar toexcl;
+1656  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671572238 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+ERROR: Character variable ident is not in INSTATUS data set.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.01 seconds
+      
+1657  
+
+
+1658  data instat;
+1659     infile cards;
+1660     input ident $ field $ status $;
+1661     cards;
+
+NOTE: The data set WORK.INSTAT has 4 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+1666  ;
+1667  proc donorimputation
+1668     data=indata
+1669     instatus=instat
+1670     out=outdata
+1671     outstatus=outstat
+1672     donormap=map
+1673     edits="Q1 + Q2 + Q3 + Q4 = total;"
+1674     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+1675     mindonors=1
+1676     pcentdonors=1
+1677     n=3
+1678     matchfieldstat
+1679     eligdon=any
+1680     ;
+1681     id ident;
+1682     mustmatch STAFF;
+1683     dataexclvar toexcl;
+1684  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671572238 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+ERROR: Character variable FIELDID is not in INSTATUS data set.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+1685  
+
+
+1686  data instat;
+1687     infile cards;
+1688     input ident $ fieldid $ stat $;
+1689     cards;
+
+NOTE: The data set WORK.INSTAT has 4 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1694  ;
+1695  proc donorimputation
+1696     data=indata
+1697     instatus=instat
+1698     out=outdata
+1699     outstatus=outstat
+1700     donormap=map
+1701     edits="Q1 + Q2 + Q3 + Q4 = total;"
+1702     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+1703     mindonors=1
+1704     pcentdonors=1
+1705     n=3
+1706     matchfieldstat
+1707     eligdon=any
+1708     ;
+1709     id ident;
+1710     mustmatch STAFF;
+1711     dataexclvar toexcl;
+1712  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671572238 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+ERROR: Character variable STATUS is not in INSTATUS data set.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.01 seconds
+      
+
+
+1713  proc printto;
+1714  run;
+

@@ -1,0 +1,5 @@
+*
+!*.py
+!*.sas
+!DELETE_ME.txt
+!.gitignore

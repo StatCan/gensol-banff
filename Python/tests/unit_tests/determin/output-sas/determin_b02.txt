@@ -1,0 +1,209 @@
+1                                                                                                                        The SAS System                                                                                          09:42 Thursday, August 17, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.41 seconds
+      cpu time            0.35 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* If the NOTSORTED option is not used with the BY statement, the current data set must
+2          be sorted by the BY variable(s) first.  If not, Determinsitic should not proceed.
+3          Error messages should be printed to the log file. */
+4          
+5          options nodate nonumber ls=80 ps=100;
+6          
+7          data indata;
+8              input REC $ AREA VA VB VC VD TOT1 VE VF VG TOT2 GT;
+9                 cards;
+
+NOTE: SAS went to a new line when INPUT statement reached past the end of a 
+      line.
+NOTE: The data set WORK.INDATA has 6 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+17         ;
+18         run;
+19         
+20         proc sort; by rec;
+21         
+
+NOTE: There were 6 observations read from the data set WORK.INDATA.
+NOTE: The data set WORK.INDATA has 6 observations and 12 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+22         data instat;
+23            input REC $ FIELDID $ STATUS $;
+24               cards;
+
+NOTE: The data set WORK.INSTAT has 44 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+69         ;
+70         run;
+71         
+72         proc sort; by rec;
+73         
+
+                                 The SAS System
+
+NOTE: There were 44 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.INSTAT has 44 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+74         proc DETERMINISTIC
+75            data=indata
+76            instatus=instat
+77            out=outdata
+78            outstatus=outstat
+79            edits="VA >= 0.001; VC >= 0.0001; VE >= 0.0001;
+80               VA + VB + VC + VD = TOT1; VE + VF + VG = TOT2; TOT1 + TOT2 = GT
+80       ! ;"
+81             acceptnegative
+82            ;
+83            id REC;
+84            BY area;
+85         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DETERMINISTIC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:44:24
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: EDITS = VA >= 0.001; VC >= 0.0001; VE >= 0.0001;       VA + VB + VC + VD 
+              = TOT1; VE + VF + VG = TOT2; TOT1 + TOT2 = GT;
+NOTE: ID = REC
+NOTE: ACCEPTNEGATIVE
+NOTE: BY = AREA 
+
+Set of EDITS: 
+
+0
+                                                       - VA  <= -0.001
+
+1
+                                                       - VC  <= -0.0001
+
+2
+                                                       - VE  <= -0.0001
+
+3
+                                         - GT + TOT1 + TOT2   = 0
+
+4
+                                      - TOT2 + VE + VF + VG   = 0
+
+5
+                                 - TOT1 + VA + VB + VC + VD   = 0
+
+NOTE: The minimal set of edits is equivalent to the original set of edits 
+      specified.
+
+WARNING: BY variable AREA is not on input data set WORK.INSTAT.
+
+NOTE: This procedure can perform faster if the INSTATUS data set contains the 
+      BY variables.
+
+ERROR: Data set WORK.INDATA is not sorted in ascending sequence. The current BY 
+       group has AREA = 2 and the next BY group has AREA = 1.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+NOTE: There were 2 observations read from the data set WORK.INDATA.
+NOTE: There were 18 observations read from the data set WORK.INSTAT.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was 
+         stopped there were 1 observations and 12 variables.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was 
+         stopped there were 1 observations and 4 variables.
+NOTE: PROCEDURE DETERMINISTIC used (Total process time):
+      real time           0.19 seconds
+      cpu time            0.03 seconds
+      
+86         
+87         /*proc print data=indata;
+88         title "Deterministic input data";
+89         run;
+90         
+91         proc print data=instat;
+92         title "Deterministic input status";
+93         run;
+94         
+95         proc print data=outdata;
+96         title "Deterministic output records";
+97         run;
+98         
+99         proc print data=outstat;
+100        title "Deterministic output status";
+101        run;
+
+
+                                 The SAS System
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.71 seconds
+      cpu time            0.45 seconds
+      

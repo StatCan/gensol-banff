@@ -1,0 +1,394 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+936  /* Option a */
+937  proc donorimputation
+938     data=indata
+939     instatus=instat
+940     out=outdataa&test
+941     outstatus=outstatusa&test
+942     donormap=outmapa&test
+943     edits="x=y;"
+944     postedits="x<=y;"
+945     mindonors=1
+946     pcentdonors=1
+947     n=1
+948     ;
+949     id rec;
+950     randnumvar randkey;
+951  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATAAV02
+NOTE: OUTSTATUS = WORK.OUTSTATUSAV02
+NOTE: DONORMAP = WORK.OUTMAPAV02
+NOTE: EDITS = x=y;
+NOTE: POSTEDITS = x<=y;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 1
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = rec
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR = randkey
+NOTE: MUSTMATCH not specified.
+NOTE: BY not specified.
+
+NOTE: Logging access was not successful.  The procedure will continue.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y  <= 0
+
+
+REDUCED set of EDITS:
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                        - X  <= 0
+
+0
+                                                      X - Y  <= 0
+
+
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:       4
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:       4     100.00%
+Number of donors ..................................:       2      50.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       2      50.00%
+    with matching fields ..........................:       2      50.00%
+        imputed ...................................:       2      50.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 2 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATAAV02 has 2 observations and 3 variables.
+NOTE: The data set WORK.OUTSTATUSAV02 has 2 observations and 3 variables.
+NOTE: The data set WORK.OUTMAPAV02 has 2 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.66 seconds
+      cpu time            0.00 seconds
+      
+
+952  
+953  /* Option b */
+954  proc donorimputation
+955     data=indata
+956     instatus=instat
+957     out=outdatab&test
+958     outstatus=outstatusb&test
+959     donormap=outmapb&test
+960     edits="x=y;"
+961     postedits="x<=y;"
+962     mindonors=1
+963     pcentdonors=1
+964     n=1
+965     displaylevel=0
+966     ;
+967     id rec;
+968     randnumvar randkey;
+969  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATABV02
+NOTE: OUTSTATUS = WORK.OUTSTATUSBV02
+NOTE: DONORMAP = WORK.OUTMAPBV02
+NOTE: EDITS = x=y;
+NOTE: POSTEDITS = x<=y;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 1
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = rec
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR = randkey
+NOTE: MUSTMATCH not specified.
+NOTE: BY not specified.
+
+NOTE: Logging access was not successful.  The procedure will continue.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y  <= 0
+
+
+REDUCED set of EDITS:
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                        - X  <= 0
+
+0
+                                                      X - Y  <= 0
+
+
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:       4
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:       4     100.00%
+Number of donors ..................................:       2      50.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       2      50.00%
+    with matching fields ..........................:       2      50.00%
+        imputed ...................................:       2      50.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 2 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATABV02 has 2 observations and 3 variables.
+NOTE: The data set WORK.OUTSTATUSBV02 has 2 observations and 3 variables.
+NOTE: The data set WORK.OUTMAPBV02 has 2 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.53 seconds
+      cpu time            0.00 seconds
+      
+
+970  
+971  /* Option c */
+972  proc donorimputation
+973     data=indata
+974     instatus=instat
+975     out=outdatac&test
+976     outstatus=outstatusc&test
+977     donormap=outmapc&test
+978     edits="x=y;"
+979     postedits="x<=y;"
+980     mindonors=1
+981     pcentdonors=1
+982     n=1
+983     displaylevel=1
+984     ;
+985     id rec;
+986     randnumvar randkey;
+987  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATACV02
+NOTE: OUTSTATUS = WORK.OUTSTATUSCV02
+NOTE: DONORMAP = WORK.OUTMAPCV02
+NOTE: EDITS = x=y;
+NOTE: POSTEDITS = x<=y;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 1
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 1
+NOTE: ID = rec
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR = randkey
+NOTE: MUSTMATCH not specified.
+NOTE: BY not specified.
+
+NOTE: Logging access was not successful.  The procedure will continue.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                        - X  <= 0
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y  <= 0
+
+
+REDUCED set of EDITS:
+
+2
+                                                        - Y  <= 0
+
+0
+                                                      X - Y   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                        - X  <= 0
+
+0
+                                                      X - Y  <= 0
+
+DataTable->Size = 17
+
+DataTable->NumberOfData = 4
+
+RandNumFlag = 1
+
+4 items in randkey_list: [
+"101",
+"102",
+"201",
+"202",
+]
+
+4 items in randnum_list: [
+0.00,
+0.01,
+0.49,
+0.51,
+]
+
+
+distances from recipient "201" of its nearest donors = {
+"102": 0.00
+"101": 0.00
+}
+next donor considered for recipient "201" (from among nearest donors): "102"
+distances from recipient "202" of its nearest donors = {
+"102": 0.00
+"101": 0.00
+}
+next donor considered for recipient "202" (from among nearest donors): "101"
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:       4
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:       4     100.00%
+Number of donors ..................................:       2      50.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       2      50.00%
+    with matching fields ..........................:       2      50.00%
+        imputed ...................................:       2      50.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 2 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATACV02 has 2 observations and 3 variables.
+NOTE: The data set WORK.OUTSTATUSCV02 has 2 observations and 3 variables.
+NOTE: The data set WORK.OUTMAPCV02 has 2 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.53 seconds
+      cpu time            0.01 seconds
+      
+
+988  
+989  proc printto;
+990  run;
+

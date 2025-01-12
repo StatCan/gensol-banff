@@ -1,0 +1,221 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+345  /* NLIMIT=blank, MRL=1.5, FTE status */
+346  PROC DONORIMPUTATION
+347     DATA = indata
+348     INSTATUS = instat
+349     OUT = outdata
+350     OUTSTATUS = outstat
+351     DONORMAP = map
+352     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+353     MINDONORS = 1
+354     PCENTDONORS = 1
+355     N = 25
+356     /* NLIMIT = 1 */
+357     MRL = 1.5
+358     SEED = 100
+359     ;
+360     ID ident;
+361     MUSTMATCH VAR2;
+362     BY AREA;
+363  RUN;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = VAR1>=0; VAR2>=0; VAR1<=VAR2;
+NOTE: POSTEDITS not specified.
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 25
+NOTE: NLIMIT not specified.
+NOTE: MRL = 1.5
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: SEED = 100
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = VAR2 
+NOTE: BY = AREA 
+
+NOTE: No POSTEDITS have been specified. EDITS will be taken as POSTEDITS.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+3
+                                                     - VAR1  <= 0
+
+4
+                                                     - VAR2  <= 0
+
+0
+                                                     - VAR1  <= 0
+
+1
+                                                     - VAR2  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+REDUCED set of EDITS:
+
+0
+                                                     - VAR1  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+WARNING: There were 3 observations dropped from DATA data set because one/more EDITS variables or 
+         one/more MUSTMATCH variables outside the EDITS group are missing in DATA data set and there 
+         is no corresponding FTI in INSTATUS data set.
+
+NOTE: DONORLIMIT = 5
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       3
+    missing key ...................................:       0
+    missing data ..................................:       3
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       0
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      12     100.00%
+Number of donors ..................................:       3      25.00%
+Number of donors to reach DONORLIMIT ..............:       1      33.33%
+Number of recipients ..............................:       9      75.00%
+    with matching fields ..........................:       9      75.00%
+        imputed ...................................:       9      75.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=1
+
+WARNING: There were 3 observations dropped from DATA data set because one/more EDITS variables or 
+         one/more MUSTMATCH variables outside the EDITS group are missing in DATA data set and there 
+         is no corresponding FTI in INSTATUS data set.
+
+NOTE: DONORLIMIT = 2
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       3
+    missing key ...................................:       0
+    missing data ..................................:       3
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       0
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      12     100.00%
+Number of donors ..................................:       6      50.00%
+Number of donors to reach DONORLIMIT ..............:       2      33.33%
+Number of recipients ..............................:       6      50.00%
+    with matching fields ..........................:       6      50.00%
+        imputed ...................................:       6      50.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=2
+
+NOTE: DONORLIMIT = 2
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:      12      80.00%
+Number of donors to reach DONORLIMIT ..............:       1       8.33%
+Number of recipients ..............................:       3      20.00%
+    with matching fields ..........................:       3      20.00%
+        imputed ...................................:       3      20.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=3
+
+WARNING: There were 1 observations dropped from DATA data set because one/more EDITS variables or 
+         one/more MUSTMATCH variables outside the EDITS group are missing in DATA data set and there 
+         is no corresponding FTI in INSTATUS data set.
+
+NOTE: DONORLIMIT = 3
+
+Number of observations ............................:      16
+Number of observations dropped ....................:       1
+    missing key ...................................:       0
+    missing data ..................................:       1
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       0
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:       5      33.33%
+Number of donors to reach DONORLIMIT ..............:       3      60.00%
+Number of recipients ..............................:      10      66.67%
+    with matching fields ..........................:      10      66.67%
+        imputed ...................................:      10      66.67%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=4
+
+
+Number of observations ............................:      61
+Number of observations dropped ....................:       7
+    missing key ...................................:       0
+    missing data ..................................:       7
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       0
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      54     100.00%
+Number of donors ..................................:      26      48.15%
+Number of donors to reach DONORLIMIT ..............:       7      26.92%
+Number of recipients ..............................:      28      51.85%
+    with matching fields ..........................:      28      51.85%
+        imputed ...................................:      28      51.85%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the total of all by-groups.
+
+
+NOTE: There were 61 observations read from the data set WORK.INDATA.
+NOTE: There were 35 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 28 observations and 4 variables.
+NOTE: The data set WORK.OUTSTAT has 28 observations and 4 variables.
+NOTE: The data set WORK.MAP has 28 observations and 5 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.01 seconds
+      
+
+364  
+365  
+366  
+367  proc printto;
+368  run;
+

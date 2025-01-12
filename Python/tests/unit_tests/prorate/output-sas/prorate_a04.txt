@@ -1,0 +1,146 @@
+1                                                                                                                        The SAS System                                                                                          13:28 Thursday, August 10, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.34 seconds
+      cpu time            0.17 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* If the ID statement refers to a nonexistent variable, Prorate should not proceed.
+2          Error messages should be printed to the log file. */
+3          %let test=A4;
+4          options nodate ls=72 ps=100;
+5          
+6          data indata;
+7               input ident $ VA VB VC VD TOT1;
+8               cards;
+
+NOTE: The data set WORK.INDATA has 1 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+10              ;
+11         run;
+12         
+13         data instat;
+14              input ident $  fieldid $ status $;
+15              cards;
+
+NOTE: The data set WORK.INSTAT has 3 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+19            ;
+20         run;
+21         
+22         proc prorate
+23            data=indata
+24            instatus=instat
+25            out=outdata
+26            outstatus=outstat
+27            outreject=reject
+28            edits="VA + VB+ VC + VD = TOT1;"
+29            decimal  = 0
+30            lowerbound = 0
+31            upperbound  = 999
+32            modifier = A
+33            ;
+34            id idnt;
+ERROR: Variable IDNT not found.
+35         run;
+
+2                            The SAS System
+
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax 
+      check mode. 
+      This prevents execution of subsequent data modification 
+      statements.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step 
+         was stopped there were 0 observations and 0 variables.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step 
+         was stopped there were 0 observations and 0 variables.
+WARNING: The data set WORK.REJECT may be incomplete.  When this step 
+         was stopped there were 0 observations and 0 variables.
+NOTE: PROCEDURE PRORATE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+36         
+37         /*proc print data=indata;
+38         title "Prorate Test &test input data";
+39         run;
+40         
+41         proc print data=instat;
+42         title "Prorate Test &test input status";
+43         run;
+44         
+45         proc print data=outdata;
+46         title "Prorate Test &test output records";
+47         run;
+48         
+49         proc print data=outstat;
+50         title "Prorate Test &test output status";
+51         run;
+52         
+53         proc print data=reject;
+54         title "Prorate Test &test rejected records";
+55         run;
+
+
+ERROR: Errors printed on page 1.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.42 seconds
+      cpu time            0.24 seconds
+      

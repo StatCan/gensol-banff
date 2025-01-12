@@ -1,0 +1,248 @@
+1                                                                                                                        The SAS System                                                                                            16:49 Tuesday, August 1, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.41 seconds
+      cpu time            0.26 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* If the NOTSORTED option is not used with the BY statement, the current data set
+2          must be sorted by the BY variable(s) first.  If not, Outlier should not proceed.
+3          Error messages should be printed to the log file.*/
+4          OPTIONS NODATE NONUMBER LS=90 ps=90;
+5          %let test=D03;
+6          
+7          data indata;
+8             infile cards;
+9             input ident $ area V1 V2;
+10            cards;
+
+NOTE: The data set WORK.INDATA has 11 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+22         ;
+23         run;
+24         
+25         data inhist;
+26            infile cards;
+27            input ident $ area V1 V2;
+28            cards;
+
+NOTE: The data set WORK.INHIST has 10 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+                                      The SAS System
+
+39         ;
+40         run;
+41         
+42         /* test a */
+43         proc outlier
+44            data=indata
+45            outstatus=outstata&test
+46            method=C
+47            MII=3
+48            MEI=2
+49            ;
+50            id ident;
+51            var V1;
+52            by area;
+53         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE OUTLIER Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:00:52
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATAD03
+NOTE: METHOD = CURRENT
+NOTE: SIDE = BOTH (default)
+NOTE: MII = 3
+NOTE: MEI = 2
+NOTE: MDM = 0.05 (default)
+NOTE: MINOBS = 10 (default)
+NOTE: OUTLIERSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: ACCEPTZERO (default)
+NOTE: ID = ident 
+NOTE: VAR = V1 
+NOTE: WEIGHT not specified.
+NOTE: BY = area 
+
+ERROR: Data set WORK.INDATA is not sorted in ascending sequence. The current BY group has 
+       area = 2 and the next BY group has area = 1.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+NOTE: There were 2 observations read from the data set WORK.INDATA.
+WARNING: The data set WORK.OUTSTATAD03 may be incomplete.  When this step was stopped 
+         there were 0 observations and 5 variables.
+NOTE: PROCEDURE OUTLIER used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.01 seconds
+      
+54         
+55         /* test b */
+
+
+56         proc outlier
+57            data=indata
+58            hist=indata
+59            outstatus=outstatb&test
+60            method=H
+61            MII=3
+62            MEI=2
+63            ;
+64            id ident;
+65            var V1;
+66            with V2;
+67            by area;
+68         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE OUTLIER Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:00:52
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: HIST = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATBD03
+NOTE: METHOD = HISTORIC
+NOTE: SIDE = BOTH (default)
+NOTE: MII = 3
+NOTE: MEI = 2
+NOTE: MDM = 0.05 (default)
+NOTE: EXPONENT = 0 (default)
+NOTE: MINOBS = 10 (default)
+NOTE: OUTLIERSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: REJECTZERO (default)
+NOTE: ID = ident 
+                                      The SAS System
+
+NOTE: VAR = V1 
+NOTE: WITH = V2 
+NOTE: WEIGHT not specified.
+NOTE: BY = area 
+
+NOTE: There were 0 observations read from the data set WORK.INDATA.
+NOTE: The data set WORK.OUTSTATBD03 has 0 observations and 5 variables.
+NOTE: PROCEDURE OUTLIER used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.00 seconds
+      
+
+69         
+70         /* test c */
+71         proc outlier
+72            data=indata
+73            hist=indata
+74            outstatus=outstatc&test
+75            method=S
+76            BETAI=1.5
+77            BETAE=0.5
+78            ;
+79            id ident;
+80            var V1 V2;
+81            by area;
+82         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE OUTLIER Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:00:52
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: HIST = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATCD03
+NOTE: METHOD = SIGMAGAP
+NOTE: SIDE = BOTH (default)
+NOTE: SIGMA = MAD (default)
+NOTE: BETAI = 1.5
+NOTE: BETAE = 0.5
+NOTE: STARTCENTILE = 75 (default)
+NOTE: MINOBS = 10 (default)
+NOTE: OUTLIERSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: REJECTZERO (default)
+NOTE: ID = ident 
+NOTE: VAR = V1 V2 
+NOTE: WITH not specified.
+NOTE: WEIGHT not specified.
+NOTE: BY = area 
+
+NOTE: There were 0 observations read from the data set WORK.INDATA.
+NOTE: The data set WORK.OUTSTATCD03 has 0 observations and 5 variables.
+NOTE: PROCEDURE OUTLIER used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.00 seconds
+      
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.91 seconds
+      cpu time            0.37 seconds
+      

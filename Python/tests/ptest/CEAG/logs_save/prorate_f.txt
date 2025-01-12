@@ -1,0 +1,410 @@
+run_pytest.cmd - version:2023.10.05
+
+running pytest on -k
+============================= test session starts =============================
+platform win32 -- Python 3.10.11, pytest-7.4.3, pluggy-1.0.0 -- C:\temp\penv\dev2\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG
+collecting ... collected 12 items / 11 deselected / 1 selected
+
+test_prorate.py::test_prorate_ceag_feather PASSED                        [100%]
+
+=================================== PASSES ====================================
+__________________________ test_prorate_ceag_feather __________________________
+---------------------------- Captured stdout call -----------------------------
+2024-02-20 10:28:36,790 [DEBUG   , banff.prorate.__init__]:  procedure-level logging initialized with default parent 'banff'
+2024-02-20 10:28:36,790 [DEBUG   , banff.prorate.__init__]:  capture: default configuration (disabled)
+2024-02-20 10:28:36,795 [INFO]:  Preparing to call C-code
+2024-02-20 10:28:36,795 [INFO]:  Loading input parameters and datasets
+2024-02-20 10:28:36,795 [DEBUG   , banff.prorate.submit.load_input]:  [TIME] load parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:36,795 [DEBUG   , banff.prorate.submit.load_input]:  [MEMORY] load parameters:   change 0 kB (0.00 GB), before 159191 kB (0.16 GB), after 159191 kB (0.16 GB)
+2024-02-20 10:28:36,795 [DEBUG   , banff.prorate.submit.load_input]:  processing INDATA dataset
+2024-02-20 10:28:36,795 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset]:  input dataset is `str`, inspecting further
+2024-02-20 10:28:36,795 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset]:  input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_indata.feather
+2024-02-20 10:28:36,795 [INFO]:  Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_indata.feather
+2024-02-20 10:28:36,795 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file]:  file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_indata.feather
+2024-02-20 10:28:36,795 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file]:  Loading feather using PyArrow
+2024-02-20 10:28:36,925 [DEBUG   , banff.prorate.submit.load_input]:  [TIME] load input INDATA:   0.130 seconds (WALL), 0.500 seconds (CPU)
+2024-02-20 10:28:36,925 [DEBUG   , banff.prorate.submit.load_input]:  [MEMORY] load input INDATA: change 1179967 kB (1.18 GB), before 159191 kB (0.16 GB), after 1339159 kB (1.34 GB)
+2024-02-20 10:28:36,925 [DEBUG   , banff.prorate.submit.load_input]:  processing INSTATUS dataset
+2024-02-20 10:28:36,925 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset]:  input dataset is `str`, inspecting further
+2024-02-20 10:28:36,925 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset]:  input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_instatus.feather
+2024-02-20 10:28:36,925 [INFO]:  Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_instatus.feather
+2024-02-20 10:28:36,925 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file]:  file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_instatus.feather
+2024-02-20 10:28:36,925 [DEBUG   , banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file]:  Loading feather using PyArrow
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.load_input]:  [TIME] load input INSTATUS: 0.010 seconds (WALL), 0.062 seconds (CPU)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.load_input]:  [MEMORY] load input INSTATUS: change 29417 kB (0.03 GB), before 1339159 kB (1.34 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,935 [INFO]:  [TIME] TOTAL load input:    0.140 seconds (WALL), 0.562 seconds (CPU)
+2024-02-20 10:28:36,935 [INFO]:  [MEMORY] TOTAL load input:  change 1209385 kB (1.21 GB), before 159191 kB (0.16 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,935 [INFO]:  Preprocessing input datasets
+2024-02-20 10:28:36,935 [INFO]:  [TIME] TOTAL preprocessing: 0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:36,935 [INFO]:  [MEMORY] TOTAL preprocessing: change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,935 [INFO]:  Packing parameters and datasets into payload for C-code
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [TIME] pack parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [MEMORY] pack parameters:   change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  packing INDATA dataset
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload.interm_to_arrow_stream]:  converting PyArrow Table to Arrow stream
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [TIME] pack INDATA:         0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [MEMORY] pack INDATA:       change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [MEMORY] free intermediate input INDATA: change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  packing INSTATUS dataset
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload.interm_to_arrow_stream]:  converting PyArrow Table to Arrow stream
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [TIME] pack INSTATUS:       0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [MEMORY] pack INSTATUS:     change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,935 [DEBUG   , banff.prorate.submit.pack_payload]:  [MEMORY] free intermediate input INSTATUS: change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,940 [INFO]:  [TIME] TOTAL pack:          0.005 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:36,940 [INFO]:  [MEMORY] TOTAL pack:        change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+2024-02-20 10:28:36,940 [INFO]:  Calling C-code
+2024-02-20 10:28:36,940 [DEBUG   , banff.prorate.submit.run]:  ~~~~~ C CODE BEGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2024-02-20 10:28:37,825 [DEBUG   , banff.prorate.submit.run]:  [MEMORY] C execution:       change 13742 kB (0.01 GB), before 1368576 kB (1.37 GB), after 1382318 kB (1.38 GB)
+2024-02-20 10:28:37,825 [DEBUG   , banff.prorate.submit.run]:  ~~~~~ C CODE END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2024-02-20 10:28:37,825 [DEBUG   , banff.prorate.submit.run]:  [MEMORY] free JSON input INDATA: change 0 kB (0.00 GB), before 1382318 kB (1.38 GB), after 1382318 kB (1.38 GB)
+2024-02-20 10:28:37,825 [DEBUG   , banff.prorate.submit.run]:  [MEMORY] free JSON input INSTATUS: change 61 kB (0.00 GB), before 1382318 kB (1.38 GB), after 1382380 kB (1.38 GB)
+2024-02-20 10:28:37,825 [INFO]:  [TIME] Run:                 0.885 seconds (WALL), 0.875 seconds (CPU)
+2024-02-20 10:28:37,825 [INFO]:  [MEMORY] Run:               change 13804 kB (0.01 GB), before 1368576 kB (1.37 GB), after 1382380 kB (1.38 GB)
+2024-02-20 10:28:37,825 [INFO]:  Processing C-code output data
+2024-02-20 10:28:37,825 [INFO]:  Unpacking C-code output dataset(s)
+2024-02-20 10:28:37,825 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  unpacking OUTDATA dataset
+2024-02-20 10:28:37,830 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [TIME] unpack OUTDATA:      0.005 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:37,830 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [MEMORY] unpack OUTDATA:    change 5435 kB (0.01 GB), before 1382380 kB (1.38 GB), after 1387815 kB (1.39 GB)
+2024-02-20 10:28:37,830 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [MEMORY] free JSON output OUTDATA: change -5423 kB (-0.01 GB), before 1387815 kB (1.39 GB), after 1382392 kB (1.38 GB)
+2024-02-20 10:28:37,830 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  unpacking OUTSTATUS dataset
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [TIME] unpack OUTSTATUS:    0.005 seconds (WALL), 0.016 seconds (CPU)
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [MEMORY] unpack OUTSTATUS:  change 5616 kB (0.01 GB), before 1382392 kB (1.38 GB), after 1388007 kB (1.39 GB)
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [MEMORY] free JSON output OUTSTATUS: change -5620 kB (-0.01 GB), before 1388007 kB (1.39 GB), after 1382388 kB (1.38 GB)
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  unpacking OUTREJECT dataset
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [TIME] unpack OUTREJECT:    0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [MEMORY] unpack OUTREJECT:  change 33 kB (0.00 GB), before 1382388 kB (1.38 GB), after 1382420 kB (1.38 GB)
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.unpack_output_payload]:  [MEMORY] free JSON output OUTREJECT: change 516 kB (0.00 GB), before 1382420 kB (1.38 GB), after 1382937 kB (1.38 GB)
+2024-02-20 10:28:37,835 [INFO]:  [TIME] TOTAL unpack:        0.010 seconds (WALL), 0.016 seconds (CPU)
+2024-02-20 10:28:37,835 [INFO]:  [MEMORY] TOTAL unpack:      change 557 kB (0.00 GB), before 1382380 kB (1.38 GB), after 1382937 kB (1.38 GB)
+2024-02-20 10:28:37,835 [INFO]:  handling output
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.handle_output]:  processing OUTDATA dataset output
+2024-02-20 10:28:37,835 [DEBUG   , banff.prorate.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:28:38,105 [DEBUG   , banff.prorate.submit.handle_output]:  [TIME] output OUTDATA:      0.270 seconds (WALL), 0.266 seconds (CPU)
+2024-02-20 10:28:38,105 [DEBUG   , banff.prorate.submit.handle_output]:  [MEMORY] output OUTDATA:    change 44356 kB (0.04 GB), before 1382937 kB (1.38 GB), after 1427292 kB (1.43 GB)
+2024-02-20 10:28:38,105 [DEBUG   , banff.prorate.submit.handle_output]:  [MEMORY] free intermediate output OUTDATA: change -5427 kB (-0.01 GB), before 1427292 kB (1.43 GB), after 1421865 kB (1.42 GB)
+2024-02-20 10:28:38,105 [DEBUG   , banff.prorate.submit.handle_output]:  processing OUTSTATUS dataset output
+2024-02-20 10:28:38,105 [DEBUG   , banff.prorate.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:28:38,290 [DEBUG   , banff.prorate.submit.handle_output]:  [TIME] output OUTSTATUS:    0.185 seconds (WALL), 0.188 seconds (CPU)
+2024-02-20 10:28:38,290 [DEBUG   , banff.prorate.submit.handle_output]:  [MEMORY] output OUTSTATUS:  change 6058 kB (0.01 GB), before 1421865 kB (1.42 GB), after 1427923 kB (1.43 GB)
+2024-02-20 10:28:38,290 [DEBUG   , banff.prorate.submit.handle_output]:  [MEMORY] free intermediate output OUTSTATUS: change -5616 kB (-0.01 GB), before 1427923 kB (1.43 GB), after 1422307 kB (1.42 GB)
+2024-02-20 10:28:38,290 [DEBUG   , banff.prorate.submit.handle_output]:  processing OUTREJECT dataset output
+2024-02-20 10:28:38,290 [DEBUG   , banff.prorate.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:28:38,295 [DEBUG   , banff.prorate.submit.handle_output]:  [TIME] output OUTREJECT:    0.005 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:38,295 [DEBUG   , banff.prorate.submit.handle_output]:  [MEMORY] output OUTREJECT:  change 98 kB (0.00 GB), before 1422307 kB (1.42 GB), after 1422406 kB (1.42 GB)
+2024-02-20 10:28:38,295 [DEBUG   , banff.prorate.submit.handle_output]:  [MEMORY] free intermediate output OUTREJECT: change 0 kB (0.00 GB), before 1422406 kB (1.42 GB), after 1422406 kB (1.42 GB)
+2024-02-20 10:28:38,295 [INFO]:  [TIME] TOTAL output:        0.460 seconds (WALL), 0.453 seconds (CPU)
+2024-02-20 10:28:38,295 [INFO]:  [MEMORY] TOTAL output:      change 39469 kB (0.04 GB), before 1382937 kB (1.38 GB), after 1422406 kB (1.42 GB)
+2024-02-20 10:28:38,295 [INFO]:  [OUTPUT] dataset OUTDATA has 45200 rows and 17 columns
+2024-02-20 10:28:38,315 [DEBUG   , banff.prorate.submit]:  ~~ Printing OUTDATA ~~
+
+[45200 rows x 17 columns]
+
+2024-02-20 10:28:38,315 [INFO]:  [OUTPUT] dataset OUTSTATUS has 125582 rows and 3 columns
+2024-02-20 10:28:38,320 [DEBUG   , banff.prorate.submit]:  ~~ Printing OUTSTATUS ~~
+
+[125582 rows x 3 columns]
+
+2024-02-20 10:28:38,320 [INFO]:  [OUTPUT] dataset OUTREJECT has 279 rows and 5 columns
+2024-02-20 10:28:38,330 [DEBUG   , banff.prorate.submit]:  ~~ Printing OUTREJECT ~~
+
+[279 rows x 5 columns]
+
+2024-02-20 10:28:38,330 [INFO]:  Execution complete
+2024-02-20 10:28:38,330 [INFO]:  [TIME] Submit:              1.535 seconds (WALL), 1.938 seconds (CPU)
+2024-02-20 10:28:38,330 [INFO]:  [MEMORY] Submit:            change 1263219 kB (1.26 GB), before 159191 kB (0.16 GB), after 1422410 kB (1.42 GB)
+############################# PROCEDURE LOG STARTS on next line #################################
+banffpkg.testing: dataset 'prorate_ceag_a_indata.feather' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_indata.feather'
+banffpkg.testing: dataset 'prorate_ceag_a_instatus.feather' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_instatus.feather'
+NOTE: --- Banff System 3.01.001b8.dev1 developed by Statistics Canada ---
+NOTE: PROCEDURE PRORATE Version 3.01.001b8.dev1
+NOTE: Created on Feb 19 2024 at 16:57:22
+NOTE: Email: banff@statcan.gc.ca
+NOTE: Parallel processing disabled
+
+MEMORY USAGE: before JCP_init
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13558047 kB (13.56 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10589991 kB (10.59 GB)
+~~Process specific~~
+Private Bytes:          1368576 kB (1.37 GB)
+Working Set  :           695181 kB (0.70 GB)
+Page Faults  : 199965
+
+
+[C,TIME,CPU , decode_parms]: 0.000 seconds.
+
+[C,TIME,CPU , read_parms]: 0.000 seconds.
+
+[C,TIME,CPUT, dfr_indata_init]: 0.000 seconds.
+
+[C,TIME,CPUT, dfr_instatus_init]: 0.000 seconds.
+
+[C,TIME,WALL, decode_dataframes]: 0.002 seconds.
+
+[C,TIME,CPU ,   JCP_init]: 0.000 seconds.
+
+[C,TIME,WALL,   JCP_init]: 0.002 seconds.
+MEMORY USAGE: after JCP_init
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13555950 kB (13.56 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10589463 kB (10.59 GB)
+~~Process specific~~
+Private Bytes:          1370677 kB (1.37 GB)
+Working Set  :           696439 kB (0.70 GB)
+Page Faults  : 200273
+
+NOTE: EDITS = 
+         B17026_Y8T130 + B17026_Y9_SR31T130 + B17026_Y9_SR32T130 + B17026_Y9_SR33T130 + B17026_Y9_SR34T130 = B17026_Y91T130;
+         B17026_Y101_SR85 + B17026_Y10_SR85 = B17026_Y8T130;
+         B17026_Y101_SR31 + B17026_Y10_SR31 = B17026_Y9_SR31T130;
+         B17026_Y101_SR32 + B17026_Y10_SR32 = B17026_Y9_SR32T130;
+         B17026_Y101_SR33 + B17026_Y10_SR33 = B17026_Y9_SR33T130;
+         B17026_Y101_SR34 + B17026_Y10_SR34 = B17026_Y9_SR34T130;
+NOTE: METHOD = BASIC
+NOTE: DECIMAL = 9
+NOTE: LOWERBOUND = 0
+NOTE: UPPERBOUND not specified. The result will not be constrained by upper bound.
+NOTE: MODIFIER = ALWAYS
+NOTE: REJECTNEGATIVE
+NOTE: ID = I43600
+NOTE: BY not specified.
+
+NOTE: EDITS PARSED for PRORATE procedure (if no modifier is specified for a variable, the value of the MODIFIER option will be used):
+
+--- GROUP ---
+EDIT Level: 0
+1.0000 B17026_Y8T130:a + 
+1.0000 B17026_Y9_SR31T130:a + 
+1.0000 B17026_Y9_SR32T130:a + 
+1.0000 B17026_Y9_SR33T130:a + 
+1.0000 B17026_Y9_SR34T130:a = B17026_Y91T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR85:a + 
+1.0000 B17026_Y10_SR85:a = B17026_Y8T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR31:a + 
+1.0000 B17026_Y10_SR31:a = B17026_Y9_SR31T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR32:a + 
+1.0000 B17026_Y10_SR32:a = B17026_Y9_SR32T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR33:a + 
+1.0000 B17026_Y10_SR33:a = B17026_Y9_SR33T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR34:a + 
+1.0000 B17026_Y10_SR34:a = B17026_Y9_SR34T130
+
+
+[C,TIME,CPU , get_column_length]: 0.000 seconds.
+
+[C,TIME,WALL, get_column_length]: 0.000 seconds.
+NOTE: INSTATUS data set will be ignored: none of modifiers are ORIGINAL or IMPUTED.
+
+[C,TIME,CPU ,  load_init]: 0.000 seconds.
+
+[C,TIME,WALL,  load_init]: 0.005 seconds.
+
+Number of observations in DATA data set ...........:  151204
+Number of valid observations in DATA data set .....:  151204
+
+
+[C,TIME,CPU , processing]: 0.328 seconds.
+
+[C,TIME,WALL, processing]: 0.351 seconds.
+
+MEMORY USAGE: Before JCP_wrap
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13464564 kB (13.46 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10500559 kB (10.50 GB)
+~~Process specific~~
+Private Bytes:          1463054 kB (1.46 GB)
+Working Set  :           784261 kB (0.78 GB)
+Page Faults  : 221824
+
+
+[C,TIME,CPUT, encode_outdata]: 0.281 seconds.
+
+[C,TIME,CPUT, encode_outstatus]: 0.125 seconds.
+
+[C,TIME,CPUT, encode_outreject]: 0.000 seconds.
+
+[C,TIME,CPU ,   JCP_wrap]: 0.406 seconds.
+
+[C,TIME,WALL,   JCP_wrap]: 0.407 seconds.
+MEMORY USAGE: After JCP_wrap
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13443990 kB (13.44 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10485354 kB (10.49 GB)
+~~Process specific~~
+Private Bytes:          1482461 kB (1.48 GB)
+Working Set  :           803086 kB (0.80 GB)
+Page Faults  : 232774
+
+MEMORY USAGE: Before JCP_free
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13443990 kB (13.44 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10485354 kB (10.49 GB)
+~~Process specific~~
+Private Bytes:          1482461 kB (1.48 GB)
+Working Set  :           803086 kB (0.80 GB)
+Page Faults  : 232774
+
+MEMORY USAGE: After JCP_free
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13545275 kB (13.55 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10582315 kB (10.58 GB)
+~~Process specific~~
+Private Bytes:          1382318 kB (1.38 GB)
+Working Set  :           706601 kB (0.71 GB)
+Page Faults  : 232902
+
+
+[C,TIME,CPU ,    cleanup]: 0.078 seconds.
+
+[C,TIME,WALL,    cleanup]: 0.114 seconds.
+
+[C,TIME,CPU ,       main]: 0.812 seconds.
+
+[C,TIME,WALL,       main]: 0.884 seconds.
+############################# PROCEDURE LOG ENDED on previous line ##############################
+
+banffpkg.testing: dataset 'prorate_ceag_a_outstatus.feather' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_outstatus.feather'
+banffpkg.testing: dataset 'prorate_ceag_a_outdata.feather' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_outdata.feather'
+banffpkg.testing: dataset 'prorate_ceag_a_outreject.feather' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_outreject.feather'
+####################################### RUNNING ASSERTIONS #######################################
+asserted RC == 0
+
+
+assert_substr_count(...)
+   searching for:   ERROR:
+   expected_count:  0
+   test_log count:  0
+
+
+################################ ASSERTIONS COMPLETE WITHOUT ERROR ###############################
+
+------------------------------ Captured log call ------------------------------
+DEBUG    banff.prorate.__init__:banff_proc.py:189 procedure-level logging initialized with default parent 'banff'
+DEBUG    banff.prorate.__init__:banff_proc.py:229 capture: default configuration (disabled)
+INFO     banff.prorate.submit:banff_proc.py:615 Preparing to call C-code
+INFO     banff.prorate.submit.load_input:banff_proc.py:413 Loading input parameters and datasets
+DEBUG    banff.prorate.submit.load_input:time_measurement.py:35 [TIME] load parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.prorate.submit.load_input:memory_usage.py:46 [MEMORY] load parameters:   change 0 kB (0.00 GB), before 159191 kB (0.16 GB), after 159191 kB (0.16 GB)
+DEBUG    banff.prorate.submit.load_input:banff_proc.py:424 processing INDATA dataset
+DEBUG    banff.prorate.submit.load_input.load_input_dataset:io_util.py:250 input dataset is `str`, inspecting further
+DEBUG    banff.prorate.submit.load_input.load_input_dataset:io_util.py:255 input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_indata.feather
+INFO     banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:78 Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_indata.feather
+DEBUG    banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:86 file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_indata.feather
+DEBUG    banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:104 Loading feather using PyArrow
+DEBUG    banff.prorate.submit.load_input:time_measurement.py:35 [TIME] load input INDATA:   0.130 seconds (WALL), 0.500 seconds (CPU)
+DEBUG    banff.prorate.submit.load_input:memory_usage.py:46 [MEMORY] load input INDATA: change 1179967 kB (1.18 GB), before 159191 kB (0.16 GB), after 1339159 kB (1.34 GB)
+DEBUG    banff.prorate.submit.load_input:banff_proc.py:424 processing INSTATUS dataset
+DEBUG    banff.prorate.submit.load_input.load_input_dataset:io_util.py:250 input dataset is `str`, inspecting further
+DEBUG    banff.prorate.submit.load_input.load_input_dataset:io_util.py:255 input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_instatus.feather
+INFO     banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:78 Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_instatus.feather
+DEBUG    banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:86 file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/prorate_ceag_a_instatus.feather
+DEBUG    banff.prorate.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:104 Loading feather using PyArrow
+DEBUG    banff.prorate.submit.load_input:time_measurement.py:35 [TIME] load input INSTATUS: 0.010 seconds (WALL), 0.062 seconds (CPU)
+DEBUG    banff.prorate.submit.load_input:memory_usage.py:46 [MEMORY] load input INSTATUS: change 29417 kB (0.03 GB), before 1339159 kB (1.34 GB), after 1368576 kB (1.37 GB)
+INFO     banff.prorate.submit.load_input:time_measurement.py:35 [TIME] TOTAL load input:    0.140 seconds (WALL), 0.562 seconds (CPU)
+INFO     banff.prorate.submit.load_input:memory_usage.py:46 [MEMORY] TOTAL load input:  change 1209385 kB (1.21 GB), before 159191 kB (0.16 GB), after 1368576 kB (1.37 GB)
+INFO     banff.prorate.submit.preprocess_input_datasets:banff_proc.py:433 Preprocessing input datasets
+INFO     banff.prorate.submit.preprocess_input_datasets:time_measurement.py:35 [TIME] TOTAL preprocessing: 0.000 seconds (WALL), 0.000 seconds (CPU)
+INFO     banff.prorate.submit.preprocess_input_datasets:memory_usage.py:46 [MEMORY] TOTAL preprocessing: change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+INFO     banff.prorate.submit.pack_payload:banff_proc.py:532 Packing parameters and datasets into payload for C-code
+DEBUG    banff.prorate.submit.pack_payload:time_measurement.py:35 [TIME] pack parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.prorate.submit.pack_payload:memory_usage.py:46 [MEMORY] pack parameters:   change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+DEBUG    banff.prorate.submit.pack_payload:banff_proc.py:545 packing INDATA dataset
+DEBUG    banff.prorate.submit.pack_payload.interm_to_arrow_stream:io_util.py:123 converting PyArrow Table to Arrow stream
+DEBUG    banff.prorate.submit.pack_payload:time_measurement.py:35 [TIME] pack INDATA:         0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.prorate.submit.pack_payload:memory_usage.py:46 [MEMORY] pack INDATA:       change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+DEBUG    banff.prorate.submit.pack_payload:memory_usage.py:46 [MEMORY] free intermediate input INDATA: change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+DEBUG    banff.prorate.submit.pack_payload:banff_proc.py:545 packing INSTATUS dataset
+DEBUG    banff.prorate.submit.pack_payload.interm_to_arrow_stream:io_util.py:123 converting PyArrow Table to Arrow stream
+DEBUG    banff.prorate.submit.pack_payload:time_measurement.py:35 [TIME] pack INSTATUS:       0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.prorate.submit.pack_payload:memory_usage.py:46 [MEMORY] pack INSTATUS:     change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+DEBUG    banff.prorate.submit.pack_payload:memory_usage.py:46 [MEMORY] free intermediate input INSTATUS: change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+INFO     banff.prorate.submit.pack_payload:time_measurement.py:35 [TIME] TOTAL pack:          0.005 seconds (WALL), 0.000 seconds (CPU)
+INFO     banff.prorate.submit.pack_payload:memory_usage.py:46 [MEMORY] TOTAL pack:        change 0 kB (0.00 GB), before 1368576 kB (1.37 GB), after 1368576 kB (1.37 GB)
+INFO     banff.prorate.submit:banff_proc.py:629 Calling C-code
+DEBUG    banff.prorate.submit.run:banff_proc.py:573 ~~~~~ C CODE BEGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DEBUG    banff.prorate.submit.run:memory_usage.py:46 [MEMORY] C execution:       change 13742 kB (0.01 GB), before 1368576 kB (1.37 GB), after 1382318 kB (1.38 GB)
+DEBUG    banff.prorate.submit.run:banff_proc.py:592 ~~~~~ C CODE END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DEBUG    banff.prorate.submit.run:memory_usage.py:46 [MEMORY] free JSON input INDATA: change 0 kB (0.00 GB), before 1382318 kB (1.38 GB), after 1382318 kB (1.38 GB)
+DEBUG    banff.prorate.submit.run:memory_usage.py:46 [MEMORY] free JSON input INSTATUS: change 61 kB (0.00 GB), before 1382318 kB (1.38 GB), after 1382380 kB (1.38 GB)
+INFO     banff.prorate.submit.run:time_measurement.py:35 [TIME] Run:                 0.885 seconds (WALL), 0.875 seconds (CPU)
+INFO     banff.prorate.submit.run:memory_usage.py:46 [MEMORY] Run:               change 13804 kB (0.01 GB), before 1368576 kB (1.37 GB), after 1382380 kB (1.38 GB)
+INFO     banff.prorate.submit:banff_proc.py:647 Processing C-code output data
+INFO     banff.prorate.submit.unpack_output_payload:banff_proc.py:672 Unpacking C-code output dataset(s)
+DEBUG    banff.prorate.submit.unpack_output_payload:banff_proc.py:679 unpacking OUTDATA dataset
+DEBUG    banff.prorate.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack OUTDATA:      0.005 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.prorate.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack OUTDATA:    change 5435 kB (0.01 GB), before 1382380 kB (1.38 GB), after 1387815 kB (1.39 GB)
+DEBUG    banff.prorate.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output OUTDATA: change -5423 kB (-0.01 GB), before 1387815 kB (1.39 GB), after 1382392 kB (1.38 GB)
+DEBUG    banff.prorate.submit.unpack_output_payload:banff_proc.py:679 unpacking OUTSTATUS dataset
+DEBUG    banff.prorate.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack OUTSTATUS:    0.005 seconds (WALL), 0.016 seconds (CPU)
+DEBUG    banff.prorate.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack OUTSTATUS:  change 5616 kB (0.01 GB), before 1382392 kB (1.38 GB), after 1388007 kB (1.39 GB)
+DEBUG    banff.prorate.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output OUTSTATUS: change -5620 kB (-0.01 GB), before 1388007 kB (1.39 GB), after 1382388 kB (1.38 GB)
+DEBUG    banff.prorate.submit.unpack_output_payload:banff_proc.py:679 unpacking OUTREJECT dataset
+DEBUG    banff.prorate.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack OUTREJECT:    0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.prorate.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack OUTREJECT:  change 33 kB (0.00 GB), before 1382388 kB (1.38 GB), after 1382420 kB (1.38 GB)
+DEBUG    banff.prorate.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output OUTREJECT: change 516 kB (0.00 GB), before 1382420 kB (1.38 GB), after 1382937 kB (1.38 GB)
+INFO     banff.prorate.submit.unpack_output_payload:time_measurement.py:35 [TIME] TOTAL unpack:        0.010 seconds (WALL), 0.016 seconds (CPU)
+INFO     banff.prorate.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] TOTAL unpack:      change 557 kB (0.00 GB), before 1382380 kB (1.38 GB), after 1382937 kB (1.38 GB)
+INFO     banff.prorate.submit.handle_output:banff_proc.py:386 handling output
+DEBUG    banff.prorate.submit.handle_output:banff_proc.py:393 processing OUTDATA dataset output
+DEBUG    banff.prorate.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.prorate.submit.handle_output:time_measurement.py:35 [TIME] output OUTDATA:      0.270 seconds (WALL), 0.266 seconds (CPU)
+DEBUG    banff.prorate.submit.handle_output:memory_usage.py:46 [MEMORY] output OUTDATA:    change 44356 kB (0.04 GB), before 1382937 kB (1.38 GB), after 1427292 kB (1.43 GB)
+DEBUG    banff.prorate.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output OUTDATA: change -5427 kB (-0.01 GB), before 1427292 kB (1.43 GB), after 1421865 kB (1.42 GB)
+DEBUG    banff.prorate.submit.handle_output:banff_proc.py:393 processing OUTSTATUS dataset output
+DEBUG    banff.prorate.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.prorate.submit.handle_output:time_measurement.py:35 [TIME] output OUTSTATUS:    0.185 seconds (WALL), 0.188 seconds (CPU)
+DEBUG    banff.prorate.submit.handle_output:memory_usage.py:46 [MEMORY] output OUTSTATUS:  change 6058 kB (0.01 GB), before 1421865 kB (1.42 GB), after 1427923 kB (1.43 GB)
+DEBUG    banff.prorate.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output OUTSTATUS: change -5616 kB (-0.01 GB), before 1427923 kB (1.43 GB), after 1422307 kB (1.42 GB)
+DEBUG    banff.prorate.submit.handle_output:banff_proc.py:393 processing OUTREJECT dataset output
+DEBUG    banff.prorate.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.prorate.submit.handle_output:time_measurement.py:35 [TIME] output OUTREJECT:    0.005 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.prorate.submit.handle_output:memory_usage.py:46 [MEMORY] output OUTREJECT:  change 98 kB (0.00 GB), before 1422307 kB (1.42 GB), after 1422406 kB (1.42 GB)
+DEBUG    banff.prorate.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output OUTREJECT: change 0 kB (0.00 GB), before 1422406 kB (1.42 GB), after 1422406 kB (1.42 GB)
+INFO     banff.prorate.submit.handle_output:time_measurement.py:35 [TIME] TOTAL output:        0.460 seconds (WALL), 0.453 seconds (CPU)
+INFO     banff.prorate.submit.handle_output:memory_usage.py:46 [MEMORY] TOTAL output:      change 39469 kB (0.04 GB), before 1382937 kB (1.38 GB), after 1422406 kB (1.42 GB)
+INFO     banff.prorate.submit:banff_proc.py:657 [OUTPUT] dataset OUTDATA has 45200 rows and 17 columns
+DEBUG    banff.prorate.submit:banff_proc.py:658 ~~ Printing OUTDATA ~~
+
+[45200 rows x 17 columns]
+
+INFO     banff.prorate.submit:banff_proc.py:657 [OUTPUT] dataset OUTSTATUS has 125582 rows and 3 columns
+DEBUG    banff.prorate.submit:banff_proc.py:658 ~~ Printing OUTSTATUS ~~
+
+[125582 rows x 3 columns]
+
+INFO     banff.prorate.submit:banff_proc.py:657 [OUTPUT] dataset OUTREJECT has 279 rows and 5 columns
+DEBUG    banff.prorate.submit:banff_proc.py:658 ~~ Printing OUTREJECT ~~
+
+[279 rows x 5 columns]
+
+INFO     banff.prorate.submit:banff_proc.py:660 Execution complete
+INFO     banff.prorate.submit:time_measurement.py:35 [TIME] Submit:              1.535 seconds (WALL), 1.938 seconds (CPU)
+INFO     banff.prorate.submit:memory_usage.py:46 [MEMORY] Submit:            change 1263219 kB (1.26 GB), before 159191 kB (0.16 GB), after 1422410 kB (1.42 GB)
+=========================== short test summary info ===========================
+PASSED test_prorate.py::test_prorate_ceag_feather
+====================== 1 passed, 11 deselected in 2.24s =======================

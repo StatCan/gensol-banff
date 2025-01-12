@@ -1,0 +1,114 @@
+1                                                                                                                        The SAS System                                                                                          10:36 Thursday, August 31, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           2.53 seconds
+      cpu time            0.20 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* The key variable must be a character variable.  When it is numeric,
+2          MassImp should not proceed. Error messages should be printed to the log file. */
+3          options nodate nonumber ls=90 ps=90;
+4          data indata;
+5             infile cards;
+6             input ident area total Q1 Q2 Q3 Q4 staff;
+7             cards;
+
+NOTE: The data set WORK.INDATA has 5 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.01 seconds
+      
+
+13         ;
+14         proc massimputation
+15            data = indata
+16            out = outdata
+17            donormap=donormap
+18            mindonors=2
+19            pcentdonors=10
+20            ;
+21            id IDENT;
+ERROR: Variable ident in list does not match type prescribed for this list.
+22            mustimpute Q1 Q2 Q3 Q4;
+23             mustmatch total staff;
+24         run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: The data set WORK.DONORMAP may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+NOTE: PROCEDURE MASSIMPUTATION used (Total process time):
+      real time           0.11 seconds
+                                      The SAS System
+
+      cpu time            0.01 seconds
+      
+25         
+26         
+27         
+28         
+29         
+30         
+31         
+32         
+33         
+34         
+35         
+
+
+ERROR: Errors printed on page 1.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           3.44 seconds
+      cpu time            0.31 seconds
+      

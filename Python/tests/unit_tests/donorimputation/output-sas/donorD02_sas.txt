@@ -1,0 +1,176 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1250  proc donorimputation
+1251     data=indata
+1252     instatus=instat
+1253     out=outdata
+1254     outstatus=outstat
+1255     donormap=map
+1256     edits="Q1 + Q2 + Q3 + Q4 = total;"
+1257     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+1258     mindonors=1
+1259     pcentdonors=1
+1260     n=3
+1261     matchfieldstat
+1262     eligdon=any
+1263     ;
+1264     id ident;
+1265     mustmatch STAFF;
+1266     dataexclvar toexcl;
+1267     by area;
+1268  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1671571997 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY = area 
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+WARNING: BY variable area is not on input data set WORK.INSTAT.
+
+NOTE: This procedure can perform faster if the INSTATUS data set contains the BY 
+      variables.
+
+
+WARNING: There are no recipients in the group processed. No imputation will be done.
+Number of observations ............................:       1
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:       1     100.00%
+Number of donors ..................................:       1     100.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      area=A1
+ERROR: Data set WORK.INDATA is not sorted in ascending sequence. The current BY group has 
+       area = A2 and the next BY group has area = A1.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: There were 3 observations read from the data set WORK.INDATA.
+NOTE: There were 4 observations read from the data set WORK.INSTAT.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 7 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 4 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 5 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.19 seconds
+      cpu time            0.00 seconds
+      
+1269  
+
+
+1270  proc printto;
+1271  run;
+

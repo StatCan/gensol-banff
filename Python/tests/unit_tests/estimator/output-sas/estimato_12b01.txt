@@ -1,0 +1,348 @@
+1                                                                                                                        The SAS System                                                                                             10:27 Thursday, June 1, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.66 seconds
+      cpu time            0.29 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          
+2          /* Test Est 12b01 */
+3          
+4          /* Testing of calculation of parameters with weights
+5          
+6          To verify that an excluded record that has a weight variable with an FTI code generates an
+7          error.
+8          
+9          Description:    If a weight variable is part of an excluded record (one that has been
+10         eliminated by an exlusion variable) and has an FTI code in the STATUS variable,
+11         an error should be generated and no imputation should take place.
+12         
+13         Expected result:   An error should be generated. No imputation should be performed
+14         
+15         
+16         
+17         */
+18         
+19         %let test=12b01;
+20         
+21         options nodate nonumber linesize=120 pagesize=32000;
+22         
+23         data databf ;
+24         infile cards;
+25         input
+26         ID $ X Y Z EXC $;
+27         cards ;
+
+NOTE: The data set WORK.DATABF has 5 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+33         ;
+34         
+35         run ;
+36         
+37         
+38         proc sort;
+39         by ID;
+40         run;
+
+NOTE: There were 5 observations read from the data set WORK.DATABF.
+NOTE: The data set WORK.DATABF has 5 observations and 5 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+41         
+42         data statusbf;
+43         infile cards;
+44         input fieldid $ status $ id $;
+45         cards;
+
+NOTE: The data set WORK.STATUSBF has 2 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+48              ;
+49         run;
+50         
+51         data algor;
+52         LENGTH NAME $12.;
+53         length description $40.;
+54         input algorithmname $1-9 type $ status $ formula $23-65 description $70-80;
+55         cards;
+
+NOTE: Variable NAME is uninitialized.
+NOTE: The data set WORK.ALGOR has 4 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+60         ;
+61         
+62         data estimat;
+63         input
+64         active 1 excludeimputed $3 excludeoutliers $5
+65         countcriteria 7-8 percentcriteria 9-10
+66         algorithmname $12-22
+67         weightvariable $24-25
+68         variancevariable $26-27 varianceperiod $28 varianceexponent 30
+69         fieldid $42-50
+70         auxvariables $52-54
+71         randomerror $56
+72         ;
+73         cards;
+
+NOTE: The data set WORK.ESTIMAT has 1 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+75         ;
+76         run;
+77         
+78         
+79         data estibf;
+80           set estimat;
+81           where active=2;
+82           run;
+
+NOTE: There were 0 observations read from the data set WORK.ESTIMAT.
+      WHERE active=2;
+NOTE: The data set WORK.ESTIBF has 0 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+83         
+84         
+85         proc ESTIMATOR
+86         data=databf
+87         datastatus=statusbf
+88         out=outdata&test
+89         outstatus=outstatus&test
+90         algorithm=algor
+91         estimator=estimat
+92         seed=30000
+93         OUTestPARMS=OUTP&test
+94         OUTESTEF=OUTEF&test
+95         OUTESTLR=OUTLR&test
+96         OUTACCEPTABLE=OUTA&test
+97         ;
+98         id ID;
+99         dataexclvar EXC;
+100        run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ESTIMATOR Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:54:27
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.DATABF
+NOTE: DATASTATUS = WORK.STATUSBF
+NOTE: HIST = _NULL_
+NOTE: HISTSTATUS = _NULL_
+NOTE: ALGORITHM = WORK.ALGOR
+NOTE: ESTIMATOR = WORK.ESTIMAT
+NOTE: OUTDATA = WORK.OUTDATA12B01
+NOTE: OUTSTATUS = WORK.OUTSTATUS12B01
+NOTE: OUTRANDOMERROR = _NULL_
+NOTE: OUTACCEPTABLE = WORK.OUTA12B01
+NOTE: OUTESTPARMS = WORK.OUTP12B01
+NOTE: OUTESTEF = WORK.OUTEF12B01
+NOTE: OUTESTLR = WORK.OUTLR12B01
+NOTE: SEED = 30000
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ID
+NOTE: DATAEXCLVAR = EXC
+NOTE: HISTEXCLVAR not specified.
+NOTE: BY not specified.
+
+Set of estimator specifications:
+-------------------------------
+
+Estimator 0.
+Algorithm name           : CURAUXMEAN
+Description              : The current average of a proxy variable is imputed.
+Type                     : EF
+Status                   : CAM
+Formula                  : AUX1(A)
+Field id                 : Z
+Auxiliary variables      : X
+Weight variable          : Y
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 10.000000
+
+WARNING: Estimator: The predefined algorithm 'CRAUX' has been redefined.
+         
+WARNING: An OUTESTLR data set was specified but no linear regression is requested.
+
+Formula of estimator specifications:
+-----------------------------------
+
+Estimator 0.
+Z = X(A)
+
+
+ERROR: Estimator: Estimator 0: key 1A has a status for the current WEIGHTVARIABLE.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+NOTE: There were 5 observations read from the data set WORK.DATABF.
+NOTE: There were 2 observations read from the data set WORK.STATUSBF.
+NOTE: There were 4 observations read from the data set WORK.ALGOR.
+NOTE: There were 1 observations read from the data set WORK.ESTIMAT.
+WARNING: The data set WORK.OUTDATA12B01 may be incomplete.  When this step was stopped there were 0 observations and 2 
+         variables.
+WARNING: The data set WORK.OUTSTATUS12B01 may be incomplete.  When this step was stopped there were 0 observations and 
+         3 variables.
+WARNING: The data set WORK.OUTP12B01 may be incomplete.  When this step was stopped there were 0 observations and 7 
+         variables.
+WARNING: The data set WORK.OUTEF12B01 may be incomplete.  When this step was stopped there were 0 observations and 6 
+         variables.
+WARNING: The data set WORK.OUTLR12B01 may be incomplete.  When this step was stopped there were 0 observations and 7 
+         variables.
+WARNING: The data set WORK.OUTA12B01 may be incomplete.  When this step was stopped there were 0 observations and 3 
+         variables.
+NOTE: PROCEDURE ESTIMATOR used (Total process time):
+      real time           0.18 seconds
+      cpu time            0.03 seconds
+      
+101        
+
+
+102        proc print data=outdata&test ;
+103        title Proc Estimator;
+104        title2 "Test &test Imputation Results";
+105        run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+
+106        
+107        proc print data=outstatus&test ;
+108        title Proc Estimator;
+109        title2 "Test &test Output Status";
+110        run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+111        
+112        PROC PRINT DATA= OUTA&test;
+113        title Acceptable Observations;
+114        run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+115        
+116        PROC PRINT DATA= OUTEF&test;
+117        title EF Parameter Calculations;
+118        run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+119        PROC PRINT DATA= OUTLR&test;
+120        title LR Parameter Calculations;
+121        run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+122        
+123        PROC PRINT DATA= OUTP&test;
+124        title Imputation Statistics;
+125        run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+126        
+
+ERROR: Errors printed on page 1.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.18 seconds
+      cpu time            0.45 seconds
+      

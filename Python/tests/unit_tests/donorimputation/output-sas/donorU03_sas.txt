@@ -1,0 +1,301 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+2536  /* Option 1:  NLIMIT<1 (real), MRL<0 - both are invalid */
+2537  PROC DONORIMPUTATION
+2538     DATA = indata
+2539     INSTATUS = instat
+2540     OUT = outdata
+2541     OUTSTATUS = outstat
+2542     DONORMAP = map
+2543     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+2544     MINDONORS = 1
+2545     PCENTDONORS = 1
+2546     N = 25
+2547     NLIMIT = .5
+                  --
+                  22
+                  200
+ERROR 22-322: Expecting an integer constant.  
+ERROR 200-322: The symbol is not recognized and will be ignored.
+2548     MRL = -.5
+2549     SEED = 100
+              -
+              22
+              76
+ERROR 22-322: Syntax error, expecting one of the following: DISPLAYLEVEL, MINDONORS, MRL, N, NLIMIT, PCENTDONORS, 
+              SEED.  
+ERROR 76-322: Syntax error, statement will be ignored.
+2550     ;
+2551     ID ident;
+2552     MUSTMATCH VAR2;
+2553     BY AREA;
+2554  RUN;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+2555  
+2556  /* Option 2:  NLIMIT>=1 (integer), MRL<0 - only MRL is invalid */
+
+
+2557  PROC DONORIMPUTATION
+2558     DATA = indata
+2559     INSTATUS = instat
+2560     OUT = outdata
+2561     OUTSTATUS = outstat
+2562     DONORMAP = map
+2563     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+2564     MINDONORS = 1
+2565     PCENTDONORS = 1
+2566     N = 25
+2567     NLIMIT = 1
+2568     MRL = -.5
+2569     SEED = 100
+2570     ;
+2571     ID ident;
+2572     MUSTMATCH VAR2;
+2573     BY AREA;
+2574  RUN;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = VAR1>=0; VAR2>=0; VAR1<=VAR2;
+NOTE: POSTEDITS not specified.
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 25
+NOTE: NLIMIT = 1
+NOTE: MRL = -0.5
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: SEED = 100
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = VAR2 
+NOTE: BY = AREA 
+
+NOTE: No POSTEDITS have been specified. EDITS will be taken as POSTEDITS.
+ERROR: Invalid MRL. MRL must be greater than 0.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.01 seconds
+      
+2575  
+2576  /* Option 3:  NLIMIT>=1 (real), MRL>0 - only NLIMIT is invalid */
+
+
+2577  PROC DONORIMPUTATION
+2578     DATA = indata
+2579     INSTATUS = instat
+2580     OUT = outdata
+2581     OUTSTATUS = outstat
+2582     DONORMAP = map
+2583     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+2584     MINDONORS = 1
+2585     PCENTDONORS = 1
+2586     N = 25
+2587     NLIMIT = 1.5
+                  ---
+                  22
+                  200
+ERROR 22-322: Expecting an integer constant.  
+ERROR 200-322: The symbol is not recognized and will be ignored.
+2588     MRL = .5
+2589     SEED = 100
+2590     ;
+2591     ID ident;
+2592     MUSTMATCH VAR2;
+2593     BY AREA;
+2594  RUN;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+2595  
+2596  /* Option 4:  NLIMIT<0 (integer), MRL<0 - both are invalid */
+
+
+2597  PROC DONORIMPUTATION
+2598     DATA = indata
+2599     INSTATUS = instat
+2600     OUT = outdata
+2601     OUTSTATUS = outstat
+2602     DONORMAP = map
+2603     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+2604     MINDONORS = 1
+2605     PCENTDONORS = 1
+2606     N = 25
+2607     NLIMIT = -1
+2608     MRL = -.5
+2609     SEED = 100
+2610     ;
+2611     ID ident;
+2612     MUSTMATCH VAR2;
+2613     BY AREA;
+2614  RUN;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = VAR1>=0; VAR2>=0; VAR1<=VAR2;
+NOTE: POSTEDITS not specified.
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 25
+NOTE: NLIMIT = -1
+NOTE: MRL = -0.5
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: SEED = 100
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = VAR2 
+NOTE: BY = AREA 
+
+NOTE: No POSTEDITS have been specified. EDITS will be taken as POSTEDITS.
+ERROR: Invalid NLIMIT. NLIMIT must be greater than or equal to 1.
+ERROR: Invalid MRL. MRL must be greater than 0.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.01 seconds
+      
+2615  
+2616  /* Option 5:  NLIMIT>=1 (integer), MRL=0 - only MRL is invalid */
+
+
+2617  PROC DONORIMPUTATION
+2618     DATA = indata
+2619     INSTATUS = instat
+2620     OUT = outdata
+2621     OUTSTATUS = outstat
+2622     DONORMAP = map
+2623     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+2624     MINDONORS = 1
+2625     PCENTDONORS = 1
+2626     N = 25
+2627     NLIMIT = 2
+2628     MRL = 0
+2629     SEED = 100
+2630     ;
+2631     ID ident;
+2632     MUSTMATCH VAR2;
+2633     BY AREA;
+2634  RUN;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = VAR1>=0; VAR2>=0; VAR1<=VAR2;
+NOTE: POSTEDITS not specified.
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 25
+NOTE: NLIMIT = 2
+NOTE: MRL = 0
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: SEED = 100
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = VAR2 
+NOTE: BY = AREA 
+
+NOTE: No POSTEDITS have been specified. EDITS will be taken as POSTEDITS.
+ERROR: Invalid MRL. MRL must be greater than 0.
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there were 0 observations and 0 
+         variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.01 seconds
+      
+2635  
+
+
+2636  proc printto;
+2637  run;
+

@@ -1,0 +1,355 @@
+1                                                                                                                        The SAS System                                                                                             09:39 Friday, April 28, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.54 seconds
+      cpu time            0.26 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* Observations with a missing value for the key variable in the input data set will
+2          not be processed.  A warning message should be entered in the log with a counter
+3          for the number of observations dropped. */
+4          options nodate nonumber ls=80 ps=100;
+5          %let test=K02;
+6          
+7          data indata;
+8              input IDENT $ 1-3 X1 X2 X3;
+9                  cards;
+
+NOTE: The data set WORK.INDATA has 6 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+16         ;
+17         run;
+18         
+19         proc errorloc
+20            data=indata
+21            outstatus=outstatusa&test
+22            outreject=outrejecta&test
+23            edits="x1>=5; x1<=10; x2>=-1; x1+x2<=50; x3>=100; x3<=150;
+23       ! x1+x2+x3>=135; x1+x2+x3<=210;"
+24            rejectnegative
+25            seed=1
+26         ;
+27         id IDENT;
+28         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ERRORLOC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:51:08
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUSAK02
+NOTE: OUTREJECT = WORK.OUTREJECTAK02
+NOTE: EDITS = x1>=5; x1<=10; x2>=-1; x1+x2<=50; x3>=100; x3<=150; 
+                                 The SAS System
+
+              x1+x2+x3>=135; x1+x2+x3<=210;
+NOTE: WEIGHTS not specified. Weight will be set to 1 for each variable in EDITS.
+NOTE: CARDINALITY not specified. The result will not be constrained by 
+      cardinality.
+NOTE: TIMEPEROBS = 20 (default)
+NOTE: SEED = 1
+NOTE: REJECTNEGATIVE
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: RANDNUMVAR not specified.
+NOTE: BY not specified.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+8
+                                                       - X1  <= 0
+
+9
+                                                       - X2  <= 0
+
+10
+                                                       - X3  <= 0
+
+0
+                                                       - X1  <= -5
+
+1
+                                                         X1  <= 10
+
+2
+                                                       - X2  <= 1
+
+3
+                                                    X1 + X2  <= 50
+
+4
+                                                       - X3  <= -100
+
+5
+                                                         X3  <= 150
+
+6
+                                             - X1 - X2 - X3  <= -135
+
+7
+                                               X1 + X2 + X3  <= 210
+
+REDUCED set of EDITS:
+
+9
+                                                       - X2  <= 0
+
+0
+                                                       - X1  <= -5
+
+1
+                                                         X1  <= 10
+
+3
+                                                    X1 + X2  <= 50
+
+4
+                                                       - X3  <= -100
+
+5
+                                                         X3  <= 150
+
+6
+                                             - X1 - X2 - X3  <= -135
+
+
+Number of observations ....................................:       6     100.00%
+Number of observations dropped because the key is missing .:       2      33.33%
+Number of observations that passed edits ..................:       0       0.00%
+Number of observations that failed edits ..................:       4      66.67%
+    Number of observations with variables to impute .......:       4      66.67%
+        Number of variables to impute .....................:       7
+
+NOTE: There were 6 observations read from the data set WORK.INDATA.
+NOTE: The data set WORK.OUTSTATUSAK02 has 7 observations and 3 variables.
+NOTE: The data set WORK.OUTREJECTAK02 has 0 observations and 2 variables.
+NOTE: PROCEDURE ERRORLOC used (Total process time):
+      real time           0.18 seconds
+      cpu time            0.04 seconds
+      
+
+29         
+30         proc errorloc
+31            data=indata
+32            outstatus=outstatusb&test
+33            outreject=outrejectb&test
+34            edits="x1>=5; x1<=10; x2>=-1; x1+x2<=50; x3>=100; x3<=150;
+34       ! x1+x2+x3>=135; x1+x2+x3<=210;"
+35            acceptnegative
+36            seed=1
+37         ;
+38         id IDENT;
+                                 The SAS System
+
+39         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ERRORLOC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:51:08
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUSBK02
+NOTE: OUTREJECT = WORK.OUTREJECTBK02
+NOTE: EDITS = x1>=5; x1<=10; x2>=-1; x1+x2<=50; x3>=100; x3<=150; 
+              x1+x2+x3>=135; x1+x2+x3<=210;
+NOTE: WEIGHTS not specified. Weight will be set to 1 for each variable in EDITS.
+NOTE: CARDINALITY not specified. The result will not be constrained by 
+      cardinality.
+NOTE: TIMEPEROBS = 20 (default)
+NOTE: SEED = 1
+NOTE: ACCEPTNEGATIVE
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: RANDNUMVAR not specified.
+NOTE: BY not specified.
+
+Set of EDITS: 
+
+0
+                                                       - X1  <= -5
+
+1
+                                                         X1  <= 10
+
+2
+                                                       - X2  <= 1
+
+3
+                                                    X1 + X2  <= 50
+
+4
+                                                       - X3  <= -100
+
+5
+                                                         X3  <= 150
+
+6
+                                             - X1 - X2 - X3  <= -135
+
+7
+                                               X1 + X2 + X3  <= 210
+
+REDUCED set of EDITS:
+
+0
+                                                       - X1  <= -5
+
+1
+                                                         X1  <= 10
+
+2
+                                                       - X2  <= 1
+
+3
+                                                    X1 + X2  <= 50
+
+4
+                                                       - X3  <= -100
+
+5
+                                                         X3  <= 150
+
+6
+                                             - X1 - X2 - X3  <= -135
+
+
+Number of observations ....................................:       6     100.00%
+Number of observations dropped because the key is missing .:       2      33.33%
+Number of observations that passed edits ..................:       0       0.00%
+Number of observations that failed edits ..................:       4      66.67%
+    Number of observations with variables to impute .......:       4      66.67%
+        Number of variables to impute .....................:       7
+
+NOTE: There were 6 observations read from the data set WORK.INDATA.
+NOTE: The data set WORK.OUTSTATUSBK02 has 7 observations and 3 variables.
+NOTE: The data set WORK.OUTREJECTBK02 has 0 observations and 2 variables.
+NOTE: PROCEDURE ERRORLOC used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.00 seconds
+      
+
+40         
+41         proc print data=indata;
+42         title "ErrorLoc Test &test Input Data";
+43         run;
+
+NOTE: There were 6 observations read from the data set WORK.INDATA.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.10 seconds
+                                 The SAS System
+
+      cpu time            0.04 seconds
+      
+
+44         proc print data=outstatusa&test;
+45         title "ErrorLoc Test &test a) Output Status";
+46         run;
+
+NOTE: There were 7 observations read from the data set WORK.OUTSTATUSAK02.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+47         proc print data=outrejecta&test;
+48         title "ErrorLoc Test &test a) Rejected Records";
+49         run;
+
+NOTE: No observations in data set WORK.OUTREJECTAK02.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+50         proc print data=outstatusb&test;
+51         title "ErrorLoc Test &test b) Output Status";
+52         run;
+
+NOTE: There were 7 observations read from the data set WORK.OUTSTATUSBK02.
+NOTE: The PROCEDURE PRINT printed page 3.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+53         proc print data=outrejectb&test;
+54         title "ErrorLoc Test &test b) Rejected Records";
+55         run;
+
+NOTE: No observations in data set WORK.OUTREJECTBK02.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+56         
+57         
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.12 seconds
+      cpu time            0.38 seconds
+      

@@ -1,0 +1,114 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1536  
+1537  proc donorimputation
+1538     data=indata
+1539     instatus=instat
+1540     out=outdata
+1541     outstatus=outstat
+1542     donormap=map
+1543     edits="Q1 + Q2 + Q3 + Q4 = total;"
+1544     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+1545     mindonors=1
+1546     pcentdonors=1
+1547     n=3
+1548     matchfieldstat
+1549     eligdon=any
+1550     acceptnegative
+1551     seed=1
+1552     ;
+1553     id ident;
+1554     mustmatch STAFF;
+1555     dataexclvar toexcl;
+1556  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1
+NOTE: ACCEPTNEGATIVE
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+NOTE: The minimal set of edits is equivalent to the original set of edits specified.
+
+NOTE: The minimal set of post imputation edits is equivalent to the original set of edits 
+      specified.
+
+
+WARNING: There were 3 observations dropped from DATA data set because one/more EDITS 
+         variables or one/more MUSTMATCH variables outside the EDITS group are missing in 
+         DATA data set and there is no corresponding FTI in INSTATUS data set.
+
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:      10
+Number of observations dropped ....................:       3
+    missing key ...................................:       0
+    missing data ..................................:       3
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       0
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:       7     100.00%
+Number of donors ..................................:       4      57.14%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       3      42.86%
+    with matching fields ..........................:       3      42.86%
+        imputed ...................................:       3      42.86%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+
+NOTE: There were 10 observations read from the data set WORK.INDATA.
+NOTE: There were 8 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 3 observations and 6 variables.
+NOTE: The data set WORK.OUTSTAT has 18 observations and 3 variables.
+NOTE: The data set WORK.MAP has 3 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.00 seconds
+      
+
+1557  
+1558  proc printto;
+1559  run;
+

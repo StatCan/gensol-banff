@@ -1,0 +1,44 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1509  proc donorimputation
+1510     data=indat
+1511     instatus=instat
+ERROR: File WORK.INDAT.DATA does not exist.
+1512     out=outdata
+1513     outstatus=outstat
+1514     donormap=map
+1515     edits="Q1 + Q2 + Q3 + Q4 = total;"
+1516     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+1517     mindonors=1
+1518     pcentdonors=1
+1519     n=3
+1520     matchfieldstat
+1521     eligdon=any
+1522     ;
+1523     id ident;
+1524     /*mustmatch STAFF;
+1525     dataexclvar toexcl;*/
+1526  run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+1527  proc printto;
+1528  run;
+

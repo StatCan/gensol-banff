@@ -1,0 +1,220 @@
+1                                                                                                                        The SAS System                                                                                            13:01 Wednesday, May 31, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.51 seconds
+      cpu time            0.23 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* Test Est 01a04 */
+2          
+3          /* The estimator does not require calculation of parameters, so the parameters countcriteria and
+4          percentcriteria, excludeimputed, excludeoutliers and weightvariable should not be specified.
+5          
+6          In this test, excludeoutliers is specified, so an appropriate error message is expected */
+7          
+8          %let test=01a04;
+9          
+10         options nodate nonumber linesize=120 pagesize=32000;
+11         
+12         data databf ;
+13         infile cards;
+14         input
+15         ID $ X Y Z;
+16         cards ;
+
+NOTE: The data set WORK.DATABF has 3 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+20         ;
+21         
+22         run ;
+23         
+24         proc sort;
+25         by ID;
+26         run;
+
+NOTE: There were 3 observations read from the data set WORK.DATABF.
+NOTE: The data set WORK.DATABF has 3 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+27         
+28         
+29         data statusbf;
+30         infile cards;
+31         input fieldid $ status $ id $;
+32         cards;
+
+NOTE: The data set WORK.STATUSBF has 3 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+36              ;
+37         run;
+38         
+39         data estimat;
+40         input
+41         active 1 excludeimputed $3 excludeoutliers $5
+42         countcriteria 7-8 percentcriteria 9-10
+43         algorithmname $12-24
+44         weightvariable $25
+45         variancevariable $26 varianceperiod $28 varianceexponent 30
+46         fieldid $42-50
+47         auxvariables $52-58 RANDOMERROR $ 60-64
+48         ;
+49         
+50         cards;
+
+NOTE: The data set WORK.ESTIMAT has 1 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+52         ;
+53         run;
+54         
+55         proc ESTIMATOR
+56         data=databf
+57         datastatus=statusbf
+58         out=outdat&test
+59         outstatus=outstatu&test
+60         estimator=estimat
+61         seed=30000
+62         OUTESTPARMS=OUP
+63         OUTACCEPTABLE=OUTA
+64         OUTESTEF=OUTE
+65         ;
+66         id ID;
+67         
+68         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ESTIMATOR Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:54:27
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.DATABF
+NOTE: DATASTATUS = WORK.STATUSBF
+NOTE: HIST = _NULL_
+NOTE: HISTSTATUS = _NULL_
+NOTE: ALGORITHM = _NULL_
+NOTE: ESTIMATOR = WORK.ESTIMAT
+NOTE: OUTDATA = WORK.OUTDAT01A04
+NOTE: OUTSTATUS = WORK.OUTSTATU01A04
+NOTE: OUTRANDOMERROR = _NULL_
+NOTE: OUTACCEPTABLE = WORK.OUTA
+NOTE: OUTESTPARMS = WORK.OUP
+NOTE: OUTESTEF = WORK.OUTE
+NOTE: OUTESTLR = _NULL_
+NOTE: SEED = 30000
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ID
+NOTE: DATAEXCLVAR not specified.
+NOTE: HISTEXCLVAR not specified.
+NOTE: BY not specified.
+
+Set of estimator specifications:
+-------------------------------
+
+Estimator 0.
+Algorithm name           : CURSUM2
+Description              : The sum of two auxiliary variable from the current data table.
+Type                     : EF
+Status                   : SM2
+Formula                  : AUX1+AUX2
+Field id                 : Z
+Auxiliary variables      : X,Y
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : Y
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+ERROR: Estimator: Estimator 0: EXCLUDEOUTLIERS cannot be specified for an EF estimator that does not calculate an 
+       average or does not have a random error to calculate.
+
+NOTE: There were 1 observations read from the data set WORK.ESTIMAT.
+NOTE: The data set WORK.OUTDAT01A04 has 0 observations and 0 variables.
+NOTE: The data set WORK.OUTSTATU01A04 has 0 observations and 0 variables.
+NOTE: The data set WORK.OUP has 0 observations and 0 variables.
+NOTE: The data set WORK.OUTA has 0 observations and 0 variables.
+NOTE: The data set WORK.OUTE has 0 observations and 0 variables.
+NOTE: PROCEDURE ESTIMATOR used (Total process time):
+      real time           0.39 seconds
+      cpu time            0.03 seconds
+      
+
+69         
+
+ERROR: Errors printed on page 1.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.19 seconds
+      cpu time            0.32 seconds
+      

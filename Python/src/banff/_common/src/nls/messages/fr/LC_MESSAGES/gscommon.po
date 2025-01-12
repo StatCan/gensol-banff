@@ -1,0 +1,515 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2024 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-06 20:27+0000\n"
+"PO-Revision-Date: 2024-09-25 15:13+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../src/io_util/type_converters.py:92
+msgid "Specification '{}' not supported, must use one of '{}'"
+msgstr "La spécification '{}' n'est pas prise en charge, vous devez utiliser l'une des valeurs '{}'"
+
+#: ../../src/io_util/type_converters.py:105
+#: ../../src/io_util/type_converters.py:116
+#: ../../src/io_util/type_converters.py:126
+#: ../../src/io_util/type_converters.py:227
+#: ../../src/io_util/type_converters.py:242
+#: ../../src/io_util/type_converters.py:287
+msgid "Unexpected error occurred while loading {} file: '{}'"
+msgstr "Une erreur inattendue s'est produite lors du chargement du fichier {}: '{}'"
+
+#. CONTEXT: ...converting <object format> to <another object format>
+#: ../../src/io_util/type_converters.py:144
+#: ../../src/io_util/type_converters.py:156
+#: ../../src/io_util/type_converters.py:203
+#: ../../src/io_util/type_converters.py:303
+#: ../../src/io_util/type_converters.py:319
+msgid "Unexpected error occurred while converting `{}` to `{}`"
+msgstr "Une erreur inattendue s'est produite lors de la conversion de `{}` en `{}`"
+
+#: ../../src/io_util/type_converters.py:171
+#: ../../src/io_util/type_converters.py:191
+msgid "pandas reports failure to write to file"
+msgstr "pandas signale un échec d'écriture dans un fichier"
+
+#: ../../src/io_util/type_converters.py:174
+#: ../../src/io_util/type_converters.py:182
+#: ../../src/io_util/type_converters.py:194
+#: ../../src/io_util/type_converters.py:336
+#: ../../src/io_util/type_converters.py:348
+#: ../../src/io_util/type_converters.py:356
+msgid "Unexpected error occurred while writing `{}` to {} file: '{}'"
+msgstr "Une erreur inattendue s'est produite lors de l'écriture de `{}` dans le fichier {}: '{}'"
+
+#: ../../src/io_util/processing.py:51 ../../src/io_util/processing.py:110
+#: ../../src/io_util/processing.py:257
+msgid "Invalid type: `{}` only supports types: {}"
+msgstr "Type non valide: `{}` ne prend en charge que les types: {}"
+
+#: ../../src/io_util/processing.py:54
+msgid "Invalid type: `{}` requires identically typed datasets"
+msgstr "Type non valide: `{}` nécessite des ensembles de données de type identique"
+
+#: ../../src/io_util/normalization.py:82
+msgid "Unable to normalize variable list: `{}`"
+msgstr "Impossible de normaliser la liste des variables: `{}`"
+
+#: ../../src/io_util/io_util.py:110
+msgid "Bytes used: {}"
+msgstr "Octets utilisés: {}"
+
+#: ../../src/io_util/io_util.py:122
+msgid "Dataset '{}' has {} rows and {} columns"
+msgstr "L'ensemble de données '{}' contient {} lignes et {} colonnes"
+
+#: ../../src/io_util/io_util.py:123
+msgid ""
+"Dataset '{}' has the following metadata\n"
+"{}"
+msgstr ""
+"L'ensemble de données '{}' contient les métadonnées suivantes\n"
+"{}"
+
+#: ../../src/io_util/io_util.py:287
+msgid "Specifying `False` not allowed for mandatory dataset '{}'"
+msgstr "La spécification de `False` n'est pas autorisée pour l'ensemble de données obligatoire '{}'"
+
+#: ../../src/io_util/io_util.py:344
+msgid "Loading dataset from file: '{}'"
+msgstr "Chargement de l'ensemble de données à partir du fichier: '{}'"
+
+#: ../../src/io_util/io_util.py:348
+msgid "File does not exist: '{}'"
+msgstr "Le fichier n'existe pas: '{}'"
+
+#: ../../src/io_util/io_util.py:351
+msgid "File exists: '{}'"
+msgstr "Le fichier existe: '{}'"
+
+#. CONTEXT: Loading <file format> file into <object format>
+#: ../../src/io_util/io_util.py:357 ../../src/io_util/io_util.py:360
+#: ../../src/io_util/io_util.py:364 ../../src/io_util/io_util.py:369
+msgid "Loading {} file into `{}`"
+msgstr "Chargement du fichier {} dans `{}`"
+
+#: ../../src/io_util/io_util.py:365
+msgid "csv files are not recommended for input due to low numeric precision and inconsistent data types"
+msgstr "Les fichiers CSV ne sont pas recommandés pour la saisie en raison d'une faible précision numérique et de types de données incohérents."
+
+#: ../../src/io_util/io_util.py:372
+msgid "Input file type not supported: '{}'"
+msgstr "Type de fichier d'entrée non pris en charge: '{}'"
+
+#: ../../src/io_util/io_util.py:381 ../../src/io_util/io_util.py:385
+msgid "Converting `{}` to `{}`"
+msgstr "Conversion de `{}` en `{}`"
+
+#: ../../src/io_util/io_util.py:389
+msgid "Received `None`, returning `None`"
+msgstr "Reçu `None`, retournant `None`"
+
+#: ../../src/io_util/io_util.py:392 ../../src/io_util/io_util.py:403
+#: ../../src/io_util/io_util.py:458
+msgid "Intermediate dataset's type not supported: `{}`"
+msgstr "Le type de jeu de données intermédiaire n'est pas pris en charge: `{}`"
+
+#: ../../src/io_util/io_util.py:420
+msgid "Writing dataset to file: '{}'"
+msgstr "Écriture de l'ensemble de données dans le fichier: '{}'"
+
+#. CONTEXT: Saving dataset to <file format> file: '<file path>'
+#: ../../src/io_util/io_util.py:428 ../../src/io_util/io_util.py:434
+#: ../../src/io_util/io_util.py:440
+msgid "Saving dataset to {} file: '{}'"
+msgstr "Enregistrement du jeu de données dans le fichier {}: '{}'"
+
+#: ../../src/io_util/io_util.py:446
+msgid "Output file type not supported: '{}'"
+msgstr "Type de fichier de sortie non pris en charge: '{}'"
+
+#: ../../src/io_util/io_util.py:479
+msgid "Input dataset type is `{}`, returning as-is"
+msgstr "Le type de jeu de données d'entrée est `{}`, renvoyé tel quel"
+
+#: ../../src/io_util/io_util.py:486
+msgid "Input dataset is `str`, inspecting further"
+msgstr "L'ensemble de données d'entrée est `str`, inspecté plus en détail"
+
+#: ../../src/io_util/io_util.py:488
+msgid "Input dataset invalid: empty string"
+msgstr "Ensemble de données d'entrée non valide : chaîne vide"
+
+#: ../../src/io_util/io_util.py:496
+msgid "Input dataset is file path: '{}'"
+msgstr "Le jeu de données d'entrée est un chemin de fichier: '{}'"
+
+#: ../../src/io_util/io_util.py:502
+msgid "Input dataset file path does not exist: '{}'"
+msgstr "Le chemin d'accès au fichier de données d'entrée n'existe pas: '{}'"
+
+#: ../../src/io_util/io_util.py:508
+msgid "Input Dataset is non-empty string with length: {}"
+msgstr "L'ensemble de données d'entrée est une chaîne non vide d'une longueur: {}"
+
+#: ../../src/io_util/io_util.py:513
+msgid "Input dataset specification unrecognized, assuming non-existent file path: '{}'"
+msgstr "Spécification du jeu de données d'entrée non reconnue, en supposant un chemin de fichier inexistant: '{}'"
+
+#: ../../src/io_util/io_util.py:517
+msgid "Input dataset type not supported: `{}`"
+msgstr "Type de jeu de données d'entrée non pris en charge: `{}`"
+
+#: ../../src/io_util/io_util.py:560
+msgid "No destination specified, returning default format: '{}'"
+msgstr "Aucune destination spécifiée, format par défaut renvoyé: '{}'"
+
+#: ../../src/io_util/io_util.py:570 ../../src/io_util/io_util.py:574
+msgid "Output to object: `{}`"
+msgstr "Sortie vers l'objet: `{}`"
+
+#: ../../src/io_util/io_util.py:577
+msgid "Requested output object type not supported: '{}'"
+msgstr "Type d'objet de sortie demandé non pris en charge: '{}'"
+
+#: ../../src/io_util/io_util.py:581
+msgid "Validating: is destination a file path"
+msgstr "Validation: la destination est-elle un chemin de fichier"
+
+#: ../../src/io_util/io_util.py:588
+msgid "Directory of output file does not exist: '{}'"
+msgstr "Le répertoire du fichier de sortie n'existe pas: '{}'"
+
+#: ../../src/io_util/io_util.py:593
+msgid "No directory specified for output file, using current directory: '{}'"
+msgstr "Aucun répertoire spécifié pour le fichier de sortie, utilisation du répertoire actuel: '{}'"
+
+#: ../../src/io_util/io_util.py:598
+msgid "Requested output options unrecognized, type: `{}`"
+msgstr "Options de sortie demandées non reconnues, type: `{}`"
+
+#: ../../src/_log/gensys_logger.py:73
+msgid "Time zone for log entries: {} (UTC{:+})"
+msgstr "Fuseau horaire pour les entrées du journal: {} (UTC{:+})"
+
+#: ../../src/_log/capture.py:82
+msgid "<nothing was captured>"
+msgstr "<rien n'a été capturé>"
+
+#: ../../src/nls/__init__.py:15
+msgid "TEST MESSAGE for Native Language Support: Forest, naive, French, Creme Brulee"
+msgstr "MESSAGE DE TEST pour la prise en charge de la langue maternelle: forêt, naïf, français, crème brûlée"
+
+#: ../../src/nls/nls.py:154
+msgid "Invalid `lang`, expecting `SupportedLanguage` member"
+msgstr "`lang` non valide, membre `SupportedLanguage` attendu"
+
+#: ../../src/nls/nls.py:161
+msgid "Language not supported, using default language: {}"
+msgstr "Langue non prise en charge, langue par défaut utilisée: {}"
+
+#: ../../src/proc/loader.py:33
+msgid "library loader unable to determine language, defaulting to English"
+msgstr "le chargeur de bibliothèque ne parvient pas à déterminer la langue, par défaut l'anglais"
+
+#: ../../src/proc/loader.py:68
+msgid "C build not found at '{}'"
+msgstr "Version C introuvable sur '{}'"
+
+#: ../../src/proc/loader.py:88 ../../src/proc/loader.py:98
+#: ../../src/proc/loader.py:108
+msgid "Unexpected exception occurred while loading '{}' function"
+msgstr "Une exception inattendue s'est produite lors du chargement de la fonction '{}'"
+
+#: ../../src/proc/loader.py:113
+msgid "OSError exception occurred while loading shared library '{}'"
+msgstr "Une exception OSError s'est produite lors du chargement de la bibliothèque partagée '{}'"
+
+#: ../../src/proc/loader.py:115
+msgid "Successfully loaded '{}' module from '{}'"
+msgstr "Le module '{}' a été chargé avec succès depuis '{}'"
+
+#: ../../src/proc/validation.py:15
+msgid "option '{}' must be type `{}`, but it is `{}`"
+msgstr "l'option '{}' doit être de type `{}`, mais c'est `{}`"
+
+#: ../../src/proc/stc_proc.py:87
+msgid "Procedure-level logging initialized using specified logger: '{}'"
+msgstr "Journalisation au niveau de la procédure initialisée à l'aide du journal spécifié: '{}'"
+
+#: ../../src/proc/stc_proc.py:95
+msgid "Procedure-level logging initialized with default parent: '{}'"
+msgstr "Journalisation au niveau de la procédure initialisée avec le parent par défaut: '{}'"
+
+#: ../../src/proc/stc_proc.py:139 ../../src/proc/stc_proc.py:698
+#: ../../src/proc/stc_proc.py:823
+msgid "Internal error: subclass must implement `{}` method"
+msgstr "Erreur interne: la sous-classe doit implémenter la méthode `{}`"
+
+#: ../../src/proc/stc_proc.py:153 ../../src/proc/stc_proc.py:166
+msgid "'{}' dataset cannot be modified"
+msgstr "L'ensemble de données '{}' ne peut pas être modifié"
+
+#: ../../src/proc/stc_proc.py:207
+msgid "`capture` option: enabled so `logger` captures C output"
+msgstr "Option `capture`: activé pour que `logger` capture la sortie C"
+
+#: ../../src/proc/stc_proc.py:212
+msgid "`capture` option: configuring to suppress all procedure output"
+msgstr "Option `capture`: configuration pour supprimer toutes les sorties de procédure"
+
+#: ../../src/proc/stc_proc.py:217
+msgid "`capture` option: configuring to capture and reprint all procedure output"
+msgstr "Option `capture`: configuration pour capturer et réimprimer toutes les sorties de procédure"
+
+#: ../../src/proc/stc_proc.py:222
+msgid "`capture` option: default configuration (disabled)"
+msgstr "Option `capture`: configuration par défaut (désactivée)"
+
+#: ../../src/proc/stc_proc.py:226
+msgid "Invalid value for `{}` parameter"
+msgstr "Valeur non valide pour le paramètre `{}`"
+
+#: ../../src/proc/stc_proc.py:330
+msgid "Procedure '{}' C code not loaded"
+msgstr "Code C de la procédure'{}' non chargé"
+
+#: ../../src/proc/stc_proc.py:334
+msgid "Loading input datasets"
+msgstr "Chargement des jeux de données d'entrée"
+
+#: ../../src/proc/stc_proc.py:335
+msgid "TOTAL load input"
+msgstr "Entrée de charge TOTALE"
+
+#: ../../src/proc/stc_proc.py:338
+msgid "Preprocessing input datasets"
+msgstr "Prétraitement des ensembles de données d'entrée"
+
+#: ../../src/proc/stc_proc.py:339
+msgid "TOTAL preprocess"
+msgstr "Prétraitement TOTAL"
+
+#: ../../src/proc/stc_proc.py:346
+msgid "Packing inputs for C-code"
+msgstr "Entrées de conditionnement pour le code C"
+
+#: ../../src/proc/stc_proc.py:347
+msgid "TOTAL pack"
+msgstr "Pack TOTAL"
+
+#: ../../src/proc/stc_proc.py:350
+msgid "Executing C-code"
+msgstr "Exécution du code C"
+
+#: ../../src/proc/stc_proc.py:351
+msgid "Run Procedure"
+msgstr "Procédure d'exécution"
+
+#: ../../src/proc/stc_proc.py:358
+msgid "Extracting output datasets"
+msgstr "Extraction des ensembles de données de sortie"
+
+#: ../../src/proc/stc_proc.py:359
+msgid "TOTAL unpack"
+msgstr "Déballage TOTAL"
+
+#: ../../src/proc/stc_proc.py:366
+msgid "Writing output datasets"
+msgstr "Écriture des ensembles de données de sortie"
+
+#: ../../src/proc/stc_proc.py:367
+msgid "TOTAL output"
+msgstr "Rendement total"
+
+#: ../../src/proc/stc_proc.py:370
+msgid "Execution complete"
+msgstr "Exécution terminée"
+
+#: ../../src/proc/stc_proc.py:378
+msgid "load input '{}'"
+msgstr "charger l'entrée '{}'"
+
+#: ../../src/proc/stc_proc.py:380
+msgid "Loading dataset: '{}'"
+msgstr "Chargement du jeu de données: '{}'"
+
+#: ../../src/proc/stc_proc.py:383
+msgid "Error occurred while loading '{}' input dataset, type: `{}`"
+msgstr "Une erreur s'est produite lors du chargement de l'ensemble de données d'entrée '{}', type: `{}`"
+
+#. CONTEXT: Preprocessing: `<preprocessing option name>`
+#: ../../src/proc/stc_proc.py:394 ../../src/proc/stc_proc.py:439
+msgid "Preprocessing: `{}`"
+msgstr "Prétraitement: `{}`"
+
+#: ../../src/proc/stc_proc.py:406
+msgid "add BY variables to '{}' (includes adding and sorting)"
+msgstr "ajouter des variables BY à '{}' (inclut l'ajout et le tri)"
+
+#: ../../src/proc/stc_proc.py:409
+msgid "Adding BY variables to '{}' dataset"
+msgstr "Ajout de variables BY à l'ensemble de données '{}'"
+
+#: ../../src/proc/stc_proc.py:417
+msgid "sort prefilled '{}' (includes only sorting)"
+msgstr "trier prérempli '{}' (inclut uniquement le tri)"
+
+#: ../../src/proc/stc_proc.py:419
+msgid "Sorting prefilled '{}' dataset in ascending order of '{}' "
+msgstr "Tri du jeu de données prérempli '{}' par ordre croissant de '{}' "
+
+#: ../../src/proc/stc_proc.py:435
+msgid "Unable to add BY variables to '{}' dataset, proceeding with original dataset"
+msgstr "Impossible d'ajouter des variables BY à l'ensemble de données '{}', en poursuivant avec l'ensemble de données d'origine"
+
+#: ../../src/proc/stc_proc.py:447
+msgid "sort '{}'"
+msgstr "trier '{}'"
+
+#: ../../src/proc/stc_proc.py:452
+msgid "Sorting '{}' dataset in ascending order of '{}' "
+msgstr "Tri de l'ensemble de données '{}' par ordre croissant de '{}'"
+
+#. CONTEXT: ...again with '<names of variables used for sorting>', KeyError occurred (<system generated error message>)
+#: ../../src/proc/stc_proc.py:467
+msgid "Trying sort again with '{}', KeyError occurred ({})"
+msgstr "J'essaie à nouveau de trier avec '{}', une erreur de clé s'est produite ({})"
+
+#: ../../src/proc/stc_proc.py:479
+msgid "Unable to sort '{}' dataset, proceeding with original dataset"
+msgstr "Impossible de trier l'ensemble de données '{}', continuer avec l'ensemble de données d'origine"
+
+#: ../../src/proc/stc_proc.py:494
+msgid "pack parameters"
+msgstr "paramètres du pack"
+
+#: ../../src/proc/stc_proc.py:498
+msgid "Error occurred while packing parameters"
+msgstr "Une erreur s'est produite lors de l'emballage des paramètres"
+
+#: ../../src/proc/stc_proc.py:504
+msgid "pack '{}'"
+msgstr "paquet '{}'"
+
+#: ../../src/proc/stc_proc.py:506
+msgid "Packing '{}' dataset"
+msgstr "Emballage du jeu de données '{}'"
+
+#: ../../src/proc/stc_proc.py:510
+msgid "Error occurred while packing '{}' dataset, type: `{}`"
+msgstr "Une erreur s'est produite lors de l'emballage du jeu de données '{}', type: `{}`"
+
+#: ../../src/proc/stc_proc.py:515
+msgid "free intermediate input '{}'"
+msgstr "entrée intermédiaire gratuite '{}'"
+
+#: ../../src/proc/stc_proc.py:547
+msgid "~~~~~ C CODE BEGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+msgstr "~~~~~ DÉBUT DU CODE C ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+#: ../../src/proc/stc_proc.py:555
+msgid "C execution"
+msgstr "Exécution C"
+
+#: ../../src/proc/stc_proc.py:567 ../../src/proc/stc_proc.py:572
+msgid "~~~~~ C CODE END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+msgstr "~~~~~ FIN DU CODE C ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+#: ../../src/proc/stc_proc.py:568
+msgid "Procedure '{}' encountered an error, execution did not complete"
+msgstr "La procédure '{}' a rencontré une erreur, l'exécution n'a pas abouti"
+
+#: ../../src/proc/stc_proc.py:575
+msgid "Procedure '{}' encountered an error and terminated early: {} (return code {})"
+msgstr "La procédure '{}' a rencontré une erreur et s'est terminée prématurément : {} (code de retour {})"
+
+#: ../../src/proc/stc_proc.py:590
+msgid "free input dataset {}"
+msgstr "ensemble de données d'entrée gratuit {}"
+
+#: ../../src/proc/stc_proc.py:612
+msgid "unpack '{}'"
+msgstr "décompresser '{}'"
+
+#: ../../src/proc/stc_proc.py:614
+msgid "Unpacking '{}' dataset"
+msgstr "Déballage du jeu de données '{}'"
+
+#: ../../src/proc/stc_proc.py:617
+msgid "Error occurred while unpacking '{}' dataset"
+msgstr "Une erreur s'est produite lors du déballage du jeu de données '{}'"
+
+#: ../../src/proc/stc_proc.py:622
+msgid "free C output {}"
+msgstr "sortie C gratuite {}"
+
+#: ../../src/proc/stc_proc.py:625 ../../src/proc/stc_proc.py:653
+msgid "Optional dataset '{}' not requested"
+msgstr "Le jeu de données facultatif '{}' n'est pas demandé"
+
+#: ../../src/proc/stc_proc.py:640
+msgid "output '{}'"
+msgstr "sortir '{}'"
+
+#: ../../src/proc/stc_proc.py:642
+msgid "Processing '{}' dataset output"
+msgstr "Traitement de la sortie du jeu de données '{}'"
+
+#: ../../src/proc/stc_proc.py:645
+msgid "Error occurred while writing '{}' output dataset"
+msgstr "Une erreur s'est produite lors du déballage du jeu de données '{}'"
+
+#: ../../src/proc/stc_proc.py:650
+msgid "free intermediate output '{}'"
+msgstr "sortie intermédiaire gratuite '{}'"
+
+#: ../../src/proc/stc_proc.py:670 ../../src/proc/stc_proc.py:684
+msgid "default '{}' does not exist"
+msgstr "la valeur par défaut '{}' n'existe pas"
+
+#: ../../src/proc/stc_proc.py:720
+msgid "Unable to load '{}' procedure ({})"
+msgstr "Impossible de charger la procédure '{}'"
+
+#: ../../src/proc/stc_proc.py:725
+msgid "Binary for all procedures is missing, none will be loaded ({})"
+msgstr "Le binaire de toutes les procédures est manquant, aucun ne sera chargé ({})"
+
+#: ../../src/proc/stc_proc.py:812
+msgid "<no description>"
+msgstr "<aucune description>"
+
+#. CONTEXT: "<procedure name> procedure received an unexpected keyword argument '<key>'"  # noqa: ERA001
+#: ../../src/proc/stc_proc.py:844
+msgid "'{}' procedure received an unexpected keyword argument '{}'"
+msgstr "La procédure '{}' a reçu un argument de mot-clé inattendu '{}'"
+
+#: ../../src/proc/stc_proc.py:861
+msgid "The following path used for multiple output datasets: '{}'"
+msgstr "Le chemin suivant est utilisé pour plusieurs ensembles de données de sortie: '{}'"
+
+#. CONTEXT: [TIME] <name of time measurement>
+#: ../../src/diagnostics/time_measurement.py:64
+msgid "[TIME] {} {:.3f} seconds (WALL), {:.3f} seconds (CPU)"
+msgstr "[Temps] {} {:.3f} seconds (MUR), {:.3f} seconds (CPU)"
+
+#: ../../src/diagnostics/memory_usage.py:78
+msgid "[MEMORY] disabled (dependency missing, run `pip install psutil`)"
+msgstr "[MÉMOIRE] désactivé (dépendance manquante, exécutez `pip install psutil`)"
+
+#. CONTEXT: [MEMORY] <name of memory measurement>
+#: ../../src/diagnostics/memory_usage.py:86
+msgid "[MEMORY] {} change {:.0f} kB ({:.2f} GB), before {:.0f} kB ({:.2f} GB), after {:.0f} kB ({:.2f} GB)"
+msgstr "[MÉMOIRE] {} changement {:.0f} kB ({:.2f} GB), avant {:.0f} kB ({:.2f} GB), après {:.0f} kB ({:.2f} GB)"

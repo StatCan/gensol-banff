@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <BanffVersion>3.01.001</BanffVersion>
+    <ProcVersion>3.01.001</ProcVersion>
+    <BanffExports>301001</BanffExports>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="BanffVersion">
+      <Value>$(BanffVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ProcVersion">
+      <Value>$(ProcVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="BanffExports">
+      <Value>$(BanffExports)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

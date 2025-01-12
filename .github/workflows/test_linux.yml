@@ -1,0 +1,42 @@
+name: GitHub Test Linux
+on:
+  workflow_call:
+jobs: 
+  test_linux:        
+    name: "test linux"
+    runs-on: ubuntu-latest    
+    container:
+      image: python:3.12
+      options: --user root   
+    timeout-minutes: 10
+    steps:     
+      - name: checkout the git project
+        uses: actions/checkout@v4          
+      - name: download linux artifacts        
+        uses: actions/download-artifact@v4
+        with:          
+          name: linux_artifacts
+          path: Python/dist          
+      - name: checks
+        run: |
+          ls -R Python/dist
+          python -V         
+      - name: install french locales
+        run: |
+          # install French locales: for testing LC_NUMERIC locale setting
+          locale -a
+          apt-get clean && apt-get update && apt-get install -y locales
+          sed -i -e 's/# fr/fr/'        /etc/locale.gen
+          cat /etc/locale.gen
+          locale-gen          
+          locale -a
+      - name: test
+        run: |        
+          # install package (from `build` artifacts)         
+          python -m pip install banff[test] -v --no-index --no-deps --find-links ./Python/dist 
+          python -m pip install banff[test] -v --find-links ./Python/dist 
+          # run tests          
+          cd Python/tests
+          chmod +x ./run_pytest.sh
+          export python_cmd=python
+          ./run_pytest.sh /auto_pass  

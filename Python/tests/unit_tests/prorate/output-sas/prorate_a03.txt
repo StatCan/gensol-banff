@@ -1,0 +1,176 @@
+1                                                                                                                        The SAS System                                                                                          10:49 Thursday, August 10, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.34 seconds
+      cpu time            0.29 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* The key variable must be a character variable.  When it is numeric in the input status
+2          data file, Prorate should not proceed. Error messages should be printed in the log.*/
+3          %let test=A3;
+4          options nodate ls=72 ps=100;
+5          
+6          data indata;
+7               input ident $ VA VB VC VD TOT1;
+8               cards;
+
+NOTE: The data set WORK.INDATA has 1 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+10              ;
+11         run;
+12         
+13         data instat;
+14              input ident fieldid $ status $;
+15              cards;
+
+NOTE: The data set WORK.INSTAT has 3 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+19              ;
+20         
+21         proc prorate
+22            data=indata
+23            instatus=instat
+24            out=outdata
+25            outstatus=outstat
+26            outreject=reject
+27            edits="VA + VB+ VC + VD = TOT1;"
+28            decimal  = 0
+29            lowerbound = 0
+30            upperbound  = 999
+31            modifier = IMPUTED
+32            ;
+33            id ident;
+34         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE PRORATE Version 2.06.002
+2                            The SAS System
+
+NOTE: Created on Jan 19 2022 at 14:04:02
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: OUTREJECT = WORK.REJECT
+NOTE: EDITS = VA + VB+ VC + VD = TOT1;
+NOTE: METHOD = BASIC (default)
+NOTE: DECIMAL = 0
+NOTE: LOWERBOUND = 0
+NOTE: UPPERBOUND = 999
+NOTE: MODIFIER = IMPUTED
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: BY not specified.
+
+NOTE: EDITS PARSED for PRORATE procedure (if no modifier is specified 
+      for a variable, the value of the MODIFIER option will be used):
+
+--- GROUP ---
+EDIT Level: 0
+1.0000 VA:i + 
+1.0000 VB:i + 
+1.0000 VC:i + 
+1.0000 VD:i = TOT1
+
+ERROR: Variable ident is not character in INSTATUS data set.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax 
+      check mode. 
+      This prevents execution of subsequent data modification 
+      statements.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step 
+         was stopped there were 0 observations and 6 variables.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step 
+         was stopped there were 0 observations and 0 variables.
+WARNING: The data set WORK.REJECT may be incomplete.  When this step 
+         was stopped there were 0 observations and 0 variables.
+NOTE: PROCEDURE PRORATE used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.03 seconds
+      
+35         
+36         /*proc print data=indata;
+37         title "Prorate Test &test input data";
+38         run;
+39         
+40         proc print data=instat;
+41         title "Prorate Test &test input status";
+42         run;
+43         
+44         proc print data=outdata;
+45         title "Prorate Test &test output records";
+46         run;
+47         
+48         proc print data=outstat;
+49         title "Prorate Test &test output status";
+50         run;
+51         
+52         proc print data=reject;
+53         title "Prorate Test &test rejected records";
+54         run;
+
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.59 seconds
+      cpu time            0.40 seconds
+      

@@ -1,0 +1,50 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE OUTLIER Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:00:52
+NOTE: Email: banff@statcan.gc.ca
+NOTE:
+
+NOTE: DATA = WORK.INDATA1
+NOTE: OUTSTATUS = WORK.OUTSTATEB05
+NOTE: METHOD = SIGMAGAP
+NOTE: SIDE = BOTH (default)
+NOTE: SIGMA = MAD (default)
+NOTE: BETAI = 1.5
+NOTE: BETAE = 0.5
+NOTE: STARTCENTILE = 75 (default)
+NOTE: MINOBS = 10 (default)
+NOTE: OUTLIERSTAT not specified.
+NOTE: ACCEPTNEGATIVE
+NOTE: ACCEPTZERO (default)
+NOTE: ID = ident
+NOTE: VAR not specified.
+NOTE: WEIGHT not specified.
+NOTE: BY = area
+
+NOTE: The following messages are for the BY group:
+      area=1
+
+NOTE: Number of observations in DATA data set .....................:      10
+NOTE: Number of valid observations in DATA data set ...............:      10
+
+NOTE: The following messages are for the variable:
+      V1
+
+NOTE: Number of records used in Outlier Detection : 10.
+
+NOTE:                      Deviation =     3.706500
+
+NOTE:                 Exclusion Beta =     0.500000
+NOTE:            Exclusion Sigma-gap =     1.853250
+
+NOTE:                Imputation Beta =     1.500000
+NOTE:           Imputation Sigma-gap =     5.559750
+
+NOTE:          Left imputation bound =    15.000000
+NOTE:           Left exclusion bound =     3.000000
+NOTE:          Right exclusion bound =     7.000000
+NOTE:         Right imputation bound =     7.000000
+
+
+NOTE: The above message was for the following BY group:
+      area=1

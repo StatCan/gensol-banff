@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <SRC_DIR_CommonAPI>$(SolutionDir)libraries\_submodules\STC_C_Libraries\CommonAPI</SRC_DIR_CommonAPI>
+    <SRC_DIR_glpk>$(SolutionDir)libraries\_submodules\stc-glpk</SRC_DIR_glpk>
+    <SRC_DIR_LPInterface>$(SolutionDir)libraries\_submodules\STC_C_Libraries\LPInterface</SRC_DIR_LPInterface>
+    <SRC_DIR_SASUtilities>$(SolutionDir)libraries\_submodules\STC_C_Libraries\SASUtilities</SRC_DIR_SASUtilities>
+    <SRC_DIR_IOUtilities>$(SolutionDir)libraries\_submodules\STC_C_Libraries\IOUtilities</SRC_DIR_IOUtilities>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="SRC_DIR_CommonAPI">
+      <Value>$(SRC_DIR_CommonAPI)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SRC_DIR_glpk">
+      <Value>$(SRC_DIR_glpk)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SRC_DIR_LPInterface">
+      <Value>$(SRC_DIR_LPInterface)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SRC_DIR_SASUtilities">
+      <Value>$(SRC_DIR_SASUtilities)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SRC_DIR_IOUtilities">
+      <Value>$(SRC_DIR_IOUtilities)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,156 @@
+1                                                                                                                        The SAS System                                                                                         10:03 Tuesday, February 20, 2024
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.25 seconds
+      cpu time            0.20 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          %let tmpData = C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG\control_data;
+2          libname tmpLib "&tmpData";
+NOTE: Libref TMPLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG\control_data
+3          
+4          proc prorate
+5             data=tmpLib.prorate_ceag_a_indata
+6             instatus=tmpLib.prorate_ceag_a_instatus
+7             out=WORK.outdata
+8             outstatus=WORK.outstatus
+9             outreject=WORK.rejected
+10            edits=
+11            "B17026_Y8T130 + B17026_Y9_SR31T130 + B17026_Y9_SR32T130 + B17026_Y9_SR33T130 + B17026_Y9_SR34T130 = B17026_Y91T130;
+12            B17026_Y101_SR85 + B17026_Y10_SR85 = B17026_Y8T130;
+13            B17026_Y101_SR31 + B17026_Y10_SR31 = B17026_Y9_SR31T130;
+14            B17026_Y101_SR32 + B17026_Y10_SR32 = B17026_Y9_SR32T130;
+NOTE: The quoted string currently being processed has become more than 262 characters long.  You might have unbalanced quotation marks.
+15            B17026_Y101_SR33 + B17026_Y10_SR33 = B17026_Y9_SR33T130;
+16            B17026_Y101_SR34 + B17026_Y10_SR34 = B17026_Y9_SR34T130;"
+17            decimal=9
+18            lowerbound=0
+19            method=BASIC
+20            modifier=ALWAYS
+21            rejectnegative
+22            nobystats
+23            ;
+24            id I43600;
+25         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE PRORATE Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:04:02
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = TMPLIB.PRORATE_CEAG_A_INDATA
+NOTE: INSTATUS = TMPLIB.PRORATE_CEAG_A_INSTATUS
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUS
+NOTE: OUTREJECT = WORK.REJECTED
+NOTE: EDITS = B17026_Y8T130 + B17026_Y9_SR31T130 + B17026_Y9_SR32T130 + B17026_Y9_SR33T130 + B17026_Y9_SR34T130 = B17026_Y91T130;   B17026_Y101_SR85 + B17026_Y10_SR85 = B17026_Y8T130;   B17026_Y101_SR31 + B17026_Y10_SR31 = B17026_Y9_SR31T130;   
+              B17026_Y101_SR32 + B17026_Y10_SR32 = B17026_Y9_SR32T130;   B17026_Y101_SR33 + B17026_Y10_SR33 = B17026_Y9_SR33T130;   B17026_Y101_SR34 + B17026_Y10_SR34 = B17026_Y9_SR34T130;
+NOTE: METHOD = BASIC
+NOTE: DECIMAL = 9
+NOTE: LOWERBOUND = 0
+NOTE: UPPERBOUND not specified. The result will not be constrained by upper bound.
+NOTE: MODIFIER = ALWAYS
+NOTE: REJECTNEGATIVE
+NOTE: ID = I43600
+NOTE: BY not specified.
+
+NOTE: EDITS PARSED for PRORATE procedure (if no modifier is specified for a variable, the value of the MODIFIER option will be used):
+
+--- GROUP ---
+EDIT Level: 0
+1.0000 B17026_Y8T130:a + 
+1.0000 B17026_Y9_SR31T130:a + 
+1.0000 B17026_Y9_SR32T130:a + 
+1.0000 B17026_Y9_SR33T130:a + 
+1.0000 B17026_Y9_SR34T130:a = B17026_Y91T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR85:a + 
+1.0000 B17026_Y10_SR85:a = B17026_Y8T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR31:a + 
+1.0000 B17026_Y10_SR31:a = B17026_Y9_SR31T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR32:a + 
+1.0000 B17026_Y10_SR32:a = B17026_Y9_SR32T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR33:a + 
+1.0000 B17026_Y10_SR33:a = B17026_Y9_SR33T130
+
+EDIT Level: 1
+1.0000 B17026_Y101_SR34:a + 
+1.0000 B17026_Y10_SR34:a = B17026_Y9_SR34T130
+
+NOTE: INSTATUS data set will be ignored: none of modifiers are ORIGINAL or IMPUTED.
+
+Number of observations in DATA data set ...........:  151204
+Number of valid observations in DATA data set .....:  151204
+
+NOTE: There were 151204 observations read from the data set TMPLIB.PRORATE_CEAG_A_INDATA.
+NOTE: The data set WORK.OUTDATA has 45200 observations and 17 variables.
+NOTE: The data set WORK.OUTSTATUS has 125582 observations and 3 variables.
+NOTE: The data set WORK.REJECTED has 279 observations and 5 variables.
+NOTE: PROCEDURE PRORATE used (Total process time):
+      real time           0.48 seconds
+      cpu time            0.43 seconds
+      
+
+26         
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.78 seconds
+      cpu time            0.68 seconds
+      

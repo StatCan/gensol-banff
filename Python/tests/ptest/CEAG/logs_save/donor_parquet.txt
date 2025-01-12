@@ -1,0 +1,807 @@
+run_pytest.cmd - version:2023.10.05
+
+running pytest on -k
+============================= test session starts =============================
+platform win32 -- Python 3.10.11, pytest-7.4.3, pluggy-1.0.0 -- C:\temp\penv\dev2\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG
+collecting ... collected 12 items / 11 deselected / 1 selected
+
+test_donorimp.py::test_donorimp_ceag_parquet PASSED                      [100%]
+
+=================================== PASSES ====================================
+_________________________ test_donorimp_ceag_parquet __________________________
+---------------------------- Captured stdout call -----------------------------
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.__init__]:  procedure-level logging initialized with default parent 'banff'
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.__init__]:  capture: default configuration (disabled)
+2024-02-20 10:27:23,960 [INFO]:  Preparing to call C-code
+2024-02-20 10:27:23,960 [INFO]:  Loading input parameters and datasets
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.submit.load_input]:  [TIME] load parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.submit.load_input]:  [MEMORY] load parameters:   change 0 kB (0.00 GB), before 159506 kB (0.16 GB), after 159506 kB (0.16 GB)
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.submit.load_input]:  processing INDATA dataset
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset]:  input dataset is `str`, inspecting further
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset]:  input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_indata.parquet
+2024-02-20 10:27:23,960 [INFO]:  Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_indata.parquet
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file]:  file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_indata.parquet
+2024-02-20 10:27:23,960 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file]:  Loading parquet file using PyArrow
+2024-02-20 10:27:24,320 [DEBUG   , banff.donorimp.submit.load_input]:  [TIME] load input INDATA:   0.360 seconds (WALL), 1.234 seconds (CPU)
+2024-02-20 10:27:24,320 [DEBUG   , banff.donorimp.submit.load_input]:  [MEMORY] load input INDATA: change 1469542 kB (1.47 GB), before 159506 kB (0.16 GB), after 1629049 kB (1.63 GB)
+2024-02-20 10:27:24,320 [DEBUG   , banff.donorimp.submit.load_input]:  processing INSTATUS dataset
+2024-02-20 10:27:24,320 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset]:  input dataset is `str`, inspecting further
+2024-02-20 10:27:24,320 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset]:  input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_instatus.parquet
+2024-02-20 10:27:24,320 [INFO]:  Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_instatus.parquet
+2024-02-20 10:27:24,320 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file]:  file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_instatus.parquet
+2024-02-20 10:27:24,320 [DEBUG   , banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file]:  Loading parquet file using PyArrow
+2024-02-20 10:27:24,330 [DEBUG   , banff.donorimp.submit.load_input]:  [TIME] load input INSTATUS: 0.010 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:24,330 [DEBUG   , banff.donorimp.submit.load_input]:  [MEMORY] load input INSTATUS: change -2896 kB (-0.00 GB), before 1629049 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,330 [INFO]:  [TIME] TOTAL load input:    0.370 seconds (WALL), 1.234 seconds (CPU)
+2024-02-20 10:27:24,330 [INFO]:  [MEMORY] TOTAL load input:  change 1466647 kB (1.47 GB), before 159506 kB (0.16 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,330 [INFO]:  Preprocessing input datasets
+2024-02-20 10:27:24,330 [INFO]:  [TIME] TOTAL preprocessing: 0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:24,330 [INFO]:  [MEMORY] TOTAL preprocessing: change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,330 [INFO]:  Packing parameters and datasets into payload for C-code
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [TIME] pack parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [MEMORY] pack parameters:   change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  packing INDATA dataset
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload.interm_to_arrow_stream]:  converting PyArrow Table to Arrow stream
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [TIME] pack INDATA:         0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [MEMORY] pack INDATA:       change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [MEMORY] free intermediate input INDATA: change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  packing INSTATUS dataset
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload.interm_to_arrow_stream]:  converting PyArrow Table to Arrow stream
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [TIME] pack INSTATUS:       0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [MEMORY] pack INSTATUS:     change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.pack_payload]:  [MEMORY] free intermediate input INSTATUS: change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,335 [INFO]:  [TIME] TOTAL pack:          0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:24,335 [INFO]:  [MEMORY] TOTAL pack:        change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+2024-02-20 10:27:24,335 [INFO]:  Calling C-code
+2024-02-20 10:27:24,335 [DEBUG   , banff.donorimp.submit.run]:  ~~~~~ C CODE BEGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.run]:  [MEMORY] C execution:       change 1253 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1627406 kB (1.63 GB)
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.run]:  ~~~~~ C CODE END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.run]:  [MEMORY] free JSON input INDATA: change 0 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627406 kB (1.63 GB)
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.run]:  [MEMORY] free JSON input INSTATUS: change 0 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627406 kB (1.63 GB)
+2024-02-20 10:27:28,742 [INFO]:  [TIME] Run:                 4.406 seconds (WALL), 4.391 seconds (CPU)
+2024-02-20 10:27:28,742 [INFO]:  [MEMORY] Run:               change 1253 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1627406 kB (1.63 GB)
+2024-02-20 10:27:28,742 [INFO]:  Processing C-code output data
+2024-02-20 10:27:28,742 [INFO]:  Unpacking C-code output dataset(s)
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  unpacking OUTDATA dataset
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [TIME] unpack OUTDATA:      0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [MEMORY] unpack OUTDATA:    change 365 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627771 kB (1.63 GB)
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [MEMORY] free JSON output OUTDATA: change 197 kB (0.00 GB), before 1627771 kB (1.63 GB), after 1627967 kB (1.63 GB)
+2024-02-20 10:27:28,742 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  unpacking OUTSTATUS dataset
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [TIME] unpack OUTSTATUS:    0.005 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [MEMORY] unpack OUTSTATUS:  change 836 kB (0.00 GB), before 1627967 kB (1.63 GB), after 1628803 kB (1.63 GB)
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [MEMORY] free JSON output OUTSTATUS: change -1094 kB (-0.00 GB), before 1628803 kB (1.63 GB), after 1627709 kB (1.63 GB)
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  unpacking DONORMAP dataset
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [TIME] unpack DONORMAP:     0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [MEMORY] unpack DONORMAP:   change 119 kB (0.00 GB), before 1627709 kB (1.63 GB), after 1627828 kB (1.63 GB)
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.unpack_output_payload]:  [MEMORY] free JSON output DONORMAP: change 0 kB (0.00 GB), before 1627828 kB (1.63 GB), after 1627828 kB (1.63 GB)
+2024-02-20 10:27:28,747 [INFO]:  [TIME] TOTAL unpack:        0.005 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:28,747 [INFO]:  [MEMORY] TOTAL unpack:      change 422 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627828 kB (1.63 GB)
+2024-02-20 10:27:28,747 [INFO]:  handling output
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.handle_output]:  processing OUTDATA dataset output
+2024-02-20 10:27:28,747 [DEBUG   , banff.donorimp.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:27:28,762 [DEBUG   , banff.donorimp.submit.handle_output]:  [TIME] output OUTDATA:      0.015 seconds (WALL), 0.016 seconds (CPU)
+2024-02-20 10:27:28,762 [DEBUG   , banff.donorimp.submit.handle_output]:  [MEMORY] output OUTDATA:    change 3076 kB (0.00 GB), before 1627828 kB (1.63 GB), after 1630904 kB (1.63 GB)
+2024-02-20 10:27:28,762 [DEBUG   , banff.donorimp.submit.handle_output]:  [MEMORY] free intermediate output OUTDATA: change 0 kB (0.00 GB), before 1630904 kB (1.63 GB), after 1630904 kB (1.63 GB)
+2024-02-20 10:27:28,762 [DEBUG   , banff.donorimp.submit.handle_output]:  processing OUTSTATUS dataset output
+2024-02-20 10:27:28,762 [DEBUG   , banff.donorimp.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:27:28,782 [DEBUG   , banff.donorimp.submit.handle_output]:  [TIME] output OUTSTATUS:    0.020 seconds (WALL), 0.016 seconds (CPU)
+2024-02-20 10:27:28,782 [DEBUG   , banff.donorimp.submit.handle_output]:  [MEMORY] output OUTSTATUS:  change 2015 kB (0.00 GB), before 1630904 kB (1.63 GB), after 1632920 kB (1.63 GB)
+2024-02-20 10:27:28,782 [DEBUG   , banff.donorimp.submit.handle_output]:  [MEMORY] free intermediate output OUTSTATUS: change 127 kB (0.00 GB), before 1632920 kB (1.63 GB), after 1633047 kB (1.63 GB)
+2024-02-20 10:27:28,782 [DEBUG   , banff.donorimp.submit.handle_output]:  processing DONORMAP dataset output
+2024-02-20 10:27:28,782 [DEBUG   , banff.donorimp.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:27:28,787 [DEBUG   , banff.donorimp.submit.handle_output]:  [TIME] output DONORMAP:     0.005 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:27:28,787 [DEBUG   , banff.donorimp.submit.handle_output]:  [MEMORY] output DONORMAP:   change 451 kB (0.00 GB), before 1633047 kB (1.63 GB), after 1633497 kB (1.63 GB)
+2024-02-20 10:27:28,787 [DEBUG   , banff.donorimp.submit.handle_output]:  [MEMORY] free intermediate output DONORMAP: change 4 kB (0.00 GB), before 1633497 kB (1.63 GB), after 1633501 kB (1.63 GB)
+2024-02-20 10:27:28,787 [INFO]:  [TIME] TOTAL output:        0.040 seconds (WALL), 0.031 seconds (CPU)
+2024-02-20 10:27:28,787 [INFO]:  [MEMORY] TOTAL output:      change 5673 kB (0.01 GB), before 1627828 kB (1.63 GB), after 1633501 kB (1.63 GB)
+2024-02-20 10:27:28,787 [INFO]:  [OUTPUT] dataset OUTDATA has 1491 rows and 19 columns
+2024-02-20 10:27:28,807 [DEBUG   , banff.donorimp.submit]:  ~~ Printing OUTDATA ~~
+
+[1491 rows x 19 columns]
+
+2024-02-20 10:27:28,807 [INFO]:  [OUTPUT] dataset OUTSTATUS has 17922 rows and 3 columns
+2024-02-20 10:27:28,812 [DEBUG   , banff.donorimp.submit]:  ~~ Printing OUTSTATUS ~~
+
+[17922 rows x 3 columns]
+
+2024-02-20 10:27:28,812 [INFO]:  [OUTPUT] dataset DONORMAP has 1491 rows and 4 columns
+2024-02-20 10:27:28,817 [DEBUG   , banff.donorimp.submit]:  ~~ Printing DONORMAP ~~
+
+[1491 rows x 4 columns]
+
+2024-02-20 10:27:28,817 [INFO]:  Execution complete
+2024-02-20 10:27:28,817 [INFO]:  [TIME] Submit:              4.856 seconds (WALL), 5.703 seconds (CPU)
+2024-02-20 10:27:28,817 [INFO]:  [MEMORY] Submit:            change 1474003 kB (1.47 GB), before 159506 kB (0.16 GB), after 1633509 kB (1.63 GB)
+############################# PROCEDURE LOG STARTS on next line #################################
+banffpkg.testing: dataset 'donorimp_ceag_a_indata.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_indata.parquet'
+banffpkg.testing: dataset 'donorimp_ceag_a_instatus.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_instatus.parquet'
+NOTE: --- Banff System 3.01.001b8.dev1 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 3.01.001b8.dev1
+NOTE: Created on Feb 19 2024 at 16:57:04
+NOTE: Email: banff@statcan.gc.ca
+NOTE: Parallel processing disabled
+
+MEMORY USAGE: before JCP_init
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13296566 kB (13.30 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10576593 kB (10.58 GB)
+~~Process specific~~
+Private Bytes:          1626464 kB (1.63 GB)
+Working Set  :           731771 kB (0.73 GB)
+Page Faults  : 185915
+
+
+[C,TIME,CPU , decode_parms]: 0.000 seconds.
+
+[C,TIME,CPU , read_parms]: 0.000 seconds.
+
+[C,TIME,CPUT, dfr_indata_init]: 0.000 seconds.
+
+[C,TIME,CPUT, dfr_instatus_init]: 0.000 seconds.
+
+[C,TIME,WALL, decode_dataframes]: 0.001 seconds.
+
+[C,TIME,CPU ,   JCP_init]: 0.000 seconds.
+
+[C,TIME,WALL,   JCP_init]: 0.001 seconds.
+MEMORY USAGE: after JCP_init
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13296566 kB (13.30 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10576118 kB (10.58 GB)
+~~Process specific~~
+Private Bytes:          1627058 kB (1.63 GB)
+Working Set  :           733004 kB (0.73 GB)
+Page Faults  : 186216
+
+
+[C,TIME,CPU , get_column_length]: 0.000 seconds.
+
+[C,TIME,WALL, get_column_length]: 0.000 seconds.
+
+[C,TIME,CPU , get_column_length]: 0.000 seconds.
+
+[C,TIME,WALL, get_column_length]: 0.000 seconds.
+NOTE: EDITS = 
+        B17026_Y10_SR33 >= 0;
+            B17026_Y10_SR34 >= 0;
+            B17026_Y10_SR32 >= 0;
+            B17026_Y10_SR31 >= 0;
+            B17026_Y10_SR85 >= 0;
+            B17026_Y101_SR34 >= 0;
+            B17026_Y101_SR33 >= 0;
+            B17026_Y101_SR32 >= 0;
+            B17026_Y101_SR31 >= 0;
+            B17026_Y101_SR85 >= 0;
+            B17026_Y91T130 >= 0;
+            B17026_Y9_SR34T130 >= 0;
+            B17026_Y9_SR33T130 >= 0;
+            B17026_Y9_SR32T130 >= 0;
+            B17026_Y9_SR31T130 >= 0;
+            B17026_Y8T130 >= 0;
+            B17026_Y101T130 >= 0;
+            B17026_Y10T130 >= 0;
+NOTE: POSTEDITS = 
+            B17026_Y10_SR33 >= 0;
+            B17026_Y10_SR34 >= 0;
+            B17026_Y10_SR32 >= 0;
+            B17026_Y10_SR31 >= 0;
+            B17026_Y10_SR85 >= 0;
+            B17026_Y101_SR34 >= 0;
+            B17026_Y101_SR33 >= 0;
+            B17026_Y101_SR32 >= 0;
+            B17026_Y101_SR31 >= 0;
+            B17026_Y101_SR85 >= 0;
+            B17026_Y91T130 >= 0;
+            B17026_Y9_SR34T130 >= 0;
+            B17026_Y9_SR33T130 >= 0;
+            B17026_Y9_SR32T130 >= 0;
+            B17026_Y9_SR31T130 >= 0;
+            B17026_Y8T130 >= 0;
+            B17026_Y10T130 >= 0;
+            B17026_Y101T130 >= 0.1;
+            B17026_Y91T130 >= 0.1;
+            B17026_Y8T130 + B17026_Y9_SR31T130 + B17026_Y9_SR32T130 + B17026_Y9_SR33T130 + B17026_Y9_SR34T130 >= 0.1;
+NOTE: MINDONORS = 3
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 7000
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1
+NOTE: REJECTNEGATIVE
+NOTE: NOBYSTATS
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = I43600
+NOTE: DATAEXCLVAR = _EXCLUDE
+NOTE: RANDNUMVAR = RandomNbr_rand
+NOTE: Both SEED and RANDNUMVAR specified. The SEED parameter will be ignored.
+NOTE: MUSTMATCH = B17026_y101T130
+NOTE: BY = P54_08_3 P51_21_3
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+18
+                                          - B17026_Y101T130  <= 0
+
+19
+                                         - B17026_Y101_SR31  <= 0
+
+20
+                                         - B17026_Y101_SR32  <= 0
+
+21
+                                         - B17026_Y101_SR33  <= 0
+
+22
+                                         - B17026_Y101_SR34  <= 0
+
+23
+                                         - B17026_Y101_SR85  <= 0
+
+24
+                                           - B17026_Y10T130  <= 0
+
+25
+                                          - B17026_Y10_SR31  <= 0
+
+26
+                                          - B17026_Y10_SR32  <= 0
+
+27
+                                          - B17026_Y10_SR33  <= 0
+
+28
+                                          - B17026_Y10_SR34  <= 0
+
+29
+                                          - B17026_Y10_SR85  <= 0
+
+30
+                                            - B17026_Y8T130  <= 0
+
+31
+                                           - B17026_Y91T130  <= 0
+
+32
+                                       - B17026_Y9_SR31T130  <= 0
+
+33
+                                       - B17026_Y9_SR32T130  <= 0
+
+34
+                                       - B17026_Y9_SR33T130  <= 0
+
+35
+                                       - B17026_Y9_SR34T130  <= 0
+
+0
+                                          - B17026_Y10_SR33  <= 0
+
+1
+                                          - B17026_Y10_SR34  <= 0
+
+2
+                                          - B17026_Y10_SR32  <= 0
+
+3
+                                          - B17026_Y10_SR31  <= 0
+
+4
+                                          - B17026_Y10_SR85  <= 0
+
+5
+                                         - B17026_Y101_SR34  <= 0
+
+6
+                                         - B17026_Y101_SR33  <= 0
+
+7
+                                         - B17026_Y101_SR32  <= 0
+
+8
+                                         - B17026_Y101_SR31  <= 0
+
+9
+                                         - B17026_Y101_SR85  <= 0
+
+10
+                                           - B17026_Y91T130  <= 0
+
+11
+                                       - B17026_Y9_SR34T130  <= 0
+
+12
+                                       - B17026_Y9_SR33T130  <= 0
+
+13
+                                       - B17026_Y9_SR32T130  <= 0
+
+14
+                                       - B17026_Y9_SR31T130  <= 0
+
+15
+                                            - B17026_Y8T130  <= 0
+
+16
+                                          - B17026_Y101T130  <= 0
+
+17
+                                           - B17026_Y10T130  <= 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+20
+                                          - B17026_Y101T130  <= 0
+
+21
+                                         - B17026_Y101_SR31  <= 0
+
+22
+                                         - B17026_Y101_SR32  <= 0
+
+23
+                                         - B17026_Y101_SR33  <= 0
+
+24
+                                         - B17026_Y101_SR34  <= 0
+
+25
+                                         - B17026_Y101_SR85  <= 0
+
+26
+                                           - B17026_Y10T130  <= 0
+
+27
+                                          - B17026_Y10_SR31  <= 0
+
+28
+                                          - B17026_Y10_SR32  <= 0
+
+29
+                                          - B17026_Y10_SR33  <= 0
+
+30
+                                          - B17026_Y10_SR34  <= 0
+
+31
+                                          - B17026_Y10_SR85  <= 0
+
+32
+                                            - B17026_Y8T130  <= 0
+
+33
+                                           - B17026_Y91T130  <= 0
+
+34
+                                       - B17026_Y9_SR31T130  <= 0
+
+35
+                                       - B17026_Y9_SR32T130  <= 0
+
+36
+                                       - B17026_Y9_SR33T130  <= 0
+
+37
+                                       - B17026_Y9_SR34T130  <= 0
+
+0
+                                          - B17026_Y10_SR33  <= 0
+
+1
+                                          - B17026_Y10_SR34  <= 0
+
+2
+                                          - B17026_Y10_SR32  <= 0
+
+3
+                                          - B17026_Y10_SR31  <= 0
+
+4
+                                          - B17026_Y10_SR85  <= 0
+
+5
+                                         - B17026_Y101_SR34  <= 0
+
+6
+                                         - B17026_Y101_SR33  <= 0
+
+7
+                                         - B17026_Y101_SR32  <= 0
+
+8
+                                         - B17026_Y101_SR31  <= 0
+
+9
+                                         - B17026_Y101_SR85  <= 0
+
+10
+                                           - B17026_Y91T130  <= 0
+
+11
+                                       - B17026_Y9_SR34T130  <= 0
+
+12
+                                       - B17026_Y9_SR33T130  <= 0
+
+13
+                                       - B17026_Y9_SR32T130  <= 0
+
+14
+                                       - B17026_Y9_SR31T130  <= 0
+
+15
+                                            - B17026_Y8T130  <= 0
+
+16
+                                           - B17026_Y10T130  <= 0
+
+17
+                                          - B17026_Y101T130  <= -0.1
+
+18
+                                           - B17026_Y91T130  <= -0.1
+
+19
+- B17026_Y8T130 - B17026_Y9_SR31T130 - B17026_Y9_SR32T130 -  <= -0.1
+                    B17026_Y9_SR33T130 - B17026_Y9_SR34T130 
+
+
+REDUCED set of EDITS:
+
+0
+                                          - B17026_Y10_SR33  <= 0
+
+1
+                                          - B17026_Y10_SR34  <= 0
+
+2
+                                          - B17026_Y10_SR32  <= 0
+
+3
+                                          - B17026_Y10_SR31  <= 0
+
+4
+                                          - B17026_Y10_SR85  <= 0
+
+5
+                                         - B17026_Y101_SR34  <= 0
+
+6
+                                         - B17026_Y101_SR33  <= 0
+
+7
+                                         - B17026_Y101_SR32  <= 0
+
+8
+                                         - B17026_Y101_SR31  <= 0
+
+9
+                                         - B17026_Y101_SR85  <= 0
+
+10
+                                           - B17026_Y91T130  <= 0
+
+11
+                                       - B17026_Y9_SR34T130  <= 0
+
+12
+                                       - B17026_Y9_SR33T130  <= 0
+
+13
+                                       - B17026_Y9_SR32T130  <= 0
+
+14
+                                       - B17026_Y9_SR31T130  <= 0
+
+15
+                                            - B17026_Y8T130  <= 0
+
+16
+                                          - B17026_Y101T130  <= 0
+
+17
+                                           - B17026_Y10T130  <= 0
+
+
+REDUCED set of POSTEDITS:
+
+0
+                                          - B17026_Y10_SR33  <= 0
+
+1
+                                          - B17026_Y10_SR34  <= 0
+
+2
+                                          - B17026_Y10_SR32  <= 0
+
+3
+                                          - B17026_Y10_SR31  <= 0
+
+4
+                                          - B17026_Y10_SR85  <= 0
+
+5
+                                         - B17026_Y101_SR34  <= 0
+
+6
+                                         - B17026_Y101_SR33  <= 0
+
+7
+                                         - B17026_Y101_SR32  <= 0
+
+8
+                                         - B17026_Y101_SR31  <= 0
+
+9
+                                         - B17026_Y101_SR85  <= 0
+
+11
+                                       - B17026_Y9_SR34T130  <= 0
+
+12
+                                       - B17026_Y9_SR33T130  <= 0
+
+13
+                                       - B17026_Y9_SR32T130  <= 0
+
+14
+                                       - B17026_Y9_SR31T130  <= 0
+
+15
+                                            - B17026_Y8T130  <= 0
+
+16
+                                           - B17026_Y10T130  <= 0
+
+17
+                                          - B17026_Y101T130  <= -0.1
+
+18
+                                           - B17026_Y91T130  <= -0.1
+
+19
+- B17026_Y8T130 - B17026_Y9_SR31T130 - B17026_Y9_SR32T130 -  <= -0.1
+                    B17026_Y9_SR33T130 - B17026_Y9_SR34T130 
+
+
+[C,TIME,CPU , get_column_length]: 0.000 seconds.
+
+[C,TIME,WALL, get_column_length]: 0.000 seconds.
+
+[C,TIME,CPU , get_column_length]: 0.000 seconds.
+
+[C,TIME,WALL, get_column_length]: 0.000 seconds.
+
+[C,TIME,CPU , get_column_length]: 0.000 seconds.
+
+[C,TIME,WALL, get_column_length]: 0.000 seconds.
+
+[C,TIME,CPU ,  load_init]: 0.000 seconds.
+
+[C,TIME,WALL,  load_init]: 0.011 seconds.
+
+[C,TIME,CPU , processing]: 4.344 seconds.
+
+[C,TIME,WALL, processing]: 4.351 seconds.
+
+
+Number of observations ............................:  151204
+Number of observations dropped ....................:     540
+    missing key ...................................:       0
+    missing data ..................................:       0
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:     540
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:  150664     100.00%
+Number of donors ..................................:  147459      97.87%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:    3205       2.13%
+    with matching fields ..........................:    1509       1.00%
+        imputed ...................................:    1491       0.99%
+        not imputed ...............................:      18       0.01%
+    without matching fields .......................:    1695       1.13%
+    not imputed (insufficient number of donors) ...:       1       0.00%
+
+
+NOTE: The above message was for the total of all by-groups.
+
+
+MEMORY USAGE: Before JCP_wrap
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13288968 kB (13.29 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10574832 kB (10.57 GB)
+~~Process specific~~
+Private Bytes:          1639719 kB (1.64 GB)
+Working Set  :           745320 kB (0.75 GB)
+Page Faults  : 189657
+
+
+[C,TIME,CPUT, encode_outdata]: 0.016 seconds.
+
+[C,TIME,CPUT, encode_outstatus]: 0.016 seconds.
+
+[C,TIME,CPUT, encode_donormap]: 0.000 seconds.
+
+[C,TIME,CPU ,   JCP_wrap]: 0.031 seconds.
+
+[C,TIME,WALL,   JCP_wrap]: 0.028 seconds.
+MEMORY USAGE: After JCP_wrap
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13287133 kB (13.29 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10574496 kB (10.57 GB)
+~~Process specific~~
+Private Bytes:          1640821 kB (1.64 GB)
+Working Set  :           746398 kB (0.75 GB)
+Page Faults  : 190131
+
+MEMORY USAGE: Before JCP_free
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13287133 kB (13.29 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10574455 kB (10.57 GB)
+~~Process specific~~
+Private Bytes:          1640821 kB (1.64 GB)
+Working Set  :           746447 kB (0.75 GB)
+Page Faults  : 190143
+
+MEMORY USAGE: After JCP_free
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13300634 kB (13.30 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10584723 kB (10.58 GB)
+~~Process specific~~
+Private Bytes:          1627406 kB (1.63 GB)
+Working Set  :           732897 kB (0.73 GB)
+Page Faults  : 190224
+
+
+[C,TIME,CPU ,    cleanup]: 0.016 seconds.
+
+[C,TIME,WALL,    cleanup]: 0.011 seconds.
+
+[C,TIME,CPU ,       main]: 4.391 seconds.
+
+[C,TIME,WALL,       main]: 4.406 seconds.
+############################# PROCEDURE LOG ENDED on previous line ##############################
+
+banffpkg.testing: dataset 'donorimp_ceag_a_outdata.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_outdata.parquet'
+banffpkg.testing: dataset 'donorimp_ceag_a_outstatus.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_outstatus.parquet'
+banffpkg.testing: dataset 'donorimp_ceag_a_donormap.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_donormap.parquet'
+####################################### RUNNING ASSERTIONS #######################################
+asserted RC == 0
+
+
+assert_substr_count(...)
+   searching for:   ERROR:
+   expected_count:  0
+   test_log count:  0
+
+
+################################ ASSERTIONS COMPLETE WITHOUT ERROR ###############################
+
+------------------------------ Captured log call ------------------------------
+DEBUG    banff.donorimp.__init__:banff_proc.py:189 procedure-level logging initialized with default parent 'banff'
+DEBUG    banff.donorimp.__init__:banff_proc.py:229 capture: default configuration (disabled)
+INFO     banff.donorimp.submit:banff_proc.py:615 Preparing to call C-code
+INFO     banff.donorimp.submit.load_input:banff_proc.py:413 Loading input parameters and datasets
+DEBUG    banff.donorimp.submit.load_input:time_measurement.py:35 [TIME] load parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.load_input:memory_usage.py:46 [MEMORY] load parameters:   change 0 kB (0.00 GB), before 159506 kB (0.16 GB), after 159506 kB (0.16 GB)
+DEBUG    banff.donorimp.submit.load_input:banff_proc.py:424 processing INDATA dataset
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset:io_util.py:250 input dataset is `str`, inspecting further
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset:io_util.py:255 input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_indata.parquet
+INFO     banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:78 Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_indata.parquet
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:86 file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_indata.parquet
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:95 Loading parquet file using PyArrow
+DEBUG    banff.donorimp.submit.load_input:time_measurement.py:35 [TIME] load input INDATA:   0.360 seconds (WALL), 1.234 seconds (CPU)
+DEBUG    banff.donorimp.submit.load_input:memory_usage.py:46 [MEMORY] load input INDATA: change 1469542 kB (1.47 GB), before 159506 kB (0.16 GB), after 1629049 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.load_input:banff_proc.py:424 processing INSTATUS dataset
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset:io_util.py:250 input dataset is `str`, inspecting further
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset:io_util.py:255 input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_instatus.parquet
+INFO     banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:78 Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_instatus.parquet
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:86 file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/donorimp_ceag_a_instatus.parquet
+DEBUG    banff.donorimp.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:95 Loading parquet file using PyArrow
+DEBUG    banff.donorimp.submit.load_input:time_measurement.py:35 [TIME] load input INSTATUS: 0.010 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.load_input:memory_usage.py:46 [MEMORY] load input INSTATUS: change -2896 kB (-0.00 GB), before 1629049 kB (1.63 GB), after 1626153 kB (1.63 GB)
+INFO     banff.donorimp.submit.load_input:time_measurement.py:35 [TIME] TOTAL load input:    0.370 seconds (WALL), 1.234 seconds (CPU)
+INFO     banff.donorimp.submit.load_input:memory_usage.py:46 [MEMORY] TOTAL load input:  change 1466647 kB (1.47 GB), before 159506 kB (0.16 GB), after 1626153 kB (1.63 GB)
+INFO     banff.donorimp.submit.preprocess_input_datasets:banff_proc.py:433 Preprocessing input datasets
+INFO     banff.donorimp.submit.preprocess_input_datasets:time_measurement.py:35 [TIME] TOTAL preprocessing: 0.000 seconds (WALL), 0.000 seconds (CPU)
+INFO     banff.donorimp.submit.preprocess_input_datasets:memory_usage.py:46 [MEMORY] TOTAL preprocessing: change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+INFO     banff.donorimp.submit.pack_payload:banff_proc.py:532 Packing parameters and datasets into payload for C-code
+DEBUG    banff.donorimp.submit.pack_payload:time_measurement.py:35 [TIME] pack parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.pack_payload:memory_usage.py:46 [MEMORY] pack parameters:   change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.pack_payload:banff_proc.py:545 packing INDATA dataset
+DEBUG    banff.donorimp.submit.pack_payload.interm_to_arrow_stream:io_util.py:123 converting PyArrow Table to Arrow stream
+DEBUG    banff.donorimp.submit.pack_payload:time_measurement.py:35 [TIME] pack INDATA:         0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.pack_payload:memory_usage.py:46 [MEMORY] pack INDATA:       change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.pack_payload:memory_usage.py:46 [MEMORY] free intermediate input INDATA: change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.pack_payload:banff_proc.py:545 packing INSTATUS dataset
+DEBUG    banff.donorimp.submit.pack_payload.interm_to_arrow_stream:io_util.py:123 converting PyArrow Table to Arrow stream
+DEBUG    banff.donorimp.submit.pack_payload:time_measurement.py:35 [TIME] pack INSTATUS:       0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.pack_payload:memory_usage.py:46 [MEMORY] pack INSTATUS:     change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.pack_payload:memory_usage.py:46 [MEMORY] free intermediate input INSTATUS: change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+INFO     banff.donorimp.submit.pack_payload:time_measurement.py:35 [TIME] TOTAL pack:          0.000 seconds (WALL), 0.000 seconds (CPU)
+INFO     banff.donorimp.submit.pack_payload:memory_usage.py:46 [MEMORY] TOTAL pack:        change 0 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1626153 kB (1.63 GB)
+INFO     banff.donorimp.submit:banff_proc.py:629 Calling C-code
+DEBUG    banff.donorimp.submit.run:banff_proc.py:573 ~~~~~ C CODE BEGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DEBUG    banff.donorimp.submit.run:memory_usage.py:46 [MEMORY] C execution:       change 1253 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1627406 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.run:banff_proc.py:592 ~~~~~ C CODE END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DEBUG    banff.donorimp.submit.run:memory_usage.py:46 [MEMORY] free JSON input INDATA: change 0 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627406 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.run:memory_usage.py:46 [MEMORY] free JSON input INSTATUS: change 0 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627406 kB (1.63 GB)
+INFO     banff.donorimp.submit.run:time_measurement.py:35 [TIME] Run:                 4.406 seconds (WALL), 4.391 seconds (CPU)
+INFO     banff.donorimp.submit.run:memory_usage.py:46 [MEMORY] Run:               change 1253 kB (0.00 GB), before 1626153 kB (1.63 GB), after 1627406 kB (1.63 GB)
+INFO     banff.donorimp.submit:banff_proc.py:647 Processing C-code output data
+INFO     banff.donorimp.submit.unpack_output_payload:banff_proc.py:672 Unpacking C-code output dataset(s)
+DEBUG    banff.donorimp.submit.unpack_output_payload:banff_proc.py:679 unpacking OUTDATA dataset
+DEBUG    banff.donorimp.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack OUTDATA:      0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack OUTDATA:    change 365 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627771 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output OUTDATA: change 197 kB (0.00 GB), before 1627771 kB (1.63 GB), after 1627967 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.unpack_output_payload:banff_proc.py:679 unpacking OUTSTATUS dataset
+DEBUG    banff.donorimp.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack OUTSTATUS:    0.005 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack OUTSTATUS:  change 836 kB (0.00 GB), before 1627967 kB (1.63 GB), after 1628803 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output OUTSTATUS: change -1094 kB (-0.00 GB), before 1628803 kB (1.63 GB), after 1627709 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.unpack_output_payload:banff_proc.py:679 unpacking DONORMAP dataset
+DEBUG    banff.donorimp.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack DONORMAP:     0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack DONORMAP:   change 119 kB (0.00 GB), before 1627709 kB (1.63 GB), after 1627828 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output DONORMAP: change 0 kB (0.00 GB), before 1627828 kB (1.63 GB), after 1627828 kB (1.63 GB)
+INFO     banff.donorimp.submit.unpack_output_payload:time_measurement.py:35 [TIME] TOTAL unpack:        0.005 seconds (WALL), 0.000 seconds (CPU)
+INFO     banff.donorimp.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] TOTAL unpack:      change 422 kB (0.00 GB), before 1627406 kB (1.63 GB), after 1627828 kB (1.63 GB)
+INFO     banff.donorimp.submit.handle_output:banff_proc.py:386 handling output
+DEBUG    banff.donorimp.submit.handle_output:banff_proc.py:393 processing OUTDATA dataset output
+DEBUG    banff.donorimp.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.donorimp.submit.handle_output:time_measurement.py:35 [TIME] output OUTDATA:      0.015 seconds (WALL), 0.016 seconds (CPU)
+DEBUG    banff.donorimp.submit.handle_output:memory_usage.py:46 [MEMORY] output OUTDATA:    change 3076 kB (0.00 GB), before 1627828 kB (1.63 GB), after 1630904 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output OUTDATA: change 0 kB (0.00 GB), before 1630904 kB (1.63 GB), after 1630904 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.handle_output:banff_proc.py:393 processing OUTSTATUS dataset output
+DEBUG    banff.donorimp.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.donorimp.submit.handle_output:time_measurement.py:35 [TIME] output OUTSTATUS:    0.020 seconds (WALL), 0.016 seconds (CPU)
+DEBUG    banff.donorimp.submit.handle_output:memory_usage.py:46 [MEMORY] output OUTSTATUS:  change 2015 kB (0.00 GB), before 1630904 kB (1.63 GB), after 1632920 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output OUTSTATUS: change 127 kB (0.00 GB), before 1632920 kB (1.63 GB), after 1633047 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.handle_output:banff_proc.py:393 processing DONORMAP dataset output
+DEBUG    banff.donorimp.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.donorimp.submit.handle_output:time_measurement.py:35 [TIME] output DONORMAP:     0.005 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.donorimp.submit.handle_output:memory_usage.py:46 [MEMORY] output DONORMAP:   change 451 kB (0.00 GB), before 1633047 kB (1.63 GB), after 1633497 kB (1.63 GB)
+DEBUG    banff.donorimp.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output DONORMAP: change 4 kB (0.00 GB), before 1633497 kB (1.63 GB), after 1633501 kB (1.63 GB)
+INFO     banff.donorimp.submit.handle_output:time_measurement.py:35 [TIME] TOTAL output:        0.040 seconds (WALL), 0.031 seconds (CPU)
+INFO     banff.donorimp.submit.handle_output:memory_usage.py:46 [MEMORY] TOTAL output:      change 5673 kB (0.01 GB), before 1627828 kB (1.63 GB), after 1633501 kB (1.63 GB)
+INFO     banff.donorimp.submit:banff_proc.py:657 [OUTPUT] dataset OUTDATA has 1491 rows and 19 columns
+DEBUG    banff.donorimp.submit:banff_proc.py:658 ~~ Printing OUTDATA ~~
+
+[1491 rows x 19 columns]
+
+INFO     banff.donorimp.submit:banff_proc.py:657 [OUTPUT] dataset OUTSTATUS has 17922 rows and 3 columns
+DEBUG    banff.donorimp.submit:banff_proc.py:658 ~~ Printing OUTSTATUS ~~
+
+[17922 rows x 3 columns]
+
+INFO     banff.donorimp.submit:banff_proc.py:657 [OUTPUT] dataset DONORMAP has 1491 rows and 4 columns
+DEBUG    banff.donorimp.submit:banff_proc.py:658 ~~ Printing DONORMAP ~~
+
+[1491 rows x 4 columns]
+
+INFO     banff.donorimp.submit:banff_proc.py:660 Execution complete
+INFO     banff.donorimp.submit:time_measurement.py:35 [TIME] Submit:              4.856 seconds (WALL), 5.703 seconds (CPU)
+INFO     banff.donorimp.submit:memory_usage.py:46 [MEMORY] Submit:            change 1474003 kB (1.47 GB), before 159506 kB (0.16 GB), after 1633509 kB (1.63 GB)
+=========================== short test summary info ===========================
+PASSED test_donorimp.py::test_donorimp_ceag_parquet
+====================== 1 passed, 11 deselected in 5.54s =======================

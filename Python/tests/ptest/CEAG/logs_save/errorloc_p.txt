@@ -1,0 +1,543 @@
+run_pytest.cmd - version:2023.10.05
+
+running pytest on -k
+============================= test session starts =============================
+platform win32 -- Python 3.10.11, pytest-7.4.3, pluggy-1.0.0 -- C:\temp\penv\dev2\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG
+collecting ... collected 12 items / 11 deselected / 1 selected
+
+test_errorloc.py::test_errorloc_ceag_parquet PASSED                      [100%]
+
+=================================== PASSES ====================================
+_________________________ test_errorloc_ceag_parquet __________________________
+---------------------------- Captured stdout call -----------------------------
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.__init__]:  procedure-level logging initialized with default parent 'banff'
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.__init__]:  capture: default configuration (disabled)
+2024-02-20 10:28:00,169 [INFO]:  Preparing to call C-code
+2024-02-20 10:28:00,169 [INFO]:  Loading input parameters and datasets
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.submit.load_input]:  [TIME] load parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.submit.load_input]:  [MEMORY] load parameters:   change 0 kB (0.00 GB), before 159388 kB (0.16 GB), after 159388 kB (0.16 GB)
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.submit.load_input]:  processing INDATA dataset
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.submit.load_input.load_input_dataset]:  input dataset is `str`, inspecting further
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.submit.load_input.load_input_dataset]:  input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_indata.parquet
+2024-02-20 10:28:00,169 [INFO]:  Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_indata.parquet
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.submit.load_input.load_input_dataset.interm_from_input_file]:  file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_indata.parquet
+2024-02-20 10:28:00,169 [DEBUG   , banff.errorloc.submit.load_input.load_input_dataset.interm_from_input_file]:  Loading parquet file using PyArrow
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.load_input]:  [TIME] load input INDATA:   0.520 seconds (WALL), 1.828 seconds (CPU)
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.load_input]:  [MEMORY] load input INDATA: change 1481986 kB (1.48 GB), before 159388 kB (0.16 GB), after 1641374 kB (1.64 GB)
+2024-02-20 10:28:00,689 [INFO]:  [TIME] TOTAL load input:    0.520 seconds (WALL), 1.828 seconds (CPU)
+2024-02-20 10:28:00,689 [INFO]:  [MEMORY] TOTAL load input:  change 1481986 kB (1.48 GB), before 159388 kB (0.16 GB), after 1641374 kB (1.64 GB)
+2024-02-20 10:28:00,689 [INFO]:  Preprocessing input datasets
+2024-02-20 10:28:00,689 [INFO]:  [TIME] TOTAL preprocessing: 0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:00,689 [INFO]:  [MEMORY] TOTAL preprocessing: change -193 kB (-0.00 GB), before 1640210 kB (1.64 GB), after 1640018 kB (1.64 GB)
+2024-02-20 10:28:00,689 [INFO]:  Packing parameters and datasets into payload for C-code
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.pack_payload]:  [TIME] pack parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.pack_payload]:  [MEMORY] pack parameters:   change 0 kB (0.00 GB), before 1638396 kB (1.64 GB), after 1638396 kB (1.64 GB)
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.pack_payload]:  packing INDATA dataset
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.pack_payload.interm_to_arrow_stream]:  converting PyArrow Table to Arrow stream
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.pack_payload]:  [TIME] pack INDATA:         0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.pack_payload]:  [MEMORY] pack INDATA:       change 0 kB (0.00 GB), before 1638396 kB (1.64 GB), after 1638396 kB (1.64 GB)
+2024-02-20 10:28:00,689 [DEBUG   , banff.errorloc.submit.pack_payload]:  [MEMORY] free intermediate input INDATA: change 0 kB (0.00 GB), before 1638396 kB (1.64 GB), after 1638396 kB (1.64 GB)
+2024-02-20 10:28:00,694 [INFO]:  [TIME] TOTAL pack:          0.005 seconds (WALL), 0.016 seconds (CPU)
+2024-02-20 10:28:00,694 [INFO]:  [MEMORY] TOTAL pack:        change -12 kB (-0.00 GB), before 1638408 kB (1.64 GB), after 1638396 kB (1.64 GB)
+2024-02-20 10:28:00,694 [INFO]:  Calling C-code
+2024-02-20 10:28:00,694 [DEBUG   , banff.errorloc.submit.run]:  ~~~~~ C CODE BEGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2024-02-20 10:28:02,179 [DEBUG   , banff.errorloc.submit.run]:  [MEMORY] C execution:       change 22618 kB (0.02 GB), before 1638396 kB (1.64 GB), after 1661014 kB (1.66 GB)
+2024-02-20 10:28:02,179 [DEBUG   , banff.errorloc.submit.run]:  ~~~~~ C CODE END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2024-02-20 10:28:02,179 [DEBUG   , banff.errorloc.submit.run]:  [MEMORY] free JSON input INDATA: change 209 kB (0.00 GB), before 1661014 kB (1.66 GB), after 1661223 kB (1.66 GB)
+2024-02-20 10:28:02,179 [INFO]:  [TIME] Run:                 1.485 seconds (WALL), 1.484 seconds (CPU)
+2024-02-20 10:28:02,179 [INFO]:  [MEMORY] Run:               change 22827 kB (0.02 GB), before 1638396 kB (1.64 GB), after 1661223 kB (1.66 GB)
+2024-02-20 10:28:02,179 [INFO]:  Processing C-code output data
+2024-02-20 10:28:02,179 [INFO]:  Unpacking C-code output dataset(s)
+2024-02-20 10:28:02,179 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  unpacking OUTSTATUS dataset
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  [TIME] unpack OUTSTATUS:    0.015 seconds (WALL), 0.016 seconds (CPU)
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  [MEMORY] unpack OUTSTATUS:  change 21905 kB (0.02 GB), before 1661223 kB (1.66 GB), after 1683128 kB (1.68 GB)
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  [MEMORY] free JSON output OUTSTATUS: change -21905 kB (-0.02 GB), before 1683128 kB (1.68 GB), after 1661223 kB (1.66 GB)
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  unpacking OUTREJECT dataset
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  [TIME] unpack OUTREJECT:    0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  [MEMORY] unpack OUTREJECT:  change 0 kB (0.00 GB), before 1661223 kB (1.66 GB), after 1661223 kB (1.66 GB)
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.unpack_output_payload]:  [MEMORY] free JSON output OUTREJECT: change 0 kB (0.00 GB), before 1661223 kB (1.66 GB), after 1661223 kB (1.66 GB)
+2024-02-20 10:28:02,194 [INFO]:  [TIME] TOTAL unpack:        0.015 seconds (WALL), 0.016 seconds (CPU)
+2024-02-20 10:28:02,194 [INFO]:  [MEMORY] TOTAL unpack:      change 4 kB (0.00 GB), before 1661223 kB (1.66 GB), after 1661227 kB (1.66 GB)
+2024-02-20 10:28:02,194 [INFO]:  handling output
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.handle_output]:  processing OUTSTATUS dataset output
+2024-02-20 10:28:02,194 [DEBUG   , banff.errorloc.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:28:03,057 [DEBUG   , banff.errorloc.submit.handle_output]:  [TIME] output OUTSTATUS:    0.863 seconds (WALL), 0.859 seconds (CPU)
+2024-02-20 10:28:03,057 [DEBUG   , banff.errorloc.submit.handle_output]:  [MEMORY] output OUTSTATUS:  change 179782 kB (0.18 GB), before 1661735 kB (1.66 GB), after 1841517 kB (1.84 GB)
+2024-02-20 10:28:03,057 [DEBUG   , banff.errorloc.submit.handle_output]:  [MEMORY] free intermediate output OUTSTATUS: change -21901 kB (-0.02 GB), before 1841517 kB (1.84 GB), after 1819615 kB (1.82 GB)
+2024-02-20 10:28:03,062 [DEBUG   , banff.errorloc.submit.handle_output]:  processing OUTREJECT dataset output
+2024-02-20 10:28:03,062 [DEBUG   , banff.errorloc.submit.handle_output.write_output_dataset]:  no destination specified, converting to DataFrame
+2024-02-20 10:28:03,062 [DEBUG   , banff.errorloc.submit.handle_output]:  [TIME] output OUTREJECT:    0.000 seconds (WALL), 0.000 seconds (CPU)
+2024-02-20 10:28:03,062 [DEBUG   , banff.errorloc.submit.handle_output]:  [MEMORY] output OUTREJECT:  change 0 kB (0.00 GB), before 1819615 kB (1.82 GB), after 1819615 kB (1.82 GB)
+2024-02-20 10:28:03,062 [DEBUG   , banff.errorloc.submit.handle_output]:  [MEMORY] free intermediate output OUTREJECT: change 0 kB (0.00 GB), before 1819615 kB (1.82 GB), after 1819615 kB (1.82 GB)
+2024-02-20 10:28:03,062 [INFO]:  [TIME] TOTAL output:        0.868 seconds (WALL), 0.859 seconds (CPU)
+2024-02-20 10:28:03,062 [INFO]:  [MEMORY] TOTAL output:      change 157880 kB (0.16 GB), before 1661735 kB (1.66 GB), after 1819615 kB (1.82 GB)
+2024-02-20 10:28:03,062 [INFO]:  [OUTPUT] dataset OUTSTATUS has 550085 rows and 3 columns
+2024-02-20 10:28:03,067 [DEBUG   , banff.errorloc.submit]:  ~~ Printing OUTSTATUS ~~
+
+[550085 rows x 3 columns]
+
+2024-02-20 10:28:03,067 [INFO]:  [OUTPUT] dataset OUTREJECT has 0 rows and 2 columns
+2024-02-20 10:28:03,067 [DEBUG   , banff.errorloc.submit]:  ~~ Printing OUTREJECT ~~
+Empty DataFrame
+Columns: [I43600, NAME_ERROR]
+Index: []
+
+2024-02-20 10:28:03,067 [INFO]:  Execution complete
+2024-02-20 10:28:03,067 [INFO]:  [TIME] Submit:              2.898 seconds (WALL), 4.203 seconds (CPU)
+2024-02-20 10:28:03,067 [INFO]:  [MEMORY] Submit:            change 1660232 kB (1.66 GB), before 159388 kB (0.16 GB), after 1819619 kB (1.82 GB)
+############################# PROCEDURE LOG STARTS on next line #################################
+banffpkg.testing: dataset 'errorloc_ceag_a_indata.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_indata.parquet'
+NOTE: --- Banff System 3.01.001b8.dev1 developed by Statistics Canada ---
+NOTE: PROCEDURE ERRORLOC Version 3.01.001b8.dev1
+NOTE: Created on Feb 19 2024 at 16:57:12
+NOTE: Email: banff@statcan.gc.ca
+NOTE: Parallel processing disabled
+
+MEMORY USAGE: before JCP_init
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13289583 kB (13.29 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10415092 kB (10.42 GB)
+~~Process specific~~
+Private Bytes:          1638744 kB (1.64 GB)
+Working Set  :           892748 kB (0.89 GB)
+Page Faults  : 224978
+
+
+[C,TIME,CPU , decode_parms]: 0.000 seconds.
+
+[C,TIME,CPU , read_parms]: 0.000 seconds.
+
+[C,TIME,CPU , dfr_indata_init]: 0.000 seconds.
+
+[C,TIME,WALL, decode_dataframes]: 0.001 seconds.
+
+[C,TIME,CPU ,   JCP_init]: 0.000 seconds.
+
+[C,TIME,WALL,   JCP_init]: 0.001 seconds.
+MEMORY USAGE: after JCP_init
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13288526 kB (13.29 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10414555 kB (10.41 GB)
+~~Process specific~~
+Private Bytes:          1639449 kB (1.64 GB)
+Working Set  :           893932 kB (0.89 GB)
+Page Faults  : 225267
+
+NOTE: EDITS = 
+            F47031_P3 >= -999999999999;
+            F61054_SR2 >= -999999999999;
+            F72000 >= -999999999999;
+            F61054_SR10 >= -999999999999;
+            F61054_SR92 >= -999999999999;
+            F61054_SR1 >= -999999999999;
+            F40005_SR2 >= -999999999999;
+            F40005_SR10 >= -999999999999;
+            F47031_P6 >= -999999999999;
+            F47031_P2 >= -999999999999;
+            F47031_P1 >= -999999999999;
+            F47029_P141 >= -999999999999;
+            F60001_SR1 >= -999999999999;
+            F61054_SR18 >= -999999999999;
+            F61054_SR17 >= -999999999999;
+            F61054_SR16 >= -999999999999;
+            F61054_SR15 > -999999999999;
+            F61054_SR14 >= -999999999999;
+            F61052_SR30 >= -999999999999;
+            F61052_SR27 >= -999999999999;
+            F61052_SR51 >= -999999999999;
+            F61052_SR32 >= -999999999999;
+            F61054_SR12 >= -999999999999;
+            F61054_SR11 >= -999999999999;
+            F61054_SR8 >= -999999999999;
+            F61054_SR6 >= -999999999999;
+            F61052_SR7 >= -999999999999;
+            F61054_SR4 >= -999999999999;
+            F61054_SR23 >= -999999999999;
+            F61052_SR4 >= -999999999999;
+            F61052_SR3 >= -999999999999;
+            F61052_SR2 >= -999999999999;
+            F60010 >= -999999999999;
+            F51313_SR2 >= -999999999999;
+            F40010 >= 0;
+            F40005_SR4 >= -999999999999;
+            F51317_SR1 >= -999999999999;
+            F47031_P146 >= -999999999999;
+            F47031_P7 >= -999999999999;
+            F40005_SR3 >= -999999999999;
+            F47031_P13 >= -999999999999;
+            F40005_SR11 >= -999999999999;
+            F47031_P12 >= -999999999999;
+            F47031_P10 >= -999999999999;
+            F47029_P26 > -999999999999;
+            F47029_P25 >= -999999999999;
+            F47029_P18 >= -999999999999;
+            F47029_P16 >= -999999999999;
+            F47029_P14 >= -999999999999;
+            F47029_P15 >= -999999999999;
+            F47031_P5 >= -999999999999;
+            F47029_P4 >= -999999999999;
+            F47029_P5 >= -999999999999;
+            F47029_P8 >= -999999999999;
+            F47029_P6 >= -999999999999;
+            F47031_P4 >= -999999999999;
+            F47029_P2 >= -999999999999;
+NOTE: WEIGHTS not specified. Weight will be set to 1 for each variable in EDITS.
+NOTE: CARDINALITY not specified. The result will not be constrained by cardinality.
+NOTE: TIMEPEROBS = 5
+NOTE: SEED = 1
+NOTE: ACCEPTNEGATIVE
+NOTE: NOBYSTATS
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = I43600
+NOTE: RANDNUMVAR = RandomNbr_rand
+NOTE: Both SEED and RANDNUMVAR specified. The SEED parameter will be ignored.
+NOTE: BY = P41_10_3 P41_10_3_CURR P51_24_3 P51_24_3_CURR
+
+Set of EDITS: 
+
+0
+                                                - F47031_P3  <= 1.000000e+12
+
+1
+                                               - F61054_SR2  <= 1.000000e+12
+
+2
+                                                   - F72000  <= 1.000000e+12
+
+3
+                                              - F61054_SR10  <= 1.000000e+12
+
+4
+                                              - F61054_SR92  <= 1.000000e+12
+
+5
+                                               - F61054_SR1  <= 1.000000e+12
+
+6
+                                               - F40005_SR2  <= 1.000000e+12
+
+7
+                                              - F40005_SR10  <= 1.000000e+12
+
+8
+                                                - F47031_P6  <= 1.000000e+12
+
+9
+                                                - F47031_P2  <= 1.000000e+12
+
+10
+                                                - F47031_P1  <= 1.000000e+12
+
+11
+                                              - F47029_P141  <= 1.000000e+12
+
+12
+                                               - F60001_SR1  <= 1.000000e+12
+
+13
+                                              - F61054_SR18  <= 1.000000e+12
+
+14
+                                              - F61054_SR17  <= 1.000000e+12
+
+15
+                                              - F61054_SR16  <= 1.000000e+12
+
+16
+                                              - F61054_SR15  <= 1.000000e+12
+
+17
+                                              - F61054_SR14  <= 1.000000e+12
+
+18
+                                              - F61052_SR30  <= 1.000000e+12
+
+19
+                                              - F61052_SR27  <= 1.000000e+12
+
+20
+                                              - F61052_SR51  <= 1.000000e+12
+
+21
+                                              - F61052_SR32  <= 1.000000e+12
+
+22
+                                              - F61054_SR12  <= 1.000000e+12
+
+23
+                                              - F61054_SR11  <= 1.000000e+12
+
+24
+                                               - F61054_SR8  <= 1.000000e+12
+
+25
+                                               - F61054_SR6  <= 1.000000e+12
+
+26
+                                               - F61052_SR7  <= 1.000000e+12
+
+27
+                                               - F61054_SR4  <= 1.000000e+12
+
+28
+                                              - F61054_SR23  <= 1.000000e+12
+
+29
+                                               - F61052_SR4  <= 1.000000e+12
+
+30
+                                               - F61052_SR3  <= 1.000000e+12
+
+31
+                                               - F61052_SR2  <= 1.000000e+12
+
+32
+                                                   - F60010  <= 1.000000e+12
+
+33
+                                               - F51313_SR2  <= 1.000000e+12
+
+34
+                                                   - F40010  <= 0
+
+35
+                                               - F40005_SR4  <= 1.000000e+12
+
+36
+                                               - F51317_SR1  <= 1.000000e+12
+
+37
+                                              - F47031_P146  <= 1.000000e+12
+
+38
+                                                - F47031_P7  <= 1.000000e+12
+
+39
+                                               - F40005_SR3  <= 1.000000e+12
+
+40
+                                               - F47031_P13  <= 1.000000e+12
+
+41
+                                              - F40005_SR11  <= 1.000000e+12
+
+42
+                                               - F47031_P12  <= 1.000000e+12
+
+43
+                                               - F47031_P10  <= 1.000000e+12
+
+44
+                                               - F47029_P26  <= 1.000000e+12
+
+45
+                                               - F47029_P25  <= 1.000000e+12
+
+46
+                                               - F47029_P18  <= 1.000000e+12
+
+47
+                                               - F47029_P16  <= 1.000000e+12
+
+48
+                                               - F47029_P14  <= 1.000000e+12
+
+49
+                                               - F47029_P15  <= 1.000000e+12
+
+50
+                                                - F47031_P5  <= 1.000000e+12
+
+51
+                                                - F47029_P4  <= 1.000000e+12
+
+52
+                                                - F47029_P5  <= 1.000000e+12
+
+53
+                                                - F47029_P8  <= 1.000000e+12
+
+54
+                                                - F47029_P6  <= 1.000000e+12
+
+55
+                                                - F47031_P4  <= 1.000000e+12
+
+56
+                                                - F47029_P2  <= 1.000000e+12
+
+NOTE: The minimal set of edits is equivalent to the original set of edits specified.
+
+
+[C,TIME,CPU , get_column_length]: 0.000 seconds.
+
+[C,TIME,WALL, get_column_length]: 0.000 seconds.
+
+[C,TIME,CPU ,  load_init]: 0.000 seconds.
+
+[C,TIME,WALL,  load_init]: 0.013 seconds.
+
+[C,TIME,CPU , processing]: 0.766 seconds.
+
+[C,TIME,WALL, processing]: 0.826 seconds.
+MEMORY USAGE: Before JCP_wrap
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13076980 kB (13.08 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10224570 kB (10.22 GB)
+~~Process specific~~
+Private Bytes:          1853264 kB (1.85 GB)
+Working Set  :          1092977 kB (1.09 GB)
+Page Faults  : 275849
+
+
+[C,TIME,CPUT, encode_outstatus]: 0.438 seconds.
+
+[C,TIME,CPUT, encode_outreject]: 0.000 seconds.
+
+[C,TIME,CPU ,   JCP_wrap]: 0.438 seconds.
+
+[C,TIME,WALL,   JCP_wrap]: 0.448 seconds.
+MEMORY USAGE: After JCP_wrap
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13026079 kB (13.03 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10178937 kB (10.18 GB)
+~~Process specific~~
+Private Bytes:          1902920 kB (1.90 GB)
+Working Set  :          1137508 kB (1.14 GB)
+Page Faults  : 301873
+
+MEMORY USAGE: Before JCP_free
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13026079 kB (13.03 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10178515 kB (10.18 GB)
+~~Process specific~~
+Private Bytes:          1902920 kB (1.90 GB)
+Working Set  :          1137508 kB (1.14 GB)
+Page Faults  : 301873
+
+MEMORY USAGE: After JCP_free
+~~System wide~~
+Total     [V]:         20213232 kB (20.21 GB)
+Available [V]:         13269705 kB (13.27 GB)
+Total     [P]:         17126224 kB (17.13 GB)
+Available [P]:         10389504 kB (10.39 GB)
+~~Process specific~~
+Private Bytes:          1661014 kB (1.66 GB)
+Working Set  :           914977 kB (0.91 GB)
+Page Faults  : 302094
+
+
+[C,TIME,CPU ,    cleanup]: 0.156 seconds.
+
+[C,TIME,WALL,    cleanup]: 0.194 seconds.
+
+[C,TIME,CPU ,       main]: 1.359 seconds.
+
+[C,TIME,WALL,       main]: 1.486 seconds.
+############################# PROCEDURE LOG ENDED on previous line ##############################
+
+banffpkg.testing: dataset 'errorloc_ceag_a_outstatus.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_outstatus.parquet'
+banffpkg.testing: dataset 'errorloc_ceag_a_outreject.parquet' found in control_data folder, will load file at path 'C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_outreject.parquet'
+####################################### RUNNING ASSERTIONS #######################################
+asserted RC == 0
+
+
+assert_substr_count(...)
+   searching for:   ERROR:
+   expected_count:  0
+   test_log count:  0
+
+
+################################ ASSERTIONS COMPLETE WITHOUT ERROR ###############################
+
+------------------------------ Captured log call ------------------------------
+DEBUG    banff.errorloc.__init__:banff_proc.py:189 procedure-level logging initialized with default parent 'banff'
+DEBUG    banff.errorloc.__init__:banff_proc.py:229 capture: default configuration (disabled)
+INFO     banff.errorloc.submit:banff_proc.py:615 Preparing to call C-code
+INFO     banff.errorloc.submit.load_input:banff_proc.py:413 Loading input parameters and datasets
+DEBUG    banff.errorloc.submit.load_input:time_measurement.py:35 [TIME] load parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.errorloc.submit.load_input:memory_usage.py:46 [MEMORY] load parameters:   change 0 kB (0.00 GB), before 159388 kB (0.16 GB), after 159388 kB (0.16 GB)
+DEBUG    banff.errorloc.submit.load_input:banff_proc.py:424 processing INDATA dataset
+DEBUG    banff.errorloc.submit.load_input.load_input_dataset:io_util.py:250 input dataset is `str`, inspecting further
+DEBUG    banff.errorloc.submit.load_input.load_input_dataset:io_util.py:255 input dataset `str` is file path: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_indata.parquet
+INFO     banff.errorloc.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:78 Loading dataset from file: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_indata.parquet
+DEBUG    banff.errorloc.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:86 file exists: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG/control_data/errorloc_ceag_a_indata.parquet
+DEBUG    banff.errorloc.submit.load_input.load_input_dataset.interm_from_input_file:io_util.py:95 Loading parquet file using PyArrow
+DEBUG    banff.errorloc.submit.load_input:time_measurement.py:35 [TIME] load input INDATA:   0.520 seconds (WALL), 1.828 seconds (CPU)
+DEBUG    banff.errorloc.submit.load_input:memory_usage.py:46 [MEMORY] load input INDATA: change 1481986 kB (1.48 GB), before 159388 kB (0.16 GB), after 1641374 kB (1.64 GB)
+INFO     banff.errorloc.submit.load_input:time_measurement.py:35 [TIME] TOTAL load input:    0.520 seconds (WALL), 1.828 seconds (CPU)
+INFO     banff.errorloc.submit.load_input:memory_usage.py:46 [MEMORY] TOTAL load input:  change 1481986 kB (1.48 GB), before 159388 kB (0.16 GB), after 1641374 kB (1.64 GB)
+INFO     banff.errorloc.submit.preprocess_input_datasets:banff_proc.py:433 Preprocessing input datasets
+INFO     banff.errorloc.submit.preprocess_input_datasets:time_measurement.py:35 [TIME] TOTAL preprocessing: 0.000 seconds (WALL), 0.000 seconds (CPU)
+INFO     banff.errorloc.submit.preprocess_input_datasets:memory_usage.py:46 [MEMORY] TOTAL preprocessing: change -193 kB (-0.00 GB), before 1640210 kB (1.64 GB), after 1640018 kB (1.64 GB)
+INFO     banff.errorloc.submit.pack_payload:banff_proc.py:532 Packing parameters and datasets into payload for C-code
+DEBUG    banff.errorloc.submit.pack_payload:time_measurement.py:35 [TIME] pack parameters:     0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.errorloc.submit.pack_payload:memory_usage.py:46 [MEMORY] pack parameters:   change 0 kB (0.00 GB), before 1638396 kB (1.64 GB), after 1638396 kB (1.64 GB)
+DEBUG    banff.errorloc.submit.pack_payload:banff_proc.py:545 packing INDATA dataset
+DEBUG    banff.errorloc.submit.pack_payload.interm_to_arrow_stream:io_util.py:123 converting PyArrow Table to Arrow stream
+DEBUG    banff.errorloc.submit.pack_payload:time_measurement.py:35 [TIME] pack INDATA:         0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.errorloc.submit.pack_payload:memory_usage.py:46 [MEMORY] pack INDATA:       change 0 kB (0.00 GB), before 1638396 kB (1.64 GB), after 1638396 kB (1.64 GB)
+DEBUG    banff.errorloc.submit.pack_payload:memory_usage.py:46 [MEMORY] free intermediate input INDATA: change 0 kB (0.00 GB), before 1638396 kB (1.64 GB), after 1638396 kB (1.64 GB)
+INFO     banff.errorloc.submit.pack_payload:time_measurement.py:35 [TIME] TOTAL pack:          0.005 seconds (WALL), 0.016 seconds (CPU)
+INFO     banff.errorloc.submit.pack_payload:memory_usage.py:46 [MEMORY] TOTAL pack:        change -12 kB (-0.00 GB), before 1638408 kB (1.64 GB), after 1638396 kB (1.64 GB)
+INFO     banff.errorloc.submit:banff_proc.py:629 Calling C-code
+DEBUG    banff.errorloc.submit.run:banff_proc.py:573 ~~~~~ C CODE BEGIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DEBUG    banff.errorloc.submit.run:memory_usage.py:46 [MEMORY] C execution:       change 22618 kB (0.02 GB), before 1638396 kB (1.64 GB), after 1661014 kB (1.66 GB)
+DEBUG    banff.errorloc.submit.run:banff_proc.py:592 ~~~~~ C CODE END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DEBUG    banff.errorloc.submit.run:memory_usage.py:46 [MEMORY] free JSON input INDATA: change 209 kB (0.00 GB), before 1661014 kB (1.66 GB), after 1661223 kB (1.66 GB)
+INFO     banff.errorloc.submit.run:time_measurement.py:35 [TIME] Run:                 1.485 seconds (WALL), 1.484 seconds (CPU)
+INFO     banff.errorloc.submit.run:memory_usage.py:46 [MEMORY] Run:               change 22827 kB (0.02 GB), before 1638396 kB (1.64 GB), after 1661223 kB (1.66 GB)
+INFO     banff.errorloc.submit:banff_proc.py:647 Processing C-code output data
+INFO     banff.errorloc.submit.unpack_output_payload:banff_proc.py:672 Unpacking C-code output dataset(s)
+DEBUG    banff.errorloc.submit.unpack_output_payload:banff_proc.py:679 unpacking OUTSTATUS dataset
+DEBUG    banff.errorloc.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack OUTSTATUS:    0.015 seconds (WALL), 0.016 seconds (CPU)
+DEBUG    banff.errorloc.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack OUTSTATUS:  change 21905 kB (0.02 GB), before 1661223 kB (1.66 GB), after 1683128 kB (1.68 GB)
+DEBUG    banff.errorloc.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output OUTSTATUS: change -21905 kB (-0.02 GB), before 1683128 kB (1.68 GB), after 1661223 kB (1.66 GB)
+DEBUG    banff.errorloc.submit.unpack_output_payload:banff_proc.py:679 unpacking OUTREJECT dataset
+DEBUG    banff.errorloc.submit.unpack_output_payload:time_measurement.py:35 [TIME] unpack OUTREJECT:    0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.errorloc.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] unpack OUTREJECT:  change 0 kB (0.00 GB), before 1661223 kB (1.66 GB), after 1661223 kB (1.66 GB)
+DEBUG    banff.errorloc.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] free JSON output OUTREJECT: change 0 kB (0.00 GB), before 1661223 kB (1.66 GB), after 1661223 kB (1.66 GB)
+INFO     banff.errorloc.submit.unpack_output_payload:time_measurement.py:35 [TIME] TOTAL unpack:        0.015 seconds (WALL), 0.016 seconds (CPU)
+INFO     banff.errorloc.submit.unpack_output_payload:memory_usage.py:46 [MEMORY] TOTAL unpack:      change 4 kB (0.00 GB), before 1661223 kB (1.66 GB), after 1661227 kB (1.66 GB)
+INFO     banff.errorloc.submit.handle_output:banff_proc.py:386 handling output
+DEBUG    banff.errorloc.submit.handle_output:banff_proc.py:393 processing OUTSTATUS dataset output
+DEBUG    banff.errorloc.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.errorloc.submit.handle_output:time_measurement.py:35 [TIME] output OUTSTATUS:    0.863 seconds (WALL), 0.859 seconds (CPU)
+DEBUG    banff.errorloc.submit.handle_output:memory_usage.py:46 [MEMORY] output OUTSTATUS:  change 179782 kB (0.18 GB), before 1661735 kB (1.66 GB), after 1841517 kB (1.84 GB)
+DEBUG    banff.errorloc.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output OUTSTATUS: change -21901 kB (-0.02 GB), before 1841517 kB (1.84 GB), after 1819615 kB (1.82 GB)
+DEBUG    banff.errorloc.submit.handle_output:banff_proc.py:393 processing OUTREJECT dataset output
+DEBUG    banff.errorloc.submit.handle_output.write_output_dataset:io_util.py:331 no destination specified, converting to DataFrame
+DEBUG    banff.errorloc.submit.handle_output:time_measurement.py:35 [TIME] output OUTREJECT:    0.000 seconds (WALL), 0.000 seconds (CPU)
+DEBUG    banff.errorloc.submit.handle_output:memory_usage.py:46 [MEMORY] output OUTREJECT:  change 0 kB (0.00 GB), before 1819615 kB (1.82 GB), after 1819615 kB (1.82 GB)
+DEBUG    banff.errorloc.submit.handle_output:memory_usage.py:46 [MEMORY] free intermediate output OUTREJECT: change 0 kB (0.00 GB), before 1819615 kB (1.82 GB), after 1819615 kB (1.82 GB)
+INFO     banff.errorloc.submit.handle_output:time_measurement.py:35 [TIME] TOTAL output:        0.868 seconds (WALL), 0.859 seconds (CPU)
+INFO     banff.errorloc.submit.handle_output:memory_usage.py:46 [MEMORY] TOTAL output:      change 157880 kB (0.16 GB), before 1661735 kB (1.66 GB), after 1819615 kB (1.82 GB)
+INFO     banff.errorloc.submit:banff_proc.py:657 [OUTPUT] dataset OUTSTATUS has 550085 rows and 3 columns
+DEBUG    banff.errorloc.submit:banff_proc.py:658 ~~ Printing OUTSTATUS ~~
+
+[550085 rows x 3 columns]
+
+INFO     banff.errorloc.submit:banff_proc.py:657 [OUTPUT] dataset OUTREJECT has 0 rows and 2 columns
+DEBUG    banff.errorloc.submit:banff_proc.py:658 ~~ Printing OUTREJECT ~~
+Empty DataFrame
+Columns: [I43600, NAME_ERROR]
+Index: []
+
+INFO     banff.errorloc.submit:banff_proc.py:660 Execution complete
+INFO     banff.errorloc.submit:time_measurement.py:35 [TIME] Submit:              2.898 seconds (WALL), 4.203 seconds (CPU)
+INFO     banff.errorloc.submit:memory_usage.py:46 [MEMORY] Submit:            change 1660232 kB (1.66 GB), before 159388 kB (0.16 GB), after 1819619 kB (1.82 GB)
+=========================== short test summary info ===========================
+PASSED test_errorloc.py::test_errorloc_ceag_parquet
+====================== 1 passed, 11 deselected in 3.69s =======================

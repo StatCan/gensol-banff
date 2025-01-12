@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="release_en|x64">
+      <Configuration>release_en</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_fr|x64">
+      <Configuration>release_fr</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug_en|x64">
+      <Configuration>debug_en</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{322E9A04-F714-4243-87BD-128C1BD8DE62}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>verifyedits_204002</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>verifyedits</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <Import Project="ProcSpecificProperties.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcVersionInfo.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageEnglish.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOLinkDebug.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcLinkCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcDebugCommon.props" />
+    <Import Project="..\..\libraries\STC_Library_location.props" />
+    <Import Project="..\..\build\windows\PropertySheets\DebugMemory.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <Import Project="ProcSpecificProperties.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcVersionInfo.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageEnglish.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOLinkRelease.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcReleaseSTC.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcLinkCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcReleaseCommon.props" />
+    <Import Project="..\..\libraries\STC_Library_location.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <Import Project="ProcSpecificProperties.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcVersionInfo.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageFrench.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOLinkRelease.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcReleaseSTC.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcLinkCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcProcReleaseCommon.props" />
+    <Import Project="..\..\libraries\STC_Library_location.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <TargetName>verifyed_$(STC_Lang_2c)</TargetName>
+    <OutDir>$(SolutionDir)..\Python\src\banff\proc\bin\windows\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <TargetName>verifyed_$(STC_Lang_2c)</TargetName>
+    <OutDir>$(SolutionDir)..\Python\src\banff\proc\bin\windows\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <TargetName>verifyed_$(STC_Lang_2c)</TargetName>
+    <OutDir>$(SolutionDir)..\Python\src\banff\proc\bin\windows\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>VERIFYEDITS_$(BanffExports)_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>VERIFYEDITS_$(BanffExports)_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>VERIFYEDITS_$(BanffExports)_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\proc_common\proc_common.c" />
+    <ClCompile Include="verifyed.c" />
+    <ClCompile Include="verifyed_JIO.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\proc_common\proc_common.h" />
+    <ClInclude Include="verifyed_JIO.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

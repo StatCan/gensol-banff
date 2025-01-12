@@ -1,0 +1,24 @@
+variables:
+  # PY_BIN
+  #   Reference this variable instead of calling Python directly
+  #     for example: `$PY_BIN -m pip list` instead of `python -m pip list` or `pip list`
+  #   Override this in any job
+  #     Example: `PY_BIN: python3.11`
+  #   WARNING: Windows
+  #     PowerShell behaves oddly when a command comes from a variable, often failing to parse 
+  #     any parameters that follow.  To avoid this, wrap the command in single quotes and prefix with an ampersand
+  #     Example: `'& $PY_BIN -m pip list'`
+  PY_BIN: python
+
+##### Python PIP Configuration: use artifactory #####
+.pip-config-artifactory:
+  script:
+    - echo PY_BIN=$PY_BIN
+    - $PY_BIN --version
+    - $PY_BIN -m pip config set global.index-url https://${ARTIFACTORY_USER}:${ARTIFACTORY_PASS}@${ARTIFACTORY_REGISTRY}/artifactory/api/pypi/pypi-remote/simple
+
+.pip-config-artifactory-windows:
+  script:
+    - echo PY_BIN=$PY_BIN
+    - '& $PY_BIN --version'
+    - '& $PY_BIN -m pip config set global.index-url https://${ARTIFACTORY_USER}:${ARTIFACTORY_PASS}@${ARTIFACTORY_REGISTRY}/artifactory/api/pypi/pypi-remote/simple'

@@ -1,0 +1,25 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE OUTLIER Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:00:52
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: HIST = WORK.INHIST
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: METHOD = SIGMAGAP
+NOTE: SIDE = BOTH (default)
+NOTE: SIGMA = MAD (default)
+NOTE: BETAI = 1.5
+NOTE: BETAE = 0.5
+NOTE: STARTCENTILE = 75 (default)
+NOTE: MINOBS = 10 (default)
+NOTE: OUTLIERSTAT not specified.
+NOTE: REJECTNEGATIVE (default)
+NOTE: REJECTZERO (default)
+NOTE: ID = ident 
+NOTE: VAR = V1 V2 
+NOTE: WITH not specified.
+NOTE: WEIGHT not specified.
+NOTE: BY not specified.
+ERROR: Variable ID is not in HIST data set.

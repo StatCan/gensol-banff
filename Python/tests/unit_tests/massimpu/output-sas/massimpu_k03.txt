@@ -1,0 +1,126 @@
+1                                                                                                                        The SAS System                                                                                          11:25 Friday, September 1, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.43 seconds
+      cpu time            0.21 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* If a noninteger value is specified for the SEED parameter,MassImp
+2          should not proceed.  Error messages should be printed to the log file.*/
+3          options nodate nonumber ls=90 ps=90;
+4          data indata;
+5             infile cards;
+6             input ident $ area total Q1 Q2 Q3 Q4 staff;
+7             cards;
+
+NOTE: The data set WORK.INDATA has 5 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.03 seconds
+      
+
+13         ;
+14         run;
+15         proc massimputation
+16            data=indata
+17            out=outdata
+18            donormap=donormap
+19            mindonors=2
+20            pcentdonors=10
+21            random
+22            seed=2.2
+                   ___
+                   22
+                   200
+ERROR 22-322: Expecting an integer constant.  
+ERROR 200-322: The symbol is not recognized and will be ignored.
+23            ;
+24            id ident;
+                                      The SAS System
+
+25            mustimpute Q1 Q2 Q3 Q4;
+26         run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: The data set WORK.DONORMAP may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+NOTE: PROCEDURE MASSIMPUTATION used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.01 seconds
+      
+27         
+28         
+29         
+30         
+31         
+32         
+33         
+34         
+35         
+36         
+37         
+
+
+ERROR: Errors printed on page 1.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.60 seconds
+      cpu time            0.31 seconds
+      

@@ -1,0 +1,45 @@
+/* discover tests and run as is done in pipeline */
+{
+    "python.testing.pytestArgs": [
+        "-m (m_auto_pass and not m_needs_sas_data)",
+        "--verbose",
+        "-rA",
+        "--tb=short",
+        "Python/tests",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "[markdown]": {
+        "files.encoding": "utf8"
+    },
+    "[cpp]": {
+        "files.autoGuessEncoding": true
+    },
+    "cSpell.customDictionaries": {
+        "custom-dictionary-workspace": {
+            "name": "custom-dictionary-workspace",
+            "path": "${workspaceFolder:banff_redesign}/.cspell/custom-dictionary-workspace.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    },
+    "cSpell.ignoreWords": [
+        "NFTE",
+        "NFTI",
+        "NOTINVOLVED",
+        "applic",
+        "infty",
+        "outest",
+        "outrand",
+        "outtest",
+        "outvars",
+        "proratable",
+        "varianceperiod"
+    ],
+    "cSpell.language": "en-CA,fr",
+    "markdownlint.config": {
+        "MD033": {
+        "allowed_elements": ["h1", "h2", "h3", "h4", "h5"]
+        }
+    }
+}

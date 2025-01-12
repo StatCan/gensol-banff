@@ -1,0 +1,64 @@
+name: GitHub Scan
+on:
+  release:
+    types: [created]
+  workflow_call:
+jobs: 
+  scan_c:
+    #https://semgrep.dev/docs/semgrep-ci/sample-ci-configs#sample-github-actions-configuration-file
+    name: "scan c"   
+    runs-on: ubuntu-latest
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: semgrep/semgrep
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')  
+    timeout-minutes: 10
+    steps:
+      # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
+      - uses: actions/checkout@v4       
+      - name: Scan C using semgrep OSS
+        # Run the "semgrep scan" command on the command line of the docker image.
+        # https://semgrep.dev/docs/cli-reference
+        run: semgrep scan --json-output=findings.json --config auto --oss-only --include=C/procedures --include=C/libraries --exclude=C/libraries/glpk --exclude=C/libraries/_submodules/arrow-nanoarrow --exclude=C/libraries/_submodules/jansson
+      - name: Upload Semgrep artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep_output
+          path: findings.json  
+  scan_python:    
+    name: "scan python"    
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:        
+        os: [ubuntu-latest]
+        python-version: ["3.12"]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4  
+      - name: Setup Python # Set Python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Ruff
+        run: pip install ruff     
+      - name: Scan using Ruff      
+        run: |
+          cd Python          
+          ruff check --output-format github --output-file gh-code-quality-report.json --exit-zero .
+          cat gh-code-quality-report.json
+      - name: Generate Ruff report
+        run: |
+          mkdir ruff_output
+          ruff check --output-format concise --output-file ruff_output/ruff-report_concise.txt --exit-zero .
+          ruff check --output-format full --output-file ruff_output/ruff-report_full.txt --exit-zero .
+          ruff check --output-format grouped --output-file ruff_output/ruff-report_grouped.txt --exit-zero .
+          ruff check --output-format json --output-file ruff_output/ruff-report_json.json --exit-zero .
+          ruff check --statistics --output-file ruff_output/ruff_statistics.txt --exit-zero .
+          ruff check --show-files --output-file ruff_output/ruff_files.txt --exit-zero .
+          ruff check --show-settings --output-file ruff_output/ruff_settings.txt          
+      - name: Upload Ruff artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruff_output
+          path: ruff_output/*  

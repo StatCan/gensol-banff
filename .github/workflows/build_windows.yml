@@ -1,0 +1,53 @@
+name: GitHub Build Windows
+on:
+  release:
+    types: [created]
+  workflow_call:
+jobs:            
+  build_windows:    
+    name: "build c and python windows"
+    runs-on: windows-2019
+    strategy:
+      matrix:        
+        python-version: ["3.12"]
+    timeout-minutes: 10
+    steps:
+      - name: checkout git submodules
+        uses: actions/checkout@v4  
+        with:          
+          #checkout git submodules
+          submodules: recursive
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: add msbuild        
+        uses: microsoft/setup-msbuild@v2
+        with:
+          vs-version: '[16.11,16.12)'
+      - name: add cmake and cl        
+        #uses: lukka/get-cmake@latest
+        uses: seanmiddleditch/gha-setup-vsdevenv@master
+      - name: check cmake    
+        run: cmake --version
+      - name: check cl        
+        run: cl     
+      - name: build c        
+        run: cmd.exe /c build.cmd        
+      - name: build python
+        run: |
+          pip install build
+          pip install wheel          
+          pushd Python
+          cp ..\README.md .
+          cp ..\LICENSE .
+          python -m build -w
+          pushd dist
+          $wheel_files = get-childitem .\*.whl
+          $wheel_files | foreach-object {& python -m wheel tags --platform-tag win_amd64 $_.FullName }
+      - name: Upload Windows Artifacts        
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows_artifacts          
+          path: |            
+            Python\dist\*win_amd64.whl

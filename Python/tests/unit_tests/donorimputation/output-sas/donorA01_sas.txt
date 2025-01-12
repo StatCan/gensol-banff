@@ -1,0 +1,43 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+259  proc donorimputation
+260     data=indata
+261     instatus=instat
+262     out=outdata
+263     outstatus=outstat
+264     donormap=map
+265     edits="Q1 + Q2 + Q3 + Q4 = total;"
+266     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+267     mindonors=1
+268     pcentdonors=1
+269     n=3
+270     matchfieldstat
+271     ;
+272     id ident;
+ERROR: Variable ident in list does not match type prescribed for this list.
+273     mustmatch staff;
+274     dataexclvar toexcl;
+275  run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there were 0 
+         observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there were 0 
+         observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 0 
+         observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+276  proc printto;
+277  run;
+

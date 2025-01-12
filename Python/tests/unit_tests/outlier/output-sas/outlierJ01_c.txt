@@ -1,0 +1,2 @@
+ERROR 22-322: Expecting a numeric constant.  
+ERROR 202-322: The option or parameter is not recognized and will be ignored.

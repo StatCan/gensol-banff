@@ -1,0 +1,36 @@
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE PRORATE Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:04:02
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATAO2
+NOTE: OUTSTATUS = WORK.OUTSTATO2
+NOTE: OUTREJECT = WORK.REJECTO2
+NOTE: EDITS = VA + VB+ VC + VD = TOT1;
+NOTE: METHOD = S
+NOTE: DECIMAL = 0
+NOTE: LOWERBOUND = 0
+NOTE: UPPERBOUND = 999
+NOTE: MODIFIER = A
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: BY = prov area 
+
+NOTE: EDITS PARSED for PRORATE procedure (if no modifier is specified 
+      for a variable, the value of the MODIFIER option will be used):
+
+--- GROUP ---
+EDIT Level: 0
+1.0000 VA:a + 
+1.0000 VB:a + 
+1.0000 VC:a + 
+1.0000 VD:a = TOT1
+
+NOTE: INSTATUS data set will be ignored: none of modifiers are ORIGINAL 
+      or IMPUTED.
+ERROR: Data set WORK.INDATA is not sorted in ascending sequence. The 
+       current BY group has area = B and the next BY group has area = A.

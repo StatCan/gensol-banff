@@ -1,0 +1,203 @@
+1                                                                                                                        The SAS System                                                                                         17:11 Wednesday, August 16, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.35 seconds
+      cpu time            0.21 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* When the key values are not unique in the input dataset, Deterministic should not
+2          proceed. Error messages should be printed in the log. */
+3          options nodate nonumber ls=80 ps=100;
+4          
+5          data indata;
+6              input REC $ VA VB VC VD TOT1 VE VF VG TOT2 GT;
+7                 cards;
+
+NOTE: The data set WORK.INDATA has 4 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+12         ;
+13         run;
+14         
+15         proc sort;
+16         by rec;
+17         
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: The data set WORK.INDATA has 4 observations and 11 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.00 seconds
+      
+
+18         data instat;
+19            input REC $ FIELDID $ STATUS $;
+20               cards;
+
+NOTE: The data set WORK.INSTAT has 22 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+43         ;
+44         run;
+45         
+46         proc sort;
+47         by rec;
+48         
+
+NOTE: There were 22 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.INSTAT has 22 observations and 3 variables.
+                                 The SAS System
+
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+49         proc DETERMINISTIC
+50            data=indata
+51            instatus=instat
+52            out=outdata
+53            outstatus=outstat
+54            edits="VA >= 0.001; VC >= 0.0001; VE >= 0.0001;
+55               VA + VB + VC + VD = TOT1; VE + VF + VG = TOT2; TOT1 + TOT2 = GT
+55       ! ;"
+56            acceptnegative
+57            ;
+58         ID REC;
+59         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DETERMINISTIC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:44:24
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: EDITS = VA >= 0.001; VC >= 0.0001; VE >= 0.0001;       VA + VB + VC + VD 
+              = TOT1; VE + VF + VG = TOT2; TOT1 + TOT2 = GT;
+NOTE: ID = REC
+NOTE: ACCEPTNEGATIVE
+NOTE: BY not specified.
+
+NOTE: Logging access was not successful.  The procedure will continue.
+Set of EDITS: 
+
+0
+                                                       - VA  <= -0.001
+
+1
+                                                       - VC  <= -0.0001
+
+2
+                                                       - VE  <= -0.0001
+
+3
+                                         - GT + TOT1 + TOT2   = 0
+
+4
+                                      - TOT2 + VE + VF + VG   = 0
+
+5
+                                 - TOT1 + VA + VB + VC + VD   = 0
+
+NOTE: The minimal set of edits is equivalent to the original set of edits 
+      specified.
+
+ERROR: DATA data set has duplicate keys. The current key is 3 and the previous 
+       key was 3.
+
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+NOTE: There were 2 observations read from the data set WORK.INDATA.
+NOTE: There were 22 observations read from the data set WORK.INSTAT.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was 
+         stopped there were 1 observations and 11 variables.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was 
+         stopped there were 1 observations and 3 variables.
+NOTE: PROCEDURE DETERMINISTIC used (Total process time):
+      real time           0.76 seconds
+      cpu time            0.01 seconds
+      
+60         
+61         /*proc print data=indata;
+62         title "Deterministic input data";
+63         run;
+64         
+65         proc print data=instat;
+66         title "Deterministic input status";
+67         run;
+68         
+69         proc print data=outdata;
+70         title "Deterministic output records";
+71         run;
+72         
+73         proc print data=outstat;
+74         title "Deterministic output status";
+75         run;
+
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.28 seconds
+      cpu time            0.28 seconds
+                                 The SAS System
+
+      
