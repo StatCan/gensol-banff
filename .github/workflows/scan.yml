@@ -1,7 +1,7 @@
 name: GitHub Scan
 on:
   release:
-    types: [created]
+    types: [published]
   workflow_call:
 jobs: 
   scan_c:
