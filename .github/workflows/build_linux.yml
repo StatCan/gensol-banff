@@ -1,7 +1,7 @@
 name: GitHub Build Linux
 on:
   release:
-    types: [created]
+    types: [published]
   workflow_call:
 jobs: 
   build_linux:    

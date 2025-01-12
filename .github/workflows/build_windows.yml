@@ -1,7 +1,7 @@
 name: GitHub Build Windows
 on:
   release:
-    types: [created]
+    types: [published]
   workflow_call:
 jobs:            
   build_windows:    
