@@ -1,0 +1,41 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE MASSIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:57:36
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUT = WORK.OUTDATA
+                                      The SAS System
+
+NOTE: DONORMAP = WORK.DONORMAP
+NOTE: MINDONORS = 2
+NOTE: PCENTDONORS = 10.00%
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: RANDOM
+NOTE: SEED = 1693599074 (value chosen by the system) 
+WARNING: The SEED value specified is negative and cannot be used. It has been replaced 
+         with a generated number.
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: MUSTIMPUTE = Q1 Q2 Q3 Q4 
+NOTE: MUSTMATCH not specified.
+NOTE: BY not specified.
+
+
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:       5
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:       5     100.00%
+Number of donors ..................................:       4      80.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       1      20.00%
+    with matching fields ..........................:       0       0.00%
+        imputed ...................................:       0       0.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       1      20.00%
+        imputed ...................................:       1      20.00%
+        not imputed ...............................:       0       0.00%

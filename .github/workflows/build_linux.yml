@@ -1,0 +1,37 @@
+name: GitHub Build Linux
+on:
+  release:
+    types: [created]
+  workflow_call:
+jobs: 
+  build_linux:    
+    name: "build c and python linux"
+    runs-on: ubuntu-latest
+    env:
+      PY_BIN: /opt/python/cp312-cp312/bin/python
+    container:
+      #https://quay.io/repository/pypa/manylinux_2_28_x86_64?tab=tags
+      image: quay.io/pypa/manylinux_2_28_x86_64
+    timeout-minutes: 10
+    steps:
+      - name: checkout git submodules
+        uses: actions/checkout@v4
+        with:          
+          #checkout git submodules
+          submodules: recursive      
+      - name: build c
+        run: make c_procs
+      - name: build python
+        run: |
+          #pip install build
+          cd Python
+          cp ../README.md .
+          cp ../LICENSE .
+          $PY_BIN -m build -w
+          auditwheel repair --wheel-dir dist --plat manylinux_2_28_x86_64 dist/*.whl
+      - name: upload linux artifacts        
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux_artifacts          
+          path: |            
+            Python/dist/*manylinux*.whl

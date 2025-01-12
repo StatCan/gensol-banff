@@ -1,0 +1,41 @@
+name: GitHub Main
+
+on:  
+  push:
+    branches:
+      - main
+      - github
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'C/documentation/**'
+      - 'Python/docs/**'
+  pull_request:
+    branches:
+      - main
+      - github
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'C/documentation/**'
+      - 'Python/docs/**'
+
+jobs:
+  scan:
+    uses: ./.github/workflows/scan.yml
+
+  build_linux:
+    needs: scan
+    uses: ./.github/workflows/build_linux.yml
+  
+  build_windows:
+    needs: scan
+    uses: ./.github/workflows/build_windows.yml
+
+  test_linux:
+    needs: build_linux
+    uses: ./.github/workflows/test_linux.yml
+
+  test_windows:
+    needs: build_windows
+    uses: ./.github/workflows/test_windows.yml

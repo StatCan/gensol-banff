@@ -1,0 +1,356 @@
+1                                                                                                                        The SAS System                                                                                         10:01 Tuesday, February 20, 2024
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.24 seconds
+      cpu time            0.21 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          %let tmpData = C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG\control_data;
+2          libname tmpLib "&tmpData";
+NOTE: Libref TMPLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG\control_data
+3          
+4          proc errorloc
+5             seed=1
+6             data=tmpLib.errorloc_ceag_a_indata
+7             outstatus=WORK.outstatus
+8             outreject=WORK.rejected
+9             edits=
+10            "F47031_P3 >= -999999999999;
+11            F61054_SR2 >= -999999999999;
+12            F72000 >= -999999999999;
+13            F61054_SR10 >= -999999999999;
+14            F61054_SR92 >= -999999999999;
+15            F61054_SR1 >= -999999999999;
+16            F40005_SR2 >= -999999999999;
+17            F40005_SR10 >= -999999999999;
+18            F47031_P6 >= -999999999999;
+NOTE: The quoted string currently being processed has become more than 262 characters long.  You might have unbalanced quotation marks.
+19            F47031_P2 >= -999999999999;
+20            F47031_P1 >= -999999999999;
+21            F47029_P141 >= -999999999999;
+22            F60001_SR1 >= -999999999999;
+23            F61054_SR18 >= -999999999999;
+24            F61054_SR17 >= -999999999999;
+25            F61054_SR16 >= -999999999999;
+26            F61054_SR15 > -999999999999;
+27            F61054_SR14 >= -999999999999;
+28            F61052_SR30 >= -999999999999;
+29            F61052_SR27 >= -999999999999;
+30            F61052_SR51 >= -999999999999;
+31            F61052_SR32 >= -999999999999;
+32            F61054_SR12 >= -999999999999;
+33            F61054_SR11 >= -999999999999;
+34            F61054_SR8 >= -999999999999;
+35            F61054_SR6 >= -999999999999;
+36            F61052_SR7 >= -999999999999;
+37            F61054_SR4 >= -999999999999;
+38            F61054_SR23 >= -999999999999;
+39            F61052_SR4 >= -999999999999;
+40            F61052_SR3 >= -999999999999;
+41            F61052_SR2 >= -999999999999;
+42            F60010 >= -999999999999;
+43            F51313_SR2 >= -999999999999;
+44            F40010 >= 0;
+45            F40005_SR4 >= -999999999999;
+46            F51317_SR1 >= -999999999999;
+47            F47031_P146 >= -999999999999;
+48            F47031_P7 >= -999999999999;
+49            F40005_SR3 >= -999999999999;
+50            F47031_P13 >= -999999999999;
+51            F40005_SR11 >= -999999999999;
+52            F47031_P12 >= -999999999999;
+53            F47031_P10 >= -999999999999;
+54            F47029_P26 > -999999999999;
+55            F47029_P25 >= -999999999999;
+56            F47029_P18 >= -999999999999;
+57            F47029_P16 >= -999999999999;
+58            F47029_P14 >= -999999999999;
+59            F47029_P15 >= -999999999999;
+60            F47031_P5 >= -999999999999;
+61            F47029_P4 >= -999999999999;
+62            F47029_P5 >= -999999999999;
+63            F47029_P8 >= -999999999999;
+64            F47029_P6 >= -999999999999;
+65            F47031_P4 >= -999999999999;
+66            F47029_P2 >= -999999999999;"
+67            timeperobs=5
+68            acceptnegative
+69            nobystats
+70            ;
+71            id I43600;
+72            randnumvar RandomNbr_rand;
+73            by
+74            P41_10_3
+75            P41_10_3_CURR
+76            P51_24_3
+77            P51_24_3_CURR
+78            ;
+79         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ERRORLOC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:51:08
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = TMPLIB.ERRORLOC_CEAG_A_INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUS
+NOTE: OUTREJECT = WORK.REJECTED
+NOTE: EDITS = F47031_P3 >= -999999999999;   F61054_SR2 >= -999999999999;   F72000 >= -999999999999;   F61054_SR10 >= -999999999999;   F61054_SR92 >= -999999999999;   F61054_SR1 >= -999999999999;   F40005_SR2 >= -999999999999;   F40005_SR10 >= 
+              -999999999999;   F47031_P6 >= -999999999999;   F47031_P2 >= -999999999999;   F47031_P1 >= -999999999999;   F47029_P141 >= -999999999999;   F60001_SR1 >= -999999999999;   F61054_SR18 >= -999999999999;   F61054_SR17 >= -999999999999;   
+              F61054_SR16 >= -999999999999;   F61054_SR15 > -999999999999;   F61054_SR14 >= -999999999999;   F61052_SR30 >= -999999999999;   F61052_SR27 >= -999999999999;   F61052_SR51 >= -999999999999;   F61052_SR32 >= -999999999999;   F61054_SR12 >= 
+              -999999999999;   F61054_SR11 >= -999999999999;   F61054_SR8 >= -999999999999;   F61054_SR6 >= -999999999999;   F61052_SR7 >= -999999999999;   F61054_SR4 >= -999999999999;   F61054_SR23 >= -999999999999;   F61052_SR4 >= -999999999999;   
+              F61052_SR3 >= -999999999999;   F61052_SR2 >= -999999999999;   F60010 >= -999999999999;   F51313_SR2 >= -999999999999;   F40010 >= 0;   F40005_SR4 >= -999999999999;   F51317_SR1 >= -999999999999;   F47031_P146 >= -999999999999;   F47031_P7 >= 
+              -999999999999;   F40005_SR3 >= -999999999999;   F47031_P13 >= -999999999999;   F40005_SR11 >= -999999999999;   F47031_P12 >= -999999999999;   F47031_P10 >= -999999999999;   F47029_P26 > -999999999999;   F47029_P25 >= -999999999999;   
+              F47029_P18 >= -999999999999;   F47029_P16 >= -999999999999;   F47029_P14 >= -999999999999;   F47029_P15 >= -999999999999;   F47031_P5 >= -999999999999;   F47029_P4 >= -999999999999;   F47029_P5 >= -999999999999;   F47029_P8 >= -999999999999; 
+                F47029_P6 >= -999999999999;   F47031_P4 >= -999999999999;   F47029_P2 >= -999999999999;
+NOTE: WEIGHTS not specified. Weight will be set to 1 for each variable in EDITS.
+NOTE: CARDINALITY not specified. The result will not be constrained by cardinality.
+NOTE: TIMEPEROBS = 5
+NOTE: SEED = 1
+NOTE: ACCEPTNEGATIVE
+NOTE: NOBYSTATS
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = I43600
+NOTE: RANDNUMVAR = RandomNbr_rand
+NOTE: Both SEED and RANDNUMVAR specified. The SEED parameter will be ignored.
+NOTE: BY = P41_10_3 P41_10_3_CURR P51_24_3 P51_24_3_CURR 
+
+Set of EDITS: 
+
+0
+                                                - F47031_P3  <= 1.000000e+12
+
+1
+                                               - F61054_SR2  <= 1.000000e+12
+
+2
+                                                   - F72000  <= 1.000000e+12
+
+3
+                                              - F61054_SR10  <= 1.000000e+12
+
+4
+                                              - F61054_SR92  <= 1.000000e+12
+
+5
+                                               - F61054_SR1  <= 1.000000e+12
+
+6
+                                               - F40005_SR2  <= 1.000000e+12
+
+7
+                                              - F40005_SR10  <= 1.000000e+12
+
+8
+                                                - F47031_P6  <= 1.000000e+12
+
+9
+                                                - F47031_P2  <= 1.000000e+12
+
+10
+                                                - F47031_P1  <= 1.000000e+12
+
+11
+                                              - F47029_P141  <= 1.000000e+12
+
+12
+                                               - F60001_SR1  <= 1.000000e+12
+
+13
+                                              - F61054_SR18  <= 1.000000e+12
+
+14
+                                              - F61054_SR17  <= 1.000000e+12
+
+15
+                                              - F61054_SR16  <= 1.000000e+12
+
+16
+                                              - F61054_SR15  <= 1.000000e+12
+
+17
+                                              - F61054_SR14  <= 1.000000e+12
+
+18
+                                              - F61052_SR30  <= 1.000000e+12
+
+19
+                                              - F61052_SR27  <= 1.000000e+12
+
+20
+                                              - F61052_SR51  <= 1.000000e+12
+
+21
+                                              - F61052_SR32  <= 1.000000e+12
+
+22
+                                              - F61054_SR12  <= 1.000000e+12
+
+23
+                                              - F61054_SR11  <= 1.000000e+12
+
+24
+                                               - F61054_SR8  <= 1.000000e+12
+
+25
+                                               - F61054_SR6  <= 1.000000e+12
+
+26
+                                               - F61052_SR7  <= 1.000000e+12
+
+27
+                                               - F61054_SR4  <= 1.000000e+12
+
+28
+                                              - F61054_SR23  <= 1.000000e+12
+
+29
+                                               - F61052_SR4  <= 1.000000e+12
+
+30
+                                               - F61052_SR3  <= 1.000000e+12
+
+31
+                                               - F61052_SR2  <= 1.000000e+12
+
+32
+                                                   - F60010  <= 1.000000e+12
+
+33
+                                               - F51313_SR2  <= 1.000000e+12
+
+34
+                                                   - F40010  <= 0
+
+35
+                                               - F40005_SR4  <= 1.000000e+12
+
+36
+                                               - F51317_SR1  <= 1.000000e+12
+
+37
+                                              - F47031_P146  <= 1.000000e+12
+
+38
+                                                - F47031_P7  <= 1.000000e+12
+
+39
+                                               - F40005_SR3  <= 1.000000e+12
+
+40
+                                               - F47031_P13  <= 1.000000e+12
+
+41
+                                              - F40005_SR11  <= 1.000000e+12
+
+42
+                                               - F47031_P12  <= 1.000000e+12
+
+43
+                                               - F47031_P10  <= 1.000000e+12
+
+44
+                                               - F47029_P26  <= 1.000000e+12
+
+45
+                                               - F47029_P25  <= 1.000000e+12
+
+46
+                                               - F47029_P18  <= 1.000000e+12
+
+47
+                                               - F47029_P16  <= 1.000000e+12
+
+48
+                                               - F47029_P14  <= 1.000000e+12
+
+49
+                                               - F47029_P15  <= 1.000000e+12
+
+50
+                                                - F47031_P5  <= 1.000000e+12
+
+51
+                                                - F47029_P4  <= 1.000000e+12
+
+52
+                                                - F47029_P5  <= 1.000000e+12
+
+53
+                                                - F47029_P8  <= 1.000000e+12
+
+54
+                                                - F47029_P6  <= 1.000000e+12
+
+55
+                                                - F47031_P4  <= 1.000000e+12
+
+56
+                                                - F47029_P2  <= 1.000000e+12
+
+NOTE: The minimal set of edits is equivalent to the original set of edits specified.
+
+NOTE: There were 190486 observations read from the data set TMPLIB.ERRORLOC_CEAG_A_INDATA.
+NOTE: The data set WORK.OUTSTATUS has 550085 observations and 7 variables.
+NOTE: The data set WORK.REJECTED has 0 observations and 6 variables.
+NOTE: PROCEDURE ERRORLOC used (Total process time):
+      real time           0.82 seconds
+      cpu time            0.76 seconds
+      
+
+80         
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.12 seconds
+      cpu time            1.04 seconds
+      

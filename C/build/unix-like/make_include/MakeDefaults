@@ -1,0 +1,5 @@
+# Default C flags
+# `-O3` Optimization
+# `-f-input-charset` encoding of source files (.c, .h)
+# `-fexec-charset` encoding printed by printf() statements
+export DEFAULT_C_FLAGS = -O3 -finput-charset=WINDOWS-1252 -fexec-charset=UTF-8

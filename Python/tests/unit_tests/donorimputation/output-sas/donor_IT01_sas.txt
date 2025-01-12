@@ -1,0 +1,181 @@
+1                                                                                                                        The SAS System                                                                                           14:24 Thursday, April 27, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.42 seconds
+      cpu time            0.29 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* Observations with valid key but with missing
+2          values in the input data set for fields specified in the edits or MUSTMATCH statement and
+3          without status FTI in the input status data set should not be processed. A warning message
+4          should be entered in the log with a counter for the number of observations dropped. */
+5          data indata;
+6             infile cards;
+7             input ident $ area $ total Q1 Q2 Q3 Q4 staff toexcl $ ;
+8             cards;
+
+NOTE: The data set WORK.INDATA has 10 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+19         ;
+20         run;
+21         data instat;
+22            infile cards;
+23            input ident $ fieldid $ status $;
+24            cards;
+
+NOTE: The data set WORK.INSTAT has 8 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+33         ;
+34         run;
+35         proc donorimputation
+36            data=indata
+37            instatus=instat
+38            out=outdata
+39            outstatus=outstat
+40            donormap=map
+41            edits="Q1 + Q2 + Q3 + Q4 = total;"
+42            postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+43            mindonors=1
+44            pcentdonors=1
+45            n=3
+46            matchfieldstat
+47            eligdon=any
+48            acceptnegative
+49            seed=1
+50            ;
+51            id ident;
+52            mustmatch STAFF;
+53            dataexclvar toexcl;
+54         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1
+NOTE: ACCEPTNEGATIVE
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+NOTE: The minimal set of edits is equivalent to the original set of edits specified.
+
+NOTE: The minimal set of post imputation edits is equivalent to the original set of edits specified.
+
+
+WARNING: There were 10 observations dropped from DATA data set because one/more EDITS variables or one/more MUSTMATCH variables outside the EDITS group are missing in DATA data set and there is no corresponding FTI in INSTATUS data set.
+
+WARNING: There are no valid observations in the group processed. No imputation will be done.
+Number of observations ............................:      10
+Number of observations dropped ....................:      10
+    missing key ...................................:       0
+    missing data ..................................:      10
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       0
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:       0     100.00%
+
+
+NOTE: There were 10 observations read from the data set WORK.INDATA.
+NOTE: There were 8 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 0 observations and 6 variables.
+NOTE: The data set WORK.OUTSTAT has 0 observations and 3 variables.
+NOTE: The data set WORK.MAP has 0 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.04 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.69 seconds
+      cpu time            0.39 seconds
+      

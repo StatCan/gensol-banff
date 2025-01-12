@@ -1,0 +1,77 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2024 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-06 20:27+0000\n"
+"PO-Revision-Date: 2024-09-25 15:13+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../src/banff/__init__.py:45
+msgid "Importing Banff package version {}"
+msgstr "Importation de la version {} du package Banff"
+
+#: ../../src/banff/__init__.py:56
+msgid "Banff package imported"
+msgstr "Paquet Banff importé"
+
+#: ../../src/banff/nls/__init__.py:14
+msgid "TEST MESSAGE for Native Language Support: Forest, naive, French, Creme Brulee"
+msgstr "MESSAGE DE TEST pour la prise en charge de la langue maternelle: forêt, naïf, français, crème brûlée"
+
+#: ../../src/banff/proc/banff_proc.py:84
+msgid "Configuring procedure-level logging for Banff Processor log redirection"
+msgstr "Configuration de la journalisation au niveau des procédures pour la redirection du journal du processeur Banff"
+
+#: ../../src/banff/proc/banff_proc.py:108
+#: ../../src/banff/proc/banff_proc.py:117
+msgid "Internal error: subclass must implement `{}` method"
+msgstr "Erreur interne: la sous-classe doit implémenter la méthode `{}`"
+
+#: ../../src/banff/proc/banff_proc.py:130
+msgid "Parameter `{}` cannot contain the substring '{}'"
+msgstr "Le paramètre `{}` ne peut pas contenir la sous-chaîne '{}'"
+
+#: ../../src/banff/proc/banff_proc.py:135
+msgid "Ignoring option `{}='{}'` (empty string)"
+msgstr "Ignorer l'option `{}='{}'` (chaîne vide)"
+
+#: ../../src/banff/proc/banff_proc.py:147
+msgid "Preprocessing: `exclude_where_indata='{}'`"
+msgstr "Prétraitement: `exclude_where_indata='{}'`"
+
+#: ../../src/banff/proc/banff_proc.py:149
+msgid "exclude_where_indata"
+msgstr "exclude_where_indata"
+
+#: ../../src/banff/proc/banff_proc.py:154
+msgid "Preprocessing: `exclude_where_indata_hist='{}'`"
+msgstr "Prétraitement: `exclude_where_indata_hist='{}'`"
+
+#: ../../src/banff/proc/banff_proc.py:156
+msgid "exclude_where_indata_hist"
+msgstr "exclude_where_indata_hist"
+
+#: ../../src/banff/proc/banff_proc.py:262
+#: ../../src/banff/proc/banff_proc.py:267
+#: ../../src/banff/proc/proc_donorimp.py:308
+msgid "Option `{}` is deprecated, use `{}` instead"
+msgstr "L'option `{}` est obsolète, utilisez `{}` à la place"
+
+#: ../../src/banff/proc/banff_proc.py:291
+#: ../../src/banff/proc/banff_proc.py:301
+msgid "options `{}` and `{}` cannot be specified together"
+msgstr "les options `{}` et `{}` ne peuvent pas être spécifiées ensemble"
+
+#~ msgid "Specifying `False` for flag-type parameter '{}' is invalid"
+#~ msgstr "La spécification de `False` pour le paramètre de type d'indicateur '{}' n'est pas valide"

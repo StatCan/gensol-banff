@@ -1,0 +1,218 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+2903  
+2904  /* NLIMIT=blank, MRL=1.5, DATAEXCLVAR variable */
+2905  PROC DONORIMPUTATION
+2906     DATA = indata
+2907     INSTATUS = instat
+2908     OUT = outdata
+2909     OUTSTATUS = outstat
+2910     DONORMAP = map
+2911     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+2912     MINDONORS = 1
+2913     PCENTDONORS = 1
+2914     N = 25
+2915     /* NLIMIT = 1 */
+2916     MRL = 1.5
+2917     SEED = 100
+2918     ;
+2919     ID ident;
+2920     MUSTMATCH VAR2;
+2921     DATAEXCLVAR EXCLUDE;
+2922     BY AREA;
+2923  RUN;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = VAR1>=0; VAR2>=0; VAR1<=VAR2;
+NOTE: POSTEDITS not specified.
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 25
+NOTE: NLIMIT not specified.
+NOTE: MRL = 1.5
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: SEED = 100
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: DATAEXCLVAR = EXCLUDE
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = VAR2 
+NOTE: BY = AREA 
+
+NOTE: No POSTEDITS have been specified. EDITS will be taken as POSTEDITS.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+3
+                                                     - VAR1  <= 0
+
+4
+                                                     - VAR2  <= 0
+
+0
+                                                     - VAR1  <= 0
+
+1
+                                                     - VAR2  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+REDUCED set of EDITS:
+
+0
+                                                     - VAR1  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+NOTE: There were 1 observations dropped from DATA data set because they are potential donors but EXCLUDE value is 'E' 
+      for these observations.
+
+NOTE: DONORLIMIT = 9
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       1
+    missing key ...................................:       0
+    missing data ..................................:       0
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       1
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      14     100.00%
+Number of donors ..................................:       2      14.29%
+Number of donors to reach DONORLIMIT ..............:       1      50.00%
+Number of recipients ..............................:      12      85.71%
+    with matching fields ..........................:      12      85.71%
+        imputed ...................................:      12      85.71%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=1
+
+NOTE: There were 2 observations dropped from DATA data set because they are potential donors but EXCLUDE value is 'E' 
+      for these observations.
+
+NOTE: DONORLIMIT = 5
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       2
+    missing key ...................................:       0
+    missing data ..................................:       0
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       2
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      13     100.00%
+Number of donors ..................................:       4      30.77%
+Number of donors to reach DONORLIMIT ..............:       1      25.00%
+Number of recipients ..............................:       9      69.23%
+    with matching fields ..........................:       9      69.23%
+        imputed ...................................:       9      69.23%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=2
+
+NOTE: DONORLIMIT = 2
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:      12      80.00%
+Number of donors to reach DONORLIMIT ..............:       1       8.33%
+Number of recipients ..............................:       3      20.00%
+    with matching fields ..........................:       3      20.00%
+        imputed ...................................:       3      20.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=3
+
+NOTE: There were 2 observations dropped from DATA data set because they are potential donors but EXCLUDE value is 'E' 
+      for these observations.
+
+NOTE: DONORLIMIT = 6
+
+Number of observations ............................:      16
+Number of observations dropped ....................:       2
+    missing key ...................................:       0
+    missing data ..................................:       0
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       2
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      14     100.00%
+Number of donors ..................................:       3      21.43%
+Number of donors to reach DONORLIMIT ..............:       1      33.33%
+Number of recipients ..............................:      11      78.57%
+    with matching fields ..........................:      11      78.57%
+        imputed ...................................:      11      78.57%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=4
+
+
+Number of observations ............................:      61
+Number of observations dropped ....................:       5
+    missing key ...................................:       0
+    missing data ..................................:       0
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       5
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:      56     100.00%
+Number of donors ..................................:      21      37.50%
+Number of donors to reach DONORLIMIT ..............:       4      19.05%
+Number of recipients ..............................:      35      62.50%
+    with matching fields ..........................:      35      62.50%
+        imputed ...................................:      35      62.50%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the total of all by-groups.
+
+
+NOTE: There were 61 observations read from the data set WORK.INDATA.
+NOTE: There were 35 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 35 observations and 4 variables.
+NOTE: The data set WORK.OUTSTAT has 35 observations and 4 variables.
+NOTE: The data set WORK.MAP has 35 observations and 5 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.00 seconds
+      
+
+2924  
+2925  proc printto;
+2926  run;
+

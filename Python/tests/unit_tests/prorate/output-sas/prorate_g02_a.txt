@@ -1,0 +1,29 @@
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE PRORATE Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:04:02
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: OUTREJECT = WORK.REJECT
+NOTE: EDITS = A + VB+ VC + VD = TOT1;
+NOTE: METHOD = BASIC (default)
+NOTE: DECIMAL = 0
+NOTE: LOWERBOUND = 0
+NOTE: UPPERBOUND = 999
+NOTE: MODIFIER = I
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: BY not specified.
+
+ERROR: Prorating edits parser: Looking for 'Variable' but found 
+       'Modifier' instead.
+       
+       Error at or before:
+       A + VB+ VC + VD = TOT1;
+        ^
+       

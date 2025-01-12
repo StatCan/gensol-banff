@@ -1,0 +1,1 @@
+files `msgfmt.py` and `pygettext.py` are copied from a Python 3.10 installation (<root>\Tools\i18n\) on Windows.  

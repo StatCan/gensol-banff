@@ -1,0 +1,45 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1205  proc donorimputation
+1206     data=indata
+1207     instatus=instat
+1208     out=outdata
+1209     outstatus=outstat
+1210     donormap=map
+1211     edits="Q1 + Q2 + Q3 + Q4 = total;"
+1212     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+1213     mindonors=1
+1214     pcentdonors=1
+1215     n=3
+1216     matchfieldstat
+1217     eligdon=any
+1218     ;
+1219     id ident;
+1220     mustmatch STAFF;
+1221     dataexclvar toexcl;
+1222     by are;
+ERROR: Variable ARE not found.
+1223  run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+1224  proc printto;
+1225  run;
+

@@ -1,0 +1,85 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ERRORLOC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:51:08
+NOTE: Email: banff@statcan.gc.ca
+NOTE:
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUSAI01
+NOTE: OUTREJECT = WORK.OUTREJECTAI01
+NOTE: EDITS = x1>=5; x1<=15; x2>=30; x1+x2<=50; x3>=100; x3<=150; x1+x2+x3>=150;
+              x1+x2+x3<=210;
+NOTE: WEIGHTS not specified. Weight will be set to 1 for each variable in EDITS.
+NOTE: CARDINALITY not specified. The result will not be constrained by cardinality.
+NOTE: TIMEPEROBS = 20 (default)
+NOTE: SEED = 1688047806 (value chosen by the system)
+WARNING: The SEED value specified is negative and cannot be used. It has been replaced
+         with a generated number.
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = REC
+NOTE: RANDNUMVAR not specified.
+NOTE: BY not specified.
+
+Set of EDITS:
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+8
+                                                       - X1  <= 0
+
+9
+                                                       - X2  <= 0
+
+10
+                                                       - X3  <= 0
+
+0
+                                                       - X1  <= -5
+
+1
+                                                         X1  <= 15
+
+2
+                                                       - X2  <= -30
+
+3
+                                                    X1 + X2  <= 50
+
+4
+                                                       - X3  <= -100
+
+5
+                                                         X3  <= 150
+
+6
+                                             - X1 - X2 - X3  <= -150
+
+7
+                                               X1 + X2 + X3  <= 210
+
+REDUCED set of EDITS:
+
+0
+                                                       - X1  <= -5
+
+1
+                                                         X1  <= 15
+
+2
+                                                       - X2  <= -30
+
+3
+                                                    X1 + X2  <= 50
+
+5
+                                                         X3  <= 150
+
+6
+                                             - X1 - X2 - X3  <= -150
+
+
+Number of observations ....................................:       6     100.00%
+Number of observations that passed edits ..................:       0       0.00%
+Number of observations that failed edits ..................:       6     100.00%
+    Number of observations with variables to impute .......:       6     100.00%
+        Number of variables to impute .....................:       7

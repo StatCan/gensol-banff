@@ -1,0 +1,23 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE MASSIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:57:36
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUT = WORK.OUTDATA
+NOTE: DONORMAP = WORK.DONORMAP
+NOTE: MINDONORS = 2
+NOTE: PCENTDONORS = 10.00%
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: SEED = 1693598105 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: MUSTIMPUTE = Q1 Q2 Q3 Q4 
+NOTE: MUSTMATCH = Q2 staff 
+NOTE: BY not specified.
+
+ERROR: The lists of variables of the MUSTIMPUTE and MUSTMATCH statements are mutually 
+       exclusive.

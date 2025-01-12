@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug_en|x64">
+      <Configuration>debug_en</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_en|x64">
+      <Configuration>release_en</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_fr|x64">
+      <Configuration>release_fr</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CD.h" />
+    <ClInclude Include="Donor.h" />
+    <ClInclude Include="EI_AcceptableKeysResult.h" />
+    <ClInclude Include="EI_Algorithm.h" />
+    <ClInclude Include="EI_Average.h" />
+    <ClInclude Include="EI_Check.h" />
+    <ClInclude Include="EI_Chernikova.h" />
+    <ClInclude Include="EI_DataRec.h" />
+    <ClInclude Include="EI_DataTable.h" />
+    <ClInclude Include="EI_Deterministic.h" />
+    <ClInclude Include="EI_Donor.h" />
+    <ClInclude Include="EI_EditsApplyChern.h" />
+    <ClInclude Include="EI_ErrorLocalization.h" />
+    <ClInclude Include="EI_Estimator.h" />
+    <ClInclude Include="EI_EstimatorSpec.h" />
+    <ClInclude Include="EI_Extremal.h" />
+    <ClInclude Include="EI_Imply.h" />
+    <ClInclude Include="EI_Outlier.h" />
+    <ClInclude Include="EI_ParseEFFormula.h" />
+    <ClInclude Include="EI_ParseLRFormula.h" />
+    <ClInclude Include="EI_Prorating.h" />
+    <ClInclude Include="EI_ProratingEdits.h" />
+    <ClInclude Include="EI_RandomErrorResult.h" />
+    <ClInclude Include="EI_Regression.h" />
+    <ClInclude Include="EI_Residual.h" />
+    <ClInclude Include="EI_SortRespondents.h" />
+    <ClInclude Include="EI_Stack.h" />
+    <ClInclude Include="EI_Statistics.h" />
+    <ClInclude Include="EI_Symbol.h" />
+    <ClInclude Include="EI_UserData.h" />
+    <ClInclude Include="EI_Weights.h" />
+    <ClInclude Include="HT.h" />
+    <ClInclude Include="MatchingField.h" />
+    <ClInclude Include="MessageBanffAPI.h" />
+    <ClInclude Include="MessageBanffAPI_en.h" />
+    <ClInclude Include="MessageBanffAPI_fr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CD.c" />
+    <ClCompile Include="DonorInternal.c" />
+    <ClCompile Include="EI_AcceptableKeysResult.c" />
+    <ClCompile Include="EI_Algorithm.c" />
+    <ClCompile Include="EI_AllocateRecipients.c" />
+    <ClCompile Include="EI_AllocateRespondents.c" />
+    <ClCompile Include="EI_Average.c" />
+    <ClCompile Include="EI_BuildKDTree.c" />
+    <ClCompile Include="EI_Check.c" />
+    <ClCompile Include="EI_Chernikova.c" />
+    <ClCompile Include="EI_DataRec.c" />
+    <ClCompile Include="EI_DataTable.c" />
+    <ClCompile Include="EI_DestructKDTree.c" />
+    <ClCompile Include="EI_Deterministic.c" />
+    <ClCompile Include="EI_Donor.c" />
+    <ClCompile Include="EI_EditsApplyChern.c" />
+    <ClCompile Include="EI_ErrorLocalization.c" />
+    <ClCompile Include="EI_Estimator.c" />
+    <ClCompile Include="EI_EstimatorSpec.c" />
+    <ClCompile Include="EI_Extremal.c" />
+    <ClCompile Include="EI_FindMatchFields.c" />
+    <ClCompile Include="EI_FindNearestDonors.c" />
+    <ClCompile Include="EI_FreeStructures.c" />
+    <ClCompile Include="EI_Imply.c" />
+    <ClCompile Include="EI_OneRecipient.c" />
+    <ClCompile Include="EI_Outlier.c" />
+    <ClCompile Include="EI_ParseEFFormula.c" />
+    <ClCompile Include="EI_ParseLRFormula.c" />
+    <ClCompile Include="EI_Prorating.c" />
+    <ClCompile Include="EI_ProratingEdits.c" />
+    <ClCompile Include="EI_RandomDonor.c" />
+    <ClCompile Include="EI_RandomErrorResult.c" />
+    <ClCompile Include="EI_Regression.c" />
+    <ClCompile Include="EI_Residual.c" />
+    <ClCompile Include="EI_SortRespondents.c" />
+    <ClCompile Include="EI_Stack.c" />
+    <ClCompile Include="EI_Statistics.c" />
+    <ClCompile Include="EI_Symbol.c" />
+    <ClCompile Include="EI_Transform.c" />
+    <ClCompile Include="EI_UserData.c" />
+    <ClCompile Include="EI_Weights.c" />
+    <ClCompile Include="HT.c" />
+    <ClCompile Include="MatchingField.c" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{659451AA-A4D3-45FD-8E26-AF23AD8F9FA8}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>BanffAPI_103001</RootNamespace>
+    <ProjectName>BanffAPI</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <Import Project="..\STC_Library_location.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageEnglish.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <Import Project="..\STC_Library_location.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageEnglish.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <Import Project="..\STC_Library_location.props" />
+    <Import Project="..\..\build\windows\PropertySheets\IOCompileCommon.props" />
+    <Import Project="..\..\build\windows\PropertySheets\StcLanguageFrench.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_en|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)procedures\BanffHeaderFiles;$(SRC_DIR_CommonAPI);$(SRC_DIR_LPInterface);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <CompileAs>CompileAsC</CompileAs>
+      <MinimalRebuild>false</MinimalRebuild>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_en|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)procedures\BanffHeaderFiles;$(SRC_DIR_CommonAPI);$(SRC_DIR_LPInterface);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
+      <CompileAs>CompileAsC</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader />
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib />
+    <Lib />
+    <Lib />
+    <Lib />
+    <Lib />
+    <Lib />
+    <Lib />
+    <Lib />
+    <Lib>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_fr|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>WIN32;_NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)procedures\BanffHeaderFiles;$(SRC_DIR_CommonAPI);$(SRC_DIR_LPInterface);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib />
+    <Lib>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

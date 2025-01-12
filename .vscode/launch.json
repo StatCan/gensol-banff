@@ -1,0 +1,50 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+// Python launch configurations 
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            // use test file working directory
+            "cwd": "${fileDirname}",
+            "console": "integratedTerminal",
+            "justMyCode": false // non-default value: helpful if banff in-place install
+        },
+        {
+            "name": "Python: pytest <current file>",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            // use test file working directory
+            "cwd": "${fileDirname}",
+            // call `python -m pytest <file>`
+            "args": ["${file}", "-v", "-rA"],
+            "module": "pytest"
+        },
+        {
+            "name": "Pytest: current dir",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // use test file working directory
+            "cwd": "${fileDirname}",
+            // call `python -m pytest <file>`
+            "args": ["${fileDirname}", "-rA"],
+            "module": "pytest"
+        },
+        {
+            "name": "Python: test package in-place",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Banff/BanffProcedures/Python/BanffPY_utilities/package_banff/src/",
+            "env": { "PYTHONPATH": "${workspaceFolder}/Banff/BanffProcedures/Python/BanffPY_utilities/package_banff/src/"},
+            "justMyCode": false
+        }
+    ]
+}

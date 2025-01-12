@@ -1,0 +1,89 @@
+output-format = "concise"
+include = ["pyproject.toml", "src/**/*.py", "scripts/**/*.py"]
+exclude = [
+  "scripts/i18n/msgfmt.py",  # this script part of Python distribution
+  "scripts/i18n/pygettext.py",  # this script part of Python distribution
+  "scripts/process_sast_output.py",  # used for development purposes only
+]
+line-length = 160
+
+# See https://docs.astral.sh/ruff/rules/ for documentation on rules and rule sets
+lint.select = [
+  # Basic rules
+  "E",  # Errors in pycodestyle
+  "F",  # Pyflakes 
+  "UP", # Pyupgrade
+
+  # These are rules recommended by cyber security
+  # See the folowing for more details: https://confluenceb.statcan.ca/display/ITS/Python_Ruff_Security_SCA_Rules
+  "S", 
+  "BLE",
+  "B",
+  "T10", 
+  "EM",
+  "LOG", 
+  "G", 
+  "PYI",
+  "PTH", 
+  "SLF", 
+  "PTH",
+  "ERA",
+  "PGH",
+]
+
+# Ignored rules should be associated with a comment indicating why is it being ignored 
+lint.ignore = [
+  "UP038",    # rule looks bad, others agree: https://github.com/astral-sh/ruff/issues/7871
+  "UP015",    # bad rule
+#  "E402",    # PEP8 recommendation, should follow
+#  "F401",     # To be reviewed - Library imported but not used
+#  "SLF001",   # Don't ignore, ignore specific files instead with `[tool.ruff.lint.per-file-ignores]`
+#  "S608",     # don't ignore: https://duckdb.org/docs/sql/query_syntax/prepared_statements.html
+#  "PTH118",   # On the fence about this one
+#  "PTH120",   # On the fence about this one
+]
+
+# exceptions to rule SLF001
+lint.flake8-self.extend-ignore-names = [
+  ###  allow accessing internally defined private class members ###
+  "_load_c",
+  "_unload_c",
+  "_reload_c",
+  "_enabled_global",
+  "_outdata",
+  "_outstatus",
+  "_outdata",
+  "_outstatus",
+  "_outdonormap",
+  "_outmatching_fields",
+  "_outedit_applic",
+  "_outedit_status",
+  "_outglobal_status",
+  "_outk_edits_status",
+  "_outedits_reduced",
+  "_outvars_role",
+  "_outstatus",
+  "_outreject",
+  "_outstatus",
+  "_outdata",
+  "_outacceptable",
+  "_outest_ef",
+  "_outest_lr",
+  "_outest_parm",
+  "_outrand_err",
+  "_outdata",
+  "_outstatus",
+  "_outdonormap",
+  "_outstatus",
+  "_outstatus_detailed",
+  "_outsummary",
+  "_outstatus",
+  "_outdata",
+  "_outreject",
+]
+
+[lint.per-file-ignores]
+  "src/banff/_common/src/testing/**/*.py" = [
+    "S101",  # using `assert` allowed in `gconfid.testing` subpackage
+    "UP032"  # we use `.format` since it's easier to add NLS support later
+  ]

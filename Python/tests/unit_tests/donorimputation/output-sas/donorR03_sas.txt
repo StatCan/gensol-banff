@@ -1,0 +1,90 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+52   proc donorimputation
+53      data=indata
+54      instatus=instat
+55      out=outdata
+56      outstatus=outstat
+57      donormap=map
+58      edits="Q1 + Q2 + Q3 + Q4 = total;"
+59      postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+60      mindonors=1
+61      pcentdonors=1
+62      n=3
+63      matchfieldstat
+64      eligdon=any
+65      seed=2.2
+             ---
+             22
+             200
+ERROR 22-322: Expecting an integer constant.  
+ERROR 200-322: The symbol is not recognized and will be ignored.
+66      ;
+67      id ident;
+68      mustmatch STAFF;
+69      dataexclvar toexcl;
+70   run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+71   
+72   
+
+
+73   proc donorimputation
+74      data=indata
+75      instatus=instat
+76      out=outdata
+77      outstatus=outstat
+78      donormap=map
+79      edits="Q1 + Q2 + Q3 + Q4 = total;"
+80      postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+81      mindonors=1
+82      pcentdonors=1
+83      n=3
+84      matchfieldstat
+85      eligdon=any
+86      seed=2.0
+             ---
+             22
+             200
+ERROR 22-322: Expecting an integer constant.  
+ERROR 200-322: The symbol is not recognized and will be ignored.
+87      ;
+88      id ident;
+89      mustmatch STAFF;
+90      dataexclvar toexcl;
+91   run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+92   
+
+
+93   proc printto;
+94   run;
+

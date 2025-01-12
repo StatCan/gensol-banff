@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Donor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_AcceptableKeysResult.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Algorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Average.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Check.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Chernikova.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_DataRec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_DataTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Deterministic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Donor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_EditsApplyChern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_ErrorLocalization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Estimator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_EstimatorSpec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Extremal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Imply.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Outlier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_ParseEFFormula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_ParseLRFormula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Prorating.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_ProratingEdits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_RandomErrorResult.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Regression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Residual.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_SortRespondents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Statistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Symbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_UserData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EI_Weights.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatchingField.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBanffAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBanffAPI_en.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBanffAPI_fr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MatchingField.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CD.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DonorInternal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_AcceptableKeysResult.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Algorithm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_AllocateRecipients.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_AllocateRespondents.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Average.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_BuildKDTree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Check.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Chernikova.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_DataRec.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_DataTable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_DestructKDTree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Deterministic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Donor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_EditsApplyChern.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_ErrorLocalization.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Estimator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_EstimatorSpec.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Extremal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_FindMatchFields.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_FindNearestDonors.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_FreeStructures.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Imply.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_OneRecipient.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Outlier.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_ParseEFFormula.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_ParseLRFormula.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Prorating.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_ProratingEdits.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_RandomDonor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_RandomErrorResult.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Regression.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Residual.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_SortRespondents.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Stack.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Statistics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Symbol.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Transform.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_UserData.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EI_Weights.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HT.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

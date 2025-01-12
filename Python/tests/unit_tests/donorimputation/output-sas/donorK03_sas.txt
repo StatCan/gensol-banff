@@ -1,0 +1,51 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+2471  proc donorimputation
+2472     data=indata
+2473     instatus=instat
+2474     out=outdata
+2475     outstatus=outstat
+2476     donormap=map
+2477     edits="Q1 + Q2 + Q3 + Q4 = total;"
+2478     postedits=Q1 + Q2 + Q3 + Q4 - total <= 0;
+                   --
+                   22
+                   202
+2479     mindonors=1
+         ---------
+         180
+ERROR 22-322: Expecting a quoted string.  
+ERROR 202-322: The option or parameter is not recognized and will be ignored.
+ERROR 180-322: Statement is not valid or it is used out of proper order.
+2480     pcentdonors=1
+2481     n=3
+2482     matchfieldstat
+2483     eligdon=any
+2484     ;
+2485     id ident;
+2486     mustmatch STAFF;
+2487     dataexclvar toexcl;
+2488  run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTDATA was not replaced because this step was stopped.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was stopped there 
+         were 0 observations and 0 variables.
+WARNING: Data set WORK.OUTSTAT was not replaced because this step was stopped.
+WARNING: The data set WORK.MAP may be incomplete.  When this step was stopped there were 
+         0 observations and 0 variables.
+WARNING: Data set WORK.MAP was not replaced because this step was stopped.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+2489  proc printto;
+2490  run;
+

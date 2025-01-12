@@ -1,0 +1,134 @@
+1                                                                                                                        The SAS System                                                                                         16:42 Wednesday, August 16, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.33 seconds
+      cpu time            0.26 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* If the ID statement refers to a nonexistent variable, Deterministic should not proceed.
+2          Error messages should be printed to the log file. */
+3          options nodate nonumber ls=80 ps=100;
+4          
+5          data indata;
+6              input REC $ VA VB VC VD TOT1 VE VF VG TOT2 GT;
+7                 cards;
+
+NOTE: The data set WORK.INDATA has 3 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+11         ;
+12         run;
+13         
+14         data instat;
+15            input REC $ FIELDID $ STATUS $;
+16               cards;
+
+NOTE: The data set WORK.INSTAT has 22 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+39         ;
+40         run;
+41         proc DETERMINISTIC
+42            data=indata
+43            instatus=instat
+44            out=outdata
+45            outstatus=outstat
+46            edits="VA >= 0.001; VC >= 0.0001; VE >= 0.0001;
+47               VA + VB + VC + VD = TOT1; VE + VF + VG = TOT2; TOT1 + TOT2 = GT
+47       ! ;"
+48            acceptnegative
+49            ;
+50            id RC;
+ERROR: Variable RC not found.
+51         run;
+
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step was 
+                                 The SAS System
+
+         stopped there were 0 observations and 0 variables.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step was 
+         stopped there were 0 observations and 0 variables.
+NOTE: PROCEDURE DETERMINISTIC used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+52         
+53         /*proc print data=indata;
+54         title "Deterministic input data";
+55         run;
+56         
+57         proc print data=instat;
+58         title "Deterministic input status";
+59         run;
+60         
+61         proc print data=outdata;
+62         title "Deterministic output records";
+63         run;
+64         
+65         proc print data=outstat;
+66         title "Deterministic output status";
+67         run;
+
+
+ERROR: Errors printed on page 1.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.42 seconds
+      cpu time            0.37 seconds
+      

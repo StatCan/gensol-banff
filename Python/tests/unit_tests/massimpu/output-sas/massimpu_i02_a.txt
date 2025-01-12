@@ -1,0 +1,25 @@
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE MASSIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:57:36
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUT = WORK.OUTDATA
+NOTE: DONORMAP = WORK.DONORMAP
+                                      The SAS System
+
+NOTE: MINDONORS = 2
+NOTE: PCENTDONORS = 0.00%
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: SEED = 1693596723 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: MUSTIMPUTE = Q1 Q2 Q3 Q4 
+NOTE: MUSTMATCH = total staff 
+NOTE: BY not specified.
+
+ERROR: Invalid PCENTDONORS. PCENTDONORS must be greater than or equal to 1 and less than 
+       100.

@@ -1,0 +1,182 @@
+1                                                                                                                        The SAS System                                                                                          13:38 Thursday, August 10, 2023
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.32 seconds
+      cpu time            0.23 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* The input data set must be sorted in ascending order by the key variable.
+2          When it is not, Prorate should not proceed.
+3          Error messages should be printed to the log file. */
+4          %let test=B1;
+5          options nodate ls=72 ps=100;
+6          
+7          data indata;
+8               input ident $ VA VB VC VD TOT1;
+9               cards;
+
+NOTE: The data set WORK.INDATA has 3 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+13              ;
+14         run;
+15         
+16         data instat;
+17              input ident $  fieldid $ status $;
+18              cards;
+
+NOTE: The data set WORK.INSTAT has 10 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+29              ;
+30         run;
+31         
+32         proc prorate
+33            data=indata
+34            instatus=instat
+35            out=outdata
+36            outstatus=outstat
+37            outreject=reject
+38            edits="VA + VB + VC + VD = TOT1;"
+39            decimal  = 0
+40            lowerbound = 0
+41            upperbound  = 999
+42            modifier = O
+43            ;
+44            id ident;
+45         run;
+
+2                            The SAS System
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE PRORATE Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:04:02
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: OUTREJECT = WORK.REJECT
+NOTE: EDITS = VA + VB + VC + VD = TOT1;
+NOTE: METHOD = BASIC (default)
+NOTE: DECIMAL = 0
+NOTE: LOWERBOUND = 0
+NOTE: UPPERBOUND = 999
+NOTE: MODIFIER = O
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: BY not specified.
+
+NOTE: EDITS PARSED for PRORATE procedure (if no modifier is specified 
+      for a variable, the value of the MODIFIER option will be used):
+
+--- GROUP ---
+EDIT Level: 0
+1.0000 VA:o + 
+1.0000 VB:o + 
+1.0000 VC:o + 
+1.0000 VD:o = TOT1
+
+ERROR: DATA data set is not sorted in ascending order. The current key 
+       is V002 and the previous key was V003.
+
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax 
+      check mode. 
+      This prevents execution of subsequent data modification 
+      statements.
+NOTE: There were 3 observations read from the data set WORK.INDATA.
+NOTE: There were 10 observations read from the data set WORK.INSTAT.
+WARNING: The data set WORK.OUTDATA may be incomplete.  When this step 
+         was stopped there were 2 observations and 6 variables.
+WARNING: The data set WORK.OUTSTAT may be incomplete.  When this step 
+         was stopped there were 4 observations and 3 variables.
+WARNING: The data set WORK.REJECT may be incomplete.  When this step 
+         was stopped there were 0 observations and 5 variables.
+NOTE: PROCEDURE PRORATE used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.04 seconds
+      
+46         
+47         /*proc print data=indata;
+48         title "Prorate Test &test input data";
+49         run;
+50         
+51         proc print data=instat;
+52         title "Prorate Test &test input status";
+53         run;
+54         
+55         proc print data=outdata;
+56         title "Prorate Test &test output records";
+57         run;
+58         
+59         proc print data=outstat;
+60         title "Prorate Test &test output status";
+61         run;
+62         
+63         proc print data=reject;
+64         title "Prorate Test &test rejected records";
+65         run;
+
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.54 seconds
+      cpu time            0.34 seconds
+      

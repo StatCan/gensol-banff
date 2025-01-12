@@ -1,0 +1,135 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+494  PROC DONORIMPUTATION
+495     DATA = indata
+496     INSTATUS = instat
+497     OUT = outdata
+498     OUTSTATUS = outstat
+499     DONORMAP = map
+500     EDITS = "VAR1>=0; VAR2>=0; VAR1<=VAR2;"
+501     MINDONORS = 1
+502     PCENTDONORS = 1
+503     N = 1
+504     NLIMIT = 1
+505     /* MRL = 1.5 */
+506     MATCHFIELDSTAT
+507     SEED = 100
+508     ;
+509     ID ident;
+510     MUSTMATCH VAR2;
+511     BY AREA;
+512  RUN;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = VAR1>=0; VAR2>=0; VAR1<=VAR2;
+NOTE: POSTEDITS not specified.
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 1
+NOTE: NLIMIT = 1
+NOTE: MRL not specified.
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 100
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = VAR2 
+NOTE: BY = AREA 
+
+NOTE: No POSTEDITS have been specified. EDITS will be taken as POSTEDITS.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+3
+                                                     - VAR1  <= 0
+
+4
+                                                     - VAR2  <= 0
+
+0
+                                                     - VAR1  <= 0
+
+1
+                                                     - VAR2  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+REDUCED set of EDITS:
+
+0
+                                                     - VAR1  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+NOTE: DONORLIMIT = 1
+
+WARNING: DONORLIMIT parameters might prevent recipients from being imputed.
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:       2      13.33%
+Number of donors to reach DONORLIMIT ..............:       2     100.00%
+Number of recipients ..............................:      13      86.67%
+    with matching fields ..........................:      13      86.67%
+        imputed ...................................:       2      13.33%
+        not imputed ...............................:      11      73.33%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=1
+
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:       2      13.33%
+Number of donors to reach DONORLIMIT ..............:       2     100.00%
+Number of recipients ..............................:      13      86.67%
+    with matching fields ..........................:      13      86.67%
+        imputed ...................................:       2      13.33%
+        not imputed ...............................:      11      73.33%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the total of all by-groups.
+
+
+NOTE: There were 15 observations read from the data set WORK.INDATA.
+NOTE: There were 13 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 2 observations and 4 variables.
+NOTE: The data set WORK.OUTSTAT has 4 observations and 4 variables.
+NOTE: The data set WORK.MAP has 2 observations and 5 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.01 seconds
+      
+
+513  
+514  
+515  proc printto;
+516  run;
+

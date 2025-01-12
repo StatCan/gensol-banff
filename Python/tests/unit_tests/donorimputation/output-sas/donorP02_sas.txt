@@ -1,0 +1,168 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+402  
+403  proc donorimputation
+404     data=indata
+405     instatus=instat
+406     out=outdata
+407     outstatus=outstat
+408     donormap=map
+409     edits="Q1 + Q2 + Q3 + Q4 = total;"
+410     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+411     mindonors=1
+412     pcentdonors=1
+413     n=3
+414     matchfieldstat
+415     eligdon=any
+416     random
+417     ;
+418     id ident;
+419     /*mustmatch STAFF;*/
+420     dataexclvar toexcl;
+421  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1670516953 (value chosen by the system) 
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH not specified.
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+(Positivity POSTEDITS were added because REJECTNEGATIVE option has been specified.)
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+5
+                                                    - TOTAL  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+REDUCED set of EDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+REDUCED set of POSTEDITS:
+
+1
+                                                       - Q1  <= 0
+
+2
+                                                       - Q2  <= 0
+
+3
+                                                       - Q3  <= 0
+
+4
+                                                       - Q4  <= 0
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:       4
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:       4     100.00%
+Number of donors ..................................:       3      75.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       1      25.00%
+    with matching fields ..........................:       0       0.00%
+        imputed ...................................:       0       0.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       1      25.00%
+        imputed ...................................:       1      25.00%
+        not imputed ...............................:       0       0.00%
+
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 5 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 1 observations and 6 variables.
+NOTE: The data set WORK.OUTSTAT has 5 observations and 3 variables.
+NOTE: The data set WORK.MAP has 1 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.00 seconds
+      
+
+422  
+423  proc printto;
+424  run;
+

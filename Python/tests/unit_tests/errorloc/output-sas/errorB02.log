@@ -1,0 +1,205 @@
+1                                                                                                                        The SAS System                                                                                                15:03 Friday, May 5, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.45 seconds
+      cpu time            0.24 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* If the NOTSORTED option is not used with the BY statement, the current data set
+2          must be sorted by the BY variable(s) first.  If not, Errorloc should not proceed.
+3          Error messages should be printed to the log file. */
+4          OPTIONS NODATE NONUMBER LS=90 ps=90;
+5          %let test=B02;
+6          
+7          data indata;
+8              input REC $ A1 A2 X1 X2 X3;
+9                  cards;
+
+NOTE: The data set WORK.INDATA has 12 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+22         ;
+23         run;
+24         
+25         proc errorloc
+26            data=indata
+27            outstatus=outstatus&test
+28            outreject=outreject&test
+29            edits="x1+x2<=50; x3>=100;"
+30            seed=1
+31         ;
+32         id rec;
+33         by A2;
+34         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+                                      The SAS System
+
+NOTE: PROCEDURE ERRORLOC Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:51:08
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUSB02
+NOTE: OUTREJECT = WORK.OUTREJECTB02
+NOTE: EDITS = x1+x2<=50; x3>=100;
+NOTE: WEIGHTS not specified. Weight will be set to 1 for each variable in EDITS.
+NOTE: CARDINALITY not specified. The result will not be constrained by cardinality.
+NOTE: TIMEPEROBS = 20 (default)
+NOTE: SEED = 1
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = REC
+NOTE: RANDNUMVAR not specified.
+NOTE: BY = A2 
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+2
+                                                       - X1  <= 0
+
+3
+                                                       - X2  <= 0
+
+4
+                                                       - X3  <= 0
+
+0
+                                                    X1 + X2  <= 50
+
+1
+                                                       - X3  <= -100
+
+REDUCED set of EDITS:
+
+2
+                                                       - X1  <= 0
+
+3
+                                                       - X2  <= 0
+
+0
+                                                    X1 + X2  <= 50
+
+1
+                                                       - X3  <= -100
+
+
+Number of observations ....................................:       3     100.00%
+Number of observations that passed edits ..................:       2      66.67%
+Number of observations that failed edits ..................:       1      33.33%
+    Number of observations with variables to impute .......:       1      33.33%
+        Number of variables to impute .....................:       1
+
+NOTE: The above message was for the following BY group:
+      A2=1
+ERROR: Data set WORK.INDATA is not sorted in ascending sequence. The current BY group has 
+       A2 = 2 and the next BY group has A2 = 1.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: Due to ERROR(s) above, SAS set option OBS=0, enabling syntax check mode. 
+      This prevents execution of subsequent data modification statements.
+NOTE: There were 7 observations read from the data set WORK.INDATA.
+WARNING: The data set WORK.OUTSTATUSB02 may be incomplete.  When this step was stopped 
+         there were 4 observations and 4 variables.
+WARNING: The data set WORK.OUTREJECTB02 may be incomplete.  When this step was stopped 
+         there were 0 observations and 3 variables.
+NOTE: PROCEDURE ERRORLOC used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.01 seconds
+      
+35         
+
+
+36         proc print data=indata;
+37         title "ErrorLoc Test &test Input Data";
+38         run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.03 seconds
+      
+
+39         proc print data=outstatus&test;
+40         title "ErrorLoc Test &test Output Status";
+                                      The SAS System
+
+41         run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+42         proc print data=outreject&test;
+43         title "ErrorLoc Test &test Rejected Records";
+44         run;
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+ERROR: Errors printed on page 2.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.91 seconds
+      cpu time            0.37 seconds
+      

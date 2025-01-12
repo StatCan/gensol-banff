@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{52D32A12-6BB1-4665-88E7-F9C949AE4573}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>glpk_453</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="..\STC_Library_location.props" />
+    <Import Project="STC_C_glpk.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="..\STC_Library_location.props" />
+    <Import Project="STC_C_glpk.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="..\STC_Library_location.props" />
+    <Import Project="STC_C_glpk.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="..\STC_Library_location.props" />
+    <Import Project="STC_C_glpk.props" />
+    <Import Project="..\..\build\windows\PropertySheets\UniversalProperties.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BasicRuntimeChecks>
+      </BasicRuntimeChecks>
+      <WarningLevel>Level1</WarningLevel>
+      <OmitFramePointers />
+      <CompileAs>CompileAsC</CompileAs>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level1</WarningLevel>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <OmitFramePointers />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <CompileAs>CompileAsC</CompileAs>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SRC_DIR_glpk)\amd\amd.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\amd\amd_internal.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\avl.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bfd.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bflib\fhv.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bflib\fhvint.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bflib\ifu.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bflib\luf.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bflib\lufint.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bflib\sgf.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bflib\sva.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\bfx.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\cglib\cfg.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\colamd\colamd.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\draft.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\env\env.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\env\stdc.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpgmp.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glphbm.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpios.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpipm.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpk.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glplpf.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpmat.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpmpl.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpnpp.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glprgr.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpsdf.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpspm.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpspx.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpsql.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glpssx.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\glptsp.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\inftrees.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\lpx.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\lux.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\minisat\minisat.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\bignum.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\dmp.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\ffalg.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\jd.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\keller.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\mc13d.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\mc21a.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\misc.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\okalg.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\qmd.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\relax4.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\rng.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\triang.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\wclique.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\misc\wclique1.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\prob.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\proxy\proxy.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\crc32.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\deflate.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\gzguts.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\inffast.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\inffixed.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\inflate.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\inftrees.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\trees.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\zconf.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\zio.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\zlib.h" />
+    <ClInclude Include="$(SRC_DIR_glpk)\zlib\zutil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_1.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_2.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_aat.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_control.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_defaults.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_dump.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_info.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_order.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_postorder.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_post_tree.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_preprocess.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\amd\amd_valid.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\avl.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bfd.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bflib\fhv.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bflib\fhvint.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bflib\ifu.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bflib\luf.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bflib\lufint.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bflib\sgf.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bflib\sva.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\bfx.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\cglib\cfg.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\cglib\cfg1.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\colamd\colamd.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\alloc.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\dlsup.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\env.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\error.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\stdout.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\stream.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\time.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\env\tls.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi01.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi02.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi03.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi04.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi05.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi06.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi07.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi08.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi09.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi10.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi11.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi12.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi13.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi14.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi15.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi16.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi17.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi18.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi19.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi20.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpapi21.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpcpx.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpdmx.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpgmp.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glphbm.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpini01.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpini02.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios01.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios02.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios03.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios04.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios05.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios06.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios07.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios08.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios09.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios10.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios11.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpios12.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpipm.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glplpf.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmat.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmpl01.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmpl02.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmpl03.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmpl04.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmpl05.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmpl06.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpmps.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnet03.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnet04.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnet05.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnpp01.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnpp02.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnpp03.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnpp04.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnpp05.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpnpp06.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glprgr.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpscl.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpsdf.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpspm.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpspx01.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpspx02.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpsql.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpssx01.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glpssx02.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\glptsp.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\lpx.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\lux.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\minisat\minisat.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\bignum.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\dmp.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\ffalg.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\fp2rat.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\gcd.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\jd.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\keller.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\mc13d.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\mc21a.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\okalg.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\qmd.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\relax4.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\rng.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\rng1.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\round2n.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\str2int.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\str2num.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\strspx.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\strtrim.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\triang.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\wclique.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\misc\wclique1.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\proxy\main.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\proxy\proxy.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\proxy\proxy1.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\adler32.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\compress.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\crc32.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\deflate.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\gzclose.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\gzlib.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\gzread.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\gzwrite.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\inffast.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\inflate.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\inftrees.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\trees.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\uncompr.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\zio.c" />
+    <ClCompile Include="$(SRC_DIR_glpk)\zlib\zutil.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

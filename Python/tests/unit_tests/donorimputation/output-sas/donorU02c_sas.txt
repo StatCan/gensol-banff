@@ -1,0 +1,145 @@
+
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = VAR1>=0; VAR2>=0; VAR1<=VAR2;
+NOTE: POSTEDITS not specified.
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 25
+NOTE: NLIMIT = 3
+NOTE: MRL = 1.5
+NOTE: ELIGDON = ORIGINAL (default)
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT not specified.
+NOTE: SEED = 100
+NOTE: REJECTNEGATIVE (default)
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = IDENT
+NOTE: DATAEXCLVAR not specified.
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = VAR2 
+NOTE: BY = AREA 
+
+NOTE: No POSTEDITS have been specified. EDITS will be taken as POSTEDITS.
+
+Set of EDITS: 
+(Positivity EDITS were added because REJECTNEGATIVE option is in effect.)
+
+3
+                                                     - VAR1  <= 0
+
+4
+                                                     - VAR2  <= 0
+
+0
+                                                     - VAR1  <= 0
+
+1
+                                                     - VAR2  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+REDUCED set of EDITS:
+
+0
+                                                     - VAR1  <= 0
+
+2
+                                                VAR1 - VAR2  <= 0
+
+
+NOTE: DONORLIMIT = 6
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:       3      20.00%
+Number of donors to reach DONORLIMIT ..............:       2      66.67%
+Number of recipients ..............................:      12      80.00%
+    with matching fields ..........................:      12      80.00%
+        imputed ...................................:      12      80.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=1
+
+NOTE: DONORLIMIT = 3
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:       6      40.00%
+Number of donors to reach DONORLIMIT ..............:       3      50.00%
+Number of recipients ..............................:       9      60.00%
+    with matching fields ..........................:       9      60.00%
+        imputed ...................................:       9      60.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=2
+
+NOTE: DONORLIMIT = 3
+
+Number of observations ............................:      15
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      15     100.00%
+Number of donors ..................................:      12      80.00%
+Number of donors to reach DONORLIMIT ..............:       1       8.33%
+Number of recipients ..............................:       3      20.00%
+    with matching fields ..........................:       3      20.00%
+        imputed ...................................:       3      20.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=3
+
+NOTE: DONORLIMIT = 5
+
+Number of observations ............................:      16
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      16     100.00%
+Number of donors ..................................:       5      31.25%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:      11      68.75%
+    with matching fields ..........................:      11      68.75%
+        imputed ...................................:      11      68.75%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the following BY group:
+      AREA=4
+
+
+Number of observations ............................:      61
+Number of observations dropped ....................:       0
+
+Number of valid observations ......................:      61     100.00%
+Number of donors ..................................:      26      42.62%
+Number of donors to reach DONORLIMIT ..............:       6      23.08%
+Number of recipients ..............................:      35      57.38%
+    with matching fields ..........................:      35      57.38%
+        imputed ...................................:      35      57.38%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+NOTE: The above message was for the total of all by-groups.
+

@@ -1,0 +1,36 @@
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+2                            The SAS System
+
+NOTE: PROCEDURE PRORATE Version 2.06.002
+NOTE: Created on Jan 19 2022 at 14:04:02
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = _NULL_
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: OUTREJECT = WORK.REJECT
+NOTE: EDITS = VA:I + VB+ VC + VD = TOT1;
+NOTE: METHOD = BASIC (default)
+NOTE: DECIMAL = 0
+NOTE: LOWERBOUND = 0
+NOTE: UPPERBOUND = 999
+NOTE: MODIFIER = A
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ident
+NOTE: BY not specified.
+
+NOTE: EDITS PARSED for PRORATE procedure (if no modifier is specified 
+      for a variable, the value of the MODIFIER option will be used):
+
+--- GROUP ---
+EDIT Level: 0
+1.0000 VA:i + 
+1.0000 VB:a + 
+1.0000 VC:a + 
+1.0000 VD:a = TOT1
+
+ERROR: INSTATUS data set is mandatory: one or more modifiers are 
+       ORIGINAL or IMPUTED.

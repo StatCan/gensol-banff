@@ -1,0 +1,1326 @@
+1                                                                                                                        The SAS System                                                                                         10:02 Tuesday, February 20, 2024
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.24 seconds
+      cpu time            0.28 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          %let tmpData = C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG\control_data;
+2          libname tmpLib "&tmpData";
+NOTE: Libref TMPLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\git\banff_redesign\Banff\BanffProcedures\Python\banffpkg\tests\ptest\CEAG\control_data
+3          
+4          proc estimator
+5             seed=1
+6             data=tmpLib.estimato_ceag_a_indata
+7             hist=tmpLib.estimato_ceag_a_indata_hist
+8             datastatus=tmpLib.estimato_ceag_a_instatus
+9             estimator=tmpLib.estimato_ceag_a_inestimator
+10            out=WORK.outdata
+11            outstatus=WORK.outstatus
+12            outestparms=WORK.estparms
+13            acceptnegative
+14            nobystats
+15            ;
+16            id I43600;
+17            by
+18            P41_10_3_CURR
+19            P51_24_3_CURR
+20            ;
+21         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ESTIMATOR Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:54:27
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = TMPLIB.ESTIMATO_CEAG_A_INDATA
+NOTE: DATASTATUS = TMPLIB.ESTIMATO_CEAG_A_INSTATUS
+NOTE: HIST = TMPLIB.ESTIMATO_CEAG_A_INDATA_HIST
+NOTE: HISTSTATUS = _NULL_
+NOTE: ALGORITHM = _NULL_
+NOTE: ESTIMATOR = TMPLIB.ESTIMATO_CEAG_A_INESTIMATOR
+NOTE: OUTDATA = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTATUS
+NOTE: OUTRANDOMERROR = _NULL_
+NOTE: OUTACCEPTABLE = _NULL_
+NOTE: OUTESTPARMS = WORK.ESTPARMS
+NOTE: OUTESTEF = _NULL_
+NOTE: OUTESTLR = _NULL_
+NOTE: SEED = 1
+NOTE: ACCEPTNEGATIVE
+NOTE: NOBYSTATS
+NOTE: ID = I43600
+NOTE: DATAEXCLVAR not specified.
+NOTE: HISTEXCLVAR not specified.
+NOTE: BY = P41_10_3_CURR P51_24_3_CURR 
+
+Set of estimator specifications:
+-------------------------------
+
+Estimator 0.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F40005_SR11
+Auxiliary variables      : F40005_SR11_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 1.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F40005_SR3
+Auxiliary variables      : F40005_SR3_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 2.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F40005_SR4
+Auxiliary variables      : F40005_SR4_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 3.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F40010
+Auxiliary variables      : F40010_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 4.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P14
+Auxiliary variables      : F47029_P14_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 5.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P15
+Auxiliary variables      : F47029_P15_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 6.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P16
+Auxiliary variables      : F47029_P16_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 7.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P18
+Auxiliary variables      : F47029_P18_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 8.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P2
+Auxiliary variables      : F47029_P2_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 9.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P25
+Auxiliary variables      : F47029_P25_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 10.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P26
+Auxiliary variables      : F47029_P26_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 11.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P4
+Auxiliary variables      : F47029_P4_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 12.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P5
+Auxiliary variables      : F47029_P5_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 13.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P6
+Auxiliary variables      : F47029_P6_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 14.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P8
+Auxiliary variables      : F47029_P8_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 15.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P10
+Auxiliary variables      : F47031_P10_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 16.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P12
+Auxiliary variables      : F47031_P12_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 17.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P13
+Auxiliary variables      : F47031_P13_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 18.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P3
+Auxiliary variables      : F47031_P3_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 19.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P4
+Auxiliary variables      : F47031_P4_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 20.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P5
+Auxiliary variables      : F47031_P5_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 21.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P7
+Auxiliary variables      : F47031_P7_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 22.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P146
+Auxiliary variables      : F47031_P146_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 23.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F51313_SR2
+Auxiliary variables      : F51313_SR2_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 24.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F51317_SR1
+Auxiliary variables      : F51317_SR1_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 25.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F60001_SR1
+Auxiliary variables      : F60001_SR1_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 26.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F60010
+Auxiliary variables      : F60010_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 27.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR2
+Auxiliary variables      : F61052_SR2_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 28.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR27
+Auxiliary variables      : F61052_SR27_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 29.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR3
+Auxiliary variables      : F61052_SR3_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 30.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR30
+Auxiliary variables      : F61052_SR30_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 31.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR32
+Auxiliary variables      : F61052_SR32_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 32.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR4
+Auxiliary variables      : F61052_SR4_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 33.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR51
+Auxiliary variables      : F61052_SR51_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 34.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61052_SR7
+Auxiliary variables      : F61052_SR7_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 35.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR11
+Auxiliary variables      : F61054_SR11_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 36.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR12
+Auxiliary variables      : F61054_SR12_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 37.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR14
+Auxiliary variables      : F61054_SR14_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 38.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR15
+Auxiliary variables      : F61054_SR15_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 39.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR16
+Auxiliary variables      : F61054_SR16_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 40.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR17
+Auxiliary variables      : F61054_SR17_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 41.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR18
+Auxiliary variables      : F61054_SR18_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 42.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR23
+Auxiliary variables      : F61054_SR23_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 43.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR4
+Auxiliary variables      : F61054_SR4_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 44.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR6
+Auxiliary variables      : F61054_SR6_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 45.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR8
+Auxiliary variables      : F61054_SR8_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 46.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47029_P141
+Auxiliary variables      : F47029_P141_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 47.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P1
+Auxiliary variables      : F47031_P1_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 48.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P2
+Auxiliary variables      : F47031_P2_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 49.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F47031_P6
+Auxiliary variables      : F47031_P6_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 50.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F40005_SR10
+Auxiliary variables      : F40005_SR10_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 51.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F40005_SR2
+Auxiliary variables      : F40005_SR2_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 52.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR1
+Auxiliary variables      : F61054_SR1_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 53.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR92
+Auxiliary variables      : F61054_SR92_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 54.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR10
+Auxiliary variables      : F61054_SR10_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 55.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F72000
+Auxiliary variables      : F72000_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 56.
+Algorithm name           : PREAUX
+Description              : The historical value of a proxy variable for the same unit.
+Type                     : EF
+Status                   : PA
+Formula                  : AUX1(H)
+Field id                 : F61054_SR2
+Auxiliary variables      : F61054_SR2_MOD
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+
+Formula of estimator specifications:
+-----------------------------------
+
+Estimator 0.
+F40005_SR11 = F40005_SR11_MOD(H)
+
+Estimator 1.
+F40005_SR3 = F40005_SR3_MOD(H)
+
+Estimator 2.
+F40005_SR4 = F40005_SR4_MOD(H)
+
+Estimator 3.
+F40010 = F40010_MOD(H)
+
+Estimator 4.
+F47029_P14 = F47029_P14_MOD(H)
+
+Estimator 5.
+F47029_P15 = F47029_P15_MOD(H)
+
+Estimator 6.
+F47029_P16 = F47029_P16_MOD(H)
+
+Estimator 7.
+F47029_P18 = F47029_P18_MOD(H)
+
+Estimator 8.
+F47029_P2 = F47029_P2_MOD(H)
+
+Estimator 9.
+F47029_P25 = F47029_P25_MOD(H)
+
+Estimator 10.
+F47029_P26 = F47029_P26_MOD(H)
+
+Estimator 11.
+F47029_P4 = F47029_P4_MOD(H)
+
+Estimator 12.
+F47029_P5 = F47029_P5_MOD(H)
+
+Estimator 13.
+F47029_P6 = F47029_P6_MOD(H)
+
+Estimator 14.
+F47029_P8 = F47029_P8_MOD(H)
+
+Estimator 15.
+F47031_P10 = F47031_P10_MOD(H)
+
+Estimator 16.
+F47031_P12 = F47031_P12_MOD(H)
+
+Estimator 17.
+F47031_P13 = F47031_P13_MOD(H)
+
+Estimator 18.
+F47031_P3 = F47031_P3_MOD(H)
+
+Estimator 19.
+F47031_P4 = F47031_P4_MOD(H)
+
+Estimator 20.
+F47031_P5 = F47031_P5_MOD(H)
+
+Estimator 21.
+F47031_P7 = F47031_P7_MOD(H)
+
+Estimator 22.
+F47031_P146 = F47031_P146_MOD(H)
+
+Estimator 23.
+F51313_SR2 = F51313_SR2_MOD(H)
+
+Estimator 24.
+F51317_SR1 = F51317_SR1_MOD(H)
+
+Estimator 25.
+F60001_SR1 = F60001_SR1_MOD(H)
+
+Estimator 26.
+F60010 = F60010_MOD(H)
+
+Estimator 27.
+F61052_SR2 = F61052_SR2_MOD(H)
+
+Estimator 28.
+F61052_SR27 = F61052_SR27_MOD(H)
+
+Estimator 29.
+F61052_SR3 = F61052_SR3_MOD(H)
+
+Estimator 30.
+F61052_SR30 = F61052_SR30_MOD(H)
+
+Estimator 31.
+F61052_SR32 = F61052_SR32_MOD(H)
+
+Estimator 32.
+F61052_SR4 = F61052_SR4_MOD(H)
+
+Estimator 33.
+F61052_SR51 = F61052_SR51_MOD(H)
+
+Estimator 34.
+F61052_SR7 = F61052_SR7_MOD(H)
+
+Estimator 35.
+F61054_SR11 = F61054_SR11_MOD(H)
+
+Estimator 36.
+F61054_SR12 = F61054_SR12_MOD(H)
+
+Estimator 37.
+F61054_SR14 = F61054_SR14_MOD(H)
+
+Estimator 38.
+F61054_SR15 = F61054_SR15_MOD(H)
+
+Estimator 39.
+F61054_SR16 = F61054_SR16_MOD(H)
+
+Estimator 40.
+F61054_SR17 = F61054_SR17_MOD(H)
+
+Estimator 41.
+F61054_SR18 = F61054_SR18_MOD(H)
+
+Estimator 42.
+F61054_SR23 = F61054_SR23_MOD(H)
+
+Estimator 43.
+F61054_SR4 = F61054_SR4_MOD(H)
+
+Estimator 44.
+F61054_SR6 = F61054_SR6_MOD(H)
+
+Estimator 45.
+F61054_SR8 = F61054_SR8_MOD(H)
+
+Estimator 46.
+F47029_P141 = F47029_P141_MOD(H)
+
+Estimator 47.
+F47031_P1 = F47031_P1_MOD(H)
+
+Estimator 48.
+F47031_P2 = F47031_P2_MOD(H)
+
+Estimator 49.
+F47031_P6 = F47031_P6_MOD(H)
+
+Estimator 50.
+F40005_SR10 = F40005_SR10_MOD(H)
+
+Estimator 51.
+F40005_SR2 = F40005_SR2_MOD(H)
+
+Estimator 52.
+F61054_SR1 = F61054_SR1_MOD(H)
+
+Estimator 53.
+F61054_SR92 = F61054_SR92_MOD(H)
+
+Estimator 54.
+F61054_SR10 = F61054_SR10_MOD(H)
+
+Estimator 55.
+F72000 = F72000_MOD(H)
+
+Estimator 56.
+F61054_SR2 = F61054_SR2_MOD(H)
+
+NOTE: There were 6234 observations read from the data set TMPLIB.ESTIMATO_CEAG_A_INDATA.
+NOTE: There were 260887 observations read from the data set TMPLIB.ESTIMATO_CEAG_A_INDATA_HIST.
+NOTE: There were 355288 observations read from the data set TMPLIB.ESTIMATO_CEAG_A_INSTATUS.
+NOTE: There were 57 observations read from the data set TMPLIB.ESTIMATO_CEAG_A_INESTIMATOR.
+NOTE: The data set WORK.OUTDATA has 6234 observations and 60 variables.
+NOTE: The data set WORK.OUTSTATUS has 355288 observations and 5 variables.
+NOTE: The data set WORK.ESTPARMS has 97413 observations and 8 variables.
+NOTE: PROCEDURE ESTIMATOR used (Total process time):
+      real time           1.61 seconds
+      cpu time            1.54 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.91 seconds
+      cpu time            1.87 seconds
+      

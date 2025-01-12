@@ -1,0 +1,111 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+450  proc donorimputation
+451     data=indata
+452     instatus=instat
+453     out=outdata
+454     outstatus=outstat
+455     donormap=map
+456     edits="Q1 + Q2 + Q3 + Q4 = total;"
+457     postedits="Q1 + Q2 + Q3 + Q4 - total <= 0;"
+458     mindonors=1
+459     pcentdonors=1
+460     n=3
+461     matchfieldstat
+462     eligdon=any
+463     acceptnegative
+464     ;
+465     id ident;
+466     mustmatch STAFF;
+467     dataexclvar toexcl;
+468  run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:40:59
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.INDATA
+NOTE: INSTATUS = WORK.INSTAT
+NOTE: OUT = WORK.OUTDATA
+NOTE: OUTSTATUS = WORK.OUTSTAT
+NOTE: DONORMAP = WORK.MAP
+NOTE: EDITS = Q1 + Q2 + Q3 + Q4 = total;
+NOTE: POSTEDITS = Q1 + Q2 + Q3 + Q4 - total <= 0;
+NOTE: MINDONORS = 1
+NOTE: PCENTDONORS = 1.00%
+NOTE: N = 3
+NOTE: NLIMIT not specified.
+NOTE: MRL not specified.
+NOTE: ELIGDON = ANY
+NOTE: RANDOM not specified (random search of donors will not be performed)
+NOTE: MATCHFIELDSTAT
+NOTE: SEED = 1670597383 (value chosen by the system) 
+NOTE: ACCEPTNEGATIVE
+NOTE: DISPLAYLEVEL = 0
+NOTE: ID = ident
+NOTE: DATAEXCLVAR = toexcl
+NOTE: RANDNUMVAR not specified.
+NOTE: MUSTMATCH = staff 
+NOTE: BY not specified.
+
+
+Set of EDITS: 
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL   = 0
+
+
+Set of POSTEDITS:
+
+0
+                                  Q1 + Q2 + Q3 + Q4 - TOTAL  <= 0
+
+NOTE: The minimal set of edits is equivalent to the original set of edits specified.
+
+NOTE: The minimal set of post imputation edits is equivalent to the original set of edits 
+      specified.
+
+
+NOTE: There were 2 observations dropped from DATA data set because they are potential 
+      donors but toexcl value is 'E' for these observations.
+
+NOTE: DONORLIMIT = No limit
+
+Number of observations ............................:       4
+Number of observations dropped ....................:       2
+    missing key ...................................:       0
+    missing data ..................................:       0
+    negative data .................................:       0
+    mixed observations ............................:       0
+    excluded donors ...............................:       2
+    non-eligible donors ...........................:       0
+
+Number of valid observations ......................:       2     100.00%
+Number of donors ..................................:       1      50.00%
+Number of donors to reach DONORLIMIT ..............:       0       0.00%
+Number of recipients ..............................:       1      50.00%
+    with matching fields ..........................:       1      50.00%
+        imputed ...................................:       1      50.00%
+        not imputed ...............................:       0       0.00%
+    without matching fields .......................:       0       0.00%
+
+
+NOTE: There were 4 observations read from the data set WORK.INDATA.
+NOTE: There were 4 observations read from the data set WORK.INSTAT.
+NOTE: The data set WORK.OUTDATA has 1 observations and 6 variables.
+NOTE: The data set WORK.OUTSTAT has 6 observations and 3 variables.
+NOTE: The data set WORK.MAP has 1 observations and 4 variables.
+NOTE: PROCEDURE DONORIMPUTATION used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.01 seconds
+      
+
+469  
+470  proc printto;
+471  run;
+

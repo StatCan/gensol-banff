@@ -1,0 +1,372 @@
+1                                                                                                                        The SAS System                                                                                            15:05 Wednesday, May 31, 2023
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M7) 
+      Licensed to STATISTICS CANADA - UNLIMITED SAS 9, Site 70271791.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.2
+      SAS/ETS 15.2
+      SAS/OR 15.2
+      SAS/IML 15.2
+      SAS/QC 15.2
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.68 seconds
+      cpu time            0.28 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7\autoexec.sas.
+
+NOTE: ASSIGNING Banff Processor macro catalog
+NOTE: Libref __BPMACR was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+ 
+You have launched Banff for Windows via the installed SAS Display Manager shortcut.
+****************************************************************************
+Include the following information when contacting Banff Support regarding
+a problem with your Banff installation.
+   Installer version: 6.4
+   Install language: en
+   Banff install location:
+     C:\Users\arsstev\Documents\GeneralizedSystems\Banff_2.08.002WIN6494M5-M7
+   SAS install location: C:\Program Files\SASHome2\SASFoundation\9.4
+   Built for: SAS 9.4 64-bit M5-M7
+   Host SAS version: 9.04.01M7P080520
+   Host platform: X64_10PRO
+****************************************************************************
+
+   NOTE: The Banff Processor macro catalog is automatically assigned
+         to libname __BPMACR during startup and is available for use.
+
+NOTE: AUTOEXEC processing completed.
+
+1          /* Test Est 04a01 */
+2          
+3          /* Testing of miscellaneous error codes and messages
+4          
+5          In this test, some missing values are present but no FTI codes are indicated. There should be
+6          no imputation but otherwise procedure should run to completion */
+7          
+8          %let test=04a01;
+9          
+10         options nodate nonumber linesize=120 pagesize=32000;
+11         
+12         data databf ;
+13         infile cards;
+14         input
+15         ID $ U V W X Y Z;
+16         
+17         cards ;
+
+NOTE: The data set WORK.DATABF has 3 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21         ;
+22         run ;
+23         
+24         proc sort;
+25         by ID;
+26         run;
+
+NOTE: There were 3 observations read from the data set WORK.DATABF.
+NOTE: The data set WORK.DATABF has 3 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+27         
+28         data statusbf;
+29         infile cards;
+30         input fieldid $ status $ id $;
+31         cards;
+
+NOTE: The data set WORK.STATUSBF has 4 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+36             ;
+37         run;
+38         
+39         data algor;
+40         length formula $22.;
+41         length description $40.;
+42         input algorithmname $ type $ status $ formula $ description $36-52;
+43         cards;
+
+NOTE: The data set WORK.ALGOR has 2 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+46         ;
+47         
+48         data estimat;
+49         input
+50         active 1 excludeimputed $3 excludeoutliers $5
+51         countcriteria 7-8 percentcriteria 9-10
+52         algorithmname $12-22
+53         weightvariable $24
+54         variancevariable $26 varianceperiod $28 varianceexponent 30
+55         fieldid $42-50
+56         auxvariables $52-55 RANDOMERROR $56-60
+57         ;
+58         cards;
+
+NOTE: The data set WORK.ESTIMAT has 3 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+62         ;
+63         run;
+64         
+65         proc ESTIMATOR
+66         data=databf
+67         datastatus=statusbf
+68         out=outdata&test
+69         outstatus=outstatus&test
+70         algorithm=algor
+71         estimator=estimat
+72         seed=30000
+73         OUTESTPARMS=OUTP&test
+74         OUTESTEF=OUTEF&test
+75         OUTACCEPTABLE=OUTACC&test
+76         ;
+77         id ID;
+78         
+79         run;
+
+NOTE: --- Banff System 2.08.002 developed by Statistics Canada ---
+NOTE: PROCEDURE ESTIMATOR Version 2.06.002
+NOTE: Created on Jan 19 2022 at 13:54:27
+NOTE: Email: banff@statcan.gc.ca
+NOTE: 
+
+NOTE: DATA = WORK.DATABF
+NOTE: DATASTATUS = WORK.STATUSBF
+NOTE: HIST = _NULL_
+NOTE: HISTSTATUS = _NULL_
+NOTE: ALGORITHM = WORK.ALGOR
+NOTE: ESTIMATOR = WORK.ESTIMAT
+NOTE: OUTDATA = WORK.OUTDATA04A01
+NOTE: OUTSTATUS = WORK.OUTSTATUS04A01
+NOTE: OUTRANDOMERROR = _NULL_
+NOTE: OUTACCEPTABLE = WORK.OUTACC04A01
+NOTE: OUTESTPARMS = WORK.OUTP04A01
+NOTE: OUTESTEF = WORK.OUTEF04A01
+NOTE: OUTESTLR = _NULL_
+NOTE: SEED = 30000
+NOTE: REJECTNEGATIVE (default)
+NOTE: ID = ID
+NOTE: DATAEXCLVAR not specified.
+NOTE: HISTEXCLVAR not specified.
+NOTE: BY not specified.
+
+Set of estimator specifications:
+-------------------------------
+
+Estimator 0.
+Algorithm name           : UDZERO
+Description              : constant
+Type                     : EF
+Status                   : 3J1
+Formula                  : 1
+Field id                 : Z
+Auxiliary variables      : 
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 1.
+Algorithm name           : DIVZERO
+Description              : constant
+Type                     : EF
+Status                   : 3J2
+Formula                  : 5
+Field id                 : Y
+Auxiliary variables      : 
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : 
+Exclude outliers         : 
+Random error             : N
+Count criteria           : 
+Percent criteria         : 
+
+Estimator 2.
+Algorithm name           : CURAUXMEAN
+Description              : The current average of a proxy variable is imputed.
+Type                     : EF
+Status                   : CAM
+Formula                  : AUX1(A)
+Field id                 : W
+Auxiliary variables      : V
+Weight variable          : 
+Variance variable        : 
+Variance exponent        : 
+Variance period          : 
+Exclude imputed          : N
+Exclude outliers         : N
+Random error             : N
+Count criteria           : 1
+Percent criteria         : 30.000000
+
+
+Formula of estimator specifications:
+-----------------------------------
+
+Estimator 0.
+Z = 1
+
+Estimator 1.
+Y = 5
+
+Estimator 2.
+W = V(A)
+
+
+Statistics on observations:
+--------------------------
+
+Number of observations in DATA data set ...........:       3
+Number of valid observations in DATA data set .....:       2
+
+WARNING: There were 1 observations dropped from DATA data set because a value is missing and there is no corresponding 
+         FTI in DATASTATUS data set.
+
+Statistics on estimators:
+------------------------
+
+Estimator 0.
+No parameters.
+
+Estimator 1.
+No parameters.
+
+Estimator 2.
+Count = 2 Percent = 100.00 not weighted.
+Average    Period              Variable                        
+1.50000    CURR                V                               
+
+
+
+Statistics on imputation:
+------------------------
+
+Est Variable                            FTI    Imp    */0    Neg
+0   Z                                     0      0      0      0
+1   Y                                     0      0      0      0
+2   W                                     0      0      0      0
+
+
+NOTE: There were 3 observations read from the data set WORK.DATABF.
+NOTE: There were 4 observations read from the data set WORK.STATUSBF.
+NOTE: There were 2 observations read from the data set WORK.ALGOR.
+NOTE: There were 3 observations read from the data set WORK.ESTIMAT.
+NOTE: The data set WORK.OUTDATA04A01 has 0 observations and 4 variables.
+NOTE: The data set WORK.OUTSTATUS04A01 has 0 observations and 3 variables.
+NOTE: The data set WORK.OUTP04A01 has 3 observations and 7 variables.
+NOTE: The data set WORK.OUTEF04A01 has 1 observations and 6 variables.
+NOTE: The data set WORK.OUTACC04A01 has 2 observations and 3 variables.
+NOTE: PROCEDURE ESTIMATOR used (Total process time):
+      real time           0.23 seconds
+      cpu time            0.03 seconds
+      
+
+80         
+81         proc print data=outdata&test ;
+82         title Proc Estimator;
+83         title2 "Test &test Imputation Results";
+84         run;
+
+NOTE: No observations in data set WORK.OUTDATA04A01.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+85         
+86         proc print data=outstatus&test ;
+87         title Proc Estimator;
+88         title2 "Test &test Output Status";
+89         run;
+
+NOTE: No observations in data set WORK.OUTSTATUS04A01.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+90         
+91         PROC PRINT DATA= OUTACC&test;
+92         title Acceptable Observations;
+93         run;
+
+NOTE: There were 2 observations read from the data set WORK.OUTACC04A01.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+94         
+95         PROC PRINT DATA= OUTEF&test;
+96         title Parameter Calculations;
+97         run;
+
+NOTE: There were 1 observations read from the data set WORK.OUTEF04A01.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+98         PROC PRINT DATA= OUTP&test;
+99         title Imputation Statistics;
+100        run;
+
+NOTE: There were 3 observations read from the data set WORK.OUTP04A01.
+NOTE: The PROCEDURE PRINT printed page 3.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.28 seconds
+      cpu time            0.42 seconds
+      
