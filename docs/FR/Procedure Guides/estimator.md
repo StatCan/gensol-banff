@@ -1,7 +1,7 @@
 # Imputation par estimation
 
 * Exécution: *banff.estimator()*
-* Type de fonction VDS: *Traitement*
+* Type de fonction VSD: *Traitement*
 * Statuts d'entrée: *FTI (requis), FTE (optionnel), I--(optionnel)*
 * Statuts de sortie: *I--* (le code exact dépend de l'algorithme spécifié)
 
@@ -40,7 +40,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outest_parm    | Données de sortie contenant les statistiques d'imputation par estimateur.  |
 | outrand_err    | Données de sortie contenant l'information sur les erreurs aléatoires ajoutées aux valeurs imputées.  |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au ().
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
 
 ## Paramètres
 

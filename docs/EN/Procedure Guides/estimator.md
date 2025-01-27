@@ -40,7 +40,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outest_parm    | Report on imputation statistics by estimator.  |
 | outrand_err    | Random error report when a random error is added to the imputed variable.  |
 
-For details on the content of output tables, please see the (TBC).
+For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
 
 ## Parameters
 

@@ -30,7 +30,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outedit_applic    | Number of times each variable is involved in an edit which passes, misses or fails. |
 | outvars_role      | Number of times each variable contributes to the overall record status. |
 
-For details on the content of output tables, please see the (TBC).
+For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
 
 ## Parameters
 

@@ -20,7 +20,7 @@ DIR_REPO_ROOT      = $(realpath $(REL_ROOT)/../../)/
 
 
 ##### BUILD METADATA ##########################################################
-export BANFF_VERSION_SYSTEM  = 3.01.001
+export BANFF_VERSION_SYSTEM  = 3.01.002
 export BANFF_VERSION_PROC    = $(BANFF_VERSION_SYSTEM)
 
 

@@ -1,7 +1,7 @@
 # Imputation par donneur
 
 * Exécution: *banff.donorimp()*
-* Type de fonction VDS: *Traitement*
+* Type de fonction VSD: *Traitement*
 * Statuts d'entrée: *FTI (requis), FTE(optionnel), I-- (optionnel)*
 * Statuts de sortie: *IDN*
 
@@ -42,7 +42,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outdonormap        | Données de sortie contenant les paires receveur-donneur pour les enregistrements imputés avec succès.  |
 | outmatching_fields | Données de sortie contenant les champs d'appariement pour chaque receveur.<br><br> Les champs d'appariement sont utilisés par la procédure donorimp pour calculer les distances entre les receveurs et les donneurs potentiels. Les champs d'appariement peuvent prendre l'une des trois formes: MFS (sélectionné par le système), MFU (spécifié par l'utilisateur) ou MFB (sélectionné par le système et spécifié par l'utilisateur).  |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au ().
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
 
 ## Paramètres
 
