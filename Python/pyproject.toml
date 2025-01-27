@@ -23,7 +23,7 @@ classifiers = [
 dependencies = [
   "pandas>=2.0.0,<3",  # SAS support fails below 2.0.0, pandas 3 compatibility untested
   "pandas[parquet]>=2.0.0",  # incase pandas requires a newer version of pyarrow
-  "pyarrow>=14.0.0,<19",  # things fail below 14.0.0
+  "pyarrow>=14.0.0,<20",  # things fail below 14.0.0
   "nanoarrow>=0.5.0,<0.7",  # this library in early development, adjust for each release
   "duckdb>=0.7.0,<2",  # things fail below 0.7.0
 ]
