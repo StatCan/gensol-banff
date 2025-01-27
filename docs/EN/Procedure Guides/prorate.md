@@ -44,6 +44,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outstatus     | Output status file identifying imputed fields with IPR status flags, and their values after imputation. |
 | outreject     | Output table containing records that failed prorating. <br><br> For an individual record, there are potentially many reasons prorating could not be performed; please see the notes below for more details.|
 
+For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
 
 ## Parameters
 

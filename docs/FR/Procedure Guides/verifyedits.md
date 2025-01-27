@@ -1,7 +1,7 @@
 # Spécification et analyse des règles de vérification
 
 * Exécution: *banff.verifyedits()*
-* Type de fonction VDS: *Néant*
+* Type de fonction VSD: *Néant*
 * Statuts d'entrée: *Néant*
 * Statuts de sortie: *Néant*
 
@@ -9,7 +9,7 @@
 
 Vérifie la cohérence et la redondance des règles de vérification.
 
-La procédure verifyedits n'analyse de données et n'effectue aucune fonction de VDS (revue, sélection, traitement). À la place, elle est utilisée pour vérifier qu'un ensemble de règles de vérification spécifié par l'utilisateur est cohérent, ainsi que pour identifier les règles redondantes, les variables déterministes et les égalités cachées. Une fois ce travail est effectué, un ensemble minimal de règles de vérification est déterminé. Avant d'utiliser les procédures basées sur les règles de vérification, à savoir errorloc, deterministic, donorimp et prorate, l'utilisateur est encouragé à analyser ses règles de vérification à l'aide de verifyedits. L'analyse effectuée est la suivante:
+La procédure verifyedits n'analyse de données et n'effectue aucune fonction de VSD (revue, sélection, traitement). À la place, elle est utilisée pour vérifier qu'un ensemble de règles de vérification spécifié par l'utilisateur est cohérent, ainsi que pour identifier les règles redondantes, les variables déterministes et les égalités cachées. Une fois ce travail est effectué, un ensemble minimal de règles de vérification est déterminé. Avant d'utiliser les procédures basées sur les règles de vérification, à savoir errorloc, deterministic, donorimp et prorate, l'utilisateur est encouragé à analyser ses règles de vérification à l'aide de verifyedits. L'analyse effectuée est la suivante:
 
 * Cohérence: la cohérence est vérifiée pour l'ensemble des règles de vérification, c'est-à-dire que les contraintes définissent une région d'acceptation non vide.
 * Redondance: la liste des règles de vérification redondantes, c'est-à-dire les règles qui peuvent être enlevées sans que le région d'acceptation ne soir affectée.

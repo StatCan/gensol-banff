@@ -27,7 +27,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outdata      | Output statistical table containing imputed data. <br><br> Note that outdata will only contain successfully imputed records and affected fields. Users should update indata with the values from outdata before continuing the data editing process.       |
 | outstatus    | Output status file identifying imputed fields with IDE status flags, and their values after imputation.  |
 
-For details on the content of output tables, please see the (TBC).
+For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
 
 ## Parameters
 

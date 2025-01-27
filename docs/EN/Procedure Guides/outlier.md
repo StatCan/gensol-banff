@@ -40,7 +40,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outstatus_detailed  | Detailed status for the outliers (ODER/ODEL/ODIR/ODIL).<br><br> Detailed status indicates whether the outlier falls outside the exclusion interval on the right (ODER) or on the left (ODEL). If it concerns an FTI outlier, the detailed status distinguishes between an outlier falling outside the imputation interval on the right (ODIR) and on the left (ODIL).<br><br> It will contain more information (imputation and exclusions bounds, current and auxiliary values, ..) with the parameter `outlier_stats=True`.                               |
 | outsummary          | Outlier summary information such as observation counts and acceptance interval bounds.|
 
-For details on the content of output tables, please see the (TBC).
+For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
 
 ## Parameters
 
@@ -56,7 +56,7 @@ For details on the content of output tables, please see the (TBC).
 | mei             | float        | HB Multiplier for exclusion interval (positive).<br><br> `mei` controls the width of the exclusion interval. A higher multiplier value for the exclusion interval will lead to a lower number of detected outliers to exclude. `mei` becomes mandatory for HB if `mii` is not specified. |
 | mdm             | float        | HB minimum distance multiplier (positive). Default=0.05.<br><br> `mdm` refers to the minimum interquartile distance required to calculate intervals. |
 | exponent        | float        | HB exponent for a ratio or historical trend (between 0 and 1). Default=0. |
-| min_obs         | integer      | Minimum number of observations that must exist in the input table or in a by-group (positive). Default=3 for HB, 5 for SG.<br><br> `min_obs` >= 3 for HB; `min_obs` >= 5 for SG.<br><br> No outlier will be detected if the number of records is equal to 3 for HB **(Contradiction!)**. A minimum of 10 observations per by-group is recommended; outlier detection results for by-groups less then 10 observations should be used with caution. |
+| min_obs         | integer      | Minimum number of observations that must exist in the input table or in a by-group (positive). Default=3 for HB, 5 for SG.<br><br> `min_obs` >= 3 for HB; `min_obs` >= 5 for SG.<br><br> A minimum of 10 observations per by-group is recommended; outlier detection results for by-groups less then 10 observations should be used with caution. |
 | side            | str          | Side ('LEFT', 'RIGHT', or 'BOTH') of the ordered data to be used for detecting outliers. Default='BOTH'. |
 | start_centile   | float        | SG centile to be used to determine the starting point (between 0 and 100). Default=75 for 'side="BOTH"', 0 otherwise. <br><br> The centile must be greater than or equal to 0 and less than 100 when `side='LEFT'` or `side='RIGHT'`. The centile must be greater than or equal to 50 and less than 100 when `side='BOTH'`. |
 | beta_i          | float        | SG multiplier for imputation interval (non-negative).<br><br> 0<`beta_e`<`beta_i`. `beta_i` becomes mandatory for SG if `beta_e` is not specified.|
@@ -66,7 +66,6 @@ For details on the content of output tables, please see the (TBC).
 | accept_zero     | bool         | Treat zero values as valid. Default=False in the presence of historical or auxiliary variables, True otherwise. |
 | acceptnegative  | bool         | Treat negative values as valid. Default=False. <br><br> By default, a positivity edit is added for every variable in the list of edits; this parameter permits users to remove this restriction. If required, users may directly add positivity edits for individual variables. |
 | by              | str          | Variable(s) used to partition indata into by-groups for independent processing. <br><br> Outlier detection is performed on each by-group separately. <br><br> Example: `by = "province industry"` |
-| prefill_by_vars | bool         | Adds by-group variable(s) to input status file(s) to improve performance. Default=True.<br><br>**This parameter can be specified even if outlier doesn't take any instatus?**  |
 | presort         | bool         | Sorts input tables before processing, according to procedure requirements. Default=True. |
 | no_by_stats     | bool         | Reduces log output by suppressing by-group specific messages. Default=False. |
 

@@ -1,7 +1,7 @@
 # Imputation massive
 
 * Exécution: *banff.massimp()*
-* Type de fonction VDS: *Revue, Sélection, Traitement*
+* Type de fonction VSD: *Revue, Sélection, Traitement*
 * Statuts d'entrée: *Néant*
 * Statuts de sortie: *IMAS*
 
@@ -33,7 +33,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outstatus       | Données des statuts de sortie identifiant les champs imputés avec le statut IMAS et contenant leurs valeurs après imputation.   |
 | outdonormap        | Données de sortie contenant les paires receveur-donneur pour les enregistrements imputés avec succès.  |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au ().
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
 
 ## Paramètres
 
@@ -50,7 +50,6 @@ Pour plus d'information sur le contenu des données de sortie, se référer au (
 | seed                | flottant | Spécifie la racine du générateur des nombres aléatoires. <br><br> Cette racine est utilisée pour s'assurer d'obtenir des résultats cohérents d'une exécution à une autre. Si elle n'est pas spécifiée comme une valeur non positive, un nombre aléatoire sera généré par la procédure. |
 | accept_negative | booléen              | Traite les valeurs négatives comme des valeurs valides. Par défaut: False. <br><br> Par défaut, la règle de positivité est ajoutée pour chaque variable dans la liste des règles de vérification; ce paramètre permet à l'utilisateur d'enlever cette restriction. L'utilisateur peut aussi ajouter la règle de positivité de manière individuelle pour chaque variable qui la requiert. |
 | by              | chaîne de caractères | Variable(s) utilisée(s) pour partitionner indata en des groupes *by* pour un traitement indépendant. <br><br> Dans massimp, les groupes de partition *by* peuvent être vus comme des classes d'imputation. <br><br> Exemple: `by = "province industrie"` |
-| prefill_by_vars | booléen              | Ajouter une ou plusieurs variables de partition aux données des statuts d'entrée pour améliorer la performance. Par défaut: True. |
 | presort         | booléen              |  Trier les données d'entrée avant le traitement, et ce selon les exigences de la procédure. Par défaut: True. |
 | no_by_stats     | booléen              | Réduire le journal de sortie en supprimant les messages spécifiques aux groupes de partition *by*. Par défaut: False. |
 

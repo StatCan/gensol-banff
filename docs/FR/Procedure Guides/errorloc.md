@@ -1,7 +1,7 @@
 # Localisation des erreurs
 
 * Exécution: *banff.errorloc()*
-* Type de fonction VDS: *Revue, Sélection*
+* Type de fonction VSD: *Revue, Sélection*
 * Statuts d'entrée: *FTI (optionnel)*
 * Statuts de sortie: *FTI*
 
@@ -31,7 +31,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outstatus       | Données de sortie identifiant les champs sélectionnés avec le statut FTI et contenant leurs valeurs.   |
 | outreject       | Données de sortie contenant les enregistrements pour lesquels la localisation des erreurs a échoué. <br><br> outreject contient les enregistrements pour lesquels la localisation des erreurs n'a pas pu s'effectuer, à cause du dépassement de la cardinalité maximale autorisée (error = "CARDINALITY EXCEEDED") ou du temps alloué par observation (error = "TIME EXCEEDED"). |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au ().
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
 
 ## Paramètres
 

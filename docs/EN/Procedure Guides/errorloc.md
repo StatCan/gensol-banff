@@ -31,7 +31,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outstatus      | Output status file identifying selected fields with FTI status flags, and their values. |
 | outreject      | Output table containing records that failed error localization. <br><br> The outreject table contains records for which error localization could not be performed, either because they exceeded maximum allowable cardinality (error = "CARDINALITY EXCEEDED") or time per observation (error = "TIME EXCEEDED"). |
 
-For details on the content of output tables, please see the (TBC).
+For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
 
 ## Parameters
 

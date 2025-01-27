@@ -42,6 +42,8 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outdonormap        | Output table of recipient-donor pairs for successfully imputed records. |
 | outmatching_fields | Output table of matching fields for each recipient.<br><br> Matching fields are used by the donor imputation procedure to calculate distances between recipients and potential donors. Matching fields can take on one of three statuses: MFS (system selected), MFU (user-specified) or MFB (both system and user-specified). |
 
+For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+
 ## Parameters
 
 | Parameter           | Python type  | Description | 

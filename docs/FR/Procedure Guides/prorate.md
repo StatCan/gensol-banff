@@ -1,7 +1,7 @@
 # Ajustement au prorata
 
 * Exécution: *banff.prorate()*
-* Type de fonction VDS: *Revue, Sélection, Traitement*
+* Type de fonction VSD: *Revue, Sélection, Traitement*
 * Statuts d'entrée: *I-- (optionnel)*
 * Statuts de sortie: *IPR*
 
@@ -44,7 +44,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outstatus       | Données des statuts de sortie identifiant les champs imputés avec le statut IPR et contenant leurs valeurs après imputation.   |
 | outreject       | Données de sortie contenant les enregistrements pour lesquels l'ajustement au prorata a échoué.<br><br> Pour un enregistrement individuel, il y a plusieurs raisons pour lesquels l'ajustement au prorata pourrait ne pas aboutir; se référer aux notes plus bas pour plus d'information. |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au ().
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
 
 ## Paramètres
 

@@ -4,7 +4,10 @@ requires = ["setuptools>=70.00", "wheel", "pip>=23.3"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "banff"
-version = "3.01.001"
+version = "3.01.002"
+maintainers = [
+  {name = "Banff Support, Statistics Canada", email = "statcan.banff-banff.statcan@statcan.gc.ca"}
+]
 authors = [
   { name="Stephen Arsenualt", email="stephen.arsenault@statcan.gc.ca" },
 ]
@@ -13,16 +16,16 @@ readme = {file = "README.md", content-type = "text/markdown"}
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
 ]
 dependencies = [
-    "pandas>=2.0.0,<3",  # SAS support fails below 2.0.0, pandas 3 compatibility untested
-    "pandas[parquet]>=2.0.0",  # incase pandas requires a newer version of pyarrow
-    "pyarrow>=14.0.0",  # things fail below 14.0.0
-    "nanoarrow>=0.5.0,<0.7",  # this library in early development, adjust for each release
-    "duckdb>=0.7.0",  # things fail below 0.7.0
+  "pandas>=2.0.0,<3",  # SAS support fails below 2.0.0, pandas 3 compatibility untested
+  "pandas[parquet]>=2.0.0",  # incase pandas requires a newer version of pyarrow
+  "pyarrow>=14.0.0,<19",  # things fail below 14.0.0
+  "nanoarrow>=0.5.0,<0.7",  # this library in early development, adjust for each release
+  "duckdb>=0.7.0,<2",  # things fail below 0.7.0
 ]
 [project.optional-dependencies]
 test = [

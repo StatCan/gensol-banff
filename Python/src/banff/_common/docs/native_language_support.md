@@ -64,7 +64,7 @@ log_lcl.debug(_("file exists: {}").format(dataset_ref))
 #### Get language-specific `.po` files
 
 This can be done with the script `Python/scripts/gettext/nls_update_po.sh`.  
-This script is called in the pipeline job `nls_update_po`, which stores the template and the French and English `.po` files as artifacts.  This job should get executed whenever the pipeline changes include any Python source code.  
+This script is called in the GitLab pipeline job `nls_update_po`, which stores the template and the French and English `.po` files as artifacts.  This job should get executed whenever the pipeline changes include any Python source code.  
 
 > **English `.po` File**
 > The English `.po` file is handled differently than non-English files because we use full-text English messages in the source code (`log.error("file does not exist")`), as opposed to using a message ID like (`M123` or `ERROR_file_no_exist`).  
@@ -96,7 +96,7 @@ For non-English `.po` files, each messages `msgstr` should be populated with the
 ### Compile/Build Translations
 
 Once populated with translations, create a `.mo` file from each `.po` file using the script `Python/scripts/gettext/nls_update_mo.sh`.  
-This script is called in the pipeline job `nls_update_mo`, which stores the language-specific `.mo` files as artifacts.  This job should get executed whenever a pipeline detects changes to the language-specific `.po` files.  
+This script is called in the GitLab pipeline job `nls_update_mo`, which stores the language-specific `.mo` files as artifacts.  This job should get executed whenever a pipeline detects changes to the language-specific `.po` files.  
 
 ### Publish
 

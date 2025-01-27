@@ -1,7 +1,7 @@
 # Imputation déterministe
 
 * Exécution: *banff.deterministic()*
-* Type de fonction VDS: *Traitement*
+* Type de fonction VSD: *Traitement*
 * Statuts d'entrée: *FTI (requis)*
 * Statuts de sortie: *IDE*
 
@@ -25,7 +25,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outdata         | Données de données de sortie contenant les données imputées.<br><br> Noter que outdata contiendra les enregistrements imputés avec succès et les champs affectés. Les utilisateurs devront mettre à jour indata avec les valeurs provenant de outdata avant de continuer le processus de vérification et d'imputation des données. |
 | outstatus       | Données des statuts de sortie identifiant les champs imputés avec le statut IDE et contenant leurs valeurs après imputation.   |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au ().
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
 
 ## Paramètres
 
