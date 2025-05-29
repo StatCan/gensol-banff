@@ -1,0 +1,10 @@
+banff.io\_util package
+======================
+
+Module contents
+---------------
+
+.. automodule:: banff.io_util
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -26,7 +26,13 @@ The Banff user guide often uses terminology from the [Generic Statistical Data E
 
 The Banff package is installed using the `pip` package installer for Python. For general information about `pip`, please see https://pip.pypa.io/en/stable/cli/pip_install/.
 
-You can find the Banff packages on Statistics Canada’s GitHub release page : https://github.com/StatCan/gensol-banff/releases. A PyPI release will be available soon.
+To install the latest release directly from PyPi:
+
+```shell
+pip install banff
+```
+
+Alternatively, you can find the Banff packages on Statistics Canada’s GitHub release page : https://github.com/StatCan/gensol-banff/releases.
 
 Download the Windows or Linux binary for your environment from the release page. Then, follow the installation instructions below :
 
@@ -93,7 +99,13 @@ Le guide d'utilisation de Banff utilise souvent la terminologie du [Modèle gén
 
 Le paquet Banff est installé à l'aide du programme d'installation du paquet `pip` de Python. Pour de l'information générale sur `pip`, veuillez consulter https://pip.pypa.io/en/stable/cli/pip_install/.
 
-Vous pouvez trouver les packages Banff sur la page de publication GitHub de Statistique Canada : https://github.com/StatCan/gensol-banff/releases. Une version PyPI sera bientôt disponible.
+Pour installer la dernière version directement depuis PyPi:
+
+```shell
+pip install banff
+```
+
+Alternativement, vous pouvez trouver les packages Banff sur la page de publication GitHub de Statistique Canada : https://github.com/StatCan/gensol-banff/releases.
 
 Téléchargez le binaire Windows ou Linux pour votre environnement depuis la page de publication. Ensuite, suivez les instructions d’installation ci-dessous :
 

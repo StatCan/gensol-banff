@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Algorithmes dans la prcédure Estimator &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FR/Procedure Guides/estimator_algorithms';</script>
+    <link rel="index" title="Index" href="../../genindex" />
+    <link rel="search" title="Search" href="../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Algorithmes dans la prcédure Estimator</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="algorithmes-dans-la-prcedure-estimator">
+<h1>Algorithmes dans la prcédure Estimator<a class="headerlink" href="#algorithmes-dans-la-prcedure-estimator" title="Link to this heading">#</a></h1>
+<p>Les données d’entrée <code class="docutils literal notranslate"><span class="pre">inalgorithm</span></code> et <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> définissent le modèle utilisé pour l’imputation (moyenne, valeur historique, régression linéaire, ..) et spécifient certains paramètres et options. Les données <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> sont obligatoires, alors que <code class="docutils literal notranslate"><span class="pre">inalgorithm</span></code> sont seulement requises lorsque l’on utilise un algorithme personnalisé au lieu d’un algorithme prédéfini parmi les 20 algorithmes disponibles dans la procédure.</p>
+<p>Les algorithmes utilisés par la procédure <code class="docutils literal notranslate"><span class="pre">estimator</span></code> peuvent être classés en deux catégories :</p>
+<ul class="simple">
+<li><p>Les fonctions d’estimation (EF) sont des expressions mathématiques spécifiées par l’utilisateur et faisant intervenir des données auxiliaires et/ou historiques; ces expressions utilisent les opérations d’addition, soustraction, multiplication, division et élévation à une puissance. Pour chaque variable de la fonction, l’utilisateur peut spécifier ce qu’il veut utiliser entre la valeur individuelle de l’enregistrement cible, et la valeur moyenne des enregistrements au sein de la classe d’imputation, et s’il veut utiliser les données courantes ou celles historiques. Chaque paramètre de la fonction d’estimation doit être spécifié par l’utilisateur; aucune modélisation n’est effectuée par la procédure.</p></li>
+<li><p>Les estimateurs par régression linéaire (LR) utilisent des modèles de régression linéaire pour imputer les valeurs manquantes. L’utilisateur spécifie les variables auxiliaires à inclure dans le modèle, ainsi que la période à utiliser et les exposants à appliquer. Les coefficients de régression sont alors estimés au sein de chaque classe d’imputation, avant que le modèle linéaire obtenu ne soit utilisé pour imputer la variable d’intérêt pour l’enregistrement en question.</p></li>
+</ul>
+<p>Ce document explique comment spécifier un algorithme personnalisé des deux types, et liste les algorithmes prédéfinis dans la procédure.</p>
+<section id="interaction-entre-inestimator-et-inalgorithm">
+<h2>Interaction entre inestimator et inalgorithm<a class="headerlink" href="#interaction-entre-inestimator-et-inalgorithm" title="Link to this heading">#</a></h2>
+<p>Qu’il soit prédéfini ou personnalisé, un algorithme peut être évoqué dans les données <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> dans le but d’être utilisé dans l’imputation d’une ou plusieurs variables. Avec au moins une ligne par variable à imputer, <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> contient les colonnes qui définissent la méthode et les paramètres d’imputation. En particulier, trois colonnes sont utilisées pour spécifier les éléments reliés à l’algorithme:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fieldid</span></code>: variable à imputer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">algorithmname</span></code> : nom d’algorithme à utiliser, qu’il soit prédéfini ou personnalisé.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> : variables auxiliaires utilisées dans l’algorithme. Plusieurs variables auxiliaires peuvent être utilisées dans chaque imputation (chaque variable auxiliaire doit être citée une seule fois même si ses valeurs historiques et actuelles sont utilisée); elles doivent être séparées de virgules. <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> doit contenir le même nombre de variables auxiliaires que celles utilisées dans l’algorithme; leur ordre d’apparition est important puisqu’il est utilisé pour les assigner aux variables citées dans la formule de l’algorithme. <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> doit être laissé vide lorsque l’algorithme qui lui est associée ne contient aucune variable auxiliaire (comme dans le cas de l’imputation par la valeur historique du champ à imputer).</p></li>
+</ul>
+</section>
+<section id="algorithme-personnalise">
+<h2>Algorithme personnalisé<a class="headerlink" href="#algorithme-personnalise" title="Link to this heading">#</a></h2>
+<p>À l’instar des algorithmes prédéfinis, un algorithme personnalisé peut prendre la forme d’une fonction d’estimation (type EF) ou d’une imputation par régression linéaire (type LR). Les deux types utilisent des paramètres substituables pour définir la formule de l’algorithme.</p>
+<section id="parametres-substituables-et-leurs-attributs">
+<h3>Paramètres substituables et leurs attributs<a class="headerlink" href="#parametres-substituables-et-leurs-attributs" title="Link to this heading">#</a></h3>
+<p>Le nom de l’algorithme, le type, le code du statut et le formule sont spécifiés à l’aide des colonnes <code class="docutils literal notranslate"><span class="pre">algorithmname</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">status</span></code> et <code class="docutils literal notranslate"><span class="pre">formula</span></code> respectivement. Aucune distinction n’est faite entre lettres minuscules et majuscules. Dans <code class="docutils literal notranslate"><span class="pre">formula</span></code>, il est seulement possible d’utiliser les paramètres substituables <code class="docutils literal notranslate"><span class="pre">fieldid</span></code> et <code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> où ‘n’ est un entier positif; <code class="docutils literal notranslate"><span class="pre">aux&lt;n-1&gt;</span></code> doit être utilisé dans la formule lorsque <code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> est utilisé.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fieldid</span></code> est un substituable du nom de la variable à imputer spécifiée dans <code class="docutils literal notranslate"><span class="pre">inestimator</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> est un substituable du nom de la variable auxiliaire spécifiée dans <code class="docutils literal notranslate"><span class="pre">inestimator</span></code>. La première variable dans <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> remplacera le substituable <code class="docutils literal notranslate"><span class="pre">aux1</span></code>, la seconde, <code class="docutils literal notranslate"><span class="pre">aux2</span></code> et ainsi de suite. Le nombre de variables dans <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> doit être égal au nombre de différents substituables <code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code>.</p></li>
+</ul>
+<p>Selon le type d’algorithme utilisé (EF ou LR), les formats utilisés avec les substituables (<code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> et/ou <code class="docutils literal notranslate"><span class="pre">fieldid</span></code>) sont les suivants:</p>
+<ul class="simple">
+<li><p><strong>Algorithmes de type EF</strong> :</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;(period,</span> <span class="pre">aggregation)</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;(aggregation,</span> <span class="pre">period)</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Algorithmes de type LR</strong> :</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;(period)</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Les options <code class="docutils literal notranslate"><span class="pre">period</span></code> et <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> sont appelées les attributs des substituables. Les valeurs possibles pour <code class="docutils literal notranslate"><span class="pre">period</span></code> sont <code class="docutils literal notranslate"><span class="pre">c</span></code> pour les données courantes et <code class="docutils literal notranslate"><span class="pre">h</span></code> pour celles historiques. Quant à <code class="docutils literal notranslate"><span class="pre">aggregation</span></code>, elle prend <code class="docutils literal notranslate"><span class="pre">v</span></code> pour utiliser la valeur de la variable pour l’observation, et <code class="docutils literal notranslate"><span class="pre">a</span></code> pour la moyenne de la variable au niveau des observations acceptables. Noter que les algorithmes de type LR sont un cas particulier puisqu’ils utilisent seulement les valeurs des observations (et non les moyennes), ce qu’il fait que l’attribut <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> ne s’applique pas dans leur cas.</p>
+</section>
+<section id="algorithmes-de-type-ef">
+<h3>Algorithmes de type EF<a class="headerlink" href="#algorithmes-de-type-ef" title="Link to this heading">#</a></h3>
+<p>Une fonction d’estimation (EF) est une expression mathématique qui peut inclure des constantes, des variables de données courantes et/ou historiques, et des moyennes de données courantes et/ou historiques. Ces moyennes sont calculées à partir d’un ensemble d’observations dites acceptables (grosso modo, une observation acceptable est une observation pour laquelle toutes les variables impliquées dans le calcul de moyennes sont disponibles, et où les valeurs imputés et/ou aberrantes sont exclues si demandé par l’utilisateur). Les opérations arithmétiques sont l’addition (+), la soustraction (-), la multiplication (*), la division (/), l’élévation à une puissance (^) et les parenthèses.</p>
+<p>La valeur par défaut de <code class="docutils literal notranslate"><span class="pre">period</span></code> est <code class="docutils literal notranslate"><span class="pre">c</span></code> (données courantes) et celle relative à <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> est <code class="docutils literal notranslate"><span class="pre">v</span></code> (valeur individuelle). Par conséquent :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">aux1</span></code>, <code class="docutils literal notranslate"><span class="pre">aux1(c)</span></code>, <code class="docutils literal notranslate"><span class="pre">aux1(v)</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1(c,</span> <span class="pre">v)</span></code> sont équivalents.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aux1(h)</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1(v,</span> <span class="pre">h)</span></code> sont équivalents.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aux1(a)</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1(c,</span> <span class="pre">a)</span></code> sont équivalents.</p></li>
+</ul>
+<p>Noter que <code class="docutils literal notranslate"><span class="pre">fieldid</span></code>, <code class="docutils literal notranslate"><span class="pre">fieldid(c)</span></code>, <code class="docutils literal notranslate"><span class="pre">fieldid(v)</span></code> et <code class="docutils literal notranslate"><span class="pre">fieldid(c,v)</span></code> ne peuvent être utilisés dans <code class="docutils literal notranslate"><span class="pre">formula</span></code> puisqu’ils correspondent tous à la valeur à imputer.</p>
+<p><strong>Les exposants</strong> peuvent être appliqués aux constantes (différentes de 0), aux substituables et aux expressions :</p>
+<ul class="simple">
+<li><p>L’exposant pour une constante doit la suivre : <code class="docutils literal notranslate"><span class="pre">3^4</span></code>.</p></li>
+<li><p>L’exposant d’un substituable suit les fermeture de parenthèses des attributs : <code class="docutils literal notranslate"><span class="pre">aux1^3</span></code>, <code class="docutils literal notranslate"><span class="pre">aux1(c)^3</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1(v)^3</span></code> sont équivalents.</p></li>
+<li><p>L’exposant d’une expression requiert que l’expression soit entre parenthèses : <code class="docutils literal notranslate"><span class="pre">(aux1(h)</span> <span class="pre">+</span> <span class="pre">aux2(h))^2</span></code>.</p></li>
+</ul>
+<p>De plus, l’exposant doit être une constante (nombre non nul). Un substituable ou une expression (même si son résultat est constant) ne peuvent être utilisés comme exposant. Donc, <code class="docutils literal notranslate"><span class="pre">aux1^aux2</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1^(2+1)</span></code> ne sont pas permis.</p>
+</section>
+<section id="algorithmes-de-type-lr">
+<h3>Algorithmes de type LR<a class="headerlink" href="#algorithmes-de-type-lr" title="Link to this heading">#</a></h3>
+<p>Imputation par régression qui consiste à imputer une variable $y$<sub>$i$</sub> par l’estimation par régression linéaire de la forme :</p>
+<p>$$
+\hat{y_i} = \hat{\beta_0} + \hat{\beta_1} x_{i_1 T_1}^{p_1} + \hat{\beta_2} x_{i_2 T_2}^{p_2} + … + \hat{\beta_m} x_{i_m T_m}^{p_m} + \hat{\epsilon_i}<br />
+$$</p>
+<p>où : $T$<sub>$j$</sub> correspond aux périodes courante ou historique et $p$<sub>$j$</sub> sont les exposants. La variable $y$<sub>$j$</sub> à imputer est la variable dépendante du modèle, et les variables auxiliaires $x$<sub>$ij$</sub> sont les variables indépendantes ou les régresseurs. $\hat\beta$<sub>$j$</sub> sont les coefficients de régression, obtenues comme solution de la méthode des moindres carrés. $\hat\epsilon$<sub>$i$</sub> est un terme d’erreur aléatoire, qui peut être ajouté au modèle pour introduire une certaine variabilité dans les valeurs estimées de $y$<sub>$i$</sub>.
+Noter que $\beta$<sub>$0$</sub>, qui est l’ordonnée à l’origine de la droite de régression, peut être omise du modèle.</p>
+<p>Puisque l’attribut <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> n’est pas applicable aux algorithmes de type LR, seule l’attribut <code class="docutils literal notranslate"><span class="pre">period</span></code> est utilisé, avec une valeur par défaut de <code class="docutils literal notranslate"><span class="pre">c</span></code> (données courantes.). Par exemple, <code class="docutils literal notranslate"><span class="pre">aux1</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1(c)</span></code> sont équivalents.</p>
+<p>La formule prend les éléments suivants séparés par des virgules :</p>
+<ul class="simple">
+<li><p>Ordonnée à l’origine : ajouter <code class="docutils literal notranslate"><span class="pre">intercept</span></code> pour utiliser une régression linéaire avec ordonnée à l’origine.</p></li>
+<li><p>Régresseurs : Liste des variables à inclure dans la régression linéaire, séparées par des virgules. Ces régresseurs peuvent prendre la forme de variables auxiliaires (<code class="docutils literal notranslate"><span class="pre">aux1</span></code>, <code class="docutils literal notranslate"><span class="pre">aux2</span></code>, ..) ou de valeurs historiques de la variable à imputer (<code class="docutils literal notranslate"><span class="pre">fieldid(h)</span></code>). Les exposants peuvent être appliqués aux régresseurs en utilisant le symbole <code class="docutils literal notranslate"><span class="pre">^</span></code> après les parenthèses fermées de l’attribut du substituable (<code class="docutils literal notranslate"><span class="pre">aux1^3</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1(c)^3</span></code> sont équivalents).</p></li>
+</ul>
+<p><strong>L’exposant</strong> doit être une constante (nombre non nul) pour être appliqué aux substituables. Un substituable ou une expression (même si son résultat est constant) ne peuvent être utilisés comme exposant. Donc, <code class="docutils literal notranslate"><span class="pre">aux1^aux2</span></code> et <code class="docutils literal notranslate"><span class="pre">aux1^(2+1)</span></code> ne sont pas permis.</p>
+<p>Le tableau suivant montre des exemples de régressions linéaires, et la manière dont elles peuvent être traduites en formules :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Régression linéaire</p></th>
+<th class="head"><p>Formule d’algorithme</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$y = \beta$<sub>$1$</sub> $* x$<sub>$1c$</sub></p></td>
+<td><p>$aux1$</p></td>
+</tr>
+<tr class="row-odd"><td><p>$y = \beta$<sub>$0$</sub> $+ \beta$<sub>$1$</sub> $* x$<sub>$h$</sub></p></td>
+<td><p>$intercept, aux1(h)$</p></td>
+</tr>
+<tr class="row-even"><td><p>$y = \beta$<sub>$0$</sub> $+ \beta$<sub>$1$</sub> $* y$<sub>$h$</sub></p></td>
+<td><p>$intercept, fieldid(h)$</p></td>
+</tr>
+<tr class="row-odd"><td><p>$y = \beta$<sub>$1$</sub> $* x$<sub>$1c$</sub> $+ \beta$<sub>$2$</sub> $* x$<sub>$2h$</sub> $+ \beta$<sub>$3$</sub> $* x$<sub>$3c$</sub></p></td>
+<td><p>$aux1, aux2(h), aux3$</p></td>
+</tr>
+<tr class="row-even"><td><p>$y = \beta$<sub>$1$</sub> $* x$<sub>$1c$</sub> $+ \beta$<sub>$2$</sub> $* x$<sub>$1c$</sub><sup>$2$</sup> $+ \beta$<sub>$3$</sub> $* x$<sub>$1c$</sub><sup>$3$</sup></p></td>
+<td><p>$aux1, aux1$^2 $, aux1$^3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Noter qu’il est possible d’utiliser <code class="docutils literal notranslate"><span class="pre">fieldid(h)</span></code> dans la formule de l’algorithme, contrairement au <code class="docutils literal notranslate"><span class="pre">fieldid</span></code> et <code class="docutils literal notranslate"><span class="pre">fieldid(c)</span></code> puisque les deux correspondent à la valeur à imputer.</p>
+</section>
+</section>
+<section id="algorithmes-predefinis">
+<h2>Algorithmes prédéfinis<a class="headerlink" href="#algorithmes-predefinis" title="Link to this heading">#</a></h2>
+<p>Un nom et un code de statut d’imputation sont associés à chaque algorithme prédéfini. Dans la suite, la structure de substituables et leurs attributs exposée plus haut est utilisée pour montrer la formule de chaque algorithme prédéfini, accompagnée d’une brève description.</p>
+<section id="id1">
+<h3>Algorithmes de type EF<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom d’algorithme</p></th>
+<th class="head"><p>Status d’imputation</p></th>
+<th class="head"><p>Formule d’algorithme</p></th>
+<th class="head"><p>Value imputée</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AUXTREND</p></td>
+<td><p>IAT</p></td>
+<td><p>$fieldid(h,v)*(aux1(c,v)/aux1(h,v))$</p></td>
+<td><p>Ajustement par la tendance calculé à partir d’une variable auxiliaire et appliqué à la valeur historique du champ à imputer.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AUXTREND2</p></td>
+<td><p>IAT2</p></td>
+<td><p>$fieldid(h,v)*(aux1(c,v)/aux1(h,v) + aux2(c,v)/aux2(h,v))/2$</p></td>
+<td><p>Ajustement moyen par la tendance calculé à partir de deux variables auxiliaires et appliqué à la valeur historique du champ à imputer.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURAUX</p></td>
+<td><p>ICA</p></td>
+<td><p>$aux1(c,v)$</p></td>
+<td><p>Valeur courante d’une variable auxiliaire pour l’enregistrement à imputer.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURAUXMEAN</p></td>
+<td><p>ICAM</p></td>
+<td><p>$aux1(c,a)$</p></td>
+<td><p>Moyenne courante d’une variable auxiliaire.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURMEAN</p></td>
+<td><p>ICM</p></td>
+<td><p>$fieldid(c,a)$</p></td>
+<td><p>Moyenne courante de la variable à imputer.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURRATIO</p></td>
+<td><p>ICR</p></td>
+<td><p>$fieldid(c,a) * (aux1(c,v) / aux1(c,a))$</p></td>
+<td><p>Estimation par quotient courant calculée à partir d’une variable auxiliaire et appliquée à la moyenne courante de la variable à imputer.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURRATIO2</p></td>
+<td><p>ICR2</p></td>
+<td><p>$fieldid(c,a) * (aux1(c,v) / aux1(c,a) + aux2(c,v) / aux2(c,a))/2$</p></td>
+<td><p>Estimation par quotient moyen courant calculée à partir de deux variables auxiliaires et appliquée à la moyenne courante de la variable à imputer.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURSUM2</p></td>
+<td><p>ISM2</p></td>
+<td><p>$aux1 + aux2$</p></td>
+<td><p>Somme des valeurs actuelles de deux variables auxiliaires.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURSUM3</p></td>
+<td><p>ISM3</p></td>
+<td><p>$aux1 + aux2 + aux3$</p></td>
+<td><p>Somme des valeurs actuelles de trois variables auxiliaires.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURSUM4</p></td>
+<td><p>ISM4</p></td>
+<td><p>$aux1 + aux2 + aux3 + aux4$</p></td>
+<td><p>Somme des valeurs actuelles de quatre variables auxiliaires.</p></td>
+</tr>
+<tr class="row-even"><td><p>DIFTREND</p></td>
+<td><p>IDT</p></td>
+<td><p>$fieldid(h,v)* (fieldid(c,a) / fieldid(h,a))$</p></td>
+<td><p>Ajustement par la tendance de la moyenne calculé à partir de la variable à imputer et appliqué à sa valeur historique.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PREAUX</p></td>
+<td><p>IPA</p></td>
+<td><p>$aux1(h,v)$</p></td>
+<td><p>Valeur historique d’une variable auxiliaire pour l’enregistrement à imputer.</p></td>
+</tr>
+<tr class="row-even"><td><p>PREAUXMEAN</p></td>
+<td><p>IPAM</p></td>
+<td><p>$aux1(h,a)$</p></td>
+<td><p>Moyenne historique d’une variable auxiliaire.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PREMEAN</p></td>
+<td><p>IPM</p></td>
+<td><p>$fieldid(h,a)$</p></td>
+<td><p>Moyenne historique de la variable à imputer.</p></td>
+</tr>
+<tr class="row-even"><td><p>PREVALUE</p></td>
+<td><p>IPV</p></td>
+<td><p>$fieldid(h,v)$</p></td>
+<td><p>Valeur historique du champ à imputer.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h3>Algorithmes de type LR<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom d’algorithme</p></th>
+<th class="head"><p>Status d’imputation</p></th>
+<th class="head"><p>Formule d’algorithme</p></th>
+<th class="head"><p>Value imputée</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CURREG</p></td>
+<td><p>ILR1</p></td>
+<td><p>$intercept, aux1(c)$</p></td>
+<td><p>Régression linéaire simple basée sur les valeurs courantes d’une variable auxiliaire.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURREG_E2</p></td>
+<td><p>ILRE</p></td>
+<td><p>$intercept, aux1(c), aux1(c)$^2</p></td>
+<td><p>Régression linéaire basée sur les valeurs courantes d’une variable auxiliaire et leurs carrés.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURREG2</p></td>
+<td><p>ILR2</p></td>
+<td><p>$intercept, aux1(c), aux2(c)$</p></td>
+<td><p>Régression linéaire basée sur les valeurs courantes de deux variables auxiliaires.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURREG3</p></td>
+<td><p>ILR3</p></td>
+<td><p>$intercept, aux1(c), aux2(c), aux3(c)$</p></td>
+<td><p>Régression linéaire basée sur les valeurs courantes de trois variables auxiliaires.</p></td>
+</tr>
+<tr class="row-even"><td><p>HISTREG</p></td>
+<td><p>IHLR</p></td>
+<td><p>$intercept, fieldid(h)$</p></td>
+<td><p>Régression linéaire simple basée sur les valeurs historiques de la variable à imputer.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-entre-inestimator-et-inalgorithm">Interaction entre inestimator et inalgorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-personnalise">Algorithme personnalisé</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-substituables-et-leurs-attributs">Paramètres substituables et leurs attributs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-type-ef">Algorithmes de type EF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-type-lr">Algorithmes de type LR</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-predefinis">Algorithmes prédéfinis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Algorithmes de type EF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Algorithmes de type LR</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/FR/Procedure Guides/estimator_algorithms.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

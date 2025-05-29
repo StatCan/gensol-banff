@@ -181,7 +181,7 @@ This section documents the parameters of the `pytest_<proc-name>()` function whi
 >
 > internally, the "cleaned" message will look something like
 >
-> ```plaintext
+> ```text
 > Number of valid observations .: 4 100.00% Number of donors .: 1 25.00% Number of donors to reach DONORLIMIT .: 0 0.00% Number of recipients .: 3 75.00% not imputed (insufficient number of donors) .: 3 75.00%
 > ```
 
@@ -230,7 +230,7 @@ This section documents the parameters of the `pytest_<proc-name>()` function whi
 
 ---
 
-### `expected_<output-dataset-name>`: *[input dataset](./banff_procedure_guide.md#input-dataset), `None`, defaults `None`*
+### `expected_<output-dataset-name>`: *input dataset, `None`, defaults `None`*
 
 > **NOTE**: there will be one of these parameters for *each* of the associated procedure's output datasets
 
@@ -240,7 +240,7 @@ This section documents the parameters of the `pytest_<proc-name>()` function whi
     - both rows and columns are sorted
     - all numeric values are converted to `float64` (the format which has equivalent numeric precision to both Python and SAS based Banff procedure output)
     - optionally, numeric data can be rounded prior to comparison (see `round_data` parameter)
-- support the same formats supported for procedure [input dataset](./banff_procedure_guide.md#input-dataset)  
+- support the same formats supported for procedure input dataset
 - fails if any difference is detected, such as differing
   - number of columns or rows
   - column names
@@ -282,8 +282,8 @@ This section documents the parameters of the `pytest_<proc-name>()` function whi
 - this feature can be disabled by specifying one of `None`, `False`, or `""`
 
 > ***NEW in version `3.1.1b6`***
-> BY variables have been [reintroduced to some datasets](./banff_procedure_guide.md#2023-december-12-version-3-01-001b6).  Affected datasets should now be completely identical to their Banff 2.08.002 equivalents.  
-> **This feature is disabled** for [datasets which now include BY variables](./banff_procedure_guide.md#by-variables-on-output-datasets)
+> BY variables have been [reintroduced to some datasets](../EN/release-notes.md#2023-december-12-version-3-01-001b6).  Affected datasets should now be completely identical to their Banff 2.08.002 equivalents.  
+> **This feature is disabled** for [datasets which now include BY variables](../EN/sas_migration_guide.md#by-variables-on-output-tables)
 
 > **NOTE**
 > variables specified for dropping do **not** need to exist on the control dataset, they will only be dropped if they are found (i.e. no errors will occur during dropping)
@@ -307,7 +307,7 @@ For convenience, test functions allow easy specification of dataset *files* whic
 
 For example suppose we have the following structure
 
-```plaintext
+```text
 test_folder
 |   test_donorimp_a03_sas.py
 |
@@ -319,7 +319,7 @@ In test case `test_donorimp_a03_sas.py`, specify `indata="indata.sas7bdat"` and 
 
 A message will be printed to the log when data is loaded from `control_data`
 
-```plaintext
+```text
 banff.testing: dataset 'indata.sas7bdat' found in control_data folder, will load file at path 'C:\regression_tests\determin/control_data/indata.sas7bdat'
 ```
 
@@ -363,7 +363,7 @@ Following the execution of a test, the procedure log and a summary of the checks
 When `expected_<output-dataset>` parameters are specified, the console will indicate the results of comparing the expected and actual datasets.  When the datasets are deemed equal, output will be minimal.  
 > example which drops BY variables from expected data prior to finding datasets to be equal
 >
-> ```plaintext
+> ```text
 > assert_dataset_equal(dataset_name=OUTSTATUS)
 >    sort datasets: True
 >    drop columns: ['area', 'staff']
@@ -375,7 +375,7 @@ When `expected_<output-dataset>` parameters are specified, the console will indi
 Datasets are deemed inequal for a variety of reasons
 > datasets equal except in the first (0th) row, variable (column) *Q4* has a value of `250` when `100` is expected
 >
-> ```plaintext
+> ```text
 > assert_dataset_equal(dataset_name=OUTDATA)
 >    sort datasets: True
 >    datasets equal: False
@@ -401,7 +401,7 @@ Datasets are deemed inequal for a variety of reasons
 > datasets with different number of rows and columns
 > specifically, *expected* dataset has no `STATUS` column, *actual* does
 >
-> ```plaintext
+> ```text
 > assert_dataset_equal(dataset_name=OUTSTATUS)
 >    sort datasets: True
 >    datasets equal: False
@@ -428,7 +428,7 @@ Datasets are deemed inequal for a variety of reasons
 
 > Column names are case sensitive, so case differences appear as follows
 >
-> ```plaintext
+> ```text
 > assert_dataset_equal(dataset_name=OUTSTATUS)
 >    sort datasets: True
 >    datasets equal: False
@@ -453,7 +453,7 @@ Datasets are deemed inequal for a variety of reasons
 > - *`object`* in the control dataset is a character data, "*150.0*"
 > - *`float64`* in the test dataset is a numeric value, `150.0`
 >
-> ```plaintext
+> ```text
 > assert_dataset_equal(dataset_name=OUTDATA)
 >    sort datasets: True
 >    datasets equal: False
@@ -670,7 +670,7 @@ C:\test_folder>python test_donorimp_a03.py
 
 Here is a sample of the output generated by running the test case
 
-```plaintext
+```text
 2023-11-06 18:48:08,094 [INFO]:  Importing Banff package version 3.1.1b4.dev1
 2023-11-06 18:48:08,129 [INFO]:  Banff package imported
 banff.testing: Attempting to invoke Pytest on file ['test_donorimp_a03.py']

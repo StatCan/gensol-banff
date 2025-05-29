@@ -1,0 +1,23 @@
+banff package
+=============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   banff.diagnostics
+   banff.exceptions
+   banff.io_util
+   banff.nls
+   banff.proc
+   banff.testing
+
+Module contents
+---------------
+
+.. automodule:: banff
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Imputation massive &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FR/Procedure Guides/massimp';</script>
+    <link rel="index" title="Index" href="../../genindex" />
+    <link rel="search" title="Search" href="../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Imputation massive</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="imputation-massive">
+<h1>Imputation massive<a class="headerlink" href="#imputation-massive" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Exécution: <em>banff.massimp()</em></p></li>
+<li><p>Type de fonction VSD: <em>Revue, Sélection, Traitement</em></p></li>
+<li><p>Statuts d’entrée: <em>Néant</em></p></li>
+<li><p>Statuts de sortie: <em>IMAS</em></p></li>
+</ul>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>Effectue l’imputation par donneur pour un bloc de variables avec l’approche du plus proche voisin ou une sélection aléatoire.</p>
+<p>La procédure massimp est destinée à l’usage lorsqu’un grand bloc de variables est manquant pour un ensemble de répondants. Ce cas de figure survient typiquement lorsque l’information détaillée est uniquement collectée pour un sous-ensemble (ou échantillon de seconde phase) des unités. Alors que la procédure donorimp utilise à la fois des champs d’appariement sélectionnés par le système et spécifiés par l’utilisateur, l’imputation massive considère uniquement les champs d’appariement spécifiés par l’utilisateur pour trouver un enregistrement valide (donneur) le plus similaire è celui nécessitant l’imputation (receveur).</p>
+<p>L’imputation massive considère comme receveur tout enregistrement pour lequel toutes les variables à imputer (listées dans <code class="docutils literal notranslate"><span class="pre">must_impute</span></code>) sont manquantes dans indata. Elle considère comme donneur tout enregistrement pour lequel aucune des variables listées n’est manquante. Si les champs d’appariement (<code class="docutils literal notranslate"><span class="pre">must_match</span></code>) sont fournis par l’utilisateur, la procédure massimp les utilise pour trouver le donneur le plus proche en ayant recours à la même fonction de distance que donorimp. Si les champs d’appariement ne sont pas fournis, la sélection des donneurs se fait de manière aléatoire.</p>
+<p>Contrairement à donorimp, la procédure massimp n’utilise pas les règles de vérification. Avant de rouler la procédure, l’utilisateur devrait s’assurer que le bassin des donneurs ne contient pas d’erreurs, incluant les valeurs aberrantes et les erreurs de cohérence.</p>
+<p>L’utilisateur peut créer des groupes de partition <em>by</em> en spécifiant des variables dans le paramètre <code class="docutils literal notranslate"><span class="pre">by</span></code>. Ces groupes <em>by</em> agissent comme des classes d’imputation. L’utilisation des paramètres <code class="docutils literal notranslate"><span class="pre">min_donors</span></code> et <code class="docutils literal notranslate"><span class="pre">percent_donors</span></code> permet de s’assurer qu’un nombre approprié ou ratio de receveurs et donneurs existe dans chaque classe d’imputation avant que l’imputation n’ait lieu.</p>
+<p>Pour une description mathématique complète des méthodes de la procédure accompagnée d’exemples, se référer à <a class="reference download internal" download="" href="../../_downloads/d2120f7397df70628be7489ad82cbee1/Description%20des%20fonctions%20Banff.pdf"><span class="xref download myst">la description des fonctions</span></a>.</p>
+</section>
+<section id="donnees-d-entree-et-de-sortie">
+<h2>Données d’entrée et de sortie<a class="headerlink" href="#donnees-d-entree-et-de-sortie" title="Link to this heading">#</a></h2>
+<p>La description des données d’entrée et de sortie est donnée ci-dessous. Banff supporte plusieurs formats pour les données qu’elles soient d’entrée ou de sortie; se référer au guide d’utilisateur pour plus d’information.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Données d’entrée</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>indata</p></td>
+<td><p>Données d’entrée. Obligatoire.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Données de sortie</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>outdata</p></td>
+<td><p>Données de sortie contenant les données imputées.<br><br> Noter que outdata contiendra les enregistrements imputés avec succès et les champs affectés. Les utilisateurs devront mettre à jour indata avec les valeurs provenant de outdata avant de continuer le processus de vérification et d’imputation des données.</p></td>
+</tr>
+<tr class="row-odd"><td><p>outstatus</p></td>
+<td><p>Données des statuts de sortie identifiant les champs imputés avec le statut IMAS et contenant leurs valeurs après imputation.</p></td>
+</tr>
+<tr class="row-even"><td><p>outdonormap</p></td>
+<td><p>Données de sortie contenant les paires receveur-donneur pour les enregistrements imputés avec succès.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pour plus d’information sur le contenu des données de sortie, se référer au document des <a class="reference internal" href="../output_tables"><span class="std std-doc">données de sortie</span></a>.</p>
+</section>
+<section id="parametres">
+<h2>Paramètres<a class="headerlink" href="#parametres" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Paramètre</p></th>
+<th class="head"><p>Type en Python</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>unit_id</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Identifier la variable clé (identifiant de l’unité) dans indata. Obligatoire.<br><br> unit_id devra être unique pour chaque enregistrement. Les enregistrements ayant une valeur manquante seront écartés avant le traitement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>must_impute</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Variable(s) à imputer. Obligatoire. <br><br> Pour être un receveur, toutes les variables listées dans <code class="docutils literal notranslate"><span class="pre">must_impute</span></code> doivent être manquantes pour une observation. Si toutes ces variables sont non manquantes, alors cette observation est un donneur potentiel.<br><br> Exemple: <code class="docutils literal notranslate"><span class="pre">must_impute=&quot;revenu_q1</span> <span class="pre">revenu_q2</span> <span class="pre">revenu_q3</span> <span class="pre">revenu_q4&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>must_match</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Champ(s) d’appariement spécifié(s) par l’utilisateur.<br><br> <code class="docutils literal notranslate"><span class="pre">must_match</span></code> est optionnel; lorsqu’il n’est pas spécifié, le paramètre <code class="docutils literal notranslate"><span class="pre">random</span></code> doit être spécifié, et un donneur sera sélectionné aléatoirement pour chaque receveur.<br><br> Exemple: <code class="docutils literal notranslate"><span class="pre">must_match=&quot;revenu</span> <span class="pre">taille&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>random</p></td>
+<td><p>booléen</p></td>
+<td><p>Sélection aléatoire des donneurs.<br><br> Lorsque <code class="docutils literal notranslate"><span class="pre">random</span></code> est utilisé au côté de <code class="docutils literal notranslate"><span class="pre">must_match</span></code>, la sélection aléatoire est alors appliquée aux receveurs ayant des valeurs manquantes pour tous les champs listés dans <code class="docutils literal notranslate"><span class="pre">must_match</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>min_donors</p></td>
+<td><p>entier</p></td>
+<td><p>Nombre minimal de donneurs requis dans un groupe de partition <em>by</em> pour que l’imputation ait lieu. Par défaut: 30</p></td>
+</tr>
+<tr class="row-odd"><td><p>percent_donors</p></td>
+<td><p>flottant</p></td>
+<td><p>Pourcentage minimal de donneurs requis dans un groupe de partition <em>by</em> pour que l’imputation ait lieu. Par défaut: 30</p></td>
+</tr>
+<tr class="row-even"><td><p>n_limit</p></td>
+<td><p>entier</p></td>
+<td><p>Limite le nombre de fois qu’un donneur peut être utilisé.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mrl</p></td>
+<td><p>flottant</p></td>
+<td><p>Multiplicateur de ratio limite permettant de limiter le nombre de fois qu’un donneur peut être utilisé. <br><br> Ce paramètre est multiplié par le ratio du nombre de receveurs sur le nombre de donneurs, puis le résultat sera la limite maximale de fois qu’un donneur peut être utilisé.</p></td>
+</tr>
+<tr class="row-even"><td><p>seed</p></td>
+<td><p>flottant</p></td>
+<td><p>Spécifie la racine du générateur des nombres aléatoires. <br><br> Cette racine est utilisée pour s’assurer d’obtenir des résultats cohérents d’une exécution à une autre. Si elle n’est pas spécifiée comme une valeur non positive, un nombre aléatoire sera généré par la procédure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accept_negative</p></td>
+<td><p>booléen</p></td>
+<td><p>Traite les valeurs négatives comme des valeurs valides. Par défaut: False. <br><br> Par défaut, la règle de positivité est ajoutée pour chaque variable dans la liste des règles de vérification; ce paramètre permet à l’utilisateur d’enlever cette restriction. L’utilisateur peut aussi ajouter la règle de positivité de manière individuelle pour chaque variable qui la requiert.</p></td>
+</tr>
+<tr class="row-even"><td><p>by</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Variable(s) utilisée(s) pour partitionner indata en des groupes <em>by</em> pour un traitement indépendant. <br><br> Dans massimp, les groupes de partition <em>by</em> peuvent être vus comme des classes d’imputation. <br><br> Exemple: <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;province</span> <span class="pre">industrie&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>presort</p></td>
+<td><p>booléen</p></td>
+<td><p>Trier les données d’entrée avant le traitement, et ce selon les exigences de la procédure. Par défaut: True.</p></td>
+</tr>
+<tr class="row-even"><td><p>no_by_stats</p></td>
+<td><p>booléen</p></td>
+<td><p>Réduire le journal de sortie en supprimant les messages spécifiques aux groupes de partition <em>by</em>. Par défaut: False.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<section id="plus-proche-voisin-ou-donneur-aleatoire">
+<h3>Plus proche voisin ou donneur aléatoire<a class="headerlink" href="#plus-proche-voisin-ou-donneur-aleatoire" title="Link to this heading">#</a></h3>
+<p>Les paramètres <code class="docutils literal notranslate"><span class="pre">must_match</span></code> et <code class="docutils literal notranslate"><span class="pre">random</span></code> détermine si l’algorithme du plus proche voisin ou la sélection aléatoire est utilisé dans la sélection de donneurs. Le tableau suivant montre comment la spécification de ces paramètres affecte l’imputation massive.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">must_match</span></code> spécifié</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">random</span></code> spécifié</p></th>
+<th class="head"><p>Syntaxe</p></th>
+<th class="head"><p>Imputation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Non</p></td>
+<td><p>Non</p></td>
+<td><p>Incorrecte</p></td>
+<td><p>Produit une erreur, aucune imputation n’est effectuée.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non</p></td>
+<td><p>Oui</p></td>
+<td><p>Correcte</p></td>
+<td><p>Sélection aléatoire de donneurs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Oui</p></td>
+<td><p>Non</p></td>
+<td><p>Correcte</p></td>
+<td><p>Sélection par plus proche voisin en utilisant les variables de <code class="docutils literal notranslate"><span class="pre">must_match</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Oui</p></td>
+<td><p>Oui</p></td>
+<td><p>Correcte</p></td>
+<td><p>Sélection par plus proche voisin en utilisant les variables de <code class="docutils literal notranslate"><span class="pre">must_match</span></code>, ou sélection aléatoire pour les donneurs ayant des valeurs manquantes pour les variables dans <code class="docutils literal notranslate"><span class="pre">must_match</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Lorsqu’un receveur a des valeurs manquantes pour une partie (et non toutes) des variables <code class="docutils literal notranslate"><span class="pre">must_match</span></code>, la distance au donneur le plus proche sera calculée en se basant uniquement sur les valeurs valides. Si le receveur a des valeurs manquantes pour les variables <code class="docutils literal notranslate"><span class="pre">must_match</span></code>, alors on lui sélectionnera un donneur de manière aléatoire si le paramètre <code class="docutils literal notranslate"><span class="pre">random</span></code> est spécifié, et on ne lui sélectionnera aucun si le paramètre <code class="docutils literal notranslate"><span class="pre">random</span></code> n’est pas utilisé.</p>
+</section>
+<section id="solutions-multiples-equivalentes">
+<h3>Solutions multiples équivalentes<a class="headerlink" href="#solutions-multiples-equivalentes" title="Link to this heading">#</a></h3>
+<p>Dans certains cas, et pour un receveur donné, il peut y avoir plusieurs plusieurs donneurs équidistants (i.e. éloignés de la même distance du receveur) dont les valeurs permettent au receveur de satisfaire les règles de vérification. Dans ce cas de figure, la procédure choisit une solution de manière aléatoire.</p>
+<p>Lors du développement ou des tests, l’utilisateur pourrait désirer de produire des résultats cohérents entre plusieurs exécutions de la procédure, ce qui peut être obtenu grâce au paramètre <code class="docutils literal notranslate"><span class="pre">seed</span></code>. Il permet de s’assurer d’avoir les mêmes solutions choisies d’une exécution à une autre, toutes données d’entrée égales par ailleurs. Noter que si <code class="docutils literal notranslate"><span class="pre">seed</span></code> n’est pas spécifié, le système générera une valeur de racine par défaut.</p>
+<p>Ce paramètre peut également être utilisé pour répliquer les résultats lorsqu’une sélection aléatoire de donneurs est effectuée.</p>
+</section>
+<section id="limiter-l-utilisation-repetee-de-donneurs">
+<h3>Limiter l’utilisation répétée de donneurs<a class="headerlink" href="#limiter-l-utilisation-repetee-de-donneurs" title="Link to this heading">#</a></h3>
+<p>L’utilisateur peut limiter l’utilisation répétée de donneurs grâce aux paramètres interreliés <code class="docutils literal notranslate"><span class="pre">n_limit</span></code> et <code class="docutils literal notranslate"><span class="pre">mrl</span></code>. Dépendamment de la manière dont ces paramètres sont spécifiés, la limite d’utilisation de donneurs est comme suit:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">n_limit</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">mrl</span></code></p></th>
+<th class="head"><p>Limite d’utilisation de donneurs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Le nombre de fois qu’un donneur peut être utilisé est illimité.</p></td>
+</tr>
+<tr class="row-odd"><td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>arrondie $(mrl*(receveurs/donneurs))$.</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n_limit</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>arrondie $(max(n$ _ $limit,mrl*(receveurs/donneurs)))$.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Lorsque l’utilisation répétée de donneurs est limitée par le paramètre <code class="docutils literal notranslate"><span class="pre">n_limit</span></code>, le nombre de donneurs restants peut se retrouver plus petit que <code class="docutils literal notranslate"><span class="pre">min_donors</span></code>. Dans pareil cas, massimp continuera en ignorant <code class="docutils literal notranslate"><span class="pre">min_donors</span></code> qui a été vérifié au début. Ceci s’applique également pour <code class="docutils literal notranslate"><span class="pre">percent_donors</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-d-entree-et-de-sortie">Données d’entrée et de sortie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres">Paramètres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plus-proche-voisin-ou-donneur-aleatoire">Plus proche voisin ou donneur aléatoire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-multiples-equivalentes">Solutions multiples équivalentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiter-l-utilisation-repetee-de-donneurs">Limiter l’utilisation répétée de donneurs</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/FR/Procedure Guides/massimp.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

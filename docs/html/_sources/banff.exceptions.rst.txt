@@ -1,0 +1,10 @@
+banff.exceptions package
+========================
+
+Module contents
+---------------
+
+.. automodule:: banff.exceptions
+   :members:
+   :show-inheritance:
+   :undoc-members:

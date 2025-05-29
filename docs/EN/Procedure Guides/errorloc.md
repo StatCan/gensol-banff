@@ -15,7 +15,7 @@ This procedure requires a set of edits, consisting of linear equalities and ineq
 
 By default, the procedure will minimize the number of variables to change. Users may also specify variable weights, in which case the procedure will minimize the weighted count of variables to change. For some records, the error localization problem may have multiple solutions (i.e., choices of variables) that satisfy the minimum-change principle; in this case one of the solutions is selected at random.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -31,7 +31,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outstatus      | Output status file identifying selected fields with FTI status flags, and their values. |
 | outreject      | Output table containing records that failed error localization. <br><br> The outreject table contains records for which error localization could not be performed, either because they exceeded maximum allowable cardinality (error = "CARDINALITY EXCEEDED") or time per observation (error = "TIME EXCEEDED"). |
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 

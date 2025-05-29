@@ -15,7 +15,7 @@ Cette procédure requiert un ensemble de règles de vérification qui consistent
 
 Par défaut, la procédure minimisera le nombre de variables à changer. L'utilisateur peut aussi spécifier des poids des variables, auquel cas la procédure minimisera le compte pondéré des variables à changer. Pour certains enregistrements, la localisation des erreurs peut avoir des  solutions multiples (i.e. choix des variables) qui satisfont le principe de changement minimal; dans ce cas, l'une des solutions est sélectionnée de façon aléatoire.
 
-Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](/docs/FR/Description%20des%20fonctions%20Banff.pdf).
+Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](../Description%20des%20fonctions%20Banff.pdf).
 
 ## Données d'entrée et de sortie
 
@@ -31,7 +31,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outstatus       | Données de sortie identifiant les champs sélectionnés avec le statut FTI et contenant leurs valeurs.   |
 | outreject       | Données de sortie contenant les enregistrements pour lesquels la localisation des erreurs a échoué. <br><br> outreject contient les enregistrements pour lesquels la localisation des erreurs n'a pas pu s'effectuer, à cause du dépassement de la cardinalité maximale autorisée (error = "CARDINALITY EXCEEDED") ou du temps alloué par observation (error = "TIME EXCEEDED"). |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](../output_tables.md).
 
 ## Paramètres
 

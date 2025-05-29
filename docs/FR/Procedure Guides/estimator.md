@@ -15,7 +15,7 @@ L'imputation est seulement effectuée sur les champs marqués par un statut FTI 
 
 Les paramètres d'estimation ou de régression linéaire (comme les moyennes ou les coefficients de régression) peuvent être calculés en utilisant tous les enregistrements ou seulement un sous-ensemble particulier des enregistrements acceptables. La restriction des enregistrements acceptables peuvent être appliquée à l'aide d'un paramètre d'exclusion ou en imputant par groupes de partition *by*.
 
-Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](/docs/FR/Description%20des%20fonctions%20Banff.pdf).
+Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](../Description%20des%20fonctions%20Banff.pdf).
 
 ## Données d'entrée et de sortie
 
@@ -40,7 +40,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outest_parm    | Données de sortie contenant les statistiques d'imputation par estimateur.  |
 | outrand_err    | Données de sortie contenant l'information sur les erreurs aléatoires ajoutées aux valeurs imputées.  |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](../output_tables.md).
 
 ## Paramètres
 

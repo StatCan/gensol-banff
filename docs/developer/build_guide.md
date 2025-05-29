@@ -168,8 +168,8 @@ To obtain *Debug* builds you can use `build_debug.cmd` open the generated `.sln`
 
 > Open Source libraries are located at:  
 >
-> - [`C/libraries/arrow/`](/C/libraries/arrow/)
-> - [`C/libraries/jansson/`](/C/libraries/jansson/)
+> - [`C/libraries/arrow/`](../../C/libraries/arrow/)
+> - [`C/libraries/jansson/`](../../C/libraries/jansson/)
 >
 
 #### Windows In House Builds
@@ -185,8 +185,8 @@ The solution manages dependencies and facilitates live debugging.
 > - see [Troubleshooting Manual Windows C Builds](#troubleshooting-manual-windows-c-builds)
 >
 
-The batch script located at [`C/build.cmd`](/C/build.cmd) can be used to build the `release_en` and `release_fr` configurations in `Banff.sln`.  
-Generate debug builds using [`C/build_debug.cmd`](/C/build_debug.cmd).  
+The batch script located at [`C/build.cmd`](../../C/build.cmd) can be used to build the `release_en` and `release_fr` configurations in `Banff.sln`.  
+Generate debug builds using [`C/build_debug.cmd`](../../C/build_debug.cmd).  
 
 - note that this requires open open source libraries to be built ahead of time (call each build script first or see [Fully Scripted Release Builds](#fully-scripted-release-builds))
 
@@ -226,7 +226,7 @@ using the `wheel` package.
 
 The Python package can support multiple languages in a single build using *GNU gettext*.  This process involves compiling and including a binary translation file in Package builds.  At the time of this writing, this binary file is committed to source control, so this step is handled during development, not during builds.  
 
-For more details, see [native_language_support.md](/Python/src/banff/_common/docs/native_language_support.md).  
+For more details, see [native_language_support.md](../../Python/src/banff/_common/docs/native_language_support.md).  
 
 ## Fully Scripted Release Builds
 
@@ -266,7 +266,7 @@ On Windows, [`build.cmd`](../../build.cmd) can be used to produce release builds
 - for cleaning, do this manually using the Visual Studio GUI
 - for testing, do this manually
 - does **not** build Python source
-  - manually navigate to [`Python`](/Python/) and run `python -m build`
+  - manually navigate to [`Python`](../../Python/) and run `python -m build`
 
 ## Appendix
 

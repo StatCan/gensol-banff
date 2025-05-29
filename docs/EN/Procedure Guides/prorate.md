@@ -27,7 +27,7 @@ Additional features:
 * Option to limit prorating to original or previously imputed values, either globally or for individual variables.
 * Weights to adjust the relative change of individual variables.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -44,14 +44,14 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outstatus     | Output status file identifying imputed fields with IPR status flags, and their values after imputation. |
 | outreject     | Output table containing records that failed prorating. <br><br> For an individual record, there are potentially many reasons prorating could not be performed; please see the notes below for more details.|
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 
 | Parameter       | Python type  | Description                 | 
 | ----------------| -------------| --------------------------- |
 | unit_id         | str          | Identify key variable (unit identifier) on indata. Mandatory. <br><br> Must be unique for each record. Records with a missing value are dropped before processing. |
-| edits           | str          | List of edits that the prorating procedure must satisfy. Mandatory. <br><br> Please see the [user guide](/docs/EN/user_guide.md#specifying-linear-edits) for general info on specifying edits. Unlike the other edit-based procedures in Banff, the prorate procedure places certain restrictions on the edit list; please see the notes below for details. |
+| edits           | str          | List of edits that the prorating procedure must satisfy. Mandatory. <br><br> Please see the [user guide](../user_guide.md#specifying-linear-edits) for general info on specifying edits. Unlike the other edit-based procedures in Banff, the prorate procedure places certain restrictions on the edit list; please see the notes below for details. |
 | decimal         | int          | Number of decimals used in the rounding algorithm (between 0 and 9). Default=0. <br><br> The number of decimals specified must be equal to or greater than the actual number of decimals found on the total.|
 | method          | str          | Prorating method ("SCALING" or "BASIC"). Default = "BASIC". <br><br> When `method="BASIC"` the signs of some variables may change during the prorating process. When `method="SCALING"` the signs of variables can never change. If all values are of the same sign (i.e., all positive or all negative), both methods produce identical results. |
 | modifier        | str          | Global modifier ("ALWAYS", "IMPUTED", "ORIGINAL") to control which values are prorated. Default = "ALWAYS" <br><br> Specify `modifier="IMPUTED"` to only prorate previously imputed data, and `modifier="ORIGINAL"` to only impute original data. If either is specified, then `instatus` is required. Imputed values are identified as those with an input status flag of the form I--, except for IDE. Values with any other flag (including FTI and FTE) or without a flag are treated as original data. Specify `modifier="ALWAYS"` to impute all values regardless of their status. |

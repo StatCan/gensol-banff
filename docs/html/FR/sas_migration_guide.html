@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Guide de migration SAS du package Banff &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FR/sas_migration_guide';</script>
+    <link rel="index" title="Index" href="../genindex" />
+    <link rel="search" title="Search" href="../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Guide de migration SAS du package Banff</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="guide-de-migration-sas-du-package-banff">
+<h1>Guide de migration SAS du package Banff<a class="headerlink" href="#guide-de-migration-sas-du-package-banff" title="Link to this heading">#</a></h1>
+<section id="dans-ce-guide">
+<h2>Dans ce guide<a class="headerlink" href="#dans-ce-guide" title="Link to this heading">#</a></h2>
+<p>Le public cible de ce guide est constitué des utilisateurs de Banff 2.08.002 basé sur SAS ou d’une version antérieure qui migrent vers Banff 3.x basé sur Python.
+Il résume les informations sur les modifications apportées dans la version 3, y compris les nouveaux noms des paramètres et des tables, ainsi que des exemples de la manière dont les programmes SAS qui appellent des procédures Banff peuvent être convertis en programmes Python équivalents.</p>
+<p>Ce document n’est pas destiné aux nouveaux utilisateurs de Banff car il ne fournit pas un aperçu complet des procédures Banff. Veuillez vous référer au <a class="reference internal" href="user_guide"><span class="std std-doc">Guide de l’utilisateur</span></a> pour obtenir des détails complets sur l’utilisation de chaque procédure, de ses paramètres et de ses tables.</p>
+</section>
+<section id="table-des-matieres">
+<h2>Table des matières<a class="headerlink" href="#table-des-matieres" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#procedures-disponibles">Procédures disponibles</a></p></li>
+<li><p><a class="reference internal" href="#parametres-de-procedure">Paramètres de procédure</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tableau-des-parametres-et-types-de-procedures">Tableau des paramètres et types de procédures</a></p></li>
+<li><p><a class="reference internal" href="#nouvelles-options-de-procedure">Nouvelles options de procédure</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tables-de-procedures">Tables de procédures</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tableau-des-identifiants-du-table-de-procedure">Tableau des identifiants du table de procédure</a></p></li>
+<li><p><a class="reference internal" href="#modifications-apportees-aux-tables">Modifications apportées aux tables</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#specification-des-tables">Specification des tables</a></p></li>
+<li><p><a class="reference internal" href="#modifications-notables-des-procedures">Modifications notables des procédures</a></p>
+<ul>
+<li><p><a class="reference internal" href="#modifications-apportees-aux-tables-d-entree">Modifications apportées aux tables d’entrée</a></p></li>
+<li><p><a class="reference internal" href="#modifications-apportees-aux-tables-de-sortie">Modifications apportées aux tables de sortie</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#autres-options-d-execution-python">Autres options d’exécution Python</a></p></li>
+<li><p><a class="reference internal" href="#considerations-relatives-aux-performances">Considérations relatives aux performances</a></p></li>
+<li><p><a class="reference internal" href="#erreurs-et-exceptions">Erreurs et exceptions</a></p></li>
+<li><p><a class="reference internal" href="#fonctions-utilitaires">Fonctions utilitaires</a></p></li>
+</ul>
+</section>
+<section id="procedures-disponibles">
+<h2>Procédures disponibles<a class="headerlink" href="#procedures-disponibles" title="Link to this heading">#</a></h2>
+<p>Pour obtenir la liste des procédures disponibles, consultez le <a class="reference internal" href="user_guide#tables-de-procédures"><span class="std std-ref">Guide de l’utilisateur</span></a>.</p>
+<p>Chaque procédure a été convertie en prenant le code source de la procédure Banff 2.08.002 dépendant de SAS et en le modifiant pour produire une procédure code source ouvert, qui est <em>“encapsulée”</em> dans un paquet Python. Les calculs mathématiques sous-jacents restent inchangés.</p>
+<p>En raison des différences entre SAS et Python, les utilisateurs doivent adapter la <em>façon</em> dont ils spécifient les paramètres et les tables ; les ensembles de paramètres et de tables restent en grande partie inchangés (bien que la plupart des <a class="reference internal" href="#tableau-des-parametres-et-types-de-procedures"><em>identifiants de paramètres</em></a> et des <a class="reference internal" href="#tableau-des-identifiants-du-table-de-procedure"><em>identifiants de table</em></a> aient changé).</p>
+</section>
+<section id="parametres-de-procedure">
+<h2>Paramètres de procédure<a class="headerlink" href="#parametres-de-procedure" title="Link to this heading">#</a></h2>
+<p>De nombreux noms de paramètres ont été modifiés pour mieux suivre les conventions de dénomination Python courantes.</p>
+<p>Les identifiants utilisés dans les programmes SAS correspondent aux identifiants et types Python suivants:</p>
+<section id="tableau-des-parametres-et-types-de-procedures">
+<h3>Tableau des paramètres et types de procédures<a class="headerlink" href="#tableau-des-parametres-et-types-de-procedures" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifiant SAS</p></th>
+<th class="head"><p>Identifiant Python</p></th>
+<th class="head"><p>Type Python</p></th>
+<th class="head"><p>Remarque</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ACCEPTNEGATIVE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">accept_negative</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ACCEPTZERO</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">accept_zero</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BETAE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">beta_e</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BETAI</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">beta_i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BOUNDSTAT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outlier_stats</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><strong>MODIFIÉ</strong> : concerne désormais le contenu de la table <a class="reference internal" href="#modifications-apport%C3%A9es-%C3%A0-outlier-outstatus"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">outstatus_detailed</span></code></span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BY</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">by</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CARDINALITY</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cardinality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DATAEXCLVAR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_excl_var</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DECIMAL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">decimal</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DISPLAYLEVEL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">display_level</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EDITS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">edits</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ELIGDON</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">eligdon</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EXPONENT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">exponent</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EXTREMAL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">extremal</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HISTEXCLVAR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hist_excl_var</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unit_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IMPLY</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">imply</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LOWERBOUND</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lower_bound</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>~~<code class="docutils literal notranslate"><span class="pre">MATCHFIELDSTAT</span></code>~~</p></td>
+<td><p>~~<code class="docutils literal notranslate"><span class="pre">match_field_stat</span></code>~~</p></td>
+<td><p>~~<code class="docutils literal notranslate"><span class="pre">bool</span></code>~~</p></td>
+<td><p><strong>OBSOLÈTE</strong> : utilisez plutôt la table de sortie <a class="reference internal" href="#modifications-apport%C3%A9es-%C3%A0-imputation-par-donneur-outstatus"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">outmatching_fields</span></code></span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAXCARDINALITY</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">extremal</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAXIMPLIEDEDITS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">imply</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MDM</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mdm</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MEI</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mei</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">method</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MII</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mii</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MINDONORS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">min_donors</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MINOBS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">min_obs</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MODIFIER</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">modifier</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MRL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mrl</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MUSTIMPUTE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">must_impute</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MUSTMATCH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">must_match</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">N</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">NLIMIT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n_limit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NOBYSTATS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">no_by_stats</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTLIERSTAT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outlier_stats</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><strong>MODIFIÉ</strong> : concerne désormais le contenu de la table <a class="reference internal" href="#modifications-apport%C3%A9es-%C3%A0-outlier-outstatus"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">outstatus_detailed</span></code></span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PCENTDONORS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">percent_donors</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">POSTEDITS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">post_edits</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RANDNUMVAR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rand_num_var</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RANDOM</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">random</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>~~<code class="docutils literal notranslate"><span class="pre">REJECTNEGATIVE</span></code>~~</p></td>
+<td><p>~~<code class="docutils literal notranslate"><span class="pre">reject_negative</span></code>~~</p></td>
+<td><p>~~<code class="docutils literal notranslate"><span class="pre">bool</span></code>~~</p></td>
+<td><p><strong>OBSOLÈTE</strong> : spécifiez plutôt <code class="docutils literal notranslate"><span class="pre">accept_negative=False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>~~<code class="docutils literal notranslate"><span class="pre">REJECTZERO</span></code>~~</p></td>
+<td><p>~~<code class="docutils literal notranslate"><span class="pre">reject_zero</span></code>~~</p></td>
+<td><p>~~<code class="docutils literal notranslate"><span class="pre">bool</span></code>~~</p></td>
+<td><p><strong>OBSOLÈTE</strong> : spécifiez plutôt <code class="docutils literal notranslate"><span class="pre">accept_zero=False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SEED</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">seed</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> ou <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SIDE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">side</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SIGMA</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STARTCENTILE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">start_centile</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> ou <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TIMEPEROBS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">time_per_obs</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> ou <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UPPERBOUND</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">upper_bound</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> ou <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">VAR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">var</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VERIFYEDITS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">verify_edits</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">VERIFYSPECS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">verify_specs</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WEIGHT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">weight</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WEIGHTS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">weights</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WITH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">with_var</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="exemple-de-specification-de-parametres-en-python">
+<h3>Exemple de spécification de paramètres en Python<a class="headerlink" href="#exemple-de-specification-de-parametres-en-python" title="Link to this heading">#</a></h3>
+<p>Le code suivant montre comment spécifier différents <em>types Python</em> associés à certains paramètres courants.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span> <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">donorimp</span><span class="p">(</span>
+    <span class="n">min_donors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">percent_donors</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">accept_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">edits</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;x1&gt;=-5; </span>
+<span class="s2">    x1&lt;=15; </span>
+<span class="s2">    x2&gt;=30; </span>
+<span class="s2">    x1+x2&lt;=50;&quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="n">by</span><span class="o">=</span><span class="s2">&quot;province city&quot;</span><span class="p">,</span>
+    <span class="n">unit_id</span><span class="o">=</span><span class="s1">&#39;IDENT&#39;</span><span class="p">,</span>
+    <span class="n">trace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># ... etc. (tables)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><em>Exemple de spécification de paramètres SAS</em></p>
+<div class="highlight-sas notranslate"><div class="highlight"><pre><span></span><span class="kr">proc donorimputation</span>
+    <span class="c">/* etc. (tables) ... */</span>
+    mindonors=<span class="m">2</span>
+    pcentdonors=<span class="m">0.1</span>
+    acceptnegative
+    edits=<span class="s">&quot;x1&gt;=-5; </span>
+<span class="s">    x1&lt;=15; </span>
+<span class="s">    x2&gt;=30; </span>
+<span class="s">    x1+x2&lt;=50;&quot;</span>
+    ;
+    <span class="k">by</span> province city;
+    id IDENT<span class="kr">;</span>
+<span class="kr">run;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>paramètre</p></th>
+<th class="head"><p>note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unit_id</span></code></p></td>
+<td><p>Un seul nom de variable</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">by</span></code></p></td>
+<td><p>une liste de 0 ou plusieurs noms de variables séparés par des espaces</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cardinality</span></code></p></td>
+<td><p>exclut un nombre, voir le guide d’utilisation pour obtenir des conseils</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">time_per_obs</span></code></p></td>
+<td><p>s’attend à un nombre, voir le guide d’utilisation pour obtenir des conseils</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">accept_negative</span></code></p></td>
+<td><p>boolean: <code class="docutils literal notranslate"><span class="pre">True</span></code>-&gt; spécifié, &lt;<em>non spécifié</em>&gt; -&gt; non spécifié</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">edits</span></code></p></td>
+<td><p>envelopper les chaînes multilignes avec des guillemets triples (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;edit&gt;=string&quot;&quot;&quot;</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="nouvelles-options-de-procedure">
+<h3>Nouvelles options de procédure<a class="headerlink" href="#nouvelles-options-de-procedure" title="Link to this heading">#</a></h3>
+<p>Les nouvelles options incluent</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#option-exclude-where-indata"><code class="docutils literal notranslate"><span class="pre">exclude_where_indata</span></code></a></p></li>
+<li><p><a class="reference internal" href="#option-exclude-where-indata-hist"><code class="docutils literal notranslate"><span class="pre">exclude_where_indata_hist</span></code></a></p></li>
+<li><p><a class="reference internal" href="#option-prefill-by-vars"><code class="docutils literal notranslate"><span class="pre">prefill_by_vars</span></code></a></p></li>
+<li><p><a class="reference internal" href="#option-presort"><code class="docutils literal notranslate"><span class="pre">presort</span></code></a></p></li>
+<li><p><a class="reference internal" href="#option-trace"><code class="docutils literal notranslate"><span class="pre">trace</span></code></a></p></li>
+</ul>
+<section id="option-exclude-where-indata">
+<h4>Option <code class="docutils literal notranslate"><span class="pre">exclude_where_indata</span></code><a class="headerlink" href="#option-exclude-where-indata" title="Link to this heading">#</a></h4>
+<p>Cette option exclut les enregistrements en fonction d’une expression SQL spécifiée par l’utilisateur. Pour plus de détails, consultez la documentation spécifique à la procédure.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Procedure%20Guides/donorimp#parameters"><span class="std std-ref">donorimp</span></a></p></li>
+<li><p><a class="reference internal" href="Procedure%20Guides/estimator#parameters"><span class="std std-ref">estimator</span></a></p></li>
+<li><p><a class="reference internal" href="Procedure%20Guides/outlier#parameters"><span class="std std-ref">outlier</span></a></p></li>
+</ul>
+</section>
+<section id="option-exclude-where-indata-hist">
+<h4>Option <code class="docutils literal notranslate"><span class="pre">exclude_where_indata_hist</span></code><a class="headerlink" href="#option-exclude-where-indata-hist" title="Link to this heading">#</a></h4>
+<p>Cette option exclut les enregistrements basés sur une expression SQL spécifiée par l’utilisateur. Pour plus de détails, consultez la documentation spécifique à la procédure.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Procedure%20Guides/estimator#parameters"><span class="std std-ref">estimator</span></a></p></li>
+</ul>
+</section>
+<section id="option-prefill-by-vars">
+<h4>Option <code class="docutils literal notranslate"><span class="pre">prefill_by_vars</span></code><a class="headerlink" href="#option-prefill-by-vars" title="Link to this heading">#</a></h4>
+<p>Cette option est disponible et activée par défaut dans toutes les procédures qui acceptent une table <code class="docutils literal notranslate"><span class="pre">instatus</span></code>.
+Voir <a class="reference internal" href="user_guide#prefill-by-vars"><span class="std std-ref">Guide de l’utilisateur</span></a></p>
+</section>
+<section id="option-presort">
+<h4>Option <code class="docutils literal notranslate"><span class="pre">presort</span></code><a class="headerlink" href="#option-presort" title="Link to this heading">#</a></h4>
+<p>Cette option est disponible et activée par défaut dans toutes les procédures qui acceptent des tables d’entrée.
+Voir <a class="reference internal" href="user_guide#presort"><span class="std std-ref">Guide de l’utilisateur</span></a></p>
+</section>
+<section id="option-trace">
+<h4>Option <code class="docutils literal notranslate"><span class="pre">trace</span></code><a class="headerlink" href="#option-trace" title="Link to this heading">#</a></h4>
+<p>Cette option est disponible dans toutes les procédures et contrôle la verbosité du journal de la console.
+Voir <a class="reference internal" href="user_guide#python-log-verbosite-trace"><span class="std std-ref">Guide de l’utilisateur</span></a></p>
+</section>
+</section>
+</section>
+<section id="tables-de-procedures">
+<h2>Tables de procédures<a class="headerlink" href="#tables-de-procedures" title="Link to this heading">#</a></h2>
+<p>De nombreux noms de paramètres de table ont été modifiés pour mieux suivre les conventions de dénomination Python courantes.</p>
+<p>Les identifiants utilisés dans les programmes SAS correspondent aux identifiants suivants dans Python :</p>
+<section id="tableau-des-identifiants-du-table-de-procedure">
+<h3>Tableau des identifiants du table de procédure<a class="headerlink" href="#tableau-des-identifiants-du-table-de-procedure" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifiant SAS</p></th>
+<th class="head"><p>Identifiant Python</p></th>
+<th class="head"><p>Remarque</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ALGORITHM</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">inalgorithm</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AUX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">indata_hist</span></code></p></td>
+<td><p>pas d’option “AUX” en Python, utilisez plutôt <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">indata</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DATASTATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">instatus</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DONORMAP</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outdonormap</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ESTIMATOR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">inestimator</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HIST</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">indata_hist</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HISTSTATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">instatus_hist</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INSTATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">instatus</span></code></p></td>
+<td><p><em>nouveau</em>: désormais accepté par la procédure <code class="docutils literal notranslate"><span class="pre">errorloc</span></code>, voir <a class="reference internal" href="#ajout-de-instatus-a-la-procedure-errorloc">Ajout de instatus à Errorloc</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outdata</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTACCEPTABLE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outacceptable</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTDATA</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outdata</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTEDITAPPLIC</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outedit_applic</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTEDITSTATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outedit_status</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTGLOBALSTATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outglobal_status</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTKEDITSSTATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outk_edits_status</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTRANDOMERROR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outrand_err</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTREDUCEDEDITS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outedits_reduced</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTESTEF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outest_ef</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTESTLR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outest_lr</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTESTPARMS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outest_parm</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTVARSROLE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outvars_role</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTREJECT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outreject</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTSTATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outstatus</span></code></p></td>
+<td><p><em>nouveau</em>: désormais produit par la procédure <code class="docutils literal notranslate"><span class="pre">massimp</span></code>, voir <a class="reference internal" href="#ajout-de-outstatus-%C3%A0-la-proc%C3%A9dure-dimputation-de-masse"><span class="xref myst">Ajout de outstatus à l’imputation de masse</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTSUMMARY</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outsummary</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">instatus</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Added in Banff 3.1.1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outstatus_detailed</span></code></p></td>
+<td><p>produit par <code class="docutils literal notranslate"><span class="pre">outlier</span></code>, voir <a class="reference internal" href="#modifications-apport%C3%A9es-%C3%A0-outlier-outstatus"><span class="xref myst">Modifications du statut Outlier Outstatus</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Added in Banff 3.1.1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outmatching_fields</span></code></p></td>
+<td><p>produit par <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>, voir <a class="reference internal" href="#modifications-apport%C3%A9es-%C3%A0-imputation-par-donneur-outstatus"><span class="xref myst">Modifications apportées au statut d’imputation par donneur</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="modifications-apportees-aux-tables">
+<h3>Modifications apportées aux tables<a class="headerlink" href="#modifications-apportees-aux-tables" title="Link to this heading">#</a></h3>
+<p>Un aperçu des modifications est fourni dans les sous-sections suivantes, avec des liens vers des informations détaillées.
+Pour une liste complète des informations détaillées, voir <a class="reference internal" href="#modifications-notables-des-procedures">Modifications notables des procédures</a>.</p>
+<section id="suppression-des-variables-by">
+<h4>Suppression des variables <code class="docutils literal notranslate"><span class="pre">by</span></code><a class="headerlink" href="#suppression-des-variables-by" title="Link to this heading">#</a></h4>
+<p>Les variables <code class="docutils literal notranslate"><span class="pre">by</span></code> ont été supprimées de nombreuses tables de sortie. Voir <a class="reference internal" href="#variables-by-sur-les-tables-de-sortie"><em>BY</em> Variables sur les tables de sortie</a> pour plus de détails.</p>
+</section>
+<section id="normalisation-de-la-table-outstatus">
+<h4>Normalisation de la table <code class="docutils literal notranslate"><span class="pre">outstatus</span></code><a class="headerlink" href="#normalisation-de-la-table-outstatus" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p>voir aussi <a class="reference internal" href="output_tables#outstatus"><span class="std std-ref">Tables de sortie &gt; outstatus</span></a></p>
+</div></blockquote>
+<p>La table « outstatus » est désormais <a class="reference internal" href="#normalisation-des-tables-outstatus">standardisée</a> dans toutes les procédures qui la produisent. De nouvelles tables de sortie ont été introduites dans les procédures <a class="reference internal" href="#modifications-apport%C3%A9es-%C3%A0-imputation-par-donneur-outstatus"><span class="xref myst"><em>Donor Imputation</em></span></a>, <a class="reference internal" href="#ajout-de-outstatus-%C3%A0-la-proc%C3%A9dure-dimputation-de-masse"><span class="xref myst"><em>Mass Imputation</em></span></a> et <a class="reference internal" href="#modifications-apport%C3%A9es-%C3%A0-outlier-outstatus"><span class="xref myst"><em>Outlier</em></span></a> pour prendre en compte ce changement.</p>
+</section>
+<section id="ajout-de-la-table-instatus">
+<h4>Ajout de la table <code class="docutils literal notranslate"><span class="pre">instatus</span></code><a class="headerlink" href="#ajout-de-la-table-instatus" title="Link to this heading">#</a></h4>
+<p>La procédure <em>Errorloc</em> <a class="reference internal" href="#ajout-de-instatus-a-la-procedure-errorloc">accepte désormais une table <code class="docutils literal notranslate"><span class="pre">instatus</span></code></a>.</p>
+</section>
+</section>
+</section>
+<section id="specification-des-tables">
+<h2>Spécification des tables<a class="headerlink" href="#specification-des-tables" title="Link to this heading">#</a></h2>
+<p>Pour plus d’informations sur la spécification des tables d’entrée et de sortie, les formats pris en charge, etc., veuillez consulter le <a class="reference internal" href="user_guide#specification-des-donnees-d-entree-et-de-sortie"><span class="std std-ref">Guide de l’utilisateur</span></a></p>
+</section>
+<section id="modifications-notables-des-procedures">
+<h2>Modifications notables des procédures<a class="headerlink" href="#modifications-notables-des-procedures" title="Link to this heading">#</a></h2>
+<section id="modifications-apportees-aux-tables-d-entree">
+<h3>Modifications apportées aux tables d’entrée<a class="headerlink" href="#modifications-apportees-aux-tables-d-entree" title="Link to this heading">#</a></h3>
+<section id="ajout-de-instatus-a-la-procedure-errorloc">
+<h4>Ajout de <code class="docutils literal notranslate"><span class="pre">instatus</span></code> à la procédure <em>Errorloc</em><a class="headerlink" href="#ajout-de-instatus-a-la-procedure-errorloc" title="Link to this heading">#</a></h4>
+<p><em>Errorloc</em> accepte désormais une table <code class="docutils literal notranslate"><span class="pre">instatus</span></code>.</p>
+<p>La procédure <em>Errorloc</em> traite sa table <code class="docutils literal notranslate"><span class="pre">instatus</span></code> de manière quelque peu différente des autres procédures. Pour favoriser la sélection des champs marqués pour imputation, pour chaque ligne dans <code class="docutils literal notranslate"><span class="pre">instatus</span></code> avec un indicateur d’état de <code class="docutils literal notranslate"><span class="pre">FTI</span></code>, la valeur correspondante dans <code class="docutils literal notranslate"><span class="pre">indata</span></code> sera traitée comme si elle était <em>manquante</em>.</p>
+</section>
+</section>
+<section id="modifications-apportees-aux-tables-de-sortie">
+<h3>Modifications apportées aux tables de sortie<a class="headerlink" href="#modifications-apportees-aux-tables-de-sortie" title="Link to this heading">#</a></h3>
+<section id="variables-by-sur-les-tables-de-sortie">
+<h4>Variables <em>BY</em> sur les tables de sortie<a class="headerlink" href="#variables-by-sur-les-tables-de-sortie" title="Link to this heading">#</a></h4>
+<p>Dans les procédures basées sur SAS, les variables « by » étaient incluses dans de nombreuses tables de sortie essentiellement par défaut à chaque fois qu’un traitement par groupe était effectué. Dans Banff 3.1.1 cependant, les variables « by » ne sont incluses que dans les tables suivantes:</p>
+<ul class="simple">
+<li><p><strong>Estimator</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">outacceptable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outest_ef</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outest_lr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outest_parm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outrand_err</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Outlier</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">outsummary</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="normalisation-des-tables-outstatus">
+<h4>Normalisation des tables <code class="docutils literal notranslate"><span class="pre">outstatus</span></code><a class="headerlink" href="#normalisation-des-tables-outstatus" title="Link to this heading">#</a></h4>
+<p>Toutes les tables « outstatus » sont désormais normalisées et contiennent exactement les colonnes suivantes</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Nom de la colonne</p></th>
+<th class="head text-left"><p>Remarque</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">&lt;unit-id&gt;</span></code></p></td>
+<td class="text-left"><p>colonne nommée d’après la colonne <code class="docutils literal notranslate"><span class="pre">unit_id</span></code> de la table <code class="docutils literal notranslate"><span class="pre">indata</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">FIELDID</span></code></p></td>
+<td class="text-left"><p>nom de la colonne à laquelle s’applique le statut</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">STATUS</span></code></p></td>
+<td class="text-left"><p>le code d’état</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code></p></td>
+<td class="text-left"><p>valeur de la variable à laquelle s’applique le statut*</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>*<strong>Colonne <code class="docutils literal notranslate"><span class="pre">VALUE</span></code></strong>
+Pour les procédures qui produisent une table <code class="docutils literal notranslate"><span class="pre">outdata</span></code>, la valeur provient de là.
+Sinon, la valeur provient de la table <code class="docutils literal notranslate"><span class="pre">indata</span></code>.</p>
+</div></blockquote>
+<p>De plus, les informations non relatives au statut produites auparavant par les procédures <em>Imputation par donneur</em> et <em>Outlier</em> ont été supprimées. Voir ci-dessous pour plus d’informations.</p>
+<section id="modifications-apportees-a-imputation-par-donneur-outstatus">
+<h5>Modifications apportées à <em>Imputation par donneur</em> <code class="docutils literal notranslate"><span class="pre">outstatus</span></code><a class="headerlink" href="#modifications-apportees-a-imputation-par-donneur-outstatus" title="Link to this heading">#</a></h5>
+<p><em>Imputation par donneur</em> génère désormais une table <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> standardisée. Les données qui ont été supprimées de <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> sont disponibles dans la nouvelle table de sortie facultative <code class="docutils literal notranslate"><span class="pre">outmatching_fields</span></code>.
+Cette nouvelle table est désactivée par défaut. Spécifiez <code class="docutils literal notranslate"><span class="pre">True</span></code> ou toute autre option de sortie valide pour l’activer. Cette nouvelle table remplace l’option <code class="docutils literal notranslate"><span class="pre">match_field_stat</span></code>, qui est désormais obsolète.</p>
+</section>
+<section id="ajout-de-outstatus-a-la-procedure-d-imputation-de-masse">
+<h5>Ajout de <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> à la procédure d’<em>Imputation de masse</em><a class="headerlink" href="#ajout-de-outstatus-a-la-procedure-d-imputation-de-masse" title="Link to this heading">#</a></h5>
+<p><em>Imputation de masse</em> produit une table <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> avec l’indicateur <code class="docutils literal notranslate"><span class="pre">IMAS</span></code>.</p>
+</section>
+<section id="modifications-apportees-a-outlier-outstatus">
+<h5>Modifications apportées à <em>Outlier</em> <code class="docutils literal notranslate"><span class="pre">outstatus</span></code><a class="headerlink" href="#modifications-apportees-a-outlier-outstatus" title="Link to this heading">#</a></h5>
+<p><em>Outlier</em> génère désormais une table <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> standardisée. Les données qui ont été supprimées de <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> sont disponibles dans la nouvelle table facultative <code class="docutils literal notranslate"><span class="pre">outstatus_detailed</span></code>. Cette nouvelle table contient les variables <code class="docutils literal notranslate"><span class="pre">&lt;unit_id&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">FIELDID</span></code>, <code class="docutils literal notranslate"><span class="pre">OUTLIER_STATUS</span></code> (anciennement <code class="docutils literal notranslate"><span class="pre">OUTSTATUS</span></code>, à ne pas confondre avec la variable <em><code class="docutils literal notranslate"><span class="pre">status</span></code></em> de la table <code class="docutils literal notranslate"><span class="pre">oustatus</span></code>) et toutes les variables activées en spécifiant <code class="docutils literal notranslate"><span class="pre">outlier_stats=True</span></code>. La table est activée par défaut. Spécifiez <code class="docutils literal notranslate"><span class="pre">False</span></code> pour la désactiver.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="autres-options-d-execution-python">
+<h2>Autres options d’exécution Python<a class="headerlink" href="#autres-options-d-execution-python" title="Link to this heading">#</a></h2>
+<section id="prise-en-charge-de-la-langue-maternelle">
+<h3>Prise en charge de la langue maternelle<a class="headerlink" href="#prise-en-charge-de-la-langue-maternelle" title="Link to this heading">#</a></h3>
+<p>Banff produit un <a class="reference internal" href="user_guide#journal-banff"><span class="std std-ref">journal</span></a> qui peut afficher des messages en anglais ou en français. Pour plus de détails, consultez la section <a class="reference internal" href="user_guide#definir-la-langue-du-journal"><span class="std std-ref"><em>paramétrage de la langue du journal</em></span></a> du guide de l’utilisateur.</p>
+</section>
+<section id="option-capture">
+<h3>Option <code class="docutils literal notranslate"><span class="pre">capture</span></code><a class="headerlink" href="#option-capture" title="Link to this heading">#</a></h3>
+<p>Lors de l’exécution dans <em>Jupyter Notebooks</em>, certains messages de journal peuvent être manquants. La spécification de <code class="docutils literal notranslate"><span class="pre">capture=True</span></code> dans un appel de procédure peut résoudre le problème. Pour plus de détails, consultez <a class="reference internal" href="user_guide#suppression-et-diagnostic-des-messages-du-journal-capture"><span class="std std-ref">suppression et dépannage des messages de journal</span></a> dans le guide de l’utilisateur.</p>
+</section>
+</section>
+<section id="considerations-relatives-aux-performances">
+<h2>Considérations relatives aux performances<a class="headerlink" href="#considerations-relatives-aux-performances" title="Link to this heading">#</a></h2>
+<p>Certaines options et formats de tableau peuvent offrir des performances optimales. Pour plus de détails, consultez <a class="reference internal" href="user_guide#considerations-sur-la-performance"><span class="std std-ref">Considérations relatives aux performances</span></a>.</p>
+</section>
+<section id="erreurs-et-exceptions">
+<h2>Erreurs et exceptions<a class="headerlink" href="#erreurs-et-exceptions" title="Link to this heading">#</a></h2>
+<p>Les erreurs sont traitées différemment dans SAS et dans Python, où elles sont appelées <em>exceptions</em>. Pour plus de détails, consultez <a class="reference internal" href="user_guide#erreurs-et-exceptions"><span class="std std-ref">Erreurs et exceptions</span></a> dans le guide de l’utilisateur.</p>
+</section>
+<section id="fonctions-utilitaires">
+<h2>Fonctions utilitaires<a class="headerlink" href="#fonctions-utilitaires" title="Link to this heading">#</a></h2>
+<section id="travailler-avec-des-fichiers-sas-en-python">
+<h3>Travailler avec des fichiers SAS en Python<a class="headerlink" href="#travailler-avec-des-fichiers-sas-en-python" title="Link to this heading">#</a></h3>
+<p>Le paquet banff fournit quelques fonctions utiles pour lire des fichiers SAS en Python. Pour plus de détails, consultez <a class="reference internal" href="user_guide#travailler-avec-des-fichiers-sas-dans-python"><span class="std std-ref">Travailler avec des fichiers SAS dans Python</span></a> dans le guide de l’utilisateur.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dans-ce-guide">Dans ce guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-des-matieres">Table des matières</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedures-disponibles">Procédures disponibles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-procedure">Paramètres de procédure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableau-des-parametres-et-types-de-procedures">Tableau des paramètres et types de procédures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-de-specification-de-parametres-en-python">Exemple de spécification de paramètres en Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nouvelles-options-de-procedure">Nouvelles options de procédure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-exclude-where-indata">Option <code class="docutils literal notranslate"><span class="pre">exclude_where_indata</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-exclude-where-indata-hist">Option <code class="docutils literal notranslate"><span class="pre">exclude_where_indata_hist</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-prefill-by-vars">Option <code class="docutils literal notranslate"><span class="pre">prefill_by_vars</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-presort">Option <code class="docutils literal notranslate"><span class="pre">presort</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-trace">Option <code class="docutils literal notranslate"><span class="pre">trace</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables-de-procedures">Tables de procédures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableau-des-identifiants-du-table-de-procedure">Tableau des identifiants du table de procédure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-apportees-aux-tables">Modifications apportées aux tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-variables-by">Suppression des variables <code class="docutils literal notranslate"><span class="pre">by</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation-de-la-table-outstatus">Normalisation de la table <code class="docutils literal notranslate"><span class="pre">outstatus</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-la-table-instatus">Ajout de la table <code class="docutils literal notranslate"><span class="pre">instatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-des-tables">Spécification des tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-notables-des-procedures">Modifications notables des procédures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-apportees-aux-tables-d-entree">Modifications apportées aux tables d’entrée</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-instatus-a-la-procedure-errorloc">Ajout de <code class="docutils literal notranslate"><span class="pre">instatus</span></code> à la procédure <em>Errorloc</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-apportees-aux-tables-de-sortie">Modifications apportées aux tables de sortie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-by-sur-les-tables-de-sortie">Variables <em>BY</em> sur les tables de sortie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation-des-tables-outstatus">Normalisation des tables <code class="docutils literal notranslate"><span class="pre">outstatus</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-apportees-a-imputation-par-donneur-outstatus">Modifications apportées à <em>Imputation par donneur</em> <code class="docutils literal notranslate"><span class="pre">outstatus</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-outstatus-a-la-procedure-d-imputation-de-masse">Ajout de <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> à la procédure d’<em>Imputation de masse</em></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-apportees-a-outlier-outstatus">Modifications apportées à <em>Outlier</em> <code class="docutils literal notranslate"><span class="pre">outstatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autres-options-d-execution-python">Autres options d’exécution Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prise-en-charge-de-la-langue-maternelle">Prise en charge de la langue maternelle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-capture">Option <code class="docutils literal notranslate"><span class="pre">capture</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-relatives-aux-performances">Considérations relatives aux performances</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-et-exceptions">Erreurs et exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctions-utilitaires">Fonctions utilitaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-des-fichiers-sas-en-python">Travailler avec des fichiers SAS en Python</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FR/sas_migration_guide.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

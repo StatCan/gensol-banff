@@ -24,7 +24,7 @@ Caractéristiques additionnelles de la procédure:
 - La détection des valeurs aberrantes peut être effectuée à droite, à gauche, ou des deux côtés (`side`).
 - La détection des valeurs aberrantes peut être effectuée à l'intérieur des groupes de partition *by*, avec un nombre minimal d'observations (`min_obs`) spécifié par l'utilisateur et requis pour que la détection des valeurs aberrantes ait lieu.
 
-Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](/docs/FR/Description%20des%20fonctions%20Banff.pdf).
+Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](../Description%20des%20fonctions%20Banff.pdf).
 
 ## Données d'entrée et de sortie
 
@@ -41,7 +41,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outstatus_detailed  | Statut détaillé des valeurs aberrantes (ODER/ODEL/ODIR/ODIL). <br><br> Statut détaillé indiquant si la valeur aberrante se trouve à l'extérieur de l'intervalle d'exclusion à droite (ODER) ou à gauche (ODEL). Lorsque la valeur aberrante concerne un champ FTI, le statut détaillé identifie si la valeur aberrante se trouve à l'extérieur de l'intervalle d'imputation à droite (ODIR) ou à gauche (ODIL). <br><br> Ces données de sortie contiendront plus d'information (bornes d'exclusion et d'imputation, valeurs courantes et auxiliaires, ..) lorsque l'on spécifie `outlier_stats=True`.  |
 | outsummary          | Informations sommaires sur les valeurs aberrantes détectées, telles que le compte des observations et les bornes de l'intervalle d'acceptation.|
 
-Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](../output_tables.md).
 
 ## Paramètres
 

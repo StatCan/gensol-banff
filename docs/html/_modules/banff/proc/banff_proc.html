@@ -1,0 +1,737 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>banff.proc.banff_proc &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/banff/proc/banff_proc';</script>
+    <link rel="index" title="Index" href="../../../genindex" />
+    <link rel="search" title="Search" href="../../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../banff" class="nav-link">banff</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff.proc.banff_proc</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for banff.proc.banff_proc</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">diagnostics</span> <span class="k">as</span> <span class="n">diag</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff._common.src._log</span><span class="w"> </span><span class="kn">import</span> <span class="n">capture</span> <span class="k">as</span> <span class="n">log_capture</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff._common.src.proc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GeneralizedProcedure</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff._common.src.proc.validation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">string_parm_is_empty</span><span class="p">,</span>
+    <span class="n">validate_arg_type</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ProcedureValidationError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff.nls</span><span class="w"> </span><span class="kn">import</span> <span class="n">_</span>
+
+
+<div class="viewcode-block" id="BanffProcedure">
+<a class="viewcode-back" href="../../../banff.proc#banff.proc.banff_proc.BanffProcedure">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BanffProcedure</span><span class="p">(</span><span class="n">GeneralizedProcedure</span><span class="p">):</span>
+    <span class="c1"># create a copy of default args, so modifications do not affect superclass</span>
+    <span class="n">_default_args</span> <span class="o">=</span> <span class="n">GeneralizedProcedure</span><span class="o">.</span><span class="n">get_default</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># list of valid kwargs key words for this classes constructor</span>
+    <span class="c1"># IMPORTANT: we need a copy of (as opposed to a reference to) the superclass&#39; list</span>
+    <span class="c1"># , so we don&#39;t modify the superclass&#39; class attribute.  The `+` operator seems to do this.</span>
+    <span class="n">_valid_init_kwargs</span> <span class="o">=</span> <span class="n">GeneralizedProcedure</span><span class="o">.</span><span class="n">_valid_init_kwargs</span> <span class="o">+</span> <span class="p">[</span>  <span class="c1"># noqa:  SLF001</span>
+        <span class="s2">&quot;_BP_c_log_handlers&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">trace</span><span class="p">,</span>
+            <span class="n">capture</span><span class="p">,</span>
+            <span class="n">logger</span><span class="p">,</span>
+            <span class="n">input_datasets</span><span class="p">,</span>
+            <span class="n">output_datasets</span><span class="p">,</span>
+            <span class="n">presort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">prefill_by_vars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">exclude_where_indata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">exclude_where_indata_hist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">keyword_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize Banff and execute Banff C procedure.</span>
+
+<span class="sd">        After calling the superclass init method, performs Banff specific initialization tasks.</span>
+<span class="sd">        Finally, it executes the procedure.</span>
+
+<span class="sd">        Subclasses (i.e. Banff procedures) must store all procedure-specific arguments</span>
+<span class="sd">        in `self` prior to calling this method, and pass a list of input and output datasets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">trace</span><span class="o">=</span><span class="n">trace</span><span class="p">,</span>
+            <span class="n">capture</span><span class="o">=</span><span class="n">capture</span><span class="p">,</span>
+            <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+            <span class="n">input_datasets</span><span class="o">=</span><span class="n">input_datasets</span><span class="p">,</span>
+            <span class="n">output_datasets</span><span class="o">=</span><span class="n">output_datasets</span><span class="p">,</span>
+            <span class="n">presort</span><span class="o">=</span><span class="n">presort</span><span class="p">,</span>
+            <span class="n">prefill_by_vars</span><span class="o">=</span><span class="n">prefill_by_vars</span><span class="p">,</span>
+            <span class="n">keyword_args</span><span class="o">=</span><span class="n">keyword_args</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">log_lcl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stack_logger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">)</span>
+
+        <span class="c1"># Banff specific initialization</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_py_log_redirect</span><span class="p">:</span>
+            <span class="c1"># preprocessing options: `exclude_where_*`</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pp_init_exclude_parm</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">,</span> <span class="n">arg_val</span><span class="o">=</span><span class="n">exclude_where_indata</span><span class="p">,</span> <span class="n">parm_name</span><span class="o">=</span><span class="s2">&quot;exclude_where_indata&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pp_init_exclude_parm</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">,</span> <span class="n">arg_val</span><span class="o">=</span><span class="n">exclude_where_indata_hist</span><span class="p">,</span> <span class="n">parm_name</span><span class="o">=</span><span class="s2">&quot;exclude_where_indata_hist&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_validate_exclude_where</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">)</span>
+
+        <span class="c1"># execute the procedure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_init_capture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capture</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">keyword_args</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize &#39;capture&#39; option in Banff.</span>
+
+<span class="sd">        This method implements Banff specific handling of the &#39;capture&#39; option.</span>
+<span class="sd">        The superclass implementation is not called at all the procedure is called</span>
+<span class="sd">        by the Banff processor.</span>
+
+<span class="sd">        See superclass implementation for full details.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;_BP_c_log_handlers&quot;</span> <span class="ow">in</span> <span class="n">keyword_args</span><span class="p">:</span>
+            <span class="c1"># Banff Processor (BP) calling, configure C log redirection to BP stream</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Configuring procedure-level logging for Banff Processor log redirection&quot;</span><span class="p">))</span>
+            <span class="n">streams</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">stream</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">keyword_args</span><span class="p">[</span><span class="s2">&quot;_BP_c_log_handlers&quot;</span><span class="p">]]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_c_log_redirect</span> <span class="o">=</span> <span class="n">log_capture</span><span class="o">.</span><span class="n">c_log_redirect</span><span class="p">(</span>
+                <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">reprint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">reprint_file</span><span class="o">=</span><span class="n">streams</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="c1"># and disable Python log redirection</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_py_log_redirect</span> <span class="o">=</span> <span class="n">log_capture</span><span class="o">.</span><span class="n">proc_py_log_redirect</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_init_capture</span><span class="p">(</span>
+                <span class="n">capture</span><span class="o">=</span><span class="n">capture</span><span class="p">,</span>
+                <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+                <span class="n">keyword_args</span><span class="o">=</span><span class="n">keyword_args</span><span class="p">,</span>
+                <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1">## preprocessing methods ##</span>
+    <span class="c1"># not an `@abstractmethod` since only some subclasses define this</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_pp_exclude_where_indata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;SUBCLASS TO IMPLEMENT.</span>
+
+<span class="sd">        procedure-specific exclusion statement for indata.  Only relevant in some procedures.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Internal error: subclass must implement `</span><span class="si">{}</span><span class="s2">` method&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;_pp_exclude_where_indata()&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="c1"># not an `@abstractmethod` since only some subclasses define this</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_pp_exclude_where_indata_hist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;SUBCLASS TO IMPLEMENT.</span>
+
+<span class="sd">        procedure-specific exclusion statement for indata_hist.  Only relevant in some procedures.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Internal error: subclass must implement `</span><span class="si">{}</span><span class="s2">` method&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;_pp_exclude_where_indata_hist()&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_pp_init_exclude_parm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">arg_val</span><span class="p">,</span> <span class="n">parm_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate and store `exclude_where_*` user parameter.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">arg_val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="c1"># nothing to do</span>
+
+        <span class="n">validate_arg_type</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">arg_val</span><span class="o">=</span><span class="n">arg_val</span><span class="p">,</span> <span class="n">parm_name</span><span class="o">=</span><span class="n">parm_name</span><span class="p">,</span> <span class="n">allowed_types</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+        <span class="c1"># sanitize</span>
+        <span class="k">for</span> <span class="n">substr</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;;&quot;</span><span class="p">]:</span>  <span class="c1"># disallow semicolon: could be attempt to execute multiple SQL statements</span>
+            <span class="k">if</span> <span class="n">substr</span> <span class="ow">in</span> <span class="n">arg_val</span><span class="p">:</span>
+                <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Parameter `</span><span class="si">{}</span><span class="s2">` cannot contain the substring &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parm_name</span><span class="p">,</span> <span class="n">substr</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">string_parm_is_empty</span><span class="p">(</span><span class="n">arg_val</span><span class="p">):</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Ignoring option `</span><span class="si">{}</span><span class="s2">=&#39;</span><span class="si">{}</span><span class="s2">&#39;` (empty string)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parm_name</span><span class="p">,</span> <span class="n">arg_val</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+            <span class="k">return</span>  <span class="c1"># nothing more to do</span>
+
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">parm_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">arg_val</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_preprocess_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform some processing on input datasets prior to packing for C code.&quot;&quot;&quot;</span>
+        <span class="n">log_lcl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="c1">## exclude_where_indata</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_exclude_where_indata&quot;</span><span class="p">):</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Preprocessing: `exclude_where_indata=&#39;</span><span class="si">{}</span><span class="s2">&#39;`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_exclude_where_indata</span><span class="p">))</span>
+
+            <span class="k">with</span> <span class="n">diag</span><span class="o">.</span><span class="n">SystemStats</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;exclude_where_indata&quot;</span><span class="p">),</span> <span class="n">logger</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_pp_exclude_where_indata</span><span class="p">()</span>
+
+        <span class="c1">## exclude_where_indata_hist</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_exclude_where_indata_hist&quot;</span><span class="p">):</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Preprocessing: `exclude_where_indata_hist=&#39;</span><span class="si">{}</span><span class="s2">&#39;`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_exclude_where_indata_hist</span><span class="p">))</span>
+
+            <span class="k">with</span> <span class="n">diag</span><span class="o">.</span><span class="n">SystemStats</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;exclude_where_indata_hist&quot;</span><span class="p">),</span> <span class="n">logger</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_pp_exclude_where_indata_hist</span><span class="p">()</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_preprocess_inputs</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
+
+    <span class="c1">## Validation methods ##</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_c_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform basic validation of C parameter types.</span>
+
+<span class="sd">        Strict validation happens in C code.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">log_lcl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="n">flag_parms</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;accept_negative&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;accept_zero&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;no_by_stats&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;outlier_stats&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;random&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;verify_edits&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;verify_specs&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">parm</span> <span class="ow">in</span> <span class="n">flag_parms</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>  <span class="c1"># if exception, the parameter doesn&#39;t even exist</span>
+                <span class="n">validate_arg_type</span><span class="p">(</span>
+                    <span class="n">log</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">,</span>
+                    <span class="n">arg_val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span><span class="p">[</span><span class="n">parm</span><span class="p">],</span>
+                    <span class="n">parm_name</span><span class="o">=</span><span class="n">parm</span><span class="p">,</span>
+                    <span class="n">allowed_types</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span>
+                    <span class="n">skip_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+
+        <span class="n">numeric_parms</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;beta_e&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;beta_i&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lower_bound&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;upper_bound&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cardinality&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;exponent&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mdm&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mei&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mii&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mrl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;percent_donors&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;start_centile&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;time_per_obs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;display_level&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;extremal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imply&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;min_donors&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;min_obs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;n&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;n_limit&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;seed&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">parm</span> <span class="ow">in</span> <span class="n">numeric_parms</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>  <span class="c1"># if exception, the parameter doesn&#39;t even exist</span>
+                <span class="n">validate_arg_type</span><span class="p">(</span>
+                    <span class="n">log</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">,</span>
+                    <span class="n">arg_val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span><span class="p">[</span><span class="n">parm</span><span class="p">],</span>
+                    <span class="n">parm_name</span><span class="o">=</span><span class="n">parm</span><span class="p">,</span>
+                    <span class="n">allowed_types</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+                    <span class="n">skip_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+
+        <span class="n">string_parms</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;edits&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;eligdon&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;method&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;modifier&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;post_edits&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;side&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sigma&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;weights&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;data_excl_var&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hist_excl_var&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;unit_id&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rand_num_var&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;by&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;must_impute&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;must_match&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;var&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;with_var&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">parm</span> <span class="ow">in</span> <span class="n">string_parms</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>  <span class="c1"># if exception, the parameter doesn&#39;t even exist</span>
+                <span class="n">validate_arg_type</span><span class="p">(</span>
+                    <span class="n">log</span><span class="o">=</span><span class="n">log_lcl</span><span class="p">,</span>
+                    <span class="n">arg_val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span><span class="p">[</span><span class="n">parm</span><span class="p">],</span>
+                    <span class="n">parm_name</span><span class="o">=</span><span class="n">parm</span><span class="p">,</span>
+                    <span class="n">allowed_types</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                    <span class="n">skip_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_deprecations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">keyword_args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check for use of deprecated options across all procedures.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_validate_deprecations</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">keyword_args</span><span class="o">=</span><span class="n">keyword_args</span><span class="p">)</span>
+
+        <span class="n">log_lcl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;reject_negative&quot;</span> <span class="ow">in</span> <span class="n">keyword_args</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Option `</span><span class="si">{}</span><span class="s2">` is deprecated, use `</span><span class="si">{}</span><span class="s2">` instead&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;reject_negative&quot;</span><span class="p">,</span> <span class="s2">&quot;accept_negative=False&quot;</span><span class="p">)</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">DeprecationWarning</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;reject_zero&quot;</span> <span class="ow">in</span> <span class="n">keyword_args</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Option `</span><span class="si">{}</span><span class="s2">` is deprecated, use `</span><span class="si">{}</span><span class="s2">` instead&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;reject_zero&quot;</span><span class="p">,</span> <span class="s2">&quot;accept_zero=False&quot;</span><span class="p">)</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">DeprecationWarning</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_exclude_where</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the combination of user-specified parameters.</span>
+
+<span class="sd">        Certain parameters cannot be specified together.</span>
+<span class="sd">        When invalid combinations are detected, a meaningful</span>
+<span class="sd">        error message is logged and a `ValueError` is raised.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">log_lcl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="c1">### &quot;avoid premature optimization&quot;: there is some repetition in the following code</span>
+        <span class="c1"># In coming development cycles, more validations may be added, and this</span>
+        <span class="c1"># design may be good, or may need changes.  If all is stable and repetition remains,</span>
+        <span class="c1"># make it DRY using a function/method</span>
+
+        <span class="c1"># disallow `data_excl_var` with `exclude_where_indata`</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="s2">&quot;data_excl_var&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span>
+            <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_exclude_where_indata&quot;</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span><span class="p">[</span><span class="s2">&quot;data_excl_var&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">):</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;options `</span><span class="si">{}</span><span class="s2">` and `</span><span class="si">{}</span><span class="s2">` cannot be specified together&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;data_excl_var&quot;</span><span class="p">,</span> <span class="s2">&quot;exclude_where_indata&quot;</span><span class="p">)</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ProcedureValidationError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+        <span class="c1"># disallow `hist_excl_var` with `exclude_where_indata_hist`</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="s2">&quot;hist_excl_var&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span>
+            <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_exclude_where_indata_hist&quot;</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span><span class="p">[</span><span class="s2">&quot;hist_excl_var&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">):</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;options `</span><span class="si">{}</span><span class="s2">` and `</span><span class="si">{}</span><span class="s2">` cannot be specified together&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hist_excl_var&quot;</span><span class="p">,</span> <span class="s2">&quot;exclude_where_indata_hist&quot;</span><span class="p">)</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ProcedureValidationError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_bin_anchor</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return package anchor for bin folder.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;banff.proc.bin&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_c</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">debug</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+            <span class="k">if</span> <span class="n">debug</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;BANFF_DEBUG_STATS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TRUE&quot;</span>
+            <span class="k">elif</span> <span class="n">debug</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>  <span class="c1"># if it wasn&#39;t defined, no problem</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;BANFF_DEBUG_STATS&quot;</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_load_c</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

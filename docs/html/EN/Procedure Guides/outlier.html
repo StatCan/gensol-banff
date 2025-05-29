@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Outlier Detection &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'EN/Procedure Guides/outlier';</script>
+    <link rel="index" title="Index" href="../../genindex" />
+    <link rel="search" title="Search" href="../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Outlier Detection</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="outlier-detection">
+<h1>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Execution: <em>banff.outlier()</em></p></li>
+<li><p>SDE function type: <em>Review, Selection</em></p></li>
+<li><p>Input status flags: <em>None</em></p></li>
+<li><p>Output status flags: <em>FTI, FTE</em></p></li>
+</ul>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>Identifies outlying observations using Hidiroglou-Berthelot or Sigma-Gap methods.</p>
+<p>This procedure offers two methods of univariate outlier detection. The Hidiroglou-Berthelot (HB) method selects outliers based on their distance from the median, relative to the interquartile distance. The Sigma-Gap (SG) method sorts the data in ascending order and searches for significant gaps (relative to the standard deviation) between consecutive values, selecting all subsequent values as outliers. Both methods can detect two types of outliers, which are flagged on the <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> file:</p>
+<ul class="simple">
+<li><p>Values that are extreme enough to be considered errors. These values are flagged as <em>fields to impute (FTI)</em> so they can be imputed in a subsequent step.</p></li>
+<li><p>Values that are not extreme enough to be considered errors, but are sufficiently unusual to be deemed <em>fields to exclude (FTE)</em> by subsequent imputation procedures such as <code class="docutils literal notranslate"><span class="pre">donorimp</span></code> and <code class="docutils literal notranslate"><span class="pre">estimator</span></code>. (This flag can also be useful during weighting and robust estimation.)</p></li>
+</ul>
+<p>For both procedures, users must specify either an imputation or exclusion threshold; no default value is provided.</p>
+<p>Additional features of the procedure:</p>
+<ul class="simple">
+<li><p>Users can run outlier detection on multiple variables (<code class="docutils literal notranslate"><span class="pre">var</span></code>) in one call.</p></li>
+<li><p>Users can also run outlier detection on ratios of variables. In this case, only the numerators (<code class="docutils literal notranslate"><span class="pre">var</span></code>) are flagged on <code class="docutils literal notranslate"><span class="pre">outstatus</span></code>. For the denominator, users may select auxiliary variables (<code class="docutils literal notranslate"><span class="pre">with_var</span></code>) from the current period (<code class="docutils literal notranslate"><span class="pre">indata</span></code>) or from historical data (<code class="docutils literal notranslate"><span class="pre">indata_hist</span></code>).</p></li>
+<li><p>Outlier detection can be performed to the right, left, or on both sides (<code class="docutils literal notranslate"><span class="pre">side</span></code>).</p></li>
+<li><p>Outlier detection can be performed within by-groups (<code class="docutils literal notranslate"><span class="pre">by</span></code>), with a user-specified minimum number of observations (<code class="docutils literal notranslate"><span class="pre">min_obs</span></code>) required to perform outlier detection.</p></li>
+</ul>
+<p>For a full mathematical description of the procedure methods, with examples, please see the <a class="reference download internal" download="" href="../../_downloads/af41e91dc19117dffc1756544e8fed50/Banff%20Functional%20Description.pdf"><span class="xref download myst">Functional Description</span></a>.</p>
+</section>
+<section id="input-and-output-tables">
+<h2>Input and output tables<a class="headerlink" href="#input-and-output-tables" title="Link to this heading">#</a></h2>
+<p>Descriptions of input and output tables are given below. Banff supports a number of input and output formats; please see the Banff User Guide for more information.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input Table</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>indata</p></td>
+<td><p>Input statistical data. Mandatory.</p></td>
+</tr>
+<tr class="row-odd"><td><p>indata_hist</p></td>
+<td><p>Input historical data. <br><br> Records on indata are linked with records on indata_hist by the <code class="docutils literal notranslate"><span class="pre">unit_id</span></code> variable. Records that appear on indata_hist but not on indata are dropped before processing, as are records with missing values for <code class="docutils literal notranslate"><span class="pre">unit_id</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Output Table</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>outstatus</p></td>
+<td><p>Contains the status of the fields (FTE/FTI) identified as outliers and their values.</p></td>
+</tr>
+<tr class="row-odd"><td><p>outstatus_detailed</p></td>
+<td><p>Detailed status for the outliers (ODER/ODEL/ODIR/ODIL).<br><br> Detailed status indicates whether the outlier falls outside the exclusion interval on the right (ODER) or on the left (ODEL). If it concerns an FTI outlier, the detailed status distinguishes between an outlier falling outside the imputation interval on the right (ODIR) and on the left (ODIL).<br><br> It will contain more information (imputation and exclusions bounds, current and auxiliary values, ..) with the parameter <code class="docutils literal notranslate"><span class="pre">outlier_stats=True</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>outsummary</p></td>
+<td><p>Outlier summary information such as observation counts and acceptance interval bounds.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For details on the content of output tables, please see the <a class="reference internal" href="../output_tables"><span class="std std-doc">Output Tables</span></a> document.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Python type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>unit_id</p></td>
+<td><p>str</p></td>
+<td><p>Identify key variable (unit identifier) on indata and indata_hist. Mandatory. <br><br> Must be unique for each record. Records with a missing value are dropped before processing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>method</p></td>
+<td><p>str</p></td>
+<td><p>Method to be used to detect outlying observations (‘CURRENT’, ‘RATIO’, ‘HISTORIC’ or ‘SIGMAGAP’). Mandatory.<br><br> SG method is applied when <code class="docutils literal notranslate"><span class="pre">method='SIGMAGAP'</span></code>, otherwise HB method is used; please see the notes below for details.</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>str</p></td>
+<td><p>Variables(s) for which to find outliers. <br><br> <code class="docutils literal notranslate"><span class="pre">var</span></code> becomes mandatory when historical or auxiliary variables are used. If they are not used, <code class="docutils literal notranslate"><span class="pre">var</span></code> can be omitted; in which case all numeric variables in indata (except by-group variables) will be processed. <br><br> Example: <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">=</span> <span class="pre">&quot;Revenue</span> <span class="pre">Expenses&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>with_var</p></td>
+<td><p>str</p></td>
+<td><p>Historical or auxiliary variables.<br><br> The number of variables in the <code class="docutils literal notranslate"><span class="pre">with_var</span></code> list must be the same as the <code class="docutils literal notranslate"><span class="pre">var</span></code> list. If the table indata_hist is used, then <code class="docutils literal notranslate"><span class="pre">with_var</span></code> variables are read from it, otherwise they are read from indata. If <code class="docutils literal notranslate"><span class="pre">var</span></code> and <code class="docutils literal notranslate"><span class="pre">with_var</span></code> are identical (i.e. each variable in <code class="docutils literal notranslate"><span class="pre">var</span></code> has a historical variable with the same name on indata_hist), then <code class="docutils literal notranslate"><span class="pre">with_var</span></code> can be omitted.</p></td>
+</tr>
+<tr class="row-even"><td><p>weight</p></td>
+<td><p>str</p></td>
+<td><p>Variable to be used for weighting.<br><br> The weight is at the record level and must contain a value for each record. <code class="docutils literal notranslate"><span class="pre">weight</span></code> will be multiplied by the values of the variables for which one wants to detect outliers. Any record(s) in the input table with a missing weight will be dropped from the outlier detection.</p></td>
+</tr>
+<tr class="row-odd"><td><p>exclude_where_indata</p></td>
+<td><p>str</p></td>
+<td><p>Expression in SQL syntax to exclude observations from the outlier detection.</p></td>
+</tr>
+<tr class="row-even"><td><p>mii</p></td>
+<td><p>float</p></td>
+<td><p>HB multiplier for imputation interval (positive).<br><br> <code class="docutils literal notranslate"><span class="pre">mii</span></code> controls the width of the imputation interval. A higher multiplier value for the imputation interval will lead to a lower number of detected outliers to impute. <code class="docutils literal notranslate"><span class="pre">mii</span></code> becomes mandatory for HB if <code class="docutils literal notranslate"><span class="pre">mei</span></code> is not specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mei</p></td>
+<td><p>float</p></td>
+<td><p>HB Multiplier for exclusion interval (positive).<br><br> <code class="docutils literal notranslate"><span class="pre">mei</span></code> controls the width of the exclusion interval. A higher multiplier value for the exclusion interval will lead to a lower number of detected outliers to exclude. <code class="docutils literal notranslate"><span class="pre">mei</span></code> becomes mandatory for HB if <code class="docutils literal notranslate"><span class="pre">mii</span></code> is not specified.</p></td>
+</tr>
+<tr class="row-even"><td><p>mdm</p></td>
+<td><p>float</p></td>
+<td><p>HB minimum distance multiplier (positive). Default=0.05.<br><br> <code class="docutils literal notranslate"><span class="pre">mdm</span></code> refers to the minimum interquartile distance required to calculate intervals.</p></td>
+</tr>
+<tr class="row-odd"><td><p>exponent</p></td>
+<td><p>float</p></td>
+<td><p>HB exponent for a ratio or historical trend (between 0 and 1). Default=0.</p></td>
+</tr>
+<tr class="row-even"><td><p>min_obs</p></td>
+<td><p>integer</p></td>
+<td><p>Minimum number of observations that must exist in the input table or in a by-group (positive). Default=3 for HB, 5 for SG.<br><br> <code class="docutils literal notranslate"><span class="pre">min_obs</span></code> &gt;= 3 for HB; <code class="docutils literal notranslate"><span class="pre">min_obs</span></code> &gt;= 5 for SG.<br><br> A minimum of 10 observations per by-group is recommended; outlier detection results for by-groups less then 10 observations should be used with caution.</p></td>
+</tr>
+<tr class="row-odd"><td><p>side</p></td>
+<td><p>str</p></td>
+<td><p>Side (‘LEFT’, ‘RIGHT’, or ‘BOTH’) of the ordered data to be used for detecting outliers. Default=’BOTH’.</p></td>
+</tr>
+<tr class="row-even"><td><p>start_centile</p></td>
+<td><p>float</p></td>
+<td><p>SG centile to be used to determine the starting point (between 0 and 100). Default=75 for ‘side=”BOTH”’, 0 otherwise. <br><br> The centile must be greater than or equal to 0 and less than 100 when <code class="docutils literal notranslate"><span class="pre">side='LEFT'</span></code> or <code class="docutils literal notranslate"><span class="pre">side='RIGHT'</span></code>. The centile must be greater than or equal to 50 and less than 100 when <code class="docutils literal notranslate"><span class="pre">side='BOTH'</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>beta_i</p></td>
+<td><p>float</p></td>
+<td><p>SG multiplier for imputation interval (non-negative).<br><br> 0&lt;<code class="docutils literal notranslate"><span class="pre">beta_e</span></code>&lt;<code class="docutils literal notranslate"><span class="pre">beta_i</span></code>. <code class="docutils literal notranslate"><span class="pre">beta_i</span></code> becomes mandatory for SG if <code class="docutils literal notranslate"><span class="pre">beta_e</span></code> is not specified.</p></td>
+</tr>
+<tr class="row-even"><td><p>beta_e</p></td>
+<td><p>float</p></td>
+<td><p>SG multiplier for exclusion interval (non-negative).<br><br> 0&lt;<code class="docutils literal notranslate"><span class="pre">beta_e</span></code>&lt;<code class="docutils literal notranslate"><span class="pre">beta_i</span></code>. <code class="docutils literal notranslate"><span class="pre">beta_e</span></code> becomes mandatory for SG if <code class="docutils literal notranslate"><span class="pre">beta_i</span></code> is not specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigma</p></td>
+<td><p>str</p></td>
+<td><p>SG type of deviation (‘MAD’ or ‘STD’) to be calculated. Default=’MAD’.<br><br> MAD: median absolute value; STD: classical standard deviation.</p></td>
+</tr>
+<tr class="row-even"><td><p>outlier_stats</p></td>
+<td><p>bool</p></td>
+<td><p>Add more information to outstatus_detailed output table, including imputation and exclusion interval bounds. Default=False.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accept_zero</p></td>
+<td><p>bool</p></td>
+<td><p>Treat zero values as valid. Default=False in the presence of historical or auxiliary variables, True otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p>acceptnegative</p></td>
+<td><p>bool</p></td>
+<td><p>Treat negative values as valid. Default=False. <br><br> By default, a positivity edit is added for every variable in the list of edits; this parameter permits users to remove this restriction. If required, users may directly add positivity edits for individual variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>by</p></td>
+<td><p>str</p></td>
+<td><p>Variable(s) used to partition indata into by-groups for independent processing. <br><br> Outlier detection is performed on each by-group separately. <br><br> Example: <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;province</span> <span class="pre">industry&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>presort</p></td>
+<td><p>bool</p></td>
+<td><p>Sorts input tables before processing, according to procedure requirements. Default=True.</p></td>
+</tr>
+<tr class="row-odd"><td><p>no_by_stats</p></td>
+<td><p>bool</p></td>
+<td><p>Reduces log output by suppressing by-group specific messages. Default=False.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<section id="imputation-and-exclusion-thresholds">
+<h3>Imputation and exclusion thresholds<a class="headerlink" href="#imputation-and-exclusion-thresholds" title="Link to this heading">#</a></h3>
+<p>The identification of outliers, either for imputation or exclusion, requires user-specified thresholds. There are no default or suggested values; these depend entirely on the user’s criteria for what is considered extreme. At least one threshold must be specified for each method: <code class="docutils literal notranslate"><span class="pre">mii</span></code> or <code class="docutils literal notranslate"><span class="pre">mei</span></code> for the HB method, and <code class="docutils literal notranslate"><span class="pre">beta_i</span></code> or <code class="docutils literal notranslate"><span class="pre">beta_e</span></code> for the SG method.</p>
+</section>
+<section id="specifying-outlier-detection-methods">
+<h3>Specifying outlier detection methods<a class="headerlink" href="#specifying-outlier-detection-methods" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">outlier</span></code> method offers a variety of ways to specify outlier detection for both single variables and ratios, with and without historical data. These depend on the combination of the <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, and <code class="docutils literal notranslate"><span class="pre">with_var</span></code> parameters, and whether or not <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> is provided:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>To do this:</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">method</span></code> parameter</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">with_var</span></code> parameter</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> provided</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Apply HB method to current data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;CURRENT&quot;</span></code></p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Apply HB method to ratio of current data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;RATIO&quot;</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Apply HB method to historical trend</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;HISTORICAL&quot;</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Apply SG method to current data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;SIGMAGAP&quot;</span></code></p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Apply SG method to ratio of current data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;SIGMAGAP&quot;</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Apply SG method to historical trend</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;SIGMAGAP&quot;</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The outlier detection method is always applied to the variables listed in <code class="docutils literal notranslate"><span class="pre">var</span></code>. (If not specified, outlier detection will be applied to all numerical variables on <code class="docutils literal notranslate"><span class="pre">indata</span></code> except those that are listed in the <code class="docutils literal notranslate"><span class="pre">by</span></code> parameter.) To apply outlier detection to a ratio of variables, specify the list of numerators by <code class="docutils literal notranslate"><span class="pre">var</span></code> and denominators by <code class="docutils literal notranslate"><span class="pre">with_var</span></code>; the procedure will run through the ordered pairs one-by-one. (Note that it is possible to list the same variables multiple times in both the <code class="docutils literal notranslate"><span class="pre">var</span></code> and <code class="docutils literal notranslate"><span class="pre">with_var</span></code> lists.)</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> is provided, the procedure will use current data (from <code class="docutils literal notranslate"><span class="pre">indata</span></code>) in the numerator and historical data (from <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code>) in the denominator. If <code class="docutils literal notranslate"><span class="pre">with_var</span></code> is not specified, the procedure will use the same variable in both the numerator and denominator.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-output-tables">Input and output tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imputation-and-exclusion-thresholds">Imputation and exclusion thresholds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-outlier-detection-methods">Specifying outlier detection methods</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/EN/Procedure Guides/outlier.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

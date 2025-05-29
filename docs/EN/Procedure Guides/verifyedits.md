@@ -21,7 +21,7 @@ The `verifyedits` procedure does not analyze statistical data or perform any SDE
 
 Together, the outputs of `verifyedits` may give the user a better sense of the feasible region defined by the original edits, before using them in other procedures. Even if the original edits are consistent, the outputs may reveal unexpected or unintended constraints that can be addressed by adding, removing, or altering the edits. Using the minimal set of edits can also increase performance in other procedures.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 

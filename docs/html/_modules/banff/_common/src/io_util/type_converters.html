@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>banff._common.src.io_util.type_converters &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/banff/_common/src/io_util/type_converters';</script>
+    <link rel="index" title="Index" href="../../../../../genindex" />
+    <link rel="search" title="Search" href="../../../../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../index" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../../../banff" class="nav-link">banff</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff._common.src.io_util.type_converters</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for banff._common.src.io_util.type_converters</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;type_converters module: convert between supported data formats.</span>
+
+<span class="sd">This module implements functions for converting between the data formats supported by the</span>
+<span class="sd">`.io_util` sub-package (see its `__init__.py` docstring for a summary).</span>
+<span class="sd">These low level functions generally wrap a single line which calls on a 3rd party package</span>
+<span class="sd">to perform the work.</span>
+<span class="sd">This module intends to always use options to maximize floating point accuracy and balance</span>
+<span class="sd">conversion time with output size, etc.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># 3rd party libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntEnum</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">nanoarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">na</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow.csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow.feather</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow.parquet</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TypeConverterError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..io_util.processing</span><span class="w"> </span><span class="kn">import</span> <span class="n">handle_pandas_string_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..nls</span><span class="w"> </span><span class="kn">import</span> <span class="n">_</span>
+
+<span class="c1"># Options</span>
+<span class="n">feather_mmap_mode</span> <span class="o">=</span> <span class="n">IntEnum</span><span class="p">(</span>
+    <span class="s2">&quot;feather_mmap_mode&quot;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s2">&quot;pa_ipc_mmap&quot;</span><span class="p">,</span>  <span class="c1"># memory map with `ipc` method</span>
+        <span class="s2">&quot;pa_feather_mmap&quot;</span><span class="p">,</span>  <span class="c1"># memory map with `feather.read_table` method</span>
+        <span class="s2">&quot;pa_feather_nommap&quot;</span><span class="p">,</span>  <span class="c1"># no memory map with `feather.read_table` method</span>
+<span class="p">])</span>
+<span class="n">OPT_feather_mmap_mode_default</span> <span class="o">=</span> <span class="n">feather_mmap_mode</span><span class="o">.</span><span class="n">pa_ipc_mmap</span>
+<span class="n">OPT_feather_mmap_mode</span> <span class="o">=</span> <span class="n">OPT_feather_mmap_mode_default</span>
+
+<span class="n">OPT_parquet_use_mmap_default</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">OPT_parquet_use_mmap</span><span class="o">=</span><span class="n">OPT_parquet_use_mmap_default</span>
+
+<span class="c1"># For analyzing Dataset Specifications</span>
+<span class="c1">#   Users may specify in/output datasets as file paths, these lists match</span>
+<span class="c1">#   file extensions with file types (and therefore functions, via `io_util.py`</span>
+<span class="c1">#   For output datasets, &quot;output to object&quot; by specifying the object&#39;s &quot;identifier&quot;</span>
+<span class="c1"># lists of supported file extensions</span>
+<span class="n">file_ext_parquet</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.parquet&quot;</span><span class="p">,</span> <span class="s2">&quot;.parq&quot;</span><span class="p">]</span>
+<span class="n">file_ext_sas</span>     <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.sas7bdat&quot;</span><span class="p">]</span>
+<span class="n">file_ext_csv</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.csv&quot;</span><span class="p">]</span>
+<span class="n">file_ext_feather</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.feather&quot;</span><span class="p">]</span>
+<span class="c1"># list of supported object type &quot;identifiers&quot;</span>
+<span class="c1">#   Should match documentation&#39;s &quot;Table of Supported Objects&quot;</span>
+<span class="n">obj_id_pandas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pandas&quot;</span><span class="p">,</span> <span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="s2">&quot;pandas dataframe&quot;</span><span class="p">]</span>
+<span class="n">obj_id_pyarrow</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">,</span> <span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="s2">&quot;pyarrow table&quot;</span><span class="p">]</span>
+
+<span class="n">supported_output_obj_id</span> <span class="o">=</span> <span class="n">obj_id_pandas</span> <span class="o">+</span> <span class="n">obj_id_pyarrow</span>
+
+<span class="n">jansson_input_encoding</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span>
+<span class="n">jansson_output_encoding</span> <span class="o">=</span> <span class="n">jansson_input_encoding</span>
+
+<span class="c1"># type mapping string data: arrow -&gt; pandas</span>
+<span class="c1">#   Control resulting column types when converting an arrow table to a pandas dataframe.</span>
+<span class="c1">#   Use this dict&#39;s `.get` method as a `types_mapper` in `pa.Table.to_pandas(types_mapper=)`.</span>
+<span class="c1">#   Uses `pd.StringDtype()` so we get the pandas recommended type.</span>
+<span class="c1">#</span>
+<span class="c1">#   pandas recommends `pd.StringDtype()` for text data:</span>
+<span class="c1">#    - https://pandas.pydata.org/pandas-docs/version/2.2/user_guide/text.html</span>
+<span class="c1">#    - default `storage_type` depends on `pd.options.mode.string_storage`</span>
+<span class="c1">#    - for instance: when using `storage=&quot;pyarrow&quot;` result depends on pandas version</span>
+<span class="c1">#        - `pandas&lt;=2.2.0`: `pa.string()`</span>
+<span class="c1">#        - `pandas&gt;=2.2.0`: `pa.large_string()`</span>
+<span class="c1">#</span>
+<span class="c1">#   to force pandas to use a specific pyarrow type:</span>
+<span class="c1">#    - `pd.ArrowDtype(pa.large_string())`</span>
+<span class="c1">#    - `pd.ArrowDtype(pa.string())`</span>
+<span class="n">type_mapping_arrow_pandas_string</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">():</span>            <span class="n">pd</span><span class="o">.</span><span class="n">StringDtype</span><span class="p">(</span><span class="n">storage</span><span class="o">=</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">),</span>
+    <span class="n">pa</span><span class="o">.</span><span class="n">large_string</span><span class="p">():</span>      <span class="n">pd</span><span class="o">.</span><span class="n">StringDtype</span><span class="p">(</span><span class="n">storage</span><span class="o">=</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1"># default output is a supported object identifier</span>
+<span class="n">default_output_specification</span> <span class="o">=</span> <span class="n">obj_id_pyarrow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<div class="viewcode-block" id="get_default_output_spec">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.get_default_output_spec">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_default_output_spec</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return current default output dataset specification.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">default_output_specification</span></div>
+
+
+<div class="viewcode-block" id="set_default_output_spec">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.set_default_output_spec">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_default_output_spec</span><span class="p">(</span><span class="n">new_spec</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set default output output dataset specification to a supported object type identifier.&quot;&quot;&quot;</span>
+    <span class="n">validate_output_spec</span><span class="p">(</span><span class="n">new_spec</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">default_output_specification</span>
+    <span class="n">default_output_specification</span> <span class="o">=</span> <span class="n">new_spec</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_output_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate that output specification is supported.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">spec</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">supported_output_obj_id</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Specification &#39;</span><span class="si">{}</span><span class="s2">&#39; not supported, must use one of &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">supported_output_obj_id</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_from_csv_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load CSV file into Pandas DataFrame.&quot;&quot;&quot;</span>
+    <span class="c1"># python engine looks safest, and `float_precision` only applies with `engine=&#39;c&#39;`, right?`</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">handle_pandas_string_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while loading </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;CSV&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_from_parquet_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load Apache Parquet file into Pandas DataFrame.&quot;&quot;&quot;</span>
+    <span class="c1"># `pyarrow` best ensures floating point accuracy</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while loading </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Parquet&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<div class="viewcode-block" id="DF_from_sas_file">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.DF_from_sas_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_from_sas_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load SAS dataset file into Pandas DataFrame.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># `encoding=&#39;infer&#39;`: SAS datasets specify their encoding, pandas uses it</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sas</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;infer&quot;</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">handle_pandas_string_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while loading </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;SAS dataset&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_to_PAT</span><span class="p">(</span><span class="n">pd_dataframe</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert Pandas DataFrame to PyArrow Table.</span>
+
+<span class="sd">    `preserve_index=False`</span>
+<span class="sd">      - do not include the pandas &quot;index&quot; as an additional column in the pyarrow table</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pa_t</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">pd_dataframe</span><span class="p">,</span>
+            <span class="n">preserve_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># CONTEXT: ...converting &lt;object format&gt; to &lt;another object format&gt;</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while converting `</span><span class="si">{}</span><span class="s2">` to `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">,</span> <span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pa_t</span>
+<span class="c1"># alias</span>
+<span class="n">DF_to_arrow_table</span> <span class="o">=</span> <span class="n">DF_to_PAT</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_to_arrow_stream</span><span class="p">(</span><span class="n">pd_dataframe</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert Pandas DataFrame to PyArrow Stream.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="n">PAT_to_arrow_stream</span><span class="p">(</span><span class="n">DF_to_PAT</span><span class="p">(</span><span class="n">pd_dataframe</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while converting `</span><span class="si">{}</span><span class="s2">` to `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">,</span> <span class="s2">&quot;CArrayStream&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">stream</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_to_csv_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write Pandas DataFrame to CSV file.&quot;&quot;&quot;</span>
+    <span class="c1"># explicit (default) overwrite existing file with `mode=&#39;w&#39;`</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+            <span class="n">path_or_buf</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+            <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">rc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;pandas reports failure to write to file&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>  <span class="c1"># noqa: TRY301  #  This seems fine to me</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while writing `</span><span class="si">{}</span><span class="s2">` to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">,</span> <span class="s2">&quot;CSV&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_to_feather_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write Pandas DataFrame to Feather file.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">to_feather</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">destination</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while writing `</span><span class="si">{}</span><span class="s2">` to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">,</span> <span class="s2">&quot;Feather&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">DF_to_parquet_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write Pandas DataFrame to Parquet file.&quot;&quot;&quot;</span>
+    <span class="c1"># `pyarrow` best ensures floating point accuracy, we don&#39;t use index</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;pandas reports failure to write to file&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>  <span class="c1"># noqa: TRY301  #  This seems fine to me</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while writing `</span><span class="si">{}</span><span class="s2">` to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">,</span> <span class="s2">&quot;Parquet&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dict_to_json</span><span class="p">(</span><span class="n">some_dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert key-value dictionary to JSON `str`.&quot;&quot;&quot;</span>
+    <span class="c1"># this function used to convert dictionary of user C-code parameters to JSON</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">some_dict</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while converting `</span><span class="si">{}</span><span class="s2">` to `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;dict&quot;</span><span class="p">,</span> <span class="s2">&quot;JSON&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_from_parquet_file</span><span class="p">(</span>
+        <span class="n">file_path</span><span class="p">,</span>
+        <span class="n">memory_map</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load parquet file into PyArrow Table (PAT).</span>
+
+<span class="sd">    `memory_map`:   Whether or not to use a memory map.</span>
+<span class="sd">                    Can be `True` or `False`.</span>
+<span class="sd">                    If unspecified, uses global `OPT_parquet_use_mmap`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">memory_map</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># if unspecified, use global option</span>
+        <span class="n">memory_map</span> <span class="o">=</span> <span class="n">OPT_parquet_use_mmap</span>
+        <span class="k">if</span> <span class="n">memory_map</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>  <span class="c1"># if global option invalid, use default</span>
+            <span class="n">memory_map</span> <span class="o">=</span> <span class="n">OPT_parquet_use_mmap_default</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pa_t</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">parquet</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span>
+            <span class="n">memory_map</span><span class="o">=</span><span class="n">memory_map</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while loading </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Parquet&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pa_t</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_from_csv_file</span><span class="p">(</span>
+        <span class="n">file_path</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load a CSV file into a pyarrow Table.</span>
+
+<span class="sd">    Uses default pyarrow settings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pa_t</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">csv</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file</span><span class="o">=</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while loading </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;CSV&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pa_t</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_from_feather_file</span><span class="p">(</span>
+        <span class="n">file_path</span><span class="p">,</span>
+        <span class="n">memory_map</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">feather_mmap_mode</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load feather file into PyArrow Table (PAT).</span>
+
+<span class="sd">    `memory_map`:   What memory map option to use.</span>
+<span class="sd">                    Can be `True`, `False`, or a member of `feather_mmap_mode`.</span>
+<span class="sd">                    If unspecified, uses global `OPT_feather_mmap_mode`.</span>
+
+<span class="sd">    NOTE: memory map modes</span>
+<span class="sd">        uncertain whether the `pa.memory_map()` with `pa.ipc.open_file(...).read_all()` method</span>
+<span class="sd">        ends up using RAM or not, compared to `pa.feather.read_table(..., memory_map=True)`</span>
+<span class="sd">        see https://arrow.apache.org/cookbook/py/io.html#memory-mapping-arrow-arrays-from-disk</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">memory_map</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># if True, use ipc mmap</span>
+        <span class="n">memory_map</span> <span class="o">=</span> <span class="n">feather_mmap_mode</span><span class="o">.</span><span class="n">pa_ipc_mmap</span>
+    <span class="k">elif</span> <span class="n">memory_map</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>  <span class="c1"># if Fasle, no memory map</span>
+        <span class="n">memory_map</span> <span class="o">=</span> <span class="n">feather_mmap_mode</span><span class="o">.</span><span class="n">pa_feather_nommap</span>
+    <span class="k">elif</span> <span class="n">memory_map</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># if unspecified, use global option</span>
+        <span class="n">memory_map</span> <span class="o">=</span> <span class="n">OPT_feather_mmap_mode</span>
+        <span class="k">if</span> <span class="n">memory_map</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">feather_mmap_mode</span><span class="p">:</span>  <span class="c1"># if global option invalid, use default</span>
+            <span class="n">memory_map</span> <span class="o">=</span> <span class="n">OPT_feather_mmap_mode_default</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">match</span> <span class="n">memory_map</span><span class="p">:</span>
+            <span class="k">case</span> <span class="n">feather_mmap_mode</span><span class="o">.</span><span class="n">pa_ipc_mmap</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">pa</span><span class="o">.</span><span class="n">memory_map</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+                    <span class="n">pa_t</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">ipc</span><span class="o">.</span><span class="n">open_file</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">read_all</span><span class="p">()</span>
+            <span class="k">case</span> <span class="n">feather_mmap_mode</span><span class="o">.</span><span class="n">pa_feather_mmap</span><span class="p">:</span>
+                <span class="n">pa_t</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">feather</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span>
+                    <span class="n">source</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span>
+                    <span class="n">memory_map</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">case</span> <span class="n">feather_mmap_mode</span><span class="o">.</span><span class="n">pa_feather_nommap</span><span class="p">:</span>
+                <span class="n">pa_t</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">feather</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span>
+                    <span class="n">source</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span>
+                    <span class="n">memory_map</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while loading </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Feather&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pa_t</span>
+
+<div class="viewcode-block" id="PAT_from_sas_file">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.PAT_from_sas_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_from_sas_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load SAS dataset file into pyarrow Table.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">DF_to_PAT</span><span class="p">(</span>
+        <span class="n">DF_from_sas_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">file_path</span><span class="p">),</span>
+    <span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_to_arrow_stream</span><span class="p">(</span><span class="n">pa_t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert PyArrow Table to PyArrow Stream.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">na</span><span class="o">.</span><span class="n">c_array_stream</span><span class="p">(</span><span class="n">pa_t</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while converting `</span><span class="si">{}</span><span class="s2">` to `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">,</span> <span class="s2">&quot;CArrayStream&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_to_DF</span><span class="p">(</span><span class="n">pa_t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert PyArrow Table to Pandas DataFrame.</span>
+
+<span class="sd">    pyarrow option `split_blocks=True` recommended for minimizing memory usage.</span>
+<span class="sd">      see https://arrow.apache.org/docs/python/pandas.html#reducing-memory-use-in-table-to-pandas</span>
+<span class="sd">    Uses `types_mapper` to ensure pandas uses `string`, not `object` for string data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pa_t</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">(</span>
+            <span class="n">split_blocks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">types_mapper</span><span class="o">=</span><span class="n">type_mapping_arrow_pandas_string</span><span class="o">.</span><span class="n">get</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while converting `</span><span class="si">{}</span><span class="s2">` to `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">,</span> <span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_to_csv_file</span><span class="p">(</span>
+        <span class="n">dataset</span><span class="p">,</span>
+        <span class="n">destination</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write pyarrow Table to CSV file.</span>
+
+<span class="sd">    Uses default pyarrow settings</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pyarrow</span><span class="o">.</span><span class="n">csv</span><span class="o">.</span><span class="n">write_csv</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+            <span class="n">output_file</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while writing `</span><span class="si">{}</span><span class="s2">` to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">,</span> <span class="s2">&quot;CSV&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_to_feather_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write PyArrow Table to feather file.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pyarrow</span><span class="o">.</span><span class="n">feather</span><span class="o">.</span><span class="n">write_feather</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+            <span class="n">dest</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while writing `</span><span class="si">{}</span><span class="s2">` to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">,</span> <span class="s2">&quot;Feather&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PAT_to_parquet_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write PyArrow Table to parquet file.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pyarrow</span><span class="o">.</span><span class="n">parquet</span><span class="o">.</span><span class="n">write_table</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">destination</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Unexpected error occurred while writing `</span><span class="si">{}</span><span class="s2">` to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">,</span> <span class="s2">&quot;Parquet&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TypeConverterError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<div class="viewcode-block" id="SAS_file_to_feather_file">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.SAS_file_to_feather_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">SAS_file_to_feather_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read SAS file and write to feather file.&quot;&quot;&quot;</span>
+    <span class="n">pa_t</span> <span class="o">=</span> <span class="n">DF_to_PAT</span><span class="p">(</span>
+        <span class="n">DF_from_sas_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">PAT_to_feather_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">pa_t</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SAS_file_to_parquet_file">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.SAS_file_to_parquet_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">SAS_file_to_parquet_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read SAS file and write to parquet file.&quot;&quot;&quot;</span>
+    <span class="n">pa_t</span> <span class="o">=</span> <span class="n">DF_to_PAT</span><span class="p">(</span>
+        <span class="n">DF_from_sas_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">PAT_to_parquet_file</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">pa_t</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

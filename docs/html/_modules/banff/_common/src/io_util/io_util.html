@@ -1,0 +1,1144 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>banff._common.src.io_util.io_util &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/banff/_common/src/io_util/io_util';</script>
+    <link rel="index" title="Index" href="../../../../../genindex" />
+    <link rel="search" title="Search" href="../../../../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../index" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../../../banff" class="nav-link">banff</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff._common.src.io_util.io_util</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for banff._common.src.io_util.io_util</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;io_util module: generic dataset input, output, and conversion.</span>
+
+<span class="sd">This module implements a set of functions for reading files, converting between data formats, and writing files.</span>
+<span class="sd">Three sets of supported formats exist:</span>
+<span class="sd">  - input</span>
+<span class="sd">  - intermediate</span>
+<span class="sd">  - output</span>
+
+<span class="sd">This library implements the logic for automatically determining which of the supported formats the file is in</span>
+<span class="sd">and which function to use to convert it to the specified output format.</span>
+<span class="sd">It abstracts the low-level functions which perform these actions (see `type_converters` module)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ctypes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ABC</span><span class="p">,</span>
+    <span class="n">abstractmethod</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nanoarrow.c_array</span><span class="w"> </span><span class="kn">import</span> <span class="n">allocate_c_array</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nanoarrow.c_schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">allocate_c_schema</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">_log</span> <span class="k">as</span> <span class="n">lg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..io_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">type_converters</span> <span class="k">as</span> <span class="n">tc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..nls</span><span class="w"> </span><span class="kn">import</span> <span class="n">_</span>
+
+<span class="n">jansson_input_encoding</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span>
+<span class="n">jansson_output_encoding</span> <span class="o">=</span> <span class="n">jansson_input_encoding</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StcTable</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract Base Class for table wrapper classes.</span>
+
+<span class="sd">    All input and output tables share the following attributes</span>
+
+<span class="sd">    - `name`: string naming the table</span>
+<span class="sd">    - `user_spec`: for storeing what the user originally specified</span>
+<span class="sd">    - `mandatory`: boolean identifying if dataset is mandatory or not</span>
+<span class="sd">    - `ds_intermediate`: holds the dataset when loaded into an &quot;intermediate&quot; format</span>
+
+<span class="sd">    The following properties inspect the user specified value</span>
+
+<span class="sd">    - `is_specified`: boolean value indicating if `user_spec` value indicates a user having specified a table</span>
+<span class="sd">    - `not_specified`: the opposite of `is_specified`</span>
+
+<span class="sd">    The remaining properties and method require the `ds_intermediate` attribute to be populated with</span>
+<span class="sd">    a table in either of the the `pandas.DataFrame` or `pyarrow.Table` format.</span>
+
+<span class="sd">    - `num_rows`: number of rows in table</span>
+<span class="sd">    - `num_columns`: number of columns in the table</span>
+<span class="sd">    - `get_ds_info()`: returns a string describing various metadata about the table</span>
+<span class="sd">    - `log_metadata()`: given a logger, log select metadata at the info and debug levels</span>
+<span class="sd">    - `to_arrow()`: get table in `pyarrow.Table` format</span>
+<span class="sd">    - `to_pandas()`: get table in `pandas.DataFrame` format</span>
+
+
+<span class="sd">    Subclasses must</span>
+
+<span class="sd">    - store values in attributes as needed</span>
+<span class="sd">    - and then call the superclass constructor</span>
+<span class="sd">    - implement the `validate_user_spec()` method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">,</span>
+            <span class="n">user_spec</span><span class="p">,</span>
+            <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_spec</span> <span class="o">=</span> <span class="n">user_spec</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mandatory</span><span class="o">=</span><span class="n">mandatory</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate_user_spec</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_specified</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Whether or not a table is considered specified by the user.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">not_specified</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Whether or not a table is considered &quot;not specified&quot;.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_specified</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">num_rows</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the number of rows in the `ds_intermediate` object or `None` if that object is `None` or invalid.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="o">.</span><span class="n">num_rows</span>
+
+        <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># is `None` or is invalid, return `None`</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">num_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the number of columns in the `ds_intermediate` object or `None` if that object is `None` or invalid.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="o">.</span><span class="n">num_columns</span>
+
+        <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># is `None` or is invalid, return `None`</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ds_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return string with info about intermediate dataset.</span>
+
+<span class="sd">        When `.ds_intermediate` is not None, generate a string containing:</span>
+<span class="sd">            - number of rows</span>
+<span class="sd">            - number of columns</span>
+<span class="sd">            - names and types of each column</span>
+<span class="sd">            - space used (not necessarily RAM used)</span>
+<span class="sd">        Otherwise, return an empty string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">temp_buff</span><span class="o">=</span><span class="n">StringIO</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">temp_buff</span><span class="p">,</span> <span class="n">memory_usage</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">out_str</span> <span class="o">=</span> <span class="n">temp_buff</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="n">out_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">show_schema_metadata</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">out_str</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">out_str</span> <span class="o">+=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Bytes used: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">out_str</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Print various intermediate dataset metadata to log.</span>
+
+<span class="sd">        Does nothing if intermediate dataset is `None`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Dataset &#39;</span><span class="si">{}</span><span class="s2">&#39; has </span><span class="si">{}</span><span class="s2"> rows and </span><span class="si">{}</span><span class="s2"> columns&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_rows</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_columns</span><span class="p">))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Dataset &#39;</span><span class="si">{}</span><span class="s2">&#39; has the following metadata</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ds_info</span><span class="p">()))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_arrow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return intermediate dataset in arrow format, converting if necessary.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span> <span class="o">=</span> <span class="n">interm_to_PAT</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_pandas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return intermediate dataset in pandas format, converting if necessary.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span> <span class="o">=</span> <span class="n">interm_to_DF</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_intermediate</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_user_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the user specification.&quot;&quot;&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">StcInputTable</span><span class="p">(</span><span class="n">StcTable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper for input tables.</span>
+
+<span class="sd">    This class extends on the `StcTable` class only by implementing a validation method</span>
+<span class="sd">    that ensures mandatory datasets are specified.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">,</span>
+            <span class="n">user_spec</span><span class="p">,</span>
+            <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">user_spec</span><span class="o">=</span><span class="n">user_spec</span><span class="p">,</span>
+            <span class="n">mandatory</span><span class="o">=</span><span class="n">mandatory</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_user_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the user specification.&quot;&quot;&quot;</span>
+        <span class="c1"># disallow specifying None for mandatory input datasets</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mandatory</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">not_specified</span><span class="p">:</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Mandatory dataset &#39;</span><span class="si">{}</span><span class="s2">&#39; must be specified&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">StcOutputTable</span><span class="p">(</span><span class="n">StcTable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper for output tables.</span>
+
+<span class="sd">    This class extends on the `StcTable` class by implementing the `validate_user_spec()` method</span>
+<span class="sd">    and adding the following attributes</span>
+
+<span class="sd">    - `user_output`: a place to store output datasets in the formated requested in `user_spec`</span>
+<span class="sd">    - `requested_by_default`: whether a dataset should be generated even when it is not mandatory and is `not_specified`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">,</span>
+            <span class="n">user_spec</span><span class="p">,</span>
+            <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">requested_by_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_output</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requested_by_default</span> <span class="o">=</span> <span class="n">requested_by_default</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">user_spec</span><span class="o">=</span><span class="n">user_spec</span><span class="p">,</span>
+            <span class="n">mandatory</span><span class="o">=</span><span class="n">mandatory</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_requested</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Whether the output dataset is requested to be generated by C code.</span>
+
+<span class="sd">        If mandatory it is always considered to be requested.</span>
+<span class="sd">        Otherwise, this is determined by the value of `user_spec`</span>
+<span class="sd">          - `None` means *use default* (default is stored in `requested_by_default`)</span>
+<span class="sd">          - `False` means it is not requested</span>
+<span class="sd">          - any other value is means it is requested</span>
+<span class="sd">            - for example: `True`, `&quot;pyarrow table&quot;`, `&quot;out.parquet&quot;`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mandatory</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">not_specified</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">requested_by_default</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_user_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the user specification.&quot;&quot;&quot;</span>
+        <span class="c1"># disallow specifying False for mandatory output datasets</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mandatory</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_spec</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Specifying `False` not allowed for mandatory dataset &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GensysInputDataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysInputDataset">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GensysInputDataset</span><span class="p">(</span><span class="n">StcInputTable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper for procedure input datasets.</span>
+
+<span class="sd">    Please also read super-class (`StcTable`) documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">input_dataset</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_input</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_arg</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">user_spec</span><span class="o">=</span><span class="n">input_dataset</span><span class="p">,</span>
+            <span class="n">mandatory</span><span class="o">=</span><span class="n">mandatory</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="GensysInputDataset.init_c_args">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysInputDataset.init_c_args">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_c_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Low-level preparation of C input dataset arguments.</span>
+
+<span class="sd">        Given the packed input dataset, cast it to a datatype suitable for C to consume.</span>
+
+<span class="sd">        For Apache Arrow &quot;C Array Stream&quot;, we&#39;re creating a pointer to the nanoarrow created</span>
+<span class="sd">        structure and passing that as a typeless &quot;void pointer&quot;, instead of implementing some complex logic</span>
+<span class="sd">        for passing the structure directly.</span>
+<span class="sd">        If the dataset is `None`, send a &quot;null pointer&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_input</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_arg</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># `None` seems equivalent to `ctypes.cast(0, ctypes.c_void_p)`</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># it&#39;s a `nanoarrow.c_lib.CArrayStream`</span>
+            <span class="c1"># nanoarrow uses `_addr()` in public examples, doesn&#39;t discourage use</span>
+            <span class="c1"># See https://arrow.apache.org/nanoarrow/0.5.0/reference/python/advanced.html</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_arg</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">c_input</span><span class="o">.</span><span class="n">_addr</span><span class="p">(),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span>  <span class="c1"># noqa: SLF001</span></div>
+
+
+<div class="viewcode-block" id="GensysInputDataset.free_c_args">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysInputDataset.free_c_args">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">free_c_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_arg</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_input</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="GensysInputDataset.validate_user_spec">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysInputDataset.validate_user_spec">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_user_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the user specification.&quot;&quot;&quot;</span></div>
+</div>
+
+        <span class="c1"># currently handled by C code, ignore superclass implementations</span>
+
+<div class="viewcode-block" id="GensysOutputDataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysOutputDataset">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GensysOutputDataset</span><span class="p">(</span><span class="n">StcOutputTable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper for procedure output datasets.</span>
+
+<span class="sd">    INTENDED USE:</span>
+<span class="sd">        - `user_output` will be populated based on `user_spec` with either</span>
+<span class="sd">            - the requested object format of `ds_intermediate`</span>
+<span class="sd">            - the path which `ds_intermediate` was written to</span>
+
+<span class="sd">    MEMBERS:</span>
+<span class="sd">        `c_output` - C code generated output dataset</span>
+<span class="sd">        `requested_by_default` - whether or not to produce, when unspecified by user</span>
+<span class="sd">        `user_output` - output dataset in user requested format (or user_spec when written to file)</span>
+
+<span class="sd">    Please also read super-class (`StcTable`) documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">output_specification</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">requested_by_default</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_schema</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_array</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_output</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">user_spec</span><span class="o">=</span><span class="n">output_specification</span><span class="p">,</span>
+            <span class="n">mandatory</span><span class="o">=</span><span class="n">mandatory</span><span class="p">,</span>
+            <span class="n">requested_by_default</span><span class="o">=</span><span class="n">requested_by_default</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="GensysOutputDataset.init_c_args">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysOutputDataset.init_c_args">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_c_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Low-level preparation of C output dataset arguments.</span>
+
+<span class="sd">        Some output datasets are optional.</span>
+<span class="sd">        If a dataset is not requested, C-code must receive `NULL` (C).</span>
+<span class="sd">        Accomplish this by passing `None` (Python).</span>
+<span class="sd">        Otherwise, Python passes a string pointer (`ctypes.c_char_p()`) to</span>
+<span class="sd">         C code &quot;by reference&quot; (`ctypes.byref()`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_requested</span><span class="p">:</span>
+            <span class="c1"># allocate schema and array, to be populated by C code</span>
+            <span class="c1"># associate schema with array during array creation</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">allocate_c_schema</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">allocate_c_array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+
+            <span class="c1"># prepare ctypes parameters</span>
+            <span class="c1">#   nanoarrow uses `_addr()` in public examples, doesn&#39;t discourage use</span>
+            <span class="c1">#   See https://arrow.apache.org/nanoarrow/0.5.0/reference/python/advanced.html</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_schema</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">_addr</span><span class="p">(),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span>  <span class="c1"># noqa: SLF001</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_array</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">_addr</span><span class="p">(),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span>  <span class="c1"># noqa: SLF001</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_schema</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_array</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="GensysOutputDataset.extract_c_output">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysOutputDataset.extract_c_output">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">extract_c_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_requested</span><span class="p">:</span>
+            <span class="c1"># array holds reference to schema, so only save array</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span>
+            <span class="c1"># ALTERNATIVELY: use `_import_from_c()`, which marks the array and schema as released</span>
+            <span class="c1">#  unsure which method is better</span>
+            <span class="c1"># struct_array=pa.Array._import_from_c(self.array._addr(), self.schema._addr())  # noqa: SLF001, ERA001</span>
+            <span class="c1"># self.c_output = struct_array  # noqa: ERA001</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">c_output</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="GensysOutputDataset.free_c_args">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.GensysOutputDataset.free_c_args">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">free_c_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Free C output dataset arguments (NOT THEIR CONTENTS).&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_schema</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_array</span> <span class="o">=</span> <span class="kc">None</span></div>
+</div>
+
+
+<div class="viewcode-block" id="c_argtype_input_dataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.c_argtype_input_dataset">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">c_argtype_input_dataset</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the *type* of argument C code uses for input datasets.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span></div>
+
+
+<div class="viewcode-block" id="c_argtype_output_dataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.c_argtype_output_dataset">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">c_argtype_output_dataset</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the *type* of argument C code uses for output datasets.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span></div>
+
+
+<div class="viewcode-block" id="c_argtype_parameters">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.c_argtype_parameters">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">c_argtype_parameters</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the *type* of argument C code uses for parameters.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span></div>
+
+
+<div class="viewcode-block" id="c_return_type">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.c_return_type">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">c_return_type</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the *type* of value C code returns.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span></div>
+
+
+<div class="viewcode-block" id="dest_is_file">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.dest_is_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dest_is_file</span><span class="p">(</span><span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Whether or not the requested destination appears to be a file path.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="n">destination</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dest_is_object</span><span class="p">(</span><span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># CHECK: file name must include non-empty name and extension</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span>  <span class="c1"># noqa: SIM103</span>
+        <span class="s2">&quot;.&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dst</span><span class="o">.</span><span class="n">name</span>
+        <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">dst</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">dst</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="dest_is_object">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.dest_is_object">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dest_is_object</span><span class="p">(</span><span class="n">destination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Whether or not the requested destination is an object.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">destination</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">supported_output_obj_id</span>
+    <span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">interm_from_input_file</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load supported input file format into intermediate format.</span>
+
+<span class="sd">    This function takes a path to a dataset and returns that dataset in an &quot;intermediate&quot; data format.</span>
+<span class="sd">    It performs basic validation on the file path, analyzes the extension, and calls the appropriate</span>
+<span class="sd">    `io_util.type_converters` function to load the file into memory in an intermediate format.</span>
+<span class="sd">    For unsupported file types, a `TypeError` is raised.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log_lcl</span> <span class="o">=</span> <span class="n">lg</span><span class="o">.</span><span class="n">get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+    <span class="n">log_lcl</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Loading dataset from file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">))</span>
+
+    <span class="c1"># some validation</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;File does not exist: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;File exists: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">))</span>
+
+    <span class="c1"># get file extension and call the appropriate loader function</span>
+    <span class="n">fn_ext</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
+    <span class="k">if</span> <span class="n">fn_ext</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">file_ext_sas</span><span class="p">:</span>
+        <span class="c1"># CONTEXT: Loading &lt;file format&gt; file into &lt;object format&gt;</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Loading </span><span class="si">{}</span><span class="s2"> file into `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;SAS Dataset&quot;</span><span class="p">,</span> <span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">DF_from_sas_file</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fn_ext</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">file_ext_parquet</span><span class="p">:</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Loading </span><span class="si">{}</span><span class="s2"> file into `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Parquet&quot;</span><span class="p">,</span> <span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">PAT_from_parquet_file</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fn_ext</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">file_ext_csv</span><span class="p">:</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Loading </span><span class="si">{}</span><span class="s2"> file into `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;CSV&quot;</span><span class="p">,</span> <span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">))</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;csv files are not recommended for input due to low numeric precision and inconsistent data types&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">PAT_from_csv_file</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fn_ext</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">file_ext_feather</span><span class="p">:</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Loading </span><span class="si">{}</span><span class="s2"> file into `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Feather&quot;</span><span class="p">,</span> <span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">PAT_from_feather_file</span><span class="p">(</span><span class="n">dataset_ref</span><span class="p">)</span>
+
+    <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input file type not supported: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fn_ext</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">interm_to_arrow_stream</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Take intermediate format dataset, return Arrow stream.&quot;&quot;&quot;</span>
+    <span class="n">log_lcl</span> <span class="o">=</span> <span class="n">lg</span><span class="o">.</span><span class="n">get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+    <span class="c1"># inspect type, call appropriate `type_converters` function.</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Converting `</span><span class="si">{}</span><span class="s2">` to `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span> <span class="p">(</span><span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">,</span> <span class="s2">&quot;CArrayStream&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">DF_to_arrow_stream</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Converting `</span><span class="si">{}</span><span class="s2">` to `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span> <span class="p">(</span><span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">,</span> <span class="s2">&quot;CArrayStream&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">PAT_to_arrow_stream</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Received `None`, returning `None`&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Intermediate dataset&#39;s type not supported: `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+<div class="viewcode-block" id="interm_to_DF">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.interm_to_DF">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">interm_to_DF</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert intermediate dataset to pandas dataframe.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">dataset</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">PAT_to_DF</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Intermediate dataset&#39;s type not supported: `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">interm_to_output_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Take intermediate format dataset, write to a supported output format file .</span>
+
+<span class="sd">    This function inspects the file extension defined in `destination` and selects the appropriate</span>
+<span class="sd">    file converstion function.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      Upon successfully writing the dataset to file, the path of the written file is returned.</span>
+
+<span class="sd">    Exceptions:</span>
+<span class="sd">      If the requested output format is unsupported, a `ValueError` is raised.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log_lcl</span> <span class="o">=</span> <span class="n">lg</span><span class="o">.</span><span class="n">get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+    <span class="n">log_lcl</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Writing dataset to file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span>
+
+    <span class="c1"># get output file&#39;s extension (including the &#39;.&#39;)</span>
+    <span class="n">fn_ext</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
+
+    <span class="c1"># determin output type and write output</span>
+    <span class="k">if</span> <span class="n">fn_ext</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">file_ext_parquet</span><span class="p">:</span>  <span class="c1"># FILE_TYPE: parquet</span>
+        <span class="c1"># CONTEXT: Saving dataset to &lt;file format&gt; file: &#39;&lt;file path&gt;&#39;</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Saving dataset to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Parquet&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="n">tc</span><span class="o">.</span><span class="n">PAT_to_parquet_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">tc</span><span class="o">.</span><span class="n">DF_to_parquet_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">fn_ext</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">file_ext_feather</span><span class="p">:</span>  <span class="c1"># FILE_TYPE: feather</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Saving dataset to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Feather&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="n">tc</span><span class="o">.</span><span class="n">PAT_to_feather_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">tc</span><span class="o">.</span><span class="n">DF_to_feather_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">fn_ext</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">file_ext_csv</span><span class="p">:</span>  <span class="c1"># FILE_TYPE: CSV</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Saving dataset to </span><span class="si">{}</span><span class="s2"> file: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;CSV&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="n">tc</span><span class="o">.</span><span class="n">PAT_to_csv_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">tc</span><span class="o">.</span><span class="n">DF_to_csv_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># FILE_TYPE: UNKNOWN!!</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Output file type not supported: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fn_ext</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">destination</span>
+
+<div class="viewcode-block" id="interm_to_PAT">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.interm_to_PAT">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">interm_to_PAT</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">DF_to_PAT</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">dataset</span>
+
+    <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Intermediate dataset&#39;s type not supported: `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_input_dataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.load_input_dataset">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_input_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inspect and (if applicable) load user specified input dataset into intermediate format.</span>
+
+<span class="sd">    This function takes a user-provided input dataset object or file path and returns</span>
+<span class="sd">    that dataset in an &quot;intermediate&quot; data format.</span>
+
+<span class="sd">    The format of the user-provided input dataset determines how it is loaded.</span>
+<span class="sd">    When a file path is provided, the data is loaded with `interm_from_input_file()`.</span>
+<span class="sd">    This function will immediately return a dataset which is already in an intermediate format.</span>
+
+<span class="sd">    Exceptions:</span>
+<span class="sd">      `TypeError`         - input dataset&#39;s type is not supported: `TypeError` raised</span>
+<span class="sd">      `FileNotFoundError` - input dataset appears to be a non-existent file path</span>
+<span class="sd">      `ValueError`        - input dataset is an empty string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log_lcl</span> <span class="o">=</span> <span class="n">lg</span><span class="o">.</span><span class="n">get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)):</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input dataset type is `</span><span class="si">{}</span><span class="s2">`, returning as-is&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dataset</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">dataset</span>
+
+    <span class="c1"># dataset parameter requires some processing if it is a string or path</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>
+        <span class="c1"># create Path (`dataset_path`) from string, if needed</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input dataset is `str`, inspecting further&quot;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#empty string</span>
+                <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input dataset invalid: empty string&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+            <span class="n">dataset_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>
+            <span class="n">dataset_path</span> <span class="o">=</span> <span class="n">dataset</span>
+
+        <span class="k">if</span> <span class="n">dataset_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="c1"># Its a file, load dataset from file</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input dataset is file path: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">interm_from_input_file</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="n">log_lcl</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dataset_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="c1"># The full path doesn&#39;t resolve, but the folder exists</span>
+            <span class="c1"># definitely an error here</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input dataset file path does not exist: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+        <span class="c1"># if user specified a string that we can&#39;t process, raise an exception</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="c1"># ERROR: unrecognized input</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input Dataset is non-empty string with length: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">64</span><span class="p">:</span>  <span class="c1"># noqa: PLR2004  # 64 is an arbitrary length after which we cut the string down and display only a portion</span>
+                <span class="n">input_substr</span> <span class="o">=</span> <span class="n">dataset</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">input_substr</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">45</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; ... &quot;</span> <span class="o">+</span> <span class="n">dataset</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">-</span><span class="mi">19</span><span class="p">:]</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input dataset specification unrecognized, assuming non-existent file path: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">input_substr</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="c1"># if type unrecognized, raise an exception</span>
+    <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Input dataset type not supported: `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="pack_dataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.pack_dataset">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pack_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Format dataset for consumption by C code.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">interm_to_arrow_stream</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="pack_parms">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.pack_parms">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pack_parms</span><span class="p">(</span><span class="n">parms</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get parameters in JSON form, encode as utf-8, return it.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tc</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">parms</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">jansson_input_encoding</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="unpack_output_dataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.unpack_output_dataset">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">unpack_output_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load C generated output dataset to intermediate format.&quot;&quot;&quot;</span>
+    <span class="n">pa_t</span><span class="o">=</span><span class="n">pa</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pa_t</span></div>
+
+
+<div class="viewcode-block" id="write_output_dataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.write_output_dataset">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">write_output_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">default_format</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Output dataset (`dataset`) according to user specification (`destination`).</span>
+
+<span class="sd">    Handle converstion from intermediate-format to user specified output format.</span>
+<span class="sd">    This function looks at the type of arguent `destination` and calls the appropriate conversion function</span>
+<span class="sd">    to facilitate further destination inspection or file conversion.</span>
+<span class="sd">    Returns the dataset object in the output format, or the path to the written file.</span>
+
+<span class="sd">    `dataset`</span>
+<span class="sd">      - must be a valid dataset in one of the &quot;intermediate&quot; formats</span>
+<span class="sd">      - validation of `dataset` only occurs in the called conversion functions</span>
+
+<span class="sd">    `destination` is a user provided value which determines various output settings.</span>
+<span class="sd">      - If `None` a Pandas DataFrame is returned</span>
+<span class="sd">      - If valid path to a supported file type is provided, dataset written to file, path returned</span>
+
+<span class="sd">    `default_format` allows the caller to set a custom default output format.</span>
+
+<span class="sd">    If certain custom exceptions occur during output, an attempt will be made to return a DataFrame of</span>
+<span class="sd">    the output dataset.</span>
+<span class="sd">      - `None` -&gt; Return pandas DataFrame</span>
+<span class="sd">      - file path to supported file type</span>
+<span class="sd">        - write output to file</span>
+<span class="sd">        - return path file was written to</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log_lcl</span> <span class="o">=</span> <span class="n">lg</span><span class="o">.</span><span class="n">get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">destination</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">destination</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="n">default_format</span> <span class="k">if</span> <span class="n">default_format</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">tc</span><span class="o">.</span><span class="n">get_default_output_spec</span><span class="p">()</span>
+        <span class="c1"># default action: `None`- implicitly requested default type, `True`-explicitly requested default type</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;No destination specified, returning default format: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dest</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">write_output_dataset</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+            <span class="n">destination</span><span class="o">=</span><span class="n">dest</span><span class="p">,</span>
+            <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dest_is_object</span><span class="p">(</span><span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">):</span>
+        <span class="c1"># object identifier: Pandas DataFrame</span>
+        <span class="k">if</span> <span class="n">destination</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">obj_id_pandas</span><span class="p">:</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Output to object: `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">interm_to_DF</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">destination</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">tc</span><span class="o">.</span><span class="n">obj_id_pyarrow</span><span class="p">:</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Output to object: `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;pyarrow.Table&quot;</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">interm_to_PAT</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Requested output object type not supported: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">dest_is_file</span><span class="p">(</span><span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">):</span>
+        <span class="c1"># May be a path, lets do basic validation</span>
+        <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Validating: is destination a file path&quot;</span><span class="p">))</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+
+        <span class="c1"># CHECK: Directory must exist</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">dst</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># strict: exception if not exists</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Directory of output file does not exist: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dst</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">dst</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
+            <span class="n">dst</span> <span class="o">=</span> <span class="n">dst</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;No directory specified for output file, using current directory: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dst</span><span class="o">.</span><span class="n">parent</span><span class="p">)))</span>
+
+        <span class="c1"># Arrived here? Must be a valid file path</span>
+        <span class="k">return</span> <span class="n">interm_to_output_file</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">dst</span><span class="p">),</span> <span class="n">log_lcl</span><span class="p">)</span>
+
+    <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Requested output options unrecognized, type: `</span><span class="si">{}</span><span class="s2">`&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

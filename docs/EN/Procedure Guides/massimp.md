@@ -17,7 +17,7 @@ Unlike `donorimp`, the `massimp` procedure does not use edits. Before running th
 
 Users may create by-groups by specifying `by` variables. These by-groups act as imputation classes. Use the `min_donors` and `percent_donors` parameters to ensure an appropriate number or ratio of recipients and donors exist in each imputation class before performing imputation.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -33,7 +33,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outstatus    | Output status file identifying imputed fields with IMAS status flags, and their values after imputation. |
 | outdonormap  | Output table of recipient-donor pairs for successfully imputed records. |
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 

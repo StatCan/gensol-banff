@@ -38,6 +38,12 @@ dev = [
   "banff[test]", 
   "ruff",
 ]
+doc = [
+    "sphinx", 
+    "sphinx_rtd_theme",
+    "pydata-sphinx-theme",
+    "myst_parser",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/StatCan/gensol-banff"
