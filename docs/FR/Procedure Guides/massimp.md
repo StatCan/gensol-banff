@@ -17,7 +17,7 @@ Contrairement à donorimp, la procédure massimp n'utilise pas les règles de v�
 
 L'utilisateur peut créer des groupes de partition *by* en spécifiant des variables dans le paramètre `by`. Ces groupes *by* agissent comme des classes d'imputation. L'utilisation des paramètres `min_donors` et `percent_donors` permet de s'assurer qu'un nombre approprié ou ratio de receveurs et donneurs existe dans chaque classe d'imputation avant que l'imputation n'ait lieu.  
 
-Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](/docs/FR/Description%20des%20fonctions%20Banff.pdf).
+Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](../Description%20des%20fonctions%20Banff.pdf).
 
 ## Données d'entrée et de sortie
 
@@ -33,7 +33,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outstatus       | Données des statuts de sortie identifiant les champs imputés avec le statut IMAS et contenant leurs valeurs après imputation.   |
 | outdonormap        | Données de sortie contenant les paires receveur-donneur pour les enregistrements imputés avec succès.  |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](../output_tables.md).
 
 ## Paramètres
 

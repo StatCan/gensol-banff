@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>banff package &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=d4abd058"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'banff';</script>
+    <link rel="index" title="Index" href="genindex" />
+    <link rel="search" title="Search" href="search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="banff.diagnostics">banff.diagnostics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.exceptions">banff.exceptions package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.io_util">banff.io_util package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.nls">banff.nls package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.proc">banff.proc package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.testing">banff.testing package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="banff-package">
+<h1>banff package<a class="headerlink" href="#banff-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="banff.diagnostics">banff.diagnostics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="banff.diagnostics#module-banff.diagnostics">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.ExecTimer"><code class="docutils literal notranslate"><span class="pre">ExecTimer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.ExecTimer.print_duration"><code class="docutils literal notranslate"><span class="pre">ExecTimer.print_duration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.ExecTimer.start"><code class="docutils literal notranslate"><span class="pre">ExecTimer.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.ExecTimer.stop"><code class="docutils literal notranslate"><span class="pre">ExecTimer.stop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.MemoryUsage"><code class="docutils literal notranslate"><span class="pre">MemoryUsage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.MemoryUsage.print_usage"><code class="docutils literal notranslate"><span class="pre">MemoryUsage.print_usage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.MemoryUsage.start"><code class="docutils literal notranslate"><span class="pre">MemoryUsage.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.MemoryUsage.stop"><code class="docutils literal notranslate"><span class="pre">MemoryUsage.stop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.SystemStats"><code class="docutils literal notranslate"><span class="pre">SystemStats</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.disable_all"><code class="docutils literal notranslate"><span class="pre">disable_all()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.diagnostics#banff.diagnostics.enable_all"><code class="docutils literal notranslate"><span class="pre">enable_all()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="banff.exceptions">banff.exceptions package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="banff.exceptions#module-banff.exceptions">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.IOUtilError"><code class="docutils literal notranslate"><span class="pre">IOUtilError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.NormalizationError"><code class="docutils literal notranslate"><span class="pre">NormalizationError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.ProcedureCError"><code class="docutils literal notranslate"><span class="pre">ProcedureCError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.ProcedureError"><code class="docutils literal notranslate"><span class="pre">ProcedureError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.ProcedureIOError"><code class="docutils literal notranslate"><span class="pre">ProcedureIOError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.ProcedureInputError"><code class="docutils literal notranslate"><span class="pre">ProcedureInputError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.ProcedureOutputError"><code class="docutils literal notranslate"><span class="pre">ProcedureOutputError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.ProcedureValidationError"><code class="docutils literal notranslate"><span class="pre">ProcedureValidationError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.ProcessingError"><code class="docutils literal notranslate"><span class="pre">ProcessingError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions#banff.exceptions.TypeConverterError"><code class="docutils literal notranslate"><span class="pre">TypeConverterError</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="banff.io_util">banff.io_util package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="banff.io_util#module-banff.io_util">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.DF_from_sas_file"><code class="docutils literal notranslate"><span class="pre">DF_from_sas_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.GensysInputDataset"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.io_util#banff.io_util.GensysInputDataset.free_c_args"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset.free_c_args()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.io_util#banff.io_util.GensysInputDataset.init_c_args"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset.init_c_args()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.io_util#banff.io_util.GensysInputDataset.validate_user_spec"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset.validate_user_spec()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.GensysOutputDataset"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.io_util#banff.io_util.GensysOutputDataset.extract_c_output"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset.extract_c_output()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.io_util#banff.io_util.GensysOutputDataset.free_c_args"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset.free_c_args()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.io_util#banff.io_util.GensysOutputDataset.init_c_args"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset.init_c_args()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.PAT_from_sas_file"><code class="docutils literal notranslate"><span class="pre">PAT_from_sas_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.SAS_file_to_feather_file"><code class="docutils literal notranslate"><span class="pre">SAS_file_to_feather_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.SAS_file_to_parquet_file"><code class="docutils literal notranslate"><span class="pre">SAS_file_to_parquet_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.add_status_by_vars"><code class="docutils literal notranslate"><span class="pre">add_status_by_vars()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.arrow_to_pandas"><code class="docutils literal notranslate"><span class="pre">arrow_to_pandas()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.c_argtype_input_dataset"><code class="docutils literal notranslate"><span class="pre">c_argtype_input_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.c_argtype_output_dataset"><code class="docutils literal notranslate"><span class="pre">c_argtype_output_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.c_argtype_parameters"><code class="docutils literal notranslate"><span class="pre">c_argtype_parameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.c_return_type"><code class="docutils literal notranslate"><span class="pre">c_return_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.dest_is_file"><code class="docutils literal notranslate"><span class="pre">dest_is_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.dest_is_object"><code class="docutils literal notranslate"><span class="pre">dest_is_object()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.flag_rows_where"><code class="docutils literal notranslate"><span class="pre">flag_rows_where()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.get_default_output_spec"><code class="docutils literal notranslate"><span class="pre">get_default_output_spec()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.handle_arrow_string_data"><code class="docutils literal notranslate"><span class="pre">handle_arrow_string_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.handle_pandas_string_data"><code class="docutils literal notranslate"><span class="pre">handle_pandas_string_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.interm_to_DF"><code class="docutils literal notranslate"><span class="pre">interm_to_DF()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.interm_to_PAT"><code class="docutils literal notranslate"><span class="pre">interm_to_PAT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.load_input_dataset"><code class="docutils literal notranslate"><span class="pre">load_input_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.pack_dataset"><code class="docutils literal notranslate"><span class="pre">pack_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.pack_parms"><code class="docutils literal notranslate"><span class="pre">pack_parms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.pandas_to_arrow"><code class="docutils literal notranslate"><span class="pre">pandas_to_arrow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.remove_rows_where"><code class="docutils literal notranslate"><span class="pre">remove_rows_where()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.set_default_output_spec"><code class="docutils literal notranslate"><span class="pre">set_default_output_spec()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.sort_dataset"><code class="docutils literal notranslate"><span class="pre">sort_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.unpack_output_dataset"><code class="docutils literal notranslate"><span class="pre">unpack_output_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util#banff.io_util.write_output_dataset"><code class="docutils literal notranslate"><span class="pre">write_output_dataset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="banff.nls">banff.nls package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="banff.nls#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="banff.nls#module-banff.nls.nls">banff.nls.nls module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.nls#banff.nls.nls.custom_gettext"><code class="docutils literal notranslate"><span class="pre">custom_gettext()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.nls#module-banff.nls">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.nls#banff.nls.SupportedLanguage"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.nls#banff.nls.SupportedLanguage.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.UNKNOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.nls#banff.nls.SupportedLanguage.en"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.en</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.nls#banff.nls.SupportedLanguage.fr"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.fr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.nls#banff.nls.get_language"><code class="docutils literal notranslate"><span class="pre">get_language()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.nls#banff.nls.set_language"><code class="docutils literal notranslate"><span class="pre">set_language()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="banff.proc">banff.proc package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.banff_proc">banff.proc.banff_proc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.banff_proc.BanffProcedure"><code class="docutils literal notranslate"><span class="pre">BanffProcedure</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_determin">banff.proc.proc_determin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin"><code class="docutils literal notranslate"><span class="pre">ProcDetermin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin.get_sort_list"><code class="docutils literal notranslate"><span class="pre">ProcDetermin.get_sort_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin.indata"><code class="docutils literal notranslate"><span class="pre">ProcDetermin.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin.instatus"><code class="docutils literal notranslate"><span class="pre">ProcDetermin.instatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin.outdata"><code class="docutils literal notranslate"><span class="pre">ProcDetermin.outdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin.outstatus"><code class="docutils literal notranslate"><span class="pre">ProcDetermin.outstatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_donorimp">banff.proc.proc_donorimp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp"><code class="docutils literal notranslate"><span class="pre">ProcDonorimp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp.indata"><code class="docutils literal notranslate"><span class="pre">ProcDonorimp.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp.instatus"><code class="docutils literal notranslate"><span class="pre">ProcDonorimp.instatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp.outdata"><code class="docutils literal notranslate"><span class="pre">ProcDonorimp.outdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp.outdonormap"><code class="docutils literal notranslate"><span class="pre">ProcDonorimp.outdonormap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp.outmatching_fields"><code class="docutils literal notranslate"><span class="pre">ProcDonorimp.outmatching_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp.outstatus"><code class="docutils literal notranslate"><span class="pre">ProcDonorimp.outstatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_editstat">banff.proc.proc_editstat module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat"><code class="docutils literal notranslate"><span class="pre">ProcEditstat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat.indata"><code class="docutils literal notranslate"><span class="pre">ProcEditstat.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat.outedit_applic"><code class="docutils literal notranslate"><span class="pre">ProcEditstat.outedit_applic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat.outedit_status"><code class="docutils literal notranslate"><span class="pre">ProcEditstat.outedit_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat.outedits_reduced"><code class="docutils literal notranslate"><span class="pre">ProcEditstat.outedits_reduced</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat.outglobal_status"><code class="docutils literal notranslate"><span class="pre">ProcEditstat.outglobal_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat.outk_edits_status"><code class="docutils literal notranslate"><span class="pre">ProcEditstat.outk_edits_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat.outvars_role"><code class="docutils literal notranslate"><span class="pre">ProcEditstat.outvars_role</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_errorloc">banff.proc.proc_errorloc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_errorloc.ProcErrorloc"><code class="docutils literal notranslate"><span class="pre">ProcErrorloc</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_errorloc.ProcErrorloc.get_sort_list"><code class="docutils literal notranslate"><span class="pre">ProcErrorloc.get_sort_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_errorloc.ProcErrorloc.indata"><code class="docutils literal notranslate"><span class="pre">ProcErrorloc.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_errorloc.ProcErrorloc.instatus"><code class="docutils literal notranslate"><span class="pre">ProcErrorloc.instatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_errorloc.ProcErrorloc.outreject"><code class="docutils literal notranslate"><span class="pre">ProcErrorloc.outreject</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_errorloc.ProcErrorloc.outstatus"><code class="docutils literal notranslate"><span class="pre">ProcErrorloc.outstatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_estimato">banff.proc.proc_estimato module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato"><code class="docutils literal notranslate"><span class="pre">ProcEstimato</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.inalgorithm"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.inalgorithm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.indata"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.indata_hist"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.indata_hist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.inestimator"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.inestimator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.instatus"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.instatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.instatus_hist"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.instatus_hist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.outacceptable"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.outacceptable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.outdata"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.outdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.outest_ef"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.outest_ef</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.outest_lr"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.outest_lr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.outest_parm"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.outest_parm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.outrand_err"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.outrand_err</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato.outstatus"><code class="docutils literal notranslate"><span class="pre">ProcEstimato.outstatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_massimpu">banff.proc.proc_massimpu module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_massimpu.ProcMassimpu"><code class="docutils literal notranslate"><span class="pre">ProcMassimpu</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_massimpu.ProcMassimpu.indata"><code class="docutils literal notranslate"><span class="pre">ProcMassimpu.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_massimpu.ProcMassimpu.outdata"><code class="docutils literal notranslate"><span class="pre">ProcMassimpu.outdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_massimpu.ProcMassimpu.outdonormap"><code class="docutils literal notranslate"><span class="pre">ProcMassimpu.outdonormap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_massimpu.ProcMassimpu.outstatus"><code class="docutils literal notranslate"><span class="pre">ProcMassimpu.outstatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_outlier">banff.proc.proc_outlier module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_outlier.ProcOutlier"><code class="docutils literal notranslate"><span class="pre">ProcOutlier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_outlier.ProcOutlier.indata"><code class="docutils literal notranslate"><span class="pre">ProcOutlier.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_outlier.ProcOutlier.indata_hist"><code class="docutils literal notranslate"><span class="pre">ProcOutlier.indata_hist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_outlier.ProcOutlier.outstatus"><code class="docutils literal notranslate"><span class="pre">ProcOutlier.outstatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_outlier.ProcOutlier.outstatus_detailed"><code class="docutils literal notranslate"><span class="pre">ProcOutlier.outstatus_detailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_outlier.ProcOutlier.outsummary"><code class="docutils literal notranslate"><span class="pre">ProcOutlier.outsummary</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_prorate">banff.proc.proc_prorate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate"><code class="docutils literal notranslate"><span class="pre">ProcProrate</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate.get_sort_list"><code class="docutils literal notranslate"><span class="pre">ProcProrate.get_sort_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate.indata"><code class="docutils literal notranslate"><span class="pre">ProcProrate.indata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate.instatus"><code class="docutils literal notranslate"><span class="pre">ProcProrate.instatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate.outdata"><code class="docutils literal notranslate"><span class="pre">ProcProrate.outdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate.outreject"><code class="docutils literal notranslate"><span class="pre">ProcProrate.outreject</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate.outstatus"><code class="docutils literal notranslate"><span class="pre">ProcProrate.outstatus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc.proc_verifyed">banff.proc.proc_verifyed module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.proc_verifyed.ProcVerifyed"><code class="docutils literal notranslate"><span class="pre">ProcVerifyed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.proc#module-banff.proc">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.BanffProcedure"><code class="docutils literal notranslate"><span class="pre">BanffProcedure</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.determin"><code class="docutils literal notranslate"><span class="pre">determin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.donorimp"><code class="docutils literal notranslate"><span class="pre">donorimp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.editstat"><code class="docutils literal notranslate"><span class="pre">editstat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.errorloc"><code class="docutils literal notranslate"><span class="pre">errorloc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.estimato"><code class="docutils literal notranslate"><span class="pre">estimato</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.get_default"><code class="docutils literal notranslate"><span class="pre">get_default()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.massimpu"><code class="docutils literal notranslate"><span class="pre">massimpu</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.outlier"><code class="docutils literal notranslate"><span class="pre">outlier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.prorate"><code class="docutils literal notranslate"><span class="pre">prorate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.set_default"><code class="docutils literal notranslate"><span class="pre">set_default()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc#banff.proc.verifyed"><code class="docutils literal notranslate"><span class="pre">verifyed</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="banff.testing">banff.testing package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="banff.testing#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="banff.testing#module-banff.testing.banff_testing">banff.testing.banff_testing module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestDetermin"><code class="docutils literal notranslate"><span class="pre">PytestDetermin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestDonorimp"><code class="docutils literal notranslate"><span class="pre">PytestDonorimp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestEditstat"><code class="docutils literal notranslate"><span class="pre">PytestEditstat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestErrorloc"><code class="docutils literal notranslate"><span class="pre">PytestErrorloc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestEstimato"><code class="docutils literal notranslate"><span class="pre">PytestEstimato</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestMassimpu"><code class="docutils literal notranslate"><span class="pre">PytestMassimpu</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestOutlier"><code class="docutils literal notranslate"><span class="pre">PytestOutlier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestProrate"><code class="docutils literal notranslate"><span class="pre">PytestProrate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.banff_testing.PytestVerifyed"><code class="docutils literal notranslate"><span class="pre">PytestVerifyed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff.testing#module-banff.testing">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.PAT_from_string"><code class="docutils literal notranslate"><span class="pre">PAT_from_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.assert_dataset_equal"><code class="docutils literal notranslate"><span class="pre">assert_dataset_equal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.assert_dataset_value"><code class="docutils literal notranslate"><span class="pre">assert_dataset_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.assert_log_consistent"><code class="docutils literal notranslate"><span class="pre">assert_log_consistent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.assert_log_contains"><code class="docutils literal notranslate"><span class="pre">assert_log_contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.assert_substr_count"><code class="docutils literal notranslate"><span class="pre">assert_substr_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_determin"><code class="docutils literal notranslate"><span class="pre">pytest_determin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_donorimp"><code class="docutils literal notranslate"><span class="pre">pytest_donorimp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_editstat"><code class="docutils literal notranslate"><span class="pre">pytest_editstat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_errorloc"><code class="docutils literal notranslate"><span class="pre">pytest_errorloc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_estimato"><code class="docutils literal notranslate"><span class="pre">pytest_estimato</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_massimpu"><code class="docutils literal notranslate"><span class="pre">pytest_massimpu</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_outlier"><code class="docutils literal notranslate"><span class="pre">pytest_outlier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_prorate"><code class="docutils literal notranslate"><span class="pre">pytest_prorate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.pytest_verifyed"><code class="docutils literal notranslate"><span class="pre">pytest_verifyed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.run_pytest"><code class="docutils literal notranslate"><span class="pre">run_pytest()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing#banff.testing.run_standard_assertions"><code class="docutils literal notranslate"><span class="pre">run_standard_assertions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-banff">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-banff" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="banff.SupportedLanguage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">SupportedLanguage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/nls/nls#SupportedLanguage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.SupportedLanguage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Languages supported by Native Language Support module.</p>
+<p>Enums have the form &lt;name&gt; = &lt;[list, of, values]&gt;
+Users should refer to Enums by member-name, like <cite>SupportedLanguage.en</cite>.</p>
+<dl>
+<dt>Internally, <cite>.value</cite> is used to associate a list of language tags with a supported language.</dt><dd><p>&lt;name&gt; - only use valid RFC1766 language tags
+&lt;value&gt; - should be a list of associated language tags</p>
+<blockquote>
+<div><p>these tags should include both RFC1766 tags
+as well non RFC1766 tags observed in the wild (…on Windows)</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.SupportedLanguage.UNKNOWN">
+<span class="sig-name descname"><span class="pre">UNKNOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#banff.SupportedLanguage.UNKNOWN" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.SupportedLanguage.en">
+<span class="sig-name descname"><span class="pre">en</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['en',</span> <span class="pre">'english']</span></em><a class="headerlink" href="#banff.SupportedLanguage.en" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.SupportedLanguage.fr">
+<span class="sig-name descname"><span class="pre">fr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['fr',</span> <span class="pre">'french']</span></em><a class="headerlink" href="#banff.SupportedLanguage.fr" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.determin">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">determin</span></span><a class="headerlink" href="#banff.determin" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin" title="banff.proc.proc_determin.ProcDetermin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcDetermin</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.deterministic">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">deterministic</span></span><a class="headerlink" href="#banff.deterministic" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_determin.ProcDetermin" title="banff.proc.proc_determin.ProcDetermin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcDetermin</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.donorimp">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">donorimp</span></span><a class="headerlink" href="#banff.donorimp" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_donorimp.ProcDonorimp" title="banff.proc.proc_donorimp.ProcDonorimp"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcDonorimp</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.editstat">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">editstat</span></span><a class="headerlink" href="#banff.editstat" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat" title="banff.proc.proc_editstat.ProcEditstat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcEditstat</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.editstats">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">editstats</span></span><a class="headerlink" href="#banff.editstats" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_editstat.ProcEditstat" title="banff.proc.proc_editstat.ProcEditstat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcEditstat</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.errorloc">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">errorloc</span></span><a class="headerlink" href="#banff.errorloc" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_errorloc.ProcErrorloc" title="banff.proc.proc_errorloc.ProcErrorloc"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcErrorloc</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.estimato">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">estimato</span></span><a class="headerlink" href="#banff.estimato" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato" title="banff.proc.proc_estimato.ProcEstimato"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcEstimato</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.estimator">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">estimator</span></span><a class="headerlink" href="#banff.estimator" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_estimato.ProcEstimato" title="banff.proc.proc_estimato.ProcEstimato"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcEstimato</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.get_default_output_spec">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">get_default_output_spec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#get_default_output_spec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.get_default_output_spec" title="Link to this definition">#</a></dt>
+<dd><p>Return current default output dataset specification.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.massimp">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">massimp</span></span><a class="headerlink" href="#banff.massimp" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_massimpu.ProcMassimpu" title="banff.proc.proc_massimpu.ProcMassimpu"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcMassimpu</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.massimpu">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">massimpu</span></span><a class="headerlink" href="#banff.massimpu" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_massimpu.ProcMassimpu" title="banff.proc.proc_massimpu.ProcMassimpu"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcMassimpu</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.outlier">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">outlier</span></span><a class="headerlink" href="#banff.outlier" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_outlier.ProcOutlier" title="banff.proc.proc_outlier.ProcOutlier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcOutlier</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.prorate">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">prorate</span></span><a class="headerlink" href="#banff.prorate" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_prorate.ProcProrate" title="banff.proc.proc_prorate.ProcProrate"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcProrate</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.set_default_output_spec">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">set_default_output_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_spec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#set_default_output_spec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.set_default_output_spec" title="Link to this definition">#</a></dt>
+<dd><p>Set default output output dataset specification to a supported object type identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.set_language">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">set_language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff#set_language"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.set_language" title="Link to this definition">#</a></dt>
+<dd><p>Set the languaged used for console log messages.</p>
+<p>For <cite>new_lang</cite>, specify a value from <cite>banff.SupportedLanguage</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.verifyed">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">verifyed</span></span><a class="headerlink" href="#banff.verifyed" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_verifyed.ProcVerifyed" title="banff.proc.proc_verifyed.ProcVerifyed"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcVerifyed</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="banff.verifyedits">
+<span class="sig-prename descclassname"><span class="pre">banff.</span></span><span class="sig-name descname"><span class="pre">verifyedits</span></span><a class="headerlink" href="#banff.verifyedits" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="banff.proc#banff.proc.proc_verifyed.ProcVerifyed" title="banff.proc.proc_verifyed.ProcVerifyed"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcVerifyed</span></code></a></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-banff">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.SupportedLanguage"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.SupportedLanguage.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.UNKNOWN</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.SupportedLanguage.en"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.en</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.SupportedLanguage.fr"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.fr</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.determin"><code class="docutils literal notranslate"><span class="pre">determin</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.deterministic"><code class="docutils literal notranslate"><span class="pre">deterministic</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.donorimp"><code class="docutils literal notranslate"><span class="pre">donorimp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.editstat"><code class="docutils literal notranslate"><span class="pre">editstat</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.editstats"><code class="docutils literal notranslate"><span class="pre">editstats</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.errorloc"><code class="docutils literal notranslate"><span class="pre">errorloc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.estimato"><code class="docutils literal notranslate"><span class="pre">estimato</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.estimator"><code class="docutils literal notranslate"><span class="pre">estimator</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.get_default_output_spec"><code class="docutils literal notranslate"><span class="pre">get_default_output_spec()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.massimp"><code class="docutils literal notranslate"><span class="pre">massimp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.massimpu"><code class="docutils literal notranslate"><span class="pre">massimpu</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.outlier"><code class="docutils literal notranslate"><span class="pre">outlier</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.prorate"><code class="docutils literal notranslate"><span class="pre">prorate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.set_default_output_spec"><code class="docutils literal notranslate"><span class="pre">set_default_output_spec()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.set_language"><code class="docutils literal notranslate"><span class="pre">set_language()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.verifyed"><code class="docutils literal notranslate"><span class="pre">verifyed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.verifyedits"><code class="docutils literal notranslate"><span class="pre">verifyedits</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/banff.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

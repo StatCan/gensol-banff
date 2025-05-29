@@ -11,7 +11,7 @@ Produces edit summary statistics tables on records that pass, miss or fail each 
 
 This procedure applies a group of `edits` to statistical data and determines if each record passes, misses (due to missing values) or fails each edit. Resulting diagnostics are saved to five output tables, and can be used to fine-tune the group of edits, estimate the resources required for later procedures, or to evaluate the effects of imputation. Note that this procedure only reviews the data, producing summary statistics; use `errorloc` (with the same set of edits) to select records and fields for further treatment.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -30,7 +30,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outedit_applic    | Number of times each variable is involved in an edit which passes, misses or fails. |
 | outvars_role      | Number of times each variable contributes to the overall record status. |
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 

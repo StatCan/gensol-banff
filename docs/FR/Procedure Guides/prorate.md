@@ -27,7 +27,7 @@ Caractéristiques additionnelles:
 * Option de limiter l'ajustement au prorata aux valeurs originales ou à celles imputées précédemment, que ce soit de manière globale ou par variable.
 * Poids pour ajuster le changement relatif des variables de manière individuelle.  
 
-Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](/docs/FR/Description%20des%20fonctions%20Banff.pdf).
+Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](../Description%20des%20fonctions%20Banff.pdf).
 
 ## Données d'entrée et de sortie
 
@@ -44,7 +44,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outstatus       | Données des statuts de sortie identifiant les champs imputés avec le statut IPR et contenant leurs valeurs après imputation.   |
 | outreject       | Données de sortie contenant les enregistrements pour lesquels l'ajustement au prorata a échoué.<br><br> Pour un enregistrement individuel, il y a plusieurs raisons pour lesquels l'ajustement au prorata pourrait ne pas aboutir; se référer aux notes plus bas pour plus d'information. |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](../output_tables.md).
 
 ## Paramètres
 

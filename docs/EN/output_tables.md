@@ -28,9 +28,9 @@
     - [outest_parm](#outest_parm)
     - [outrand_err](#outrand_err)
 - [prorate](#prorate)
-    - [outreject](#outreject-1)
+    - [outreject](#outreject)
 - [massimp](#massimp)
-    - [outdonormap](#outdonormap-1)
+    - [outdonormap](#outdonormap)
 
 # Introduction
 
@@ -43,6 +43,7 @@ The Banff procedures generate a number of output tables, which can be categorize
 Note that in many tables, **\<unit_id\>** appears as a column header. This is a placeholder; the actual column header is the name of the variable by the `unit_id` parameter.
 
 ### List of output tables
+
 | Procedure     | Output Tables                                  | 
 | ------------- | --------------------------------------------   |
 | verifyedits   | *none - outputs printed to log*                |
@@ -56,6 +57,7 @@ Note that in many tables, **\<unit_id\>** appears as a column header. This is a 
 | massimp       | `outdata` `outstatus` `outdonormap`            |  
 
 ### Output tables common to multiple procedures
+
 | Procedure     | outdata | outstatus | outdonormap | outreject | 
 | ------------- | :-----: | :-------: | :---------: | :-------: |
 | outlier       |         | X         |             |           |
@@ -68,7 +70,7 @@ Note that in many tables, **\<unit_id\>** appears as a column header. This is a 
 
 # Standard output tables
 
-The Banff procedures are designed to be run sequentially as part of an SDE process flow. The outputs from one procedure often act as inputs for subsequent procedures, and the statistical data that is the target of the SDE process is updated continuously throughout the process. Two standard outputs that are common to multiple procedures are `outdata` and `outstatus`. Please see the [Interaction between procedures](/docs/EN/user_guide.md#interaction-between-procedures) section of the user guide for more details.
+The Banff procedures are designed to be run sequentially as part of an SDE process flow. The outputs from one procedure often act as inputs for subsequent procedures, and the statistical data that is the target of the SDE process is updated continuously throughout the process. Two standard outputs that are common to multiple procedures are `outdata` and `outstatus`. Please see the [Interaction between procedures](./user_guide.md#interaction-between-procedures) section of the user guide for more details.
 
 ### outdata
 

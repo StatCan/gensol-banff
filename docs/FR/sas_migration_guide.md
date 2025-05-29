@@ -5,7 +5,7 @@
 Le public cible de ce guide est constitué des utilisateurs de Banff 2.08.002 basé sur SAS ou d'une version antérieure qui migrent vers Banff 3.x basé sur Python.
 Il résume les informations sur les modifications apportées dans la version 3, y compris les nouveaux noms des paramètres et des tables, ainsi que des exemples de la manière dont les programmes SAS qui appellent des procédures Banff peuvent être convertis en programmes Python équivalents.
 
-Ce document n'est pas destiné aux nouveaux utilisateurs de Banff car il ne fournit pas un aperçu complet des procédures Banff. Veuillez vous référer au [Guide de l'utilisateur](/docs/FR/user_guide.md) pour obtenir des détails complets sur l'utilisation de chaque procédure, de ses paramètres et de ses tables.
+Ce document n'est pas destiné aux nouveaux utilisateurs de Banff car il ne fournit pas un aperçu complet des procédures Banff. Veuillez vous référer au [Guide de l'utilisateur](./user_guide.md) pour obtenir des détails complets sur l'utilisation de chaque procédure, de ses paramètres et de ses tables.
 
 ## Table des matières
 
@@ -27,7 +27,7 @@ Ce document n'est pas destiné aux nouveaux utilisateurs de Banff car il ne four
 
 ## Procédures disponibles
 
-Pour obtenir la liste des procédures disponibles, consultez le [Guide de l'utilisateur](/docs/FR/user_guide.md#tables-de-procédures).
+Pour obtenir la liste des procédures disponibles, consultez le [Guide de l'utilisateur](./user_guide.md#tables-de-procédures).
 
 Chaque procédure a été convertie en prenant le code source de la procédure Banff 2.08.002 dépendant de SAS et en le modifiant pour produire une procédure code source ouvert, qui est *"encapsulée"* dans un paquet Python. Les calculs mathématiques sous-jacents restent inchangés.
 
@@ -158,30 +158,30 @@ Les nouvelles options incluent
 
 Cette option exclut les enregistrements en fonction d'une expression SQL spécifiée par l'utilisateur. Pour plus de détails, consultez la documentation spécifique à la procédure.
 
-- [donorimp](/docs/FR/Procedure%20Guides/donorimp.md#parameters)
-- [estimator](/docs/FR/Procedure%20Guides/estimator.md#parameters)
-- [outlier](/docs/FR/Procedure%20Guides/outlier.md#parameters)
+- [donorimp](./Procedure%20Guides/donorimp.md#parameters)
+- [estimator](./Procedure%20Guides/estimator.md#parameters)
+- [outlier](./Procedure%20Guides/outlier.md#parameters)
 
 #### Option `exclude_where_indata_hist`
 
 Cette option exclut les enregistrements basés sur une expression SQL spécifiée par l'utilisateur. Pour plus de détails, consultez la documentation spécifique à la procédure.
 
-- [estimator](/docs/FR/Procedure%20Guides/estimator.md#parameters)
+- [estimator](./Procedure%20Guides/estimator.md#parameters)
 
 #### Option `prefill_by_vars`
 
 Cette option est disponible et activée par défaut dans toutes les procédures qui acceptent une table `instatus`.
-Voir [Guide de l'utilisateur](/docs/FR/user_guide.md#prefill_by_vars)
+Voir [Guide de l'utilisateur](./user_guide.md#prefill_by_vars)
 
 #### Option `presort`
 
 Cette option est disponible et activée par défaut dans toutes les procédures qui acceptent des tables d'entrée.
-Voir [Guide de l'utilisateur](/docs/FR/user_guide.md#presort)
+Voir [Guide de l'utilisateur](./user_guide.md#presort)
 
 #### Option `trace`
 
 Cette option est disponible dans toutes les procédures et contrôle la verbosité du journal de la console.
-Voir [Guide de l'utilisateur](/docs/FR/user_guide.md#python-log-verbosite-trace)
+Voir [Guide de l'utilisateur](./user_guide.md#python-log-verbosite-trace)
 
 ## Tables de procédures
 
@@ -233,7 +233,7 @@ Les variables `by` ont été supprimées de nombreuses tables de sortie. Voir [*
 
 #### Normalisation de la table `outstatus`
 
-> voir aussi [Tables de sortie > outstatus](/docs/FR/output_tables.md#outstatus)
+> voir aussi [Tables de sortie > outstatus](./output_tables.md#outstatus)
 
 La table « outstatus » est désormais [standardisée](#normalisation-des-tables-outstatus) dans toutes les procédures qui la produisent. De nouvelles tables de sortie ont été introduites dans les procédures [*Donor Imputation*](#modifications-apportées-à-imputation-par-donneur-outstatus), [*Mass Imputation*](#ajout-de-outstatus-à-la-procédure-dimputation-de-masse) et [*Outlier*](#modifications-apportées-à-outlier-outstatus) pour prendre en compte ce changement.
 
@@ -243,7 +243,7 @@ La procédure *Errorloc* [accepte désormais une table `instatus`](#ajout-de-ins
 
 ## Spécification des tables
 
-Pour plus d'informations sur la spécification des tables d'entrée et de sortie, les formats pris en charge, etc., veuillez consulter le [Guide de l'utilisateur](/docs/FR/user_guide.md#spécification-des-données-dentrée-et-de-sortie)
+Pour plus d'informations sur la spécification des tables d'entrée et de sortie, les formats pris en charge, etc., veuillez consulter le [Guide de l'utilisateur](./user_guide.md#spécification-des-données-dentrée-et-de-sortie)
 
 ## Modifications notables des procédures
 
@@ -304,22 +304,22 @@ Cette nouvelle table est désactivée par défaut. Spécifiez `True` ou toute au
 
 ### Prise en charge de la langue maternelle
 
-Banff produit un [journal](/docs/FR/user_guide.md#journal-banff) qui peut afficher des messages en anglais ou en français. Pour plus de détails, consultez la section [*paramétrage de la langue du journal*](/docs/FR/user_guide.md#définir-la-langue-du-journal) du guide de l'utilisateur.
+Banff produit un [journal](./user_guide.md#journal-banff) qui peut afficher des messages en anglais ou en français. Pour plus de détails, consultez la section [*paramétrage de la langue du journal*](./user_guide.md#définir-la-langue-du-journal) du guide de l'utilisateur.
 
 ### Option `capture`
 
-Lors de l'exécution dans *Jupyter Notebooks*, certains messages de journal peuvent être manquants. La spécification de `capture=True` dans un appel de procédure peut résoudre le problème. Pour plus de détails, consultez [suppression et dépannage des messages de journal](/docs/FR/user_guide.md#suppression-et-diagnostic-des-messages-du-journal-capture) dans le guide de l'utilisateur.
+Lors de l'exécution dans *Jupyter Notebooks*, certains messages de journal peuvent être manquants. La spécification de `capture=True` dans un appel de procédure peut résoudre le problème. Pour plus de détails, consultez [suppression et dépannage des messages de journal](./user_guide.md#suppression-et-diagnostic-des-messages-du-journal-capture) dans le guide de l'utilisateur.
 
 ## Considérations relatives aux performances
 
-Certaines options et formats de tableau peuvent offrir des performances optimales. Pour plus de détails, consultez [Considérations relatives aux performances](/docs/FR/user_guide.md#considérations-sur-la-performance).
+Certaines options et formats de tableau peuvent offrir des performances optimales. Pour plus de détails, consultez [Considérations relatives aux performances](./user_guide.md#considérations-sur-la-performance).
 
 ## Erreurs et exceptions
 
-Les erreurs sont traitées différemment dans SAS et dans Python, où elles sont appelées *exceptions*. Pour plus de détails, consultez [Erreurs et exceptions](/docs/FR/user_guide.md#erreurs-et-exceptions) dans le guide de l'utilisateur.
+Les erreurs sont traitées différemment dans SAS et dans Python, où elles sont appelées *exceptions*. Pour plus de détails, consultez [Erreurs et exceptions](./user_guide.md#erreurs-et-exceptions) dans le guide de l'utilisateur.
 
 ## Fonctions utilitaires
 
 ### Travailler avec des fichiers SAS en Python
 
-Le paquet banff fournit quelques fonctions utiles pour lire des fichiers SAS en Python. Pour plus de détails, consultez [Travailler avec des fichiers SAS dans Python](/docs/FR/user_guide.md#travailler-avec-des-fichiers-sas-dans-python) dans le guide de l'utilisateur.
+Le paquet banff fournit quelques fonctions utiles pour lire des fichiers SAS en Python. Pour plus de détails, consultez [Travailler avec des fichiers SAS dans Python](./user_guide.md#travailler-avec-des-fichiers-sas-dans-python) dans le guide de l'utilisateur.

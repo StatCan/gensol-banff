@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>banff.proc.proc_donorimp &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/banff/proc/proc_donorimp';</script>
+    <link rel="index" title="Index" href="../../../genindex" />
+    <link rel="search" title="Search" href="../../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../banff" class="nav-link">banff</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff.proc.proc_donorimp</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for banff.proc.proc_donorimp</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff.io_util</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GensysInputDataset</span><span class="p">,</span>
+    <span class="n">GensysOutputDataset</span><span class="p">,</span>
+    <span class="n">c_argtype_input_dataset</span><span class="p">,</span>
+    <span class="n">c_argtype_output_dataset</span><span class="p">,</span>
+    <span class="n">c_argtype_parameters</span><span class="p">,</span>
+    <span class="n">flag_rows_where</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff.nls</span><span class="w"> </span><span class="kn">import</span> <span class="n">_</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">banff.proc</span><span class="w"> </span><span class="kn">import</span> <span class="n">BanffProcedure</span>
+
+
+<span class="c1">#******CLASS DEFINITIONS************************************************************</span>
+<div class="viewcode-block" id="ProcDonorimp">
+<a class="viewcode-back" href="../../../banff.proc#banff.proc.proc_donorimp.ProcDonorimp">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProcDonorimp</span><span class="p">(</span><span class="n">BanffProcedure</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs nearest neighbour donor imputation such that each imputed record satisfies the specified post-imputation edits.</span>
+
+<span class="sd">    The donorimp procedure splits records into recipients (records requiring imputation) and donors (records not requiring</span>
+<span class="sd">    imputation that pass the edits). For each recipient, the procedure performs the following steps:</span>
+
+<span class="sd">    1. From the fields in the edits, a subset are chosen as matching fields for the purpose of distance calculations.</span>
+<span class="sd">       This selection can vary depending on which fields require imputation. Users can also specify must-match fields (`must_match`),</span>
+<span class="sd">       which will automatically be included in distance calculations alongside the system-selected ones.</span>
+<span class="sd">    2. Matching fields are transformed into normalized ranks to remove the effect of scale and clustering from the data.</span>
+<span class="sd">       Without this transformation, original data with wide ranges, such as dollar values, would always dominate the distance calculation.</span>
+<span class="sd">    3. Distances between the recipient and donors are calculated using a L-infinity norm on the transformed matching fields.</span>
+<span class="sd">       This is sometimes referred to as the minimax distance because the closest donor is the one with the smallest maximum absolute</span>
+<span class="sd">       difference between the transformed values of its matching fields and those of the recipient.</span>
+<span class="sd">    4. From the donors, a search algorithm is used to efficiently find the closest donor whose values allow the recipient</span>
+<span class="sd">       record to pass the user-specified post-imputation edits (`post_edits`). These are typically a more relaxed form of the edits</span>
+<span class="sd">       to ensure a donor can be found.</span>
+
+<span class="sd">    *Note: The Banff distance metric will usually select different donors than a typical Euclidean distance metric. This is by design.</span>
+<span class="sd">    When using Euclidean distance metrics, scale differences and skewed distributions in economic data typically result in a distance</span>
+<span class="sd">    metric that is dominated by a single field such as revenue. The Banff distance metric ensures that all matching fields are given</span>
+<span class="sd">    the same weight in the distance calculation.*</span>
+
+<span class="sd">    Recipients are defined as any record with at least one field within the edits requiring imputation, as indicated by an</span>
+<span class="sd">    FTI (Field to Impute) flag on the input status (`instatus`) file. Donors are defined as any record satisfying all the edits that</span>
+<span class="sd">    is not a recipient. The donorimp procedure requires a set of edits; for a version of donor imputation that does not, please</span>
+<span class="sd">    see the `massimp` procedure.</span>
+
+<span class="sd">    There are a number of ways to exclude records or values from the donor pool. Records can be excluded using the</span>
+<span class="sd">    `exclude_where_indata` or `data_excl_var` parameters. This does not exclude them from the procedure completely;</span>
+<span class="sd">    they may still be included as recipients if they require imputation. Records that have previously been imputed can</span>
+<span class="sd">    also be excluded from the donor pool using the `eligdon` (eligible donor) parameter. The parameter `n_limit` will</span>
+<span class="sd">    limit the number of times a single donor is used for imputation. Users may sometimes identify values that do not</span>
+<span class="sd">    require imputation, but are sufficiently unusual that they should not be donated to other records; these should</span>
+<span class="sd">    be flagged as FTE (Field to Exclude) on the instatus file.</span>
+
+<span class="sd">    The Banff distance metric does not accommodate categorical variables. Instead, users may create by-groups by specifying</span>
+<span class="sd">    `by` variables. These by-groups act as imputation classes. Use the `min_donors` and `percent_donors` parameters to ensure</span>
+<span class="sd">    an appropriate number or ratio of recipients and donors exist in each imputation class before performing imputation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># static variables</span>
+    <span class="n">_proc_name</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;short&quot;</span><span class="p">:</span> <span class="s2">&quot;donorimp&quot;</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">:</span> <span class="s2">&quot;Donor Imputation&quot;</span><span class="p">}</span>
+    <span class="n">_arg_types</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">c_argtype_parameters</span><span class="p">(),</span>  <span class="c1"># parameters</span>
+        <span class="n">c_argtype_input_dataset</span><span class="p">(),</span>  <span class="c1"># indata</span>
+        <span class="n">c_argtype_input_dataset</span><span class="p">(),</span>  <span class="c1"># instatus</span>
+
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outdata</span>
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outdata</span>
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outstatus</span>
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outstatus</span>
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outdonormap</span>
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outdonormap</span>
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outmatching_fields</span>
+        <span class="n">c_argtype_output_dataset</span><span class="p">(),</span>  <span class="c1"># outmatching_fields</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="c1"># USER C code parameters</span>
+            <span class="n">unit_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">by</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">must_match</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">data_excl_var</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">rand_num_var</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">edits</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">post_edits</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">display_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">accept_negative</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">no_by_stats</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">min_donors</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">percent_donors</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">eligdon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">n_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">mrl</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="c1"># USER dataset references</span>
+            <span class="n">indata</span><span class="p">:</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">Table</span> <span class="o">|</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">instatus</span><span class="p">:</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">Table</span> <span class="o">|</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">outdata</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">outstatus</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">outdonormap</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">outmatching_fields</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+            <span class="c1"># Fancy New Options</span>
+            <span class="n">presort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">prefill_by_vars</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">exclude_where_indata</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+            <span class="c1"># super class options</span>
+            <span class="n">trace</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">capture</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs nearest neighbour donor imputation such that each imputed record satisfies the specified post-imputation edits.</span>
+
+<span class="sd">        :param unit_id: Identify key variable (unit identifier) on indata. Mandatory.</span>
+<span class="sd">        :type unit_id: str | None, optional</span>
+<span class="sd">        :param by: Variable(s) used to partition indata into by-groups for independent processing.</span>
+<span class="sd">        :type by: str | None, optional</span>
+<span class="sd">        :param must_match: List of variables on indata to be used in distance calculations.</span>
+<span class="sd">        :type must_match: str | None, optional</span>
+<span class="sd">        :param data_excl_var: Identify donor exclusion variable on indata.</span>
+<span class="sd">        :type data_excl_var: str | None, optional</span>
+<span class="sd">        :param rand_num_var: Identify random number variable on indata.</span>
+<span class="sd">        :type rand_num_var: str | None, optional</span>
+<span class="sd">        :param random: Randomly select donors for recipients without matching fields.</span>
+<span class="sd">        :type random: bool | None, optional</span>
+<span class="sd">        :param seed: Specify a seed for the random number generator.</span>
+<span class="sd">        :type seed: int | None, optional</span>
+<span class="sd">        :param edits: List of consistency edits. Mandatory.</span>
+<span class="sd">        :type edits: str | None, optional</span>
+<span class="sd">        :param post_edits: List of edits a recipient must satisfy after imputation.</span>
+<span class="sd">        :type post_edits: str | None, optional</span>
+<span class="sd">        :param display_level: Value (0 or 1) to request detail output to the log in relation to the random number variable. Default=0.</span>
+<span class="sd">        :type display_level: int | None, optional</span>
+<span class="sd">        :param accept_negative: Treat negative values as valid. Default=False.</span>
+<span class="sd">        :type accept_negative: bool | None, optional</span>
+<span class="sd">        :param no_by_stats: Reduces log output by suppressing by-group specific messages. Default=False.</span>
+<span class="sd">        :type no_by_stats: bool | None, optional</span>
+<span class="sd">        :param min_donors: Minimum number of donors needed in a by-group to perform imputation.</span>
+<span class="sd">        :type min_donors: int | None, optional</span>
+<span class="sd">        :param percent_donors: Minimum percentage of donors needed in a by-group to perform imputation.</span>
+<span class="sd">        :type percent_donors: float | None, optional</span>
+<span class="sd">        :param n: Maximum number of donors to try for a given recipient.</span>
+<span class="sd">        :type n: int | None, optional</span>
+<span class="sd">        :param eligdon: Identify eligible donors as &#39;ANY&#39; (include all potential donors) or &#39;ORIGINAL&#39; (exclude records with imputed values).</span>
+<span class="sd">        :type eligdon: str | None, optional</span>
+<span class="sd">        :param n_limit: Limit the number of times a donor can be used.</span>
+<span class="sd">        :type n_limit: int | None, optional</span>
+<span class="sd">        :param mrl: Multiplier ratio limit used to limit number of times a donor can be used.</span>
+<span class="sd">        :type mrl: float | None, optional</span>
+<span class="sd">        :param indata: Input statistical data. Mandatory.</span>
+<span class="sd">        :type indata: pyarrow.Table | pandas.DataFrame | Path | str | None, optional</span>
+<span class="sd">        :param instatus: Input status file containing FTI, FTE and I-- status flags. Mandatory.</span>
+<span class="sd">        :type instatus: pyarrow.Table | pandas.DataFrame | Path | str | None, optional</span>
+<span class="sd">        :param outdata: Output statistical table containing imputed data.</span>
+<span class="sd">        :type outdata: Path | str | None, optional</span>
+<span class="sd">        :param outstatus: Output status file identifying imputed fields with IDN status flags, and their values after imputation.</span>
+<span class="sd">        :type outstatus: Path | str | None, optional</span>
+<span class="sd">        :param outdonormap: Output table of recipient-donor pairs for successfully imputed records.</span>
+<span class="sd">        :type outdonormap: Path | str | None, optional</span>
+<span class="sd">        :param outmatching_fields: Output table of matching fields for each recipient.</span>
+<span class="sd">        :type outmatching_fields: Path | str | None, optional</span>
+<span class="sd">        :param presort: Sorts input tables before processing, according to procedure requirements. Default=True.</span>
+<span class="sd">        :type presort: bool | None, optional</span>
+<span class="sd">        :param prefill_by_vars: Adds by-group variable(s) to input status file(s) to improve performance. Default=True.</span>
+<span class="sd">        :type prefill_by_vars: bool | None, optional</span>
+<span class="sd">        :param exclude_where_indata: Donor exclusion expression using SQL syntax.</span>
+<span class="sd">        :type exclude_where_indata: str | None, optional</span>
+<span class="sd">        :param trace: Control which log levels are included when using the default logger.</span>
+<span class="sd">        :type trace: int | bool | None, optional</span>
+<span class="sd">        :param capture: Configure how console output is displayed.</span>
+<span class="sd">        :type capture: bool | None, optional</span>
+<span class="sd">        :param logger: Custom logger to use for procedure execution.</span>
+<span class="sd">        :type logger: logging.Logger | None, optional</span>
+<span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># noqa: D401,E501</span>
+        <span class="c1"># USER C code parameters</span>
+        <span class="n">parm_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;unit_id&quot;</span><span class="p">]</span>            <span class="o">=</span> <span class="n">unit_id</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;by&quot;</span><span class="p">]</span>                 <span class="o">=</span> <span class="n">by</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;must_match&quot;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">must_match</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;data_excl_var&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">data_excl_var</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;rand_num_var&quot;</span><span class="p">]</span>       <span class="o">=</span> <span class="n">rand_num_var</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;random&quot;</span><span class="p">]</span>             <span class="o">=</span> <span class="n">random</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span>               <span class="o">=</span> <span class="n">seed</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;edits&quot;</span><span class="p">]</span>              <span class="o">=</span> <span class="n">edits</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;post_edits&quot;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">post_edits</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;display_level&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">display_level</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;accept_negative&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">accept_negative</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;no_by_stats&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">no_by_stats</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;min_donors&quot;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">min_donors</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;percent_donors&quot;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">percent_donors</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;n&quot;</span><span class="p">]</span>                  <span class="o">=</span> <span class="n">n</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;eligdon&quot;</span><span class="p">]</span>            <span class="o">=</span> <span class="n">eligdon</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;n_limit&quot;</span><span class="p">]</span>            <span class="o">=</span> <span class="n">n_limit</span>
+        <span class="n">parm_dict</span><span class="p">[</span><span class="s2">&quot;mrl&quot;</span><span class="p">]</span>                <span class="o">=</span> <span class="n">mrl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span> <span class="o">=</span> <span class="n">parm_dict</span>
+
+        <span class="c1"># INTERNAL dataset components (they store USER datasets/output specifications)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_indata</span>             <span class="o">=</span> <span class="n">GensysInputDataset</span><span class="p">(</span><span class="s2">&quot;indata&quot;</span><span class="p">,</span> <span class="n">indata</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_instatus</span>           <span class="o">=</span> <span class="n">GensysInputDataset</span><span class="p">(</span><span class="s2">&quot;instatus&quot;</span><span class="p">,</span> <span class="n">instatus</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outdata</span>            <span class="o">=</span> <span class="n">GensysOutputDataset</span><span class="p">(</span><span class="s2">&quot;outdata&quot;</span><span class="p">,</span> <span class="n">outdata</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outdonormap</span>        <span class="o">=</span> <span class="n">GensysOutputDataset</span><span class="p">(</span><span class="s2">&quot;outdonormap&quot;</span><span class="p">,</span> <span class="n">outdonormap</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outstatus</span>          <span class="o">=</span> <span class="n">GensysOutputDataset</span><span class="p">(</span><span class="s2">&quot;outstatus&quot;</span><span class="p">,</span> <span class="n">outstatus</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outmatching_fields</span> <span class="o">=</span> <span class="n">GensysOutputDataset</span><span class="p">(</span><span class="s2">&quot;outmatching_fields&quot;</span><span class="p">,</span> <span class="n">outmatching_fields</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">requested_by_default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># call super constructor</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">trace</span><span class="o">=</span><span class="n">trace</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="n">capture</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+            <span class="n">input_datasets</span><span class="o">=</span><span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_indata</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_instatus</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">output_datasets</span><span class="o">=</span><span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_outdata</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_outstatus</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_outdonormap</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_outmatching_fields</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">presort</span><span class="o">=</span><span class="n">presort</span><span class="p">,</span>
+            <span class="n">prefill_by_vars</span><span class="o">=</span><span class="n">prefill_by_vars</span><span class="p">,</span>
+            <span class="n">exclude_where_indata</span> <span class="o">=</span> <span class="n">exclude_where_indata</span><span class="p">,</span>
+            <span class="n">keyword_args</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1">##### property methods</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_input_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_indata</span><span class="p">)</span>
+    <span class="nd">@indata</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_input_dataset</span><span class="p">(</span><span class="n">ds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_indata</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">instatus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_input_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_instatus</span><span class="p">)</span>
+    <span class="nd">@instatus</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">instatus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_input_dataset</span><span class="p">(</span><span class="n">ds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_instatus</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outdata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdata</span><span class="p">)</span>
+    <span class="nd">@outdata</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outdata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_output_dataset</span><span class="p">(</span><span class="n">ds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdata</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outstatus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outstatus</span><span class="p">)</span>
+    <span class="nd">@outstatus</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outstatus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_output_dataset</span><span class="p">(</span><span class="n">ds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_outstatus</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outmatching_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outmatching_fields</span><span class="p">)</span>
+    <span class="nd">@outmatching_fields</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outmatching_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_output_dataset</span><span class="p">(</span><span class="n">ds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_outmatching_fields</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outdonormap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdonormap</span><span class="p">)</span>
+    <span class="nd">@outdonormap</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">outdonormap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_output_dataset</span><span class="p">(</span><span class="n">ds</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdonormap</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_call_c_code</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cproc_func</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parm_dict</span><span class="p">,</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_indata</span><span class="o">.</span><span class="n">c_arg</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_instatus</span><span class="o">.</span><span class="n">c_arg</span><span class="p">,</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outdata</span><span class="o">.</span><span class="n">c_schema</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outdata</span><span class="o">.</span><span class="n">c_array</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outstatus</span><span class="o">.</span><span class="n">c_schema</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outstatus</span><span class="o">.</span><span class="n">c_array</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outdonormap</span><span class="o">.</span><span class="n">c_schema</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outdonormap</span><span class="o">.</span><span class="n">c_array</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outmatching_fields</span><span class="o">.</span><span class="n">c_schema</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outmatching_fields</span><span class="o">.</span><span class="n">c_array</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_pp_exclude_where_indata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Flag rows for exclusion, if matching user-specified criteria.</span>
+
+<span class="sd">        Adds &quot;exclusion&quot; flag to indata rows matching user-provided `exclude_where_indata`.</span>
+<span class="sd">        Based on Banff Processor 1.x `generateDonorImputation.sas`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_indata</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_parms</span><span class="p">[</span><span class="s2">&quot;data_excl_var&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flag_rows_where</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_indata</span><span class="o">.</span><span class="n">ds_intermediate</span><span class="p">,</span>
+            <span class="n">where_stmt</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_exclude_where_indata</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_deprecations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">keyword_args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Procedure specific check for use of deprecated options.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_validate_deprecations</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">keyword_args</span><span class="o">=</span><span class="n">keyword_args</span><span class="p">)</span>
+
+        <span class="n">log_lcl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stack_logger</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="c1"># Version 3.1.1b12: &#39;match_field_stat&#39; flag replaced with optional output dataset &#39;outmatching_fields&#39;</span>
+        <span class="k">if</span> <span class="s2">&quot;match_field_stat&quot;</span> <span class="ow">in</span> <span class="n">keyword_args</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Option `</span><span class="si">{}</span><span class="s2">` is deprecated, use `</span><span class="si">{}</span><span class="s2">` instead&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;match_field_stat&quot;</span><span class="p">,</span> <span class="s2">&quot;outmatching_fields&quot;</span><span class="p">)</span>
+            <span class="n">log_lcl</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">DeprecationWarning</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

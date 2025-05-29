@@ -28,9 +28,9 @@
     - [outest_parm](#outest_parm)
     - [outrand_err](#outrand_err)
 - [prorate](#prorate)
-    - [outreject](#outreject-1)
+    - [outreject](#outreject)
 - [massimp](#massimp)
-    - [outdonormap](#outdonormap-1)
+    - [outdonormap](#outdonormap)
 
 # Introduction
 
@@ -70,19 +70,17 @@ Noter que pour plusieurs données de sortie, **\<unit_id\>** apparaît comme en-
 
 # Données de sortie standards
 
-Les procédures de Banff sont conçues pour être exécutées de manière séquentielle dans le cadre d'un processus de VDS. Les éléments de sortie d'une procédure servent souvent d'éléments d'entrée pour la procédure suivante, et les données statistiques qui sont la cible du processus de VDS sont mises à jour en permanence et tout au long du processus. Parmi les données de sortie, `outdata` et `outstatus` sont celles standards et communes à plusieurs procédures. Veuillez vous référer à la section intitulée [interaction entre procédures](/docs/FR/user_guide.md#interaction-entre-procédures) du guide de l'utilisateur pour plus de détails.
+Les procédures de Banff sont conçues pour être exécutées de manière séquentielle dans le cadre d'un processus de VDS. Les éléments de sortie d'une procédure servent souvent d'éléments d'entrée pour la procédure suivante, et les données statistiques qui sont la cible du processus de VDS sont mises à jour en permanence et tout au long du processus. Parmi les données de sortie, `outdata` et `outstatus` sont celles standards et communes à plusieurs procédures. Veuillez vous référer à la section intitulée [interaction entre procédures](./user_guide.md#interaction-entre-procédures) du guide de l'utilisateur pour plus de détails.
 
 ### outdata
 
-**Du guide de l'utilisateur**: 
+Les procédures exécutant des fonctions de traitement (`deterministic`, `donorimp`, `estimator`, `prorate` et `massimp`) produisent la table `outdata`, des données statistiques de sortie (c'est-à-dire des microdonnées) qui incluent le résultat de la fonction de traitement. Cela inclut à la fois les valeurs imputées (par exemple, imputées à partir de `donorimp`) et les valeurs modifiées (par exemple, les valeurs calculées au prorata à partir de `prorate`). Quelques remarques importantes sur `outdata` :
 
-* Si aucun enregistrement n'a été imputé avec succès ou modifié par la procédure, alors `outdata` sera vide. Aucune erreur ne se produira.
+* Typiquement, les données `outdata` **ne sont pas une copie à l'image de  `indata`** mais contiennent uniquement les lignes et les colonnes affectées par la procédure. Par exemple, si `indata` contient 2000 lignes et 25 colonnes, mais seulement 500 lignes et 10 colonnes sont affectées par la procédure, alors `outdata` n'inclura que les 500 lignes et 10 colonnes. L'utilisateur doit manuellement mettre à jour les données `indata` à l'aide de l'information contenue dans `outdata`. (*Note: l'équipe de Banff étudie la possibilité de mettre à jour de manière automatique les données `indata` à partir de l'information dans `outdata`, et ce dans une future version.*)
 * Les données `outdata` vont toujours contenir la variable identifiée par le paramètre `unit_id`. 
-* Typiquement, les données `outdata` **ne sont pas une copie à l'image de  `indata`** mais contiennent uniquement les lignes et les colonnes affectées par la procédure. Par exemple, si `indata` contient 2000 lignes et 25 colonnes, mais seulement 500 lignes et 10 colonnes sont affectées par la procédure, alors `outdata` n'inclura que les 500 lignes et 10 colonnes. L'utilisateur doit manuellement mettre à jour les données `indata` à l'aide de l'information contenue dans `outdata`. (*Note: l'équipe de Banff étudie la possibilité de mettre à jour de manière automatique les données `indata` à partir de l'information dans `outdata`, et ce dans une future version.*)   
+* Si aucun enregistrement n'a été imputé avec succès ou modifié par la procédure, alors `outdata` sera vide. Aucune erreur ne se produira.
 
 ### outstatus
-
-**Du guide de l'utilisateur**: 
 
 Puisque Banff fonctionne avec des données tabulaires, chaque observation peut être associée à une ligne et une colonne spécifiques dans `outstatus`. Les lignes sont identifiées par l'identifiant de l'enregistrement spécifié par l'utilisateur `unit_id`, alors que l'on fait référence aux colonnes par leur nom. Les statuts de sélection et/ou de traitement associés aux observations affectées par la procédure sont conservés dans les données des statuts de sortie, dont les colonnes sont les suivantes:
 
@@ -92,6 +90,8 @@ Puisque Banff fonctionne avec des données tabulaires, chaque observation peut �
 | FIELDID      | Identifiant du champ(c'est-à-dire la colonne ) auquel le statut s'applique.   |
 | STATUS       | Code du statut tel que "FTI", "FTE", ou "IDN".                         |
 | VALUE        | Valeur de la variable lorsque le code du statut a été généré. Pour les procédure effectuant la sélection (`errorloc` et `outlier`), cette colonnes correspond à la valeur de l'observation dans `indata` lorsque la sélection a eu lieu. Pour les procédures effectuant le traitement (`deterministic`, `donorimp`, `estimator`, `prorate`, `massimp`), cette colonne représente la valeur de l'observation dans `outdata` après que le traitement ait eu lieu.   |
+
+Toutes les procédures exécutant des fonctions de sélection ou de traitement (c'est-à-dire toutes sauf `verifyedits` et `editstats`) produisent automatiquement `outstatus` contenant les drapeaux de sélection ou d'imputation. Certaines procédures lisent également des fichiers d'état en entrée (`instatus`); ceux-ci peuvent être nécessaires, selon la procédure.
 
 # editstats
 

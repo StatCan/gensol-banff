@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mass Imputation &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'EN/Procedure Guides/massimp';</script>
+    <link rel="index" title="Index" href="../../genindex" />
+    <link rel="search" title="Search" href="../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Mass Imputation</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="mass-imputation">
+<h1>Mass Imputation<a class="headerlink" href="#mass-imputation" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Execution: <em>banff.massimp()</em></p></li>
+<li><p>SDE function type: <em>Review, Selection, Treatment</em></p></li>
+<li><p>Input status flags: <em>None</em></p></li>
+<li><p>Output status flags: <em>IMAS</em></p></li>
+</ul>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>Performs donor imputation for a block of variables using a nearest neighbour approach or random selection.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">massimp</span></code> procedure is intended for use when a large block of variables is missing for a set of respondents, typically when detailed information is collected only for a subsample (or second phase sample) of units. While the <code class="docutils literal notranslate"><span class="pre">donorimp</span></code> procedure uses both system and user matching fields, mass imputation only considers user matching fields to find a valid record (donor) that is most similar to the one which needs imputation (recipient).</p>
+<p>Mass imputation considers a recipient any record for which all the variables to impute (<code class="docutils literal notranslate"><span class="pre">must_impute</span></code>) are missing on <code class="docutils literal notranslate"><span class="pre">indata</span></code>, and considers a donors any record for which none of the listed variables are missing. If matching fields (<code class="docutils literal notranslate"><span class="pre">must_match</span></code>) are provided by the user, the <code class="docutils literal notranslate"><span class="pre">massimp</span></code> procedure uses them to find the nearest donor using the same distance function as <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>. If matching fields are not provided, a donor is selected at random.</p>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>, the <code class="docutils literal notranslate"><span class="pre">massimp</span></code> procedure does not use edits. Before running the procedure, users should ensure that the pool of potential donors do not include any errors, including outliers or consistency errors.</p>
+<p>Users may create by-groups by specifying <code class="docutils literal notranslate"><span class="pre">by</span></code> variables. These by-groups act as imputation classes. Use the <code class="docutils literal notranslate"><span class="pre">min_donors</span></code> and <code class="docutils literal notranslate"><span class="pre">percent_donors</span></code> parameters to ensure an appropriate number or ratio of recipients and donors exist in each imputation class before performing imputation.</p>
+<p>For a full mathematical description of the procedure methods, with examples, please see the <a class="reference download internal" download="" href="../../_downloads/af41e91dc19117dffc1756544e8fed50/Banff%20Functional%20Description.pdf"><span class="xref download myst">Functional Description</span></a>.</p>
+</section>
+<section id="input-and-output-tables">
+<h2>Input and output tables<a class="headerlink" href="#input-and-output-tables" title="Link to this heading">#</a></h2>
+<p>Descriptions of input and output tables are given below. Banff supports a number of input and output formats; please see the Banff User Guide for more information.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input Table</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>indata</p></td>
+<td><p>Input statistical data. Mandatory.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Output Table</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>outdata</p></td>
+<td><p>Output statistical table containing imputed data. <br><br> Note that outdata will only contain successfully imputed records and affected fields. Users should update indata with the values from outdata before continuing the data editing process.</p></td>
+</tr>
+<tr class="row-odd"><td><p>outstatus</p></td>
+<td><p>Output status file identifying imputed fields with IMAS status flags, and their values after imputation.</p></td>
+</tr>
+<tr class="row-even"><td><p>outdonormap</p></td>
+<td><p>Output table of recipient-donor pairs for successfully imputed records.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For details on the content of output tables, please see the <a class="reference internal" href="../output_tables"><span class="std std-doc">Output Tables</span></a> document.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Python type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>unit_id</p></td>
+<td><p>str</p></td>
+<td><p>Identify key variable (unit identifier) on indata. Mandatory. <br><br> Must be unique for each record. Records with a missing value are dropped before processing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>must_impute</p></td>
+<td><p>str</p></td>
+<td><p>Variables(s) to be imputed. Mandatory. <br><br> To be a recipient, all the variables listed on <code class="docutils literal notranslate"><span class="pre">must_impute</span></code> must be missing for an observation. If all these variables are non missing, then this observation is a potential donor.<br><br> Example: <code class="docutils literal notranslate"><span class="pre">must_impute=&quot;revenue_q1</span> <span class="pre">revenue_q2</span> <span class="pre">revenue_q3</span> <span class="pre">revenue_q4&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>must_match</p></td>
+<td><p>str</p></td>
+<td><p>User defined matching field(s).<br><br> must_match is optional; when not used, random parameter must be specified and a donor will be selected randomly for each recipient.<br><br> Example: <code class="docutils literal notranslate"><span class="pre">must_match=&quot;revenue</span> <span class="pre">headcount&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>random</p></td>
+<td><p>bool</p></td>
+<td><p>Random selection of donors.<br><br> When <code class="docutils literal notranslate"><span class="pre">random</span></code> is used alongside <code class="docutils literal notranslate"><span class="pre">must_match</span></code>, random selection will be applied to recipients with missing values for all <code class="docutils literal notranslate"><span class="pre">must_match</span></code> fields.</p></td>
+</tr>
+<tr class="row-even"><td><p>min_donors</p></td>
+<td><p>int</p></td>
+<td><p>Minimum number of donors required to perform imputation. Default=30.</p></td>
+</tr>
+<tr class="row-odd"><td><p>percent_donors</p></td>
+<td><p>float</p></td>
+<td><p>Minimum percentage of donors required to perform imputation. Default=30.</p></td>
+</tr>
+<tr class="row-even"><td><p>n_limit</p></td>
+<td><p>int</p></td>
+<td><p>Maximum number of times a donor can be used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mrl</p></td>
+<td><p>float</p></td>
+<td><p>Multiplier ratio limit. <br><br> This parameter is multiplied by the ratio of the numbers of recipients to donors, then the result will be the maximum number of times a donor can be used.</p></td>
+</tr>
+<tr class="row-even"><td><p>seed</p></td>
+<td><p>int</p></td>
+<td><p>Specify the root for the random number generator. <br><br> The seed is used to ensure consistent results from one run to the next. If not specified or specified as a non-positive value, a random number is generated by the procedure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accept_negative</p></td>
+<td><p>bool</p></td>
+<td><p>Treat negative values as valid. Default=False. <br><br> By default, a positivity edit is added for every variable in the list of edits; this parameter permits users to remove this restriction. If required, users may directly add positivity edits for individual variables.</p></td>
+</tr>
+<tr class="row-even"><td><p>by</p></td>
+<td><p>str</p></td>
+<td><p>Variable(s) used to partition indata into by-groups for independent processing. <br><br> In massimp, by-groups can also be seen as imputation classes. <br><br> Example: <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;province</span> <span class="pre">industry&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>presort</p></td>
+<td><p>bool</p></td>
+<td><p>Sorts input tables before processing, according to procedure requirements. Default=True.</p></td>
+</tr>
+<tr class="row-even"><td><p>no_by_stats</p></td>
+<td><p>bool</p></td>
+<td><p>Reduces log output by suppressing by-group specific messages. Default=False.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<section id="nearest-neighbour-or-random-donor">
+<h3>Nearest neighbour or random donor<a class="headerlink" href="#nearest-neighbour-or-random-donor" title="Link to this heading">#</a></h3>
+<p>The parameters <code class="docutils literal notranslate"><span class="pre">must_match</span></code> and <code class="docutils literal notranslate"><span class="pre">random</span></code> determine whether the nearest-neighbour algorithm or random selection is used to select donors. The following table shows how specifying these parameters affects mass imputation.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">must_match</span></code> specified</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">random</span></code> specified</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Imputation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Incorrect</p></td>
+<td><p>Results in an error, no imputation is performed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>Correct</p></td>
+<td><p>Random selection of donors.</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>Correct</p></td>
+<td><p>Nearest neighbour selection using <code class="docutils literal notranslate"><span class="pre">must_match</span></code> variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Correct</p></td>
+<td><p>Nearest neighbour selection using <code class="docutils literal notranslate"><span class="pre">must_match</span></code> variables, or random selection for recipients with missing values for the <code class="docutils literal notranslate"><span class="pre">must_match</span></code> variables.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If a recipient has missing values for some but not all <code class="docutils literal notranslate"><span class="pre">must_match</span></code> variables, the distance to the closest donor will be based only on the <code class="docutils literal notranslate"><span class="pre">must_match</span></code> variables that have valid values. If a recipient has missing values for all <code class="docutils literal notranslate"><span class="pre">must_match</span></code> variables, then it will be randomly matched to a donor if the <code class="docutils literal notranslate"><span class="pre">random</span></code> parameter is specified, and it will not be matched to any donor if the <code class="docutils literal notranslate"><span class="pre">random</span></code> parameter is not used.</p>
+</section>
+<section id="multiple-equivalent-solutions">
+<h3>Multiple equivalent solutions<a class="headerlink" href="#multiple-equivalent-solutions" title="Link to this heading">#</a></h3>
+<p>In some cases, for a given recipient, there may be multiple equidistant donors (i.e. having the same distance from the recipient) whose values would allow the recipient to pass the edits. When this occurs, the procedure selects one of these solutions at random.</p>
+<p>For development or testing purposes, users may wish to produce consistent results over multiple runs of the procedure, and may do so using the <code class="docutils literal notranslate"><span class="pre">seed</span></code> parameter. It ensures that the same solutions will be selected from one run to the next, if executed on the same set of inputs. Note that if <code class="docutils literal notranslate"><span class="pre">seed</span></code> is not specified, the system generates a default seed.</p>
+<p>This parameter can also be used to replicate results when random donor selection is performed.</p>
+</section>
+<section id="limiting-the-repeated-use-of-donors">
+<h3>Limiting the repeated use of donors<a class="headerlink" href="#limiting-the-repeated-use-of-donors" title="Link to this heading">#</a></h3>
+<p>Users may limit the repeated use of donors with the interrelated <code class="docutils literal notranslate"><span class="pre">n_limit</span></code> and <code class="docutils literal notranslate"><span class="pre">mrl</span></code> parameters. The donor limit is calculated as follows, depending on whether one or both are specified:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">n_limit</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">mrl</span></code></p></th>
+<th class="head"><p>Donor Limit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Number of times a donor can be used is unlimited.</p></td>
+</tr>
+<tr class="row-odd"><td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>round(<code class="docutils literal notranslate"><span class="pre">mrl</span></code>*(recipients/donors)).</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n_limit</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>round(max(<code class="docutils literal notranslate"><span class="pre">n_limit</span></code>,<code class="docutils literal notranslate"><span class="pre">mrl</span></code>*(recipients/donors))).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When limiting the number of donors with the <code class="docutils literal notranslate"><span class="pre">n_limit</span></code> parameter, the number of remaining donors may end up being less than <code class="docutils literal notranslate"><span class="pre">min_donors</span></code>. In such a case, mass imputation will continue and ignore <code class="docutils literal notranslate"><span class="pre">min_donors</span></code> which was validated at the beginning. The same applies for <code class="docutils literal notranslate"><span class="pre">percent_donors</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-output-tables">Input and output tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbour-or-random-donor">Nearest neighbour or random donor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-equivalent-solutions">Multiple equivalent solutions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-the-repeated-use-of-donors">Limiting the repeated use of donors</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/EN/Procedure Guides/massimp.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

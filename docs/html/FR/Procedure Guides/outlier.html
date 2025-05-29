@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Détection des valeurs aberrantes &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FR/Procedure Guides/outlier';</script>
+    <link rel="index" title="Index" href="../../genindex" />
+    <link rel="search" title="Search" href="../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Détection des valeurs aberrantes</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="detection-des-valeurs-aberrantes">
+<h1>Détection des valeurs aberrantes<a class="headerlink" href="#detection-des-valeurs-aberrantes" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Exécution: <em>banff.outlier()</em></p></li>
+<li><p>Type de fonction VSD: <em>Revue, Sélection</em></p></li>
+<li><p>Statuts d’entrée: <em>Néant</em></p></li>
+<li><p>Statuts de sortie: <em>FTI, FTE</em></p></li>
+</ul>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>Identifie les valeurs aberrantes à l’aide de la méthode Hidiroglou-Berthelot ou la méthode de l’écart-sigma.</p>
+<p>Cette procédure permet l’utilisation de deux méthodes de détection univariées des valeurs aberrantes. La méthode Hidiroglou-Berthelot (HB) sélectionne les valeurs aberrantes en se basant sur leur distance de la médiane, relativement à la distance de l’écart interquartile. La méthode de l’écart-sigma (SG) trie les données dans l’ordre ascendant puis recherche des écarts significatifs (relativement à l’écart-type) entre deux valeurs consécutives, avant de sélectionner toutes les  valeurs subséquentes comme valeurs aberrantes. Les deux méthodes peuvent détecter deux types de valeurs aberrantes, qui seront repertoriés dans les données des statuts en sortie outstatus:</p>
+<ul class="simple">
+<li><p>Les valeurs qui sont suffisamment extrêmes pour être considérées comme des erreurs. Ces valeurs sont marquées comme étant des <em>champs à imputer (FTI)</em> afin qu’ils soient imputés lors d’une étape ultérieure.</p></li>
+<li><p>Les valeurs qui ne sont pas suffisamment extrêmes pour être considérées comme erronées, mais sont assez exceptionnelles pour qu’elles soient traitées comme <em>champs à exclure (FTE)</em> lors d’une procédure subséquente d’imputation comme donorimp ou estimator. (Ce statut peut aussi être utile lors de la pondération ou de l’estimation robuste).</p></li>
+</ul>
+<p>Pour les deux méthodes, l’utilisateur doit spécifier un seuil d’imputation ou d’exclusion; ce seuil n’a pas de valeur par défaut.</p>
+<p>Caractéristiques additionnelles de la procédure:</p>
+<ul class="simple">
+<li><p>L’utilisateur peut rouler la détection des valeurs aberrantes pour plusieurs variables (<code class="docutils literal notranslate"><span class="pre">var</span></code>) dans une même exécution.</p></li>
+<li><p>L’utilisateur peut aussi rouler la détection des valeurs aberrantes sur des ratios de variables. Dans ce cas, seulement les numérateurs (<code class="docutils literal notranslate"><span class="pre">var</span></code>) sont marqués dans les données des statuts de sortie outstatus. L’utilisateur peut utiliser des variables auxiliaires (<code class="docutils literal notranslate"><span class="pre">with_var</span></code>) de la période courante (indata) ou des données historiques (indata_hist) comme dénominateur.</p></li>
+<li><p>La détection des valeurs aberrantes peut être effectuée à droite, à gauche, ou des deux côtés (<code class="docutils literal notranslate"><span class="pre">side</span></code>).</p></li>
+<li><p>La détection des valeurs aberrantes peut être effectuée à l’intérieur des groupes de partition <em>by</em>, avec un nombre minimal d’observations (<code class="docutils literal notranslate"><span class="pre">min_obs</span></code>) spécifié par l’utilisateur et requis pour que la détection des valeurs aberrantes ait lieu.</p></li>
+</ul>
+<p>Pour une description mathématique complète des méthodes de la procédure accompagnée d’exemples, se référer à <a class="reference download internal" download="" href="../../_downloads/d2120f7397df70628be7489ad82cbee1/Description%20des%20fonctions%20Banff.pdf"><span class="xref download myst">la description des fonctions</span></a>.</p>
+</section>
+<section id="donnees-d-entree-et-de-sortie">
+<h2>Données d’entrée et de sortie<a class="headerlink" href="#donnees-d-entree-et-de-sortie" title="Link to this heading">#</a></h2>
+<p>La description des données d’entrée et de sortie est donnée ci-dessous. Banff supporte plusieurs formats pour les données qu’elles soient d’entrée ou de sortie; se référer au guide d’utilisateur pour plus d’information.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Données d’entrée</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>indata</p></td>
+<td><p>Données d’entrée. Obligatoire.</p></td>
+</tr>
+<tr class="row-odd"><td><p>indata_hist</p></td>
+<td><p>Données historiques d’entrée. <br><br> Les enregistrements dans indata sont liés à ceux dans indata_hist par la variable <code class="docutils literal notranslate"><span class="pre">unit_id</span></code>. Les enregistrements qui apparaissent dans indata_hist sans qu’ils se retrouvent dans indata seront écartés avant la détection, de même que les enregistrements dont la valeur de <code class="docutils literal notranslate"><span class="pre">unit_id</span></code> est manquante.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Données de sortie</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>outstatus</p></td>
+<td><p>Données des statuts de sortie identifiant les champs des valeurs aberrantes avec les statuts FTI ET FTE et contenant leurs valeurs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>outstatus_detailed</p></td>
+<td><p>Statut détaillé des valeurs aberrantes (ODER/ODEL/ODIR/ODIL). <br><br> Statut détaillé indiquant si la valeur aberrante se trouve à l’extérieur de l’intervalle d’exclusion à droite (ODER) ou à gauche (ODEL). Lorsque la valeur aberrante concerne un champ FTI, le statut détaillé identifie si la valeur aberrante se trouve à l’extérieur de l’intervalle d’imputation à droite (ODIR) ou à gauche (ODIL). <br><br> Ces données de sortie contiendront plus d’information (bornes d’exclusion et d’imputation, valeurs courantes et auxiliaires, ..) lorsque l’on spécifie <code class="docutils literal notranslate"><span class="pre">outlier_stats=True</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>outsummary</p></td>
+<td><p>Informations sommaires sur les valeurs aberrantes détectées, telles que le compte des observations et les bornes de l’intervalle d’acceptation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pour plus d’information sur le contenu des données de sortie, se référer au document des <a class="reference internal" href="../output_tables"><span class="std std-doc">données de sortie</span></a>.</p>
+</section>
+<section id="parametres">
+<h2>Paramètres<a class="headerlink" href="#parametres" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Python type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>unit_id</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Identifier la variable clé (identifiant de l’unité) dans indata. Obligatoire.<br><br> unit_id devra être unique pour chaque enregistrement. Les enregistrements ayant une valeur manquante seront écartés avant le traitement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>method</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Méthode à utiliser dans la détection des valeurs aberrantes (‘CURRENT’, ‘RATIO’, ‘HISTORIC’ or ‘SIGMAGAP’). Obligatoire.<br><br> La méthode de l’écart-sigma (SG) est appliquée lorsque  <code class="docutils literal notranslate"><span class="pre">method='SIGMAGAP'</span></code>, sinon c’est la méthode Hidiroglou-Berthelot (HB) qui est utilisée; veuillez vous référer aux notes pour plus d’information.</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Variables qui font l’objet de la détection des valeurs aberrantes. <br><br> <code class="docutils literal notranslate"><span class="pre">var</span></code> devient obligatoire lorsque les variables historiques ou auxiliaires sont utilisées. Si elles ne le sont pas, <code class="docutils literal notranslate"><span class="pre">var</span></code> peut être omise, auquel cas toutes les variables numériques dans indata (à l’exception de celles utilisées pour définir les groupes de partition <em>by</em>) seront considérées dans la détection des valeurs aberrantes. <br><br> Exemple: <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">=</span> <span class="pre">&quot;Revenu</span> <span class="pre">Depenses&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>with_var</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Variables historiques ou auxiliaires.<br><br> Le nombre de variables listées dans <code class="docutils literal notranslate"><span class="pre">with_var</span></code> doit être le même que celui des variables listées dans <code class="docutils literal notranslate"><span class="pre">var</span></code>. Les variables <code class="docutils literal notranslate"><span class="pre">with_var</span></code> sont lues à partir de indata_hist si ces données sont utilisées, sinon elles sont lues à partir de indata. Lorsque <code class="docutils literal notranslate"><span class="pre">var</span></code> et <code class="docutils literal notranslate"><span class="pre">with_var</span></code> sont identiques (i.e. chaque variable dans <code class="docutils literal notranslate"><span class="pre">var</span></code> a son équivalente historique avec le même nom dans indata_hist), alors <code class="docutils literal notranslate"><span class="pre">with_var</span></code> peut être omis.</p></td>
+</tr>
+<tr class="row-even"><td><p>weight</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Variable à utiliser dans la pondération.<br><br> le poids est au niveau de l’enregistrement et doit avoir une valeur pour chacun. <code class="docutils literal notranslate"><span class="pre">weight</span></code> sera multiplié par les valeurs des variables qui font l’objet de la détection des valeurs aberrantes. Lorsqu’un enregistrement dans indata a un poids est manquant, il sera écarté de la détection des valeurs aberrantes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>exclude_where_indata</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Expression dans le langage SQL permettant l’exclusion de certains observations de la détection des valeurs aberrantes.</p></td>
+</tr>
+<tr class="row-even"><td><p>mii</p></td>
+<td><p>flottant</p></td>
+<td><p>Multiplicateur pour l’intervalle d’imputation de HB (positif).<br><br> <code class="docutils literal notranslate"><span class="pre">mii</span></code> contrôle la largeur de l’intervalle d’imputation. Une plus grande valeur de ce multiplicateur se traduira par un plus petit nombre de valeurs aberrantes détectées à imputer. <code class="docutils literal notranslate"><span class="pre">mii</span></code> devient obligatoire pour HB lorsque <code class="docutils literal notranslate"><span class="pre">mei</span></code> n’est pas spécifié.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mei</p></td>
+<td><p>flottant</p></td>
+<td><p>Multiplicateur pour l’intervalle d’exclusion de HB (positif).<br><br> <code class="docutils literal notranslate"><span class="pre">mei</span></code> contrôle la largeur de l’intervalle d’exclusion. Une plus grande valeur de ce multiplicateur se traduira par un plus petit nombre de valeurs aberrantes détectées à exclure. <code class="docutils literal notranslate"><span class="pre">mei</span></code> devient obligatoire pour HB lorsque <code class="docutils literal notranslate"><span class="pre">mii</span></code> n’est pas spécifié.</p></td>
+</tr>
+<tr class="row-even"><td><p>mdm</p></td>
+<td><p>flottant</p></td>
+<td><p>Multiplicateur de distance minimale de HB (positif). Par défaut: 0,05.<br><br> <code class="docutils literal notranslate"><span class="pre">mdm</span></code> correspond à la distance interquartile minimale requise pour calculer les intervalles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>exponent</p></td>
+<td><p>flottant</p></td>
+<td><p>Exposant des ratios ou des tendances historiques de HB (entre 0 et 1). Par défaut: 0.</p></td>
+</tr>
+<tr class="row-even"><td><p>min_obs</p></td>
+<td><p>entier</p></td>
+<td><p>Nombre minimal d’observations requises dans les données d’entrée ou dans les groupes de partition <em>by</em> le cas échéant (positif). Par défaut: 10.<br><br> <code class="docutils literal notranslate"><span class="pre">min_obs</span></code> &gt;= 3 pour HB; <code class="docutils literal notranslate"><span class="pre">min_obs</span></code> &gt;= 5 pour SG.<br><br> Un nombre minimal de 10 observations par groupe de partition <em>by</em> est recommandé; avec moins de 10 observations, les résultats de la détection des valeurs aberrantes doivent être utilisés avec précaution.</p></td>
+</tr>
+<tr class="row-odd"><td><p>side</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Côté (‘LEFT’, ‘RIGHT’, ou ‘BOTH’) des données ordonnées à utiliser dans la détection des valeurs aberrantes. Par défaut: ‘BOTH’.</p></td>
+</tr>
+<tr class="row-even"><td><p>start_centile</p></td>
+<td><p>flottant</p></td>
+<td><p>Centile à utiliser pour déterminer le point de départ (entre 0 et 100). Par défaut: 75 pour ‘side=”BOTH”’, 0 sinon. <br><br> Le centile doit être supérieur ou égal à 0 et inférieur à 100 quand <code class="docutils literal notranslate"><span class="pre">side='LEFT'</span></code> ou <code class="docutils literal notranslate"><span class="pre">side='RIGHT'</span></code>. Le centile doit être supérieur ou égal à 50 et inférieur à 100 quand <code class="docutils literal notranslate"><span class="pre">side='BOTH'</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>beta_i</p></td>
+<td><p>flottant</p></td>
+<td><p>Multiplicateur de l’intervalle d’imputation de SG (non-négatif).<br><br> 0&lt;<code class="docutils literal notranslate"><span class="pre">beta_e</span></code>&lt;<code class="docutils literal notranslate"><span class="pre">beta_i</span></code>. <code class="docutils literal notranslate"><span class="pre">beta_i</span></code> devient obligatoire lorsque <code class="docutils literal notranslate"><span class="pre">beta_e</span></code> n’est pas spécifié.</p></td>
+</tr>
+<tr class="row-even"><td><p>beta_e</p></td>
+<td><p>flottant</p></td>
+<td><p>Multiplicateur de l’intervalle d’exclusion de SG (non-négatif).<br><br> 0&lt;<code class="docutils literal notranslate"><span class="pre">beta_e</span></code>&lt;<code class="docutils literal notranslate"><span class="pre">beta_i</span></code>. <code class="docutils literal notranslate"><span class="pre">beta_e</span></code> devient obligatoire lorsque <code class="docutils literal notranslate"><span class="pre">beta_i</span></code> n’est pas spécifié.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigma</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Écart-type (‘MAD’ or ‘STD’) à calculer. Par défaut: ‘MAD’.<br><br> MAD: écart médian absolu; STD: écart-type classique.</p></td>
+</tr>
+<tr class="row-even"><td><p>outlier_stats</p></td>
+<td><p>booléen</p></td>
+<td><p>Ajoute de l’information additionnelle aux données de sortie outstatus_detailed, incluant les bornes des intervalles d’exclusion et d’imputation. Par défaut: False.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accept_zero</p></td>
+<td><p>booléen</p></td>
+<td><p>Traite les valeurs nulles comme des valeurs valides. Par défaut: False lorsque des variables historiques ou auxiliaires sont utilisées, True sinon.</p></td>
+</tr>
+<tr class="row-even"><td><p>accept_negative</p></td>
+<td><p>booléen</p></td>
+<td><p>Traite les valeurs négatives comme des valeurs valides. Par défaut: False. <br><br> Par défaut, la règle de positivité est ajoutée pour chaque variable dans la liste des règles de vérification; ce paramètre permet à l’utilisateur d’enlever cette restriction. L’utilisateur peut aussi ajouter la règle de positivité de manière individuelle pour chaque variable qui la requiert.</p></td>
+</tr>
+<tr class="row-odd"><td><p>by</p></td>
+<td><p>chaîne de caractères</p></td>
+<td><p>Variable(s) utilisée(s) pour partitionner indata en des groupes <em>by</em> pour un traitement indépendant. <br><br> La détection des valeurs aberrantes est effectuée séparément sur chaque groupe <em>by</em>. <br><br> Exemple: <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;province</span> <span class="pre">industrie&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>presort</p></td>
+<td><p>booléen</p></td>
+<td><p>Trier les données d’entrée avant le traitement, et ce selon les exigences de la procédure. Par défaut: True.</p></td>
+</tr>
+<tr class="row-odd"><td><p>no_by_stats</p></td>
+<td><p>booléen</p></td>
+<td><p>Réduire le journal de sortie en supprimant les messages spécifiques aux groupes de partition <em>by</em>. Par défaut: False.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<section id="seuils-d-imputation-et-d-exclusion">
+<h3>Seuils d’imputation et d’exclusion<a class="headerlink" href="#seuils-d-imputation-et-d-exclusion" title="Link to this heading">#</a></h3>
+<p>L’identification des valeurs aberrantes aux fins d’imputation ou d’exclusion requiert des seuils spécifiés par l’utilisateur. Il n’y a pas de valeur par défaut ou de suggestion pour ces valeurs; elles dépendent entièrement des critères que l’utilisateur utilise pour considérer une valeur comme extrême. Au moins un seuil doit être spécifié pour chaque méthode: <code class="docutils literal notranslate"><span class="pre">mii</span></code> ou <code class="docutils literal notranslate"><span class="pre">mei</span></code> pour la méthode HB, et <code class="docutils literal notranslate"><span class="pre">beta_i</span></code> ou <code class="docutils literal notranslate"><span class="pre">beta_e</span></code> pour la méthode SG.</p>
+</section>
+<section id="specifier-la-methode-de-detection-des-valeurs-aberrantes">
+<h3>Spécifier la méthode de détection des valeurs aberrantes<a class="headerlink" href="#specifier-la-methode-de-detection-des-valeurs-aberrantes" title="Link to this heading">#</a></h3>
+<p>La paramètre <code class="docutils literal notranslate"><span class="pre">method</span></code> permet de spécifier la détection des valeurs aberrantes de plusieurs manières, que ce soit pour des variables individuelles ou des ratios, avec ou sans données historiques. Ceci dépend de la combinaison des paramètres <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, et <code class="docutils literal notranslate"><span class="pre">with_var</span></code>, et si <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> est fourni ou non:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pour faire ceci:</p></th>
+<th class="head"><p>Paramètre <code class="docutils literal notranslate"><span class="pre">method</span></code></p></th>
+<th class="head"><p>Paramètre <code class="docutils literal notranslate"><span class="pre">with_var</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> fourni</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Appliquer la méthode HB aux données courantes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;CURRENT&quot;</span></code></p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+</tr>
+<tr class="row-odd"><td><p>Appliquer la méthode HB au ratio des données courantes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;RATIO&quot;</span></code></p></td>
+<td><p>Oui</p></td>
+<td><p>Non</p></td>
+</tr>
+<tr class="row-even"><td><p>Appliquer la méthode HB aux tendances historiques</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;CURRENT&quot;</span></code></p></td>
+<td><p>Oui</p></td>
+<td><p>Oui</p></td>
+</tr>
+<tr class="row-odd"><td><p>Appliquer la méthode SG aux données courantes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;SIGMAGAP&quot;</span></code></p></td>
+<td><p>Non</p></td>
+<td><p>Non</p></td>
+</tr>
+<tr class="row-even"><td><p>Appliquer la méthode SG au ratio des données courantes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;SIGMAGAP&quot;</span></code></p></td>
+<td><p>Oui</p></td>
+<td><p>Non</p></td>
+</tr>
+<tr class="row-odd"><td><p>Appliquer la méthode SG aux tendances historiques</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;SIGMAGAP&quot;</span></code></p></td>
+<td><p>Oui</p></td>
+<td><p>Oui</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La méthode de détection des valeurs aberrantes est toujours appliquée aux variables listées dans <code class="docutils literal notranslate"><span class="pre">var</span></code>. (Si <code class="docutils literal notranslate"><span class="pre">var</span></code> n’est pas spécifié, la détection des valeurs aberrantes sera effectuée pour les variables numériques dans indata, à l’exception de celles listées dans le paramètre <code class="docutils literal notranslate"><span class="pre">by</span></code>.) Pour appliquer la détection des valeurs aberrantes sur un ratio de variables, spécifier la liste des numérateurs dans <code class="docutils literal notranslate"><span class="pre">var</span></code> et la liste des dénominateurs dans <code class="docutils literal notranslate"><span class="pre">with_var</span></code>; la procédure passera à travers les pairs dans l’ordre spécifié. (Noter qu’il est possible de lister les même variables plusieurs fois dans <code class="docutils literal notranslate"><span class="pre">var</span></code> comme dans <code class="docutils literal notranslate"><span class="pre">with_var</span></code>.)</p>
+<p>Lorsque indata_hist est fourni, la procédure utilisera les données courantes (provenant de indata) comme numérateurs et les données historiques (provenant de <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code>) comme dénominateurs. Lorsque <code class="docutils literal notranslate"><span class="pre">with_var</span></code> n’est pas spécifié, la procédure utilisera les mêmes variables au numérateur et au dénominateur.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-d-entree-et-de-sortie">Données d’entrée et de sortie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres">Paramètres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seuils-d-imputation-et-d-exclusion">Seuils d’imputation et d’exclusion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifier-la-methode-de-detection-des-valeurs-aberrantes">Spécifier la méthode de détection des valeurs aberrantes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/FR/Procedure Guides/outlier.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

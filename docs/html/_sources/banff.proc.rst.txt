@@ -1,0 +1,93 @@
+banff.proc package
+==================
+
+Submodules
+----------
+
+banff.proc.banff\_proc module
+-----------------------------
+
+.. automodule:: banff.proc.banff_proc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_determin module
+--------------------------------
+
+.. automodule:: banff.proc.proc_determin
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_donorimp module
+--------------------------------
+
+.. automodule:: banff.proc.proc_donorimp
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_editstat module
+--------------------------------
+
+.. automodule:: banff.proc.proc_editstat
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_errorloc module
+--------------------------------
+
+.. automodule:: banff.proc.proc_errorloc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_estimato module
+--------------------------------
+
+.. automodule:: banff.proc.proc_estimato
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_massimpu module
+--------------------------------
+
+.. automodule:: banff.proc.proc_massimpu
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_outlier module
+-------------------------------
+
+.. automodule:: banff.proc.proc_outlier
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_prorate module
+-------------------------------
+
+.. automodule:: banff.proc.proc_prorate
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+banff.proc.proc\_verifyed module
+--------------------------------
+
+.. automodule:: banff.proc.proc_verifyed
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: banff.proc
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -5,7 +5,7 @@
 The target audience for this guide is users of SAS based Banff 2.08.002 or earlier who are migrating to Python based Banff 3.x.  
 It summarizes information on the changes made in version 3, including new names for parameters and tables, as well as examples of how SAS programs which call Banff procedures can be converted into equivalent Python programs.  
 
-This document is not intended for new Banff users as it does not provide an extensive overview of the Banff Procedures.  Please refer to the [User Guide](/docs/EN/user_guide.md) for complete details on the use of each procedure, its parameters, and tables.  
+This document is not intended for new Banff users as it does not provide an extensive overview of the Banff Procedures.  Please refer to the [User Guide](./user_guide.md) for complete details on the use of each procedure, its parameters, and tables.  
 
 ## Table of contents
 
@@ -27,7 +27,7 @@ This document is not intended for new Banff users as it does not provide an exte
 
 ## Available Procedures
 
-For a list of the available procedures, see the [User Guide](/docs/EN/user_guide.md#table-of-procedures).  
+For a list of the available procedures, see the [User Guide](./user_guide#list-of-procedures).  
 
 Each procedure has been converted by taking the SAS-dependent Banff 2.08.002 procedure source code and modifying it to produce an open-source based procedure which is *"wrapped"* in a Python package.  The underlying mathematical computations remain unaltered.  
 
@@ -158,30 +158,30 @@ New options include
 
 This option excludes records based on a user-specified SQL expression.  See the procedure-specific documentation for details
 
-- [donorimp](/docs/EN/Procedure%20Guides/donorimp.md#parameters)
-- [estimator](/docs/EN/Procedure%20Guides/estimator.md#parameters)
-- [outlier](/docs/EN/Procedure%20Guides/outlier.md#parameters)
+- [donorimp](./Procedure%20Guides/donorimp.md#parameters)
+- [estimator](./Procedure%20Guides/estimator.md#parameters)
+- [outlier](./Procedure%20Guides/outlier.md#parameters)
 
 #### `exclude_where_indata_hist` Option
 
 This option excludes records based on a user-specified SQL expression.  See the procedure-specific documentation for details
 
-- [estimator](/docs/EN/Procedure%20Guides/estimator.md#parameters)
+- [estimator](./Procedure%20Guides/estimator.md#parameters)
 
 #### `prefill_by_vars` Option
 
 This option is available and enabled by default in all procedures which accept an `instatus` table.  
-See [User Guide](/docs/EN/user_guide.md#prefill_by_vars)
+See [User Guide](./user_guide.md#prefill_by_vars)
 
 #### `presort` Option
 
 This option is available and enabled by default in all procedures which accept input tables.  
-See [User Guide](/docs/EN/user_guide.md#presort)
+See [User Guide](./user_guide.md#presort)
 
 #### `trace` Option
 
 This option is available in all procedures and controls console log verbosity.  
-See [User Guide](/docs/EN/user_guide.md#python-log-verbosity-trace)
+See [User Guide](./user_guide.md#python-log-verbosity-trace)
 
 ## Procedure Tables
 
@@ -233,7 +233,7 @@ For a complete list of detailed information, see [Notable Procedure Changes](#no
 
 #### Standardization of `outstatus` Table
 
-> also see [Output Tables > outstatus](/docs/EN/output_tables.md#outstatus)
+> also see [Output Tables > outstatus](./output_tables.md#outstatus)
 
 The `outstatus` table is now [standardized](#standardization-of-outstatus-tables) across all procedures which produce it.  New output tables have been introduced to the [*Donor Imputation*](#changes-to-donor-imputation-outstatus), [*Mass Imputation*](#addition-of-outstatus-to-mass-imputation-procedure) and [*Outlier*](#changes-to-outlier-outstatus) procedures to accommodate this change.  
 
@@ -243,7 +243,7 @@ The *Errorloc* procedure now [accepts an `instatus` table](#addition-of-instatus
 
 ## Table Specification
 
-For information on specifying input and output tables, supported formats, etc. please see the [User Guide](/docs/EN/user_guide.md#input-and-output-table-specification)
+For information on specifying input and output tables, supported formats, etc. please see the [User Guide](./user_guide.md#input-and-output-table-specification)
 
 ## Notable Procedure Changes
 
@@ -304,22 +304,22 @@ This new table is disabled by default.  Specify `True`, or any valid output opti
 
 ### Native Language Support
 
-Banff produces a [log](/docs/EN/user_guide.md#banff-log) which can output messages in either English or French.  See [*setting the log language*](/docs/EN/user_guide.md#setting-the-log-language) from the user guide for details.  
+Banff produces a [log](./user_guide.md#banff-log) which can output messages in either English or French.  See [*setting the log language*](./user_guide.md#setting-the-log-language) from the user guide for details.  
 
 ### `capture` option
 
-When running in Jupyter Notebooks, some log messages may be missing.  Specifying `capture=True` in a procedure call to may fix the issue.  See [suppressing and troubleshooting log messages](/docs/EN/user_guide.md#suppressing-and-troubleshooting-log-messages-capture) from the user guide for details.  
+When running in Jupyter Notebooks, some log messages may be missing.  Specifying `capture=True` in a procedure call to may fix the issue.  See [suppressing and troubleshooting log messages](./user_guide.md#suppressing-and-troubleshooting-log-messages-capture) from the user guide for details.  
 
 ## Performance Considerations
 
-Certain options and table formats can be expected to deliver optimal performance.  See [Performance Considerations](/docs/EN/user_guide.md#performance-considerations) for details.  
+Certain options and table formats can be expected to deliver optimal performance.  See [Performance Considerations](./user_guide.md#performance-considerations) for details.  
 
 ## Errors and Exceptions
 
-Error's are handled differently in SAS vs in Python, where they are called *exceptions*.  See [Errors and Exceptions](/docs/EN/user_guide.md#errors-and-exceptions) from the user guide for details.  
+Error's are handled differently in SAS vs in Python, where they are called *exceptions*.  See [Errors and Exceptions](./user_guide.md#errors-and-exceptions) from the user guide for details.  
 
 ## Utility Functions
 
 ### Working with SAS Files in Python
 
-The banff package provides a few useful functions for reading SAS files in Python.  See [Working with SAS Files in Python](/docs/EN/user_guide.md#working-with-sas-files-in-python) in the user guide for details.  
+The banff package provides a few useful functions for reading SAS files in Python.  See [Working with SAS Files in Python](./user_guide.md#working-with-sas-files-in-python) in the user guide for details.  

@@ -11,7 +11,7 @@ Performs imputation when only one combination of values permits the record to pa
 
 The deterministic imputation procedure analyzes each field previously identified as requiring imputation to determine if there is only one possible value which would satisfy the original edits. If such a value is found, it is imputed during execution of this procedure. This method can also be referred to as deductive imputation, since a missing or inconsistent value can be deduced with certainty based upon other fields of the same record.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -27,7 +27,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outdata      | Output statistical table containing imputed data. <br><br> Note that outdata will only contain successfully imputed records and affected fields. Users should update indata with the values from outdata before continuing the data editing process.       |
 | outstatus    | Output status file identifying imputed fields with IDE status flags, and their values after imputation.  |
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 

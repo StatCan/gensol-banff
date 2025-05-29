@@ -28,7 +28,7 @@ La description des données d'entrée et de sortie est donnée ci-dessous. Banff
 | outedit_applic    | Nombre de fois chaque variable est impliquée dans une règle de vérification qui est satisfaite ou non satisfaite à cause d'une valeur manquante ou non manquante. |
 | outvars_role      | Nombre de fois chacune des variables contribue à l'état général de l'enregistrement. |
 
-Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](/docs/FR/output_tables.md).
+Pour plus d'information sur le contenu des données de sortie, se référer au document des [données de sortie](../output_tables.md).
 
 ## Paramètres
 

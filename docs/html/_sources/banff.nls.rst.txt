@@ -1,0 +1,21 @@
+banff.nls package
+=================
+
+Submodules
+----------
+
+banff.nls.nls module
+--------------------
+
+.. automodule:: banff.nls.nls
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: banff.nls
+   :members:
+   :show-inheritance:
+   :undoc-members:

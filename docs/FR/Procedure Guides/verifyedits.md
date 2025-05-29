@@ -21,7 +21,7 @@ La procédure verifyedits n'analyse de données et n'effectue aucune fonction de
 
 Les sorties de verifyedits peuvent donne à l'utilisateur une meilleure idée de la région d'acceptation définies par les règles de vérification originales, et ce avant de pouvoir les utiliser dans les autres procédures. Même si les règles de vérification sont cohérentes, les sorties peuvent révéler des contraintes inattendues ou involontaires qui peuvent être corrigées en ajoutant, enlevant ou modifiant les règles de vérification. Utiliser l'ensemble minimal des règles de vérification peut aussi accroître la performance dans les autres procédures.
 
-Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](/docs/FR/Description%20des%20fonctions%20Banff.pdf).
+Pour une description mathématique complète des méthodes de la procédure accompagnée d'exemples, se référer à [la description des fonctions](../Description%20des%20fonctions%20Banff.pdf).
 
 ## Données d'entrée et de sortie
 

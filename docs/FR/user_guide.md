@@ -7,7 +7,7 @@ Banff est un paquet statistique développé par Statistique Canada, et consistan
 * Bien que chaque procédure Banff s'exécute des manière indépendante, elles suivent toutes un gabarit modulaire, et peuvent être roulées séquentiellement dans le cadre d'un processus plus général de VDS.    
 * Banff utilise les codes de statut comme les statuts de sélection et d'imputation pour suivre les métadonnées. Ces codes de statut permettent aux procédures Banff de relayer l'information d'une procédure à l'autre, et sont également consignés dans le journal du processus général de VDS.   
 
-Ce guide de l'utilisateur est destiné à fournir aux utilisateurs de Banff l'information générale à propos du paquet, couvrant les concepts méthodologiques importants et communs à plusieurs procédures, ainsi que les détails techniques. Pour l'information spécifique à une procédure particulière, incluant les descriptions des paramètres, se référer aux [guides des procédure](./Procedure%20Guides/). La liste de toutes les données de sortie générées par les procédures peut être trouvée dans le document des [données de sortie](output_tables.md). Une description complète des méthodes sous-jacentes, avec des exemples et des conseils sur leur application peut être trouvée dans la [description des fonctions](./Description%20des%20fonctions%20Banff.pdf).    
+Ce guide de l'utilisateur est destiné à fournir aux utilisateurs de Banff l'information générale à propos du paquet, couvrant les concepts méthodologiques importants et communs à plusieurs procédures, ainsi que les détails techniques. Pour l'information spécifique à une procédure particulière, incluant les descriptions des paramètres, se référer au [tableau des procédures](#liste-des-procédures) ci-dessous. La liste de toutes les données de sortie générées par les procédures peut être trouvée dans le document des [données de sortie](output_tables.md). Une description complète des méthodes sous-jacentes, avec des exemples et des conseils sur leur application peut être trouvée dans la [description des fonctions](./Description%20des%20fonctions%20Banff.pdf).    
 
 Lorsque les procédures Banff sont exécutées séquentiellement dans le cadre d'un processus de VDS, l'utilisateur est responsable des éléments d'entrée et de sortie entre les étapes. Un paquet supplémentaire, le *Processeur Banff*, est une application basée sur les métadonnées, et conçue spécifiquement pour une production VDS à grande échelle, intégrant les procédures Banff et se chargeant de la gestion des données intermédiaires. 
 
@@ -69,17 +69,17 @@ Les neuf procédures sont listées dans le tableau ci-dessous, chacune accompagn
 
 | Nom de la procédure      | Pseudonyme           | Types de fonction            | Description |
 | ------------------------ | --------------- | ---------------------------- |--------------- |
-| [Spécification et analyse des règles de vérification](/docs/FR/Procedure%20Guides/verifyedits.md) | `verifyedits`   | *Aucune*          | Vérifie la cohérence et la redondance des règles de vérification. |
-| [Statistiques sur les règles de vérification](/docs/FR/Procedure%20Guides/editstats.md)    | `editstats`     | Revue             | Produit des statistiques sommaires sur les enregistrements qui satisfont ou ne satisfont pas (à cause d'une valeur manquante ou non manquante) chaque règle de vérification. |
-| [Détection des valeurs aberrantes](/docs/FR/Procedure%20Guides/outlier.md)   | `outlier` | Revue, sélection        | Identifie les valeurs aberrantes à l'aide de la méthode Hidiroglou-Berthelot ou la méthode de l'écart-sigma.|
-| [Localisation des erreurs](/docs/FR/Procedure%20Guides/errorloc.md)      | `errorloc`      | Revue, sélection            | Sélectionne, pour chaque enregistrement, le nombre minimal de variables à imputer tel que chaque observation puisse passer toutes les règles de vérification. |
-| [Imputation déterministe](/docs/FR/Procedure%20Guides/deterministic.md) | `deterministic` | Traitement                    | Effectue l'imputation quand une seule combinaison de valeurs permet à l'enregistrement de passer l'ensemble des règles de vérification. |
-| [Imputation par donneur](/docs/FR/Procedure%20Guides/donorimp.md)        | `donorimp`      | Traitement                    | Effectue l'imputation par enregistrement donneur avec la méthode du voisin le plus proche tel que chaque enregistrement imputé satisfasse les règles de vérification post-imputation. |
-| [Imputation par estimation](/docs/FR/Procedure%20Guides/estimator.md)     | `estimator`     | Traitement                    | Effectue l'imputation en utilisant des fonctions d'estimation et/ou des estimateurs par régression linéaire. |
-| [Ajustement au prorata](/docs/FR/Procedure%20Guides/prorate.md)         | `prorate`       | Revue, sélection, traitement | Ajuste au prorata et arrondie les enregistrements pour satisfaire les règles de vérification spécifiées par l'utilisateur. |
-| [Imputation massive](/docs/FR/Procedure%20Guides/massimp.md)    | `massimp`       | Revue, sélection, traitement | Effectue l'imputation par donneur pour un bloc de variables avec l'approche du plus proche voisin ou une sélection aléatoire.  |
+| [Spécification et analyse des règles de vérification](./Procedure%20Guides/verifyedits.md) | `verifyedits`   | *Aucune*          | Vérifie la cohérence et la redondance des règles de vérification. |
+| [Statistiques sur les règles de vérification](./Procedure%20Guides/editstats.md)    | `editstats`     | Revue             | Produit des statistiques sommaires sur les enregistrements qui satisfont ou ne satisfont pas (à cause d'une valeur manquante ou non manquante) chaque règle de vérification. |
+| [Détection des valeurs aberrantes](./Procedure%20Guides/outlier.md)   | `outlier` | Revue, sélection        | Identifie les valeurs aberrantes à l'aide de la méthode Hidiroglou-Berthelot ou la méthode de l'écart-sigma.|
+| [Localisation des erreurs](./Procedure%20Guides/errorloc.md)      | `errorloc`      | Revue, sélection            | Sélectionne, pour chaque enregistrement, le nombre minimal de variables à imputer tel que chaque observation puisse passer toutes les règles de vérification. |
+| [Imputation déterministe](./Procedure%20Guides/deterministic.md) | `deterministic` | Traitement                    | Effectue l'imputation quand une seule combinaison de valeurs permet à l'enregistrement de passer l'ensemble des règles de vérification. |
+| [Imputation par donneur](./Procedure%20Guides/donorimp.md)        | `donorimp`      | Traitement                    | Effectue l'imputation par enregistrement donneur avec la méthode du voisin le plus proche tel que chaque enregistrement imputé satisfasse les règles de vérification post-imputation. |
+| [Imputation par estimation](./Procedure%20Guides/estimator.md)     | `estimator`     | Traitement                    | Effectue l'imputation en utilisant des fonctions d'estimation et/ou des estimateurs par régression linéaire. |
+| [Ajustement au prorata](./Procedure%20Guides/prorate.md)         | `prorate`       | Revue, sélection, traitement | Ajuste au prorata et arrondie les enregistrements pour satisfaire les règles de vérification spécifiées par l'utilisateur. |
+| [Imputation massive](./Procedure%20Guides/massimp.md)    | `massimp`       | Revue, sélection, traitement | Effectue l'imputation par donneur pour un bloc de variables avec l'approche du plus proche voisin ou une sélection aléatoire.  |
 
-Ce guide de l'utilisateur ne contient pas d'information spécifique aux procédures; cette information peut être retrouvée dans le [guide des procédures](./Procedure%20Guides/). Le guide des procédures possède toute l'information nécessaire pour rouler les procédures, incluant la description détaillée de chaque paramètre, et une brève description des méthodes. Pour une description mathématique détaillée des méthodes des procédures, veuillez consulter la [description des fonctions Banff](./Description%20des%20fonctions%20Banff.pdf).
+Ce guide de l'utilisateur ne contient pas d'information spécifique aux procédures; cette information peut être retrouvée dans les liens ci-dessus ou à partir du guide de procédure [index](./Procedure%20Guides/index.md). Le guide des procédures possède toute l'information nécessaire pour rouler les procédures, incluant la description détaillée de chaque paramètre, et une brève description des méthodes. Pour une description mathématique détaillée des méthodes des procédures, veuillez consulter la [description des fonctions Banff](./Description%20des%20fonctions%20Banff.pdf).
 
 ## Interaction entre procédures
 
@@ -340,7 +340,7 @@ Par défaut, seuls les messages d'avertissement et d'erreur sont affichés. Util
 > **Exemple de messages Python**  
 > Dans ce qui suit, 3 messages non liés sont issus des niveaux *INFO*, *DEBUG*, et *ERROR*. Par défaut, seul le troisième message est imprimé au terminal.  
 >
-> ```plaintext
+> ```text
 > 2024-11-29 10:47:51,853 [INFO]:  Time zone for log entries: Eastern Standard Time (UTC-5.0)
 > 2024-11-29 10:48:47,654 [DEBUG   , banff.donorimp._execute._preprocess_inputs]:  Adding BY variables to 'instatus' dataset
 > 2024-11-29 10:49:59,867 [ERROR]:  Procedure 'Donor Imputation' encountered an error and terminated early: missing mandatory dataset (return code 4)
@@ -365,7 +365,7 @@ Les messages issus de la procédure C n'ont pas de niveau de journal associé et
 
 > **Exemple des messages issus de procédure C**  
 >
-> ```plaintext
+> ```text
 > NOTE: --- Banff System 3.01.001b19.dev6 developed by Statistics Canada ---
 > NOTE: PROCEDURE DONORIMPUTATION Version 3.01.001b19.dev6
 > . . .
@@ -581,7 +581,7 @@ Généralement, les exceptions contiendront un message d'erreur informatif. Les 
 >
 > Ce qui suit montre la sortie de console générée lorsque le paquet ne parvient pas à écrire les données de sortie à cause d'un dossier de destination introuvable.  
 >
-> ```plaintext
+> ```text
 > [ERROR   , banff.donorimp._execute._write_outputs]:  Error occurred while writing 'outmatching_fields' output dataset
 > [ERROR   , banff.donorimp._execute._write_outputs]:  Directory of output file does not exist: 'C:\temp\definitely\a\fake'
 > [ERROR   , banff.donorimp._execute._write_outputs]:  [WinError 3] The system cannot find the path specified: 'C:\\temp\\definitely\\a\\fake'

@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Algorithms in Estimator Procedure &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'EN/Procedure Guides/estimator_algorithms';</script>
+    <link rel="index" title="Index" href="../../genindex" />
+    <link rel="search" title="Search" href="../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Algorithms in Estimator Procedure</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="algorithms-in-estimator-procedure">
+<h1>Algorithms in Estimator Procedure<a class="headerlink" href="#algorithms-in-estimator-procedure" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> and <code class="docutils literal notranslate"><span class="pre">inalgorithm</span></code> tables define the models used for imputation (mean, historic value, linear regression, etc.) and to specify certain parameters and options. While the <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> table is mandatory, the <code class="docutils literal notranslate"><span class="pre">inalgorithm</span></code> table is only required when using a custom algorithm instead of one of the 20 pre-defined algorithms available in the procedure.</p>
+<p>Algorithms used by the <code class="docutils literal notranslate"><span class="pre">estimator</span></code> procedure are classified into two types:</p>
+<ul class="simple">
+<li><p>Estimator functions (EF) are user-defined mathematical expressions of auxiliary and/or historical data, consisting of addition, subtraction, multiplication, division, and exponentiation. For each variable in the function, users may specify whether to use the targeted record’s individual value, or to average over all records within the same imputation class, and whether to use current data or historical data. Every parameter in an estimator function must be specified by the user; no modelling is performed by the procedure.</p></li>
+<li><p>Linear regression (LR) estimators use linear regression models to impute missing values. Users specify which auxiliary variables to include in the model, as well as the time period to use and exponents to apply. The regression coefficients are then solved for within each imputation class, and the resulting linear model is used to impute the targeted variable for the record in question.</p></li>
+</ul>
+<p>This document explains how to specify a custom algorithm of either type, and lists the available built-in algorithms.</p>
+<section id="interaction-between-inestimator-and-inalgorithm">
+<h2>Interaction between inestimator and inalgorithm<a class="headerlink" href="#interaction-between-inestimator-and-inalgorithm" title="Link to this heading">#</a></h2>
+<p>Whether it is predefined or custom, an algorithm can be referred to in the <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> table in order to be utilized in the imputation of one or multiple variables. With at least one row for each variable to impute, <code class="docutils literal notranslate"><span class="pre">inestimator</span></code> contains columns that define the imputation method and parameters. In particular, three columns are used to specify the elements related to the algorithm:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fieldid</span></code>: the variable to impute.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">algorithmname</span></code>: the algorithm name to be used, whether it is predefined or custom.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auxvariables</span></code>: auxiliary variables used in the algorithm. It may contain multiple auxiliary variables (with no duplication even if both historical and current values of the same variable are used); multiple variables need to be separated by a comma. <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> needs to contain the same number of auxiliary variable as the ones used in the algorithm; their order of appearance is important and is used to assign them to variables in the algorithm’s formula. <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> must be left blank if the associated algorithm doesn’t use any auxiliary variable (imputation using the historical value of the variable to impute for example).</p></li>
+</ul>
+</section>
+<section id="custom-algorithm">
+<h2>Custom algorithm<a class="headerlink" href="#custom-algorithm" title="Link to this heading">#</a></h2>
+<p>Just like pre-defined algorithms, a custom algorithm can take the form of an estimator function (EF type), or a linear regression (LR type) imputation. Both types use placeholders to define the algorithm’s formula.</p>
+<section id="placeholders-and-their-attributes">
+<h3>Placeholders and their attributes<a class="headerlink" href="#placeholders-and-their-attributes" title="Link to this heading">#</a></h3>
+<p>The algorithm name, type, status code and formula are specified using the columns <code class="docutils literal notranslate"><span class="pre">algorithmname</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">formula</span></code> respectively. Note that no distinction is made between upper and lower case. In <code class="docutils literal notranslate"><span class="pre">formula</span></code>, it is only possible to use placeholders <code class="docutils literal notranslate"><span class="pre">fieldid</span></code> and <code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> where n is a positive integer; <code class="docutils literal notranslate"><span class="pre">aux&lt;n-1&gt;</span></code> must be used in the formula if <code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> is used.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fieldid</span></code> is a placeholder for the name of the variable to impute as specified in <code class="docutils literal notranslate"><span class="pre">inestimator</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> is a placeholder for the name of the auxiliary variable as specified in <code class="docutils literal notranslate"><span class="pre">inestimator</span></code>. The first variable in <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> replaces placeholder <code class="docutils literal notranslate"><span class="pre">aux1</span></code>, the second, <code class="docutils literal notranslate"><span class="pre">aux2</span></code>, and so on. The number of variables in <code class="docutils literal notranslate"><span class="pre">auxvariables</span></code> must be equal to the number of different <code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> placeholders.</p></li>
+</ul>
+<p>Depending on the type of the algorithm (EF or LR), the formats used with the placeholders (<code class="docutils literal notranslate"><span class="pre">aux&lt;n&gt;</span></code> and/or <code class="docutils literal notranslate"><span class="pre">fieldid</span></code>) are the following:</p>
+<ul class="simple">
+<li><p><strong>EF algorithms</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;(period,</span> <span class="pre">aggregation)</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;(aggregation,</span> <span class="pre">period)</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>LR algorithms</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;(period)</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">period</span></code> and <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> options are called placeholder attributes. Possible values for <code class="docutils literal notranslate"><span class="pre">period</span></code> are <code class="docutils literal notranslate"><span class="pre">c</span></code> for current data, and <code class="docutils literal notranslate"><span class="pre">h</span></code> for the historical data. As for <code class="docutils literal notranslate"><span class="pre">aggregation</span></code>, it takes <code class="docutils literal notranslate"><span class="pre">v</span></code> for using the variable’s value of the observation, and <code class="docutils literal notranslate"><span class="pre">a</span></code> for the average of the variable based on acceptable observations. Note that LR algorithms are a particular case since they only use values of observations (with no averages), which makes the attribute <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> not applicable in their case.</p>
+</section>
+<section id="ef-algorithms">
+<h3>EF algorithms<a class="headerlink" href="#ef-algorithms" title="Link to this heading">#</a></h3>
+<p>An estimator function is a mathematical expression involving constants, current and/or historical values of some variables of the record, and current and/or historical averages of some variables, those averages being calculated from acceptable records (roughly speaking, an acceptable record is a record such that all variables for which an average must be calculated in the algorithm are available, and where imputed and/or outlier values are excluded if required by the user.). Arithmetic operators include addition (+), subtraction (-), multiplication (*), division (/), exponentiation (^) and parenthesis.</p>
+<p>The default <code class="docutils literal notranslate"><span class="pre">period</span></code> is <strong>current</strong> and the default <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> is <strong>value</strong>. As a consequence:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">aux1</span></code>, <code class="docutils literal notranslate"><span class="pre">aux1(c)</span></code>, <code class="docutils literal notranslate"><span class="pre">aux1(v)</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1(c,</span> <span class="pre">v)</span></code> are equivalent to each other.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aux1(h)</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1(v,</span> <span class="pre">h)</span></code> are equivalent to each other.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aux1(a)</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1(c,</span> <span class="pre">a)</span></code> are equivalent to each other.</p></li>
+</ul>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">fieldid</span></code>, <code class="docutils literal notranslate"><span class="pre">fieldid(c)</span></code>, <code class="docutils literal notranslate"><span class="pre">fieldid(v)</span></code> and <code class="docutils literal notranslate"><span class="pre">fieldid(c,v)</span></code> must never be used in <code class="docutils literal notranslate"><span class="pre">formula</span></code> since they refer to the value to be imputed.</p>
+<p><strong>Exponents</strong> can be applied to constants (different from 0), placeholders and expressions:</p>
+<ul class="simple">
+<li><p>The exponent for a constant simply follows the constant: <code class="docutils literal notranslate"><span class="pre">3^4</span></code>.</p></li>
+<li><p>The exponent for a placeholder follows the closing parenthesis of the placeholder attributes:
+<code class="docutils literal notranslate"><span class="pre">aux1^3</span></code>, <code class="docutils literal notranslate"><span class="pre">aux1(c)^3</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1(v)^3</span></code> are equivalent to each other.</p></li>
+<li><p>The exponent for an expression requires parenthesis enclosing the expression:
+<code class="docutils literal notranslate"><span class="pre">(aux1(h)</span> <span class="pre">+</span> <span class="pre">aux2(h))^2</span></code>.</p></li>
+</ul>
+<p>In addition, the exponent must be a constant (a number different from 0). A placeholder or an expression (even if it is a constant) cannot be used as an exponent. Thus, <code class="docutils literal notranslate"><span class="pre">aux1^aux2</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1^(2+1)</span></code> are not allowed.</p>
+</section>
+<section id="lr-algorithms">
+<h3>LR algorithms<a class="headerlink" href="#lr-algorithms" title="Link to this heading">#</a></h3>
+<p>Regression imputation consists of imputing a variable $y$<sub>$i$</sub> by a linear regression estimation like</p>
+<p>$$
+\hat{y_i} = \hat{\beta_0} + \hat{\beta_1} x_{i_1 T_1}^{p_1} + \hat{\beta_2} x_{i_2 T_2}^{p_2} + … + \hat{\beta_m} x_{i_m T_m}^{p_m} + \hat{\epsilon_i}<br />
+$$</p>
+<p>where : $T$<sub>$j$</sub> refer to current or historical periods, and $p$<sub>$j$</sub> are exponents. The variable $y$<sub>$j$</sub> being imputed is the dependent variable in the model, and the auxiliary variables $x$<sub>$ij$</sub> are the independent variables, or regressors. $\hat\beta$<sub>$j$</sub> are the regression coefficients, the values of which are solved for
+by using the method of least squares. $\hat\epsilon$<sub>$i$</sub> is a random error term, which can be added to the model to introduce some variability into the fitted values of the $y$<sub>$i$</sub>.
+Note that $\beta$<sub>$0$</sub>, which is the intercept in the regression line, is optional and can be omitted from the model.</p>
+<p>As the <code class="docutils literal notranslate"><span class="pre">aggregation</span></code> attribute is not applicable to LR algorithms, only the <code class="docutils literal notranslate"><span class="pre">period</span></code> attribute placeholder is used, with a default value of <code class="docutils literal notranslate"><span class="pre">c</span></code> (current data). For example, <code class="docutils literal notranslate"><span class="pre">aux1</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1(c)</span></code> are equivalent to each other.</p>
+<p>The formula takes the following elements separated by a comma:</p>
+<ul class="simple">
+<li><p>Intercept: if <code class="docutils literal notranslate"><span class="pre">intercept</span></code> is added to the formula, then a linear regression with intercept will be used.</p></li>
+<li><p>Regressors: lists the variables to include in the linear regression, separated by a comma. These variables can take the form of auxiliary variables (<code class="docutils literal notranslate"><span class="pre">aux1</span></code>, <code class="docutils literal notranslate"><span class="pre">aux2</span></code>, ..) or historical values of the variable to impute (<code class="docutils literal notranslate"><span class="pre">fieldid(h)</span></code>). Exponents can be applied to regressors using the symbol <code class="docutils literal notranslate"><span class="pre">^</span></code> after the closing parenthesis of the placeholder attribute (<code class="docutils literal notranslate"><span class="pre">aux1^3</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1(c)^3</span></code> are equivalent to each other).</p></li>
+</ul>
+<p><strong>Exponents</strong> must be a constant (a number different from 0) to be applied to placeholders. A placeholder or an expression (even if it is a constant) cannot be used as an exponent. Thus, <code class="docutils literal notranslate"><span class="pre">aux1^aux2</span></code> and <code class="docutils literal notranslate"><span class="pre">aux1^(2+1)</span></code> are not allowed.</p>
+<p>The following table shows linear regressions examples and how they are specified as a formula:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Linear Regression</p></th>
+<th class="head"><p>Algorithm Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$y = \beta$<sub>$1$</sub> $* x$<sub>$1c$</sub></p></td>
+<td><p>$aux1$</p></td>
+</tr>
+<tr class="row-odd"><td><p>$y = \beta$<sub>$0$</sub> $+ \beta$<sub>$1$</sub> $* y$<sub>$h$</sub></p></td>
+<td><p>$intercept, fieldid(h)$</p></td>
+</tr>
+<tr class="row-even"><td><p>$y = \beta$<sub>$1$</sub> $* x$<sub>$1c$</sub> $+ \beta$<sub>$2$</sub> $* x$<sub>$2h$</sub> $+ \beta$<sub>$3$</sub> $* x$<sub>$3c$</sub></p></td>
+<td><p>$aux1, aux2(h), aux3$</p></td>
+</tr>
+<tr class="row-odd"><td><p>$y = \beta$<sub>$1$</sub> $* x$<sub>$1c$</sub> $+ \beta$<sub>$2$</sub> $* x$<sub>$1c$</sub><sup>$2$</sup> $+ \beta$<sub>$3$</sub> $* x$<sub>$1c$</sub><sup>$3$</sup></p></td>
+<td><p>$aux1, aux1$^2 $, aux1$^3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">fieldid(h)</span></code> is permissible in an algorithm formula, but not <code class="docutils literal notranslate"><span class="pre">fieldid</span></code> or <code class="docutils literal notranslate"><span class="pre">fieldid(c)</span></code> as they both refer to the value to be imputed.</p>
+</section>
+</section>
+<section id="pre-defined-algorithms-tables">
+<h2>Pre-defined algorithms tables<a class="headerlink" href="#pre-defined-algorithms-tables" title="Link to this heading">#</a></h2>
+<p>Each pre-defined algorithm is given a name and a status code associated with the model. In the following, the same structure of placeholders and their attributes previously shown is used to display the formula for every pre-defined algorithm, alongside a brief description.</p>
+<section id="id1">
+<h3>EF algorithms<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm Name</p></th>
+<th class="head"><p>Imputation Status</p></th>
+<th class="head"><p>Algorithm Formula</p></th>
+<th class="head"><p>Imputed Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AUXTREND</p></td>
+<td><p>IAT</p></td>
+<td><p>$fieldid(h,v)*(aux1(c,v)/aux1(h,v))$</p></td>
+<td><p>Trend adjustment calculated from an auxiliary variable and applied to the historical value of the field to impute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AUXTREND2</p></td>
+<td><p>IAT2</p></td>
+<td><p>$fieldid(h,v)*(aux1(c,v)/aux1(h,v) + aux2(c,v)/aux2(h,v))/2$</p></td>
+<td><p>Average trend adjustment calculated from two auxiliary variables and applied to the historical value of the field to impute.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURAUX</p></td>
+<td><p>ICA</p></td>
+<td><p>$aux1(c,v)$</p></td>
+<td><p>Current value of an auxiliary variable for the record to impute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURAUXMEAN</p></td>
+<td><p>ICAM</p></td>
+<td><p>$aux1(c,a)$</p></td>
+<td><p>Current average of an auxiliary variable.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURMEAN</p></td>
+<td><p>ICM</p></td>
+<td><p>$fieldid(c,a)$</p></td>
+<td><p>Current average of the variable to impute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURRATIO</p></td>
+<td><p>ICR</p></td>
+<td><p>$fieldid(c,a) * (aux1(c,v) / aux1(c,a))$</p></td>
+<td><p>Current ratio estimate calculted from an auxiliary variable and applied to the current average value of the variable to impute.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURRATIO2</p></td>
+<td><p>ICR2</p></td>
+<td><p>$fieldid(c,a) * (aux1(c,v) / aux1(c,a) + aux2(c,v) / aux2(c,a))/2$</p></td>
+<td><p>Current average ratio estimate calculated from two auxiliary variables and applied to the current average value of the variable to impute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURSUM2</p></td>
+<td><p>ISM2</p></td>
+<td><p>$aux1 + aux2$</p></td>
+<td><p>Sum of current values of two auxiliary variables.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURSUM3</p></td>
+<td><p>ISM3</p></td>
+<td><p>$aux1 + aux2 + aux3$</p></td>
+<td><p>Sum of current values of three auxiliary variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURSUM4</p></td>
+<td><p>ISM4</p></td>
+<td><p>$aux1 + aux2 + aux3 + aux4$</p></td>
+<td><p>Sum of current values of four auxiliary variables.</p></td>
+</tr>
+<tr class="row-even"><td><p>DIFTREND</p></td>
+<td><p>IDT</p></td>
+<td><p>$fieldid(h,v)* (fieldid(c,a) / fieldid(h,a))$</p></td>
+<td><p>Trend adjustment of the average calculated from the field to impute and applied to its historical value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PREAUX</p></td>
+<td><p>IPA</p></td>
+<td><p>$aux1(h,v)$</p></td>
+<td><p>Historical value of an auxiliary variable for the record to impute.</p></td>
+</tr>
+<tr class="row-even"><td><p>PREAUXMEAN</p></td>
+<td><p>IPAM</p></td>
+<td><p>$aux1(h,a)$</p></td>
+<td><p>Historical average of an auxiliary variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PREMEAN</p></td>
+<td><p>IPM</p></td>
+<td><p>$fieldid(h,a)$</p></td>
+<td><p>Historical average of the field to impute.</p></td>
+</tr>
+<tr class="row-even"><td><p>PREVALUE</p></td>
+<td><p>IPV</p></td>
+<td><p>$fieldid(h,v)$</p></td>
+<td><p>Historical value of the field to impute.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h3>LR algorithms<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm Name</p></th>
+<th class="head"><p>Imputation Status</p></th>
+<th class="head"><p>Algorithm Formula</p></th>
+<th class="head"><p>Imputed Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CURREG</p></td>
+<td><p>ILR1</p></td>
+<td><p>$intercept, aux1(c)$</p></td>
+<td><p>Simple linear regression based on current values of an auxiliary variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURREG_E2</p></td>
+<td><p>ILRE</p></td>
+<td><p>$intercept, aux1(c), aux1(c)$^2</p></td>
+<td><p>Linear regression based on current values of an auxiliary variable and its squared.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURREG2</p></td>
+<td><p>ILR2</p></td>
+<td><p>$intercept, aux1(c), aux2(c)$</p></td>
+<td><p>Linear regression based on current values of two auxiliary variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURREG3</p></td>
+<td><p>ILR3</p></td>
+<td><p>$intercept, aux1(c), aux2(c), aux3(c)$</p></td>
+<td><p>Linear regression based on current values of three auxiliary variables.</p></td>
+</tr>
+<tr class="row-even"><td><p>HISTREG</p></td>
+<td><p>IHLR</p></td>
+<td><p>$intercept, fieldid(h)$</p></td>
+<td><p>Simple linear regression based on historical values of the variable to impute.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-between-inestimator-and-inalgorithm">Interaction between inestimator and inalgorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-algorithm">Custom algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#placeholders-and-their-attributes">Placeholders and their attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ef-algorithms">EF algorithms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lr-algorithms">LR algorithms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-defined-algorithms-tables">Pre-defined algorithms tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">EF algorithms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">LR algorithms</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/EN/Procedure Guides/estimator_algorithms.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

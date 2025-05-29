@@ -8,7 +8,7 @@ The submodules in this repository can be broken down into 2 categories: 3rd part
 3rd party code is essentially *read-only* in-house submodules may require modification during development.  These include the *jansson* library for providing JSON support and the *Apache Nanoarrow* library which provide I/O support for C code.  
 In-house code includes both C and Python code which is shared among multiple in-house products.  
 
-See the [build guide](/docs/developer/build_guide.md#acquiring-source-code) for advice regarding the cloning and browsing of code which involves submodules.  
+See the [build guide](./build_guide.md#acquiring-source-code) for advice regarding the cloning and browsing of code which involves submodules.  
 
 ### Modifying In-House Submodules
 
@@ -29,9 +29,9 @@ Debugging is done on Windows using Visual Studio Enterprise.  To achieve this, C
 
 There is no convenient means of debugging both C and Python code in a single execution.  Instead, debug Python code using Visual Studio Code or another preferred Python debugger.  
 
-Consult the [build guide](/docs/developer/build_guide.md) and generate debug builds of the C code.  
+Consult the [build guide](./build_guide.md) and generate debug builds of the C code.  
 
-Open [`banff.sln`](/C/Banff.sln) in Visual Studio Enterprise/Professional.  
+Open [`banff.sln`](../../C/Banff.sln) in Visual Studio Enterprise/Professional.  
 
 Visual Studio must now be configured to execute its C code via Python.  The Python code must `import banff` and call the procedure which is to be debugged.  In order to debug local builds without the need to build and install the `banff` package an environment variable configures Python `import banff` from source.  
 

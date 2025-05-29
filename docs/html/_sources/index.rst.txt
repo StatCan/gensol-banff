@@ -1,0 +1,25 @@
+==================================
+Banff / Banff
+==================================
+
+User Documentation / Documentation utilisateur
+==============================================
+
+.. toctree::
+   :hidden:
+
+   English </EN/index>
+   Français </FR/index>
+
+.. container:: button
+
+    :doc:`English </EN/index>` :doc:`Français </FR/index>`
+
+Source Code Documentation / Documentation du code source
+========================================================
+
+* :ref:`genindex`
+* :ref:`modindex`
+
+
+* :ref:`search`

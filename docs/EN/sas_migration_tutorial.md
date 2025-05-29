@@ -1,7 +1,7 @@
 # Tutorial
 
-This tutorial will show the [Python equivalent](/Python/sample_programs/conversion_examples/Errorloc01.py) of the [SAS language Proc Errorloc sample program 1](/Python/sample_programs/conversion_examples/Errorloc01.sas).  
-Numerous additional SAS and Python equivalents are also available in the [`conversion_examples`](/Python/sample_programs/conversion_examples/) folder.  
+This tutorial will show the Python equivalent (`/Python/sample_programs/conversion_examples/Errorloc01.py`) of the SAS language Proc Errorloc sample program 1 (`/Python/sample_programs/conversion_examples/Errorloc01.sas`).  
+Numerous additional SAS and Python equivalents are also available in the `/Python/sample_programs/conversion_examples/` folder.  
 
 The example program shows how to
 
@@ -206,7 +206,7 @@ They are stored in the `banff_call` object, access them using `banff_call.outsta
 
 ### Other input and output options
 
-To provide a consistent means of reading/writing files and converting between table formats, while maintaining the highest possible floating-point precision, support for various input and output table formats has been implemented.  For complete details, see the [User Guide](/docs/EN/user_guide.md#supported-formats).  
+To provide a consistent means of reading/writing files and converting between table formats, while maintaining the highest possible floating-point precision, support for various input and output table formats has been implemented.  For complete details, see the [User Guide](./user_guide.md#supported-formats).  
 
 The following code will demonstrate the use of files for input and output tables by modifying the above example.  
 

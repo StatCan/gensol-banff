@@ -15,7 +15,7 @@ Only fields with an FTI (Field to Impute) from the `instatus` file are imputed. 
 
 Estimator or linear regression parameters (e.g. means or regression coefficients) can be calculated on all records or on a particular subset of acceptable records. The restriction of the acceptable records can be applied using an exclusion parameter or by specifying by-groups imputation.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -40,7 +40,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outest_parm    | Report on imputation statistics by estimator.  |
 | outrand_err    | Random error report when a random error is added to the imputed variable.  |
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 

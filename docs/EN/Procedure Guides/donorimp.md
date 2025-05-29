@@ -24,7 +24,7 @@ There are a number of ways to exclude records or values from the donor pool. Rec
 
 The Banff distance metric does not accommodate categorical variables. Instead, users may create by-groups by specifying `by` variables. These by-groups act as imputation classes. Use the `min_donors` and `percent_donors` parameters to ensure an appropriate number or ratio of recipients and donors exist in each imputation class before performing imputation.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -42,7 +42,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outdonormap        | Output table of recipient-donor pairs for successfully imputed records. |
 | outmatching_fields | Output table of matching fields for each recipient.<br><br> Matching fields are used by the donor imputation procedure to calculate distances between recipients and potential donors. Matching fields can take on one of three statuses: MFS (system selected), MFU (user-specified) or MFB (both system and user-specified). |
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 

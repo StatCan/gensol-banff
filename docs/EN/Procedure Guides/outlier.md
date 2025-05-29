@@ -23,7 +23,7 @@ Additional features of the procedure:
 - Outlier detection can be performed to the right, left, or on both sides (`side`).
 - Outlier detection can be performed within by-groups (`by`), with a user-specified minimum number of observations (`min_obs`) required to perform outlier detection.
 
-For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](/docs/EN/Banff%20Functional%20Description.pdf).
+For a full mathematical description of the procedure methods, with examples, please see the [Functional Description](../Banff%20Functional%20Description.pdf).
 
 ## Input and output tables
 
@@ -40,7 +40,7 @@ Descriptions of input and output tables are given below. Banff supports a number
 | outstatus_detailed  | Detailed status for the outliers (ODER/ODEL/ODIR/ODIL).<br><br> Detailed status indicates whether the outlier falls outside the exclusion interval on the right (ODER) or on the left (ODEL). If it concerns an FTI outlier, the detailed status distinguishes between an outlier falling outside the imputation interval on the right (ODIR) and on the left (ODIL).<br><br> It will contain more information (imputation and exclusions bounds, current and auxiliary values, ..) with the parameter `outlier_stats=True`.                               |
 | outsummary          | Outlier summary information such as observation counts and acceptance interval bounds.|
 
-For details on the content of output tables, please see the [Output Tables](/docs/EN/output_tables.md) document.
+For details on the content of output tables, please see the [Output Tables](../output_tables.md) document.
 
 ## Parameters
 

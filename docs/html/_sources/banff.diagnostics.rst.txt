@@ -1,0 +1,10 @@
+banff.diagnostics package
+=========================
+
+Module contents
+---------------
+
+.. automodule:: banff.diagnostics
+   :members:
+   :show-inheritance:
+   :undoc-members:

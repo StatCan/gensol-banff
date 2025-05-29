@@ -1,0 +1,1328 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Aperçu &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FR/user_guide';</script>
+    <link rel="index" title="Index" href="../genindex" />
+    <link rel="search" title="Search" href="../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Aperçu</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="apercu">
+<h1>Aperçu<a class="headerlink" href="#apercu" title="Link to this heading">#</a></h1>
+<p>Banff est un paquet statistique développé par Statistique Canada, et consistant en neuf procédures modulaires qui permettent d’implémenter plusieurs fonctions de vérification statistique des données (VSD), incluant l’imputation. Quelques considérations à propos de Banff:</p>
+<ul class="simple">
+<li><p>La plupart des méthodes de VSD incluses dans Banff sont conçues pour les enquêtes économiques, et en particulier les variables numériques comme le revenu ou le nombre d’employés. À l’heure actuelle, Banff n’offre pas de méthode recommandée pour l’imputation de données catégoriques ou ordinales.</p></li>
+<li><p>Banff contient un nombre de méthodes conçues pour les données dont les variables ont des contraintes sous la forme de relations linéaires. Ces relations sont aussi appelées règles de vérification linéaires ou simplement règles de vérification. Ceci concerne les procédures qui vérifient les données par rapport aux règles de vérification, choisissent les variables à imputer lorsque la vérification échoue, et imputent des enregistrements pour s’assurer que toutes les règles de vérification soient satisfaites.</p></li>
+<li><p>Bien que chaque procédure Banff s’exécute des manière indépendante, elles suivent toutes un gabarit modulaire, et peuvent être roulées séquentiellement dans le cadre d’un processus plus général de VDS.</p></li>
+<li><p>Banff utilise les codes de statut comme les statuts de sélection et d’imputation pour suivre les métadonnées. Ces codes de statut permettent aux procédures Banff de relayer l’information d’une procédure à l’autre, et sont également consignés dans le journal du processus général de VDS.</p></li>
+</ul>
+<p>Ce guide de l’utilisateur est destiné à fournir aux utilisateurs de Banff l’information générale à propos du paquet, couvrant les concepts méthodologiques importants et communs à plusieurs procédures, ainsi que les détails techniques. Pour l’information spécifique à une procédure particulière, incluant les descriptions des paramètres, se référer au <a class="reference internal" href="#liste-des-procedures">tableau des procédures</a> ci-dessous. La liste de toutes les données de sortie générées par les procédures peut être trouvée dans le document des <a class="reference internal" href="output_tables"><span class="std std-doc">données de sortie</span></a>. Une description complète des méthodes sous-jacentes, avec des exemples et des conseils sur leur application peut être trouvée dans la <a class="reference download internal" download="" href="../_downloads/d2120f7397df70628be7489ad82cbee1/Description%20des%20fonctions%20Banff.pdf"><span class="xref download myst">description des fonctions</span></a>.</p>
+<p>Lorsque les procédures Banff sont exécutées séquentiellement dans le cadre d’un processus de VDS, l’utilisateur est responsable des éléments d’entrée et de sortie entre les étapes. Un paquet supplémentaire, le <em>Processeur Banff</em>, est une application basée sur les métadonnées, et conçue spécifiquement pour une production VDS à grande échelle, intégrant les procédures Banff et se chargeant de la gestion des données intermédiaires.</p>
+<p>Le guide de l’utilisateur de Banff utilise souvent la terminologie qui provient du <a class="reference external" href="https://statswiki.unece.org/spaces/sde/pages/117771706/GSDEM"><strong>Modèle générique de vérification statistique des données</strong> (MGVSD)</a>. L’utilisateur est encouragé à se référer au MGVDS pour la terminologie commune relative aux concepts de VDS.</p>
+</section>
+<section id="table-des-matieres">
+<h1>Table des matières<a class="headerlink" href="#table-des-matieres" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="#methodologie">Méthodologie</a></p>
+<ul>
+<li><p><a class="reference internal" href="#liste-des-procedures">Liste des procédures</a></p></li>
+<li><p><a class="reference internal" href="#interaction-entre-procedures">Interaction entre procédures</a></p></li>
+<li><p><a class="reference internal" href="#donnees-statistiques-indata-et-outdata">Données statistiques <code class="docutils literal notranslate"><span class="pre">indata</span></code> et <code class="docutils literal notranslate"><span class="pre">outdata</span></code></a></p></li>
+<li><p><a class="reference internal" href="#codes-de-statut-et-leur-donnees">Codes de statut et leur données</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tableau-des-codes-de-statut-produits-par-banff">Tableau des codes de statut produits par Banff</a></p></li>
+<li><p><a class="reference internal" href="#donnees-de-statuts-instatus-et-outstatus">Données de statuts <code class="docutils literal notranslate"><span class="pre">instatus</span></code> et <code class="docutils literal notranslate"><span class="pre">outstatus</span></code></a></p></li>
+<li><p><a class="reference internal" href="#donnees-de-statuts-par-procedure">Données de statuts par procédure</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#specifier-les-regles-de-verification-lineaires">Spécifier les règles de vérification linéaires</a></p>
+<ul>
+<li><p><a class="reference internal" href="#format">Format</a></p></li>
+<li><p><a class="reference internal" href="#regles-de-verification-autorisees">Règles de vérification autorisées</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#execution-par-groupes-de-partition">Exécution par groupes de partition</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#guide-technique">Guide technique</a></p>
+<ul>
+<li><p><a class="reference internal" href="#execution-des-procedures-banff">Exécution des procédures Banff</a></p></li>
+<li><p><a class="reference internal" href="#noms-de-variables-dans-les-donnees-d-entree">Noms de variables dans les données d’entrée</a></p></li>
+<li><p><a class="reference internal" href="#journal-banff">Journal Banff</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definir-la-langue-du-journal">Définir la langue du journal</a></p></li>
+<li><p><a class="reference internal" href="#messages-python-du-journal">Messages Python du journal</a></p>
+<ul>
+<li><p><a class="reference internal" href="#verbosite-du-journal-python-trace">Verbosité du journal Python (<code class="docutils literal notranslate"><span class="pre">trace=</span></code>)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#messages-du-journal-issus-des-procedures-c">Messages du journal issus des procédures C</a></p>
+<ul>
+<li><p><a class="reference internal" href="#verbosite-du-journal-issu-de-procedure-c">Verbosité du journal issu de procédure C</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#suppression-et-diagnostic-des-messages-du-journal-capture">Suppression et diagnostic des messages du journal (<code class="docutils literal notranslate"><span class="pre">capture=</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#utiliser-votre-propre-logger-logger">Utiliser votre propre logger (<code class="docutils literal notranslate"><span class="pre">logger=</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#presort">presort</a></p></li>
+<li><p><a class="reference internal" href="#prefill-by-vars">prefill_by_vars</a></p></li>
+<li><p><a class="reference internal" href="#no-by-stats">no_by_stats</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#expressions">Expressions</a></p></li>
+<li><p><a class="reference internal" href="#specification-des-donnees-d-entree-et-de-sortie">Spécification des données d’entrée et de sortie</a></p>
+<ul>
+<li><p><a class="reference internal" href="#formats-pris-en-charge">Formats pris en charge</a></p></li>
+<li><p><a class="reference internal" href="#specifier-les-donnees-en-entree">Spécifier les données en entrée</a></p></li>
+<li><p><a class="reference internal" href="#specifier-les-donnees-de-sortie">Spécifier les données de sortie</a></p></li>
+<li><p><a class="reference internal" href="#personnaliser-la-specification-par-defaut-des-donnees-de-sortie">Personnaliser la spécification par défaut des données de sortie</a></p></li>
+<li><p><a class="reference internal" href="#acces-aux-donnees-de-sortie">Accès aux données de sortie</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#autre">Autre</a></p>
+<ul>
+<li><p><a class="reference internal" href="#caracteres-d-echappement-et-chemins-d-acces-au-fichier">Caractères d’échappement et chemins d’accès au fichier</a></p></li>
+<li><p><a class="reference internal" href="#erreurs-et-exceptions">Erreurs et exceptions</a></p></li>
+<li><p><a class="reference internal" href="#travailler-avec-des-fichiers-sas-dans-python">Travailler avec des fichiers SAS dans Python</a></p></li>
+<li><p><a class="reference internal" href="#considerations-sur-la-performance">Considérations sur la performance</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="methodologie">
+<h1>Méthodologie<a class="headerlink" href="#methodologie" title="Link to this heading">#</a></h1>
+<p>La plupart des fonctions de VDS peuvent être catégorisées en l’un des <strong>types de fonction</strong> définis dans le <em>MGVDS</em>:</p>
+<ul class="simple">
+<li><p><strong>Revue:</strong> Fonctions qui examinent les données pour identifier des problèmes potentiels.</p></li>
+<li><p><strong>Sélection:</strong> Fonctions qui sélectionnent les unités ou les champs au sein des unités pour un traitement spécifique ultérieur.</p></li>
+<li><p><strong>Traitement:</strong> Fonctions qui changent les données de manière jugée appropriée pour améliorer la qualité des données. La modification des champs spécifiques au sein de l’unité (c’est-à-dire remplir les valeurs manquantes ou modifier les valeurs erronées) est désignée par le terme <em>imputation</em>.</p></li>
+</ul>
+<p>Les neuf procédures sont listées dans le tableau ci-dessous, chacune accompagnée d’une brève description et des types de fonction qu’elle effectue. Chaque procédure a un <em>pseudonyme</em> dans Banff, utilisé pour exécuter la procédure dans Python; il est aussi utilisé pour faire référence à la procédure au sein du guide de l’utilisateur.</p>
+<section id="liste-des-procedures">
+<h2>Liste des procédures<a class="headerlink" href="#liste-des-procedures" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom de la procédure</p></th>
+<th class="head"><p>Pseudonyme</p></th>
+<th class="head"><p>Types de fonction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="Procedure%20Guides/verifyedits"><span class="std std-doc">Spécification et analyse des règles de vérification</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">verifyedits</span></code></p></td>
+<td><p><em>Aucune</em></p></td>
+<td><p>Vérifie la cohérence et la redondance des règles de vérification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="Procedure%20Guides/editstats"><span class="std std-doc">Statistiques sur les règles de vérification</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">editstats</span></code></p></td>
+<td><p>Revue</p></td>
+<td><p>Produit des statistiques sommaires sur les enregistrements qui satisfont ou ne satisfont pas (à cause d’une valeur manquante ou non manquante) chaque règle de vérification.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="Procedure%20Guides/outlier"><span class="std std-doc">Détection des valeurs aberrantes</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outlier</span></code></p></td>
+<td><p>Revue, sélection</p></td>
+<td><p>Identifie les valeurs aberrantes à l’aide de la méthode Hidiroglou-Berthelot ou la méthode de l’écart-sigma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="Procedure%20Guides/errorloc"><span class="std std-doc">Localisation des erreurs</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">errorloc</span></code></p></td>
+<td><p>Revue, sélection</p></td>
+<td><p>Sélectionne, pour chaque enregistrement, le nombre minimal de variables à imputer tel que chaque observation puisse passer toutes les règles de vérification.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="Procedure%20Guides/deterministic"><span class="std std-doc">Imputation déterministe</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">deterministic</span></code></p></td>
+<td><p>Traitement</p></td>
+<td><p>Effectue l’imputation quand une seule combinaison de valeurs permet à l’enregistrement de passer l’ensemble des règles de vérification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="Procedure%20Guides/donorimp"><span class="std std-doc">Imputation par donneur</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">donorimp</span></code></p></td>
+<td><p>Traitement</p></td>
+<td><p>Effectue l’imputation par enregistrement donneur avec la méthode du voisin le plus proche tel que chaque enregistrement imputé satisfasse les règles de vérification post-imputation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="Procedure%20Guides/estimator"><span class="std std-doc">Imputation par estimation</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">estimator</span></code></p></td>
+<td><p>Traitement</p></td>
+<td><p>Effectue l’imputation en utilisant des fonctions d’estimation et/ou des estimateurs par régression linéaire.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="Procedure%20Guides/prorate"><span class="std std-doc">Ajustement au prorata</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">prorate</span></code></p></td>
+<td><p>Revue, sélection, traitement</p></td>
+<td><p>Ajuste au prorata et arrondie les enregistrements pour satisfaire les règles de vérification spécifiées par l’utilisateur.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="Procedure%20Guides/massimp"><span class="std std-doc">Imputation massive</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">massimp</span></code></p></td>
+<td><p>Revue, sélection, traitement</p></td>
+<td><p>Effectue l’imputation par donneur pour un bloc de variables avec l’approche du plus proche voisin ou une sélection aléatoire.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ce guide de l’utilisateur ne contient pas d’information spécifique aux procédures; cette information peut être retrouvée dans les liens ci-dessus ou à partir du guide de procédure <a class="reference internal" href="Procedure%20Guides/index"><span class="std std-doc">index</span></a>. Le guide des procédures possède toute l’information nécessaire pour rouler les procédures, incluant la description détaillée de chaque paramètre, et une brève description des méthodes. Pour une description mathématique détaillée des méthodes des procédures, veuillez consulter la <a class="reference download internal" download="" href="../_downloads/d2120f7397df70628be7489ad82cbee1/Description%20des%20fonctions%20Banff.pdf"><span class="xref download myst">description des fonctions Banff</span></a>.</p>
+</section>
+<section id="interaction-entre-procedures">
+<h2>Interaction entre procédures<a class="headerlink" href="#interaction-entre-procedures" title="Link to this heading">#</a></h2>
+<p>Les procédures de Banff sont conçues pour être exécutées de manière séquentielle dans le cadre d’un processus de VDS. Les éléments de sortie d’une procédure servent souvent d’éléments d’entrée pour la procédure suivante, et les données statistiques qui sont la cible du processus de VDS sont mises à jour en permanence et tout au long du processus. Une approche standard utilisant les procédures Banff peut ressembler à ce qui suit :</p>
+<ol class="arabic simple">
+<li><p>La validité et la cohérence des règles de vérification sont revues et peaufinées à l’aide de
+<code class="docutils literal notranslate"><span class="pre">verifyedits</span></code>.</p></li>
+<li><p>Une revue initiale des données statistiques brutes est effectuée par le biais de <code class="docutils literal notranslate"><span class="pre">editstats</span></code>.</p></li>
+<li><p>Les fonctions de revue et de sélection sont réalisées à l’aide de <code class="docutils literal notranslate"><span class="pre">outlier</span></code> et <code class="docutils literal notranslate"><span class="pre">errorloc</span></code> afin d’identifier les problèmes potentiels, et de sélectionner les champs au sein des unités pour un traitement ultérieur.</p></li>
+<li><p>L’imputation est effectuée en utilisant des fonctions de traitement disponibles dans <code class="docutils literal notranslate"><span class="pre">deterministic</span></code>, <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>, et <code class="docutils literal notranslate"><span class="pre">estimator</span></code> pour imputer les valeurs manquantes, les valeurs aberrantes, et corriger les incohérences.</p></li>
+<li><p>L’ajustement au prorata est mené à l’aide de <code class="docutils literal notranslate"><span class="pre">prorate</span></code> pour s’assurer que les valeurs obtenues satisfont les contraintes de totalisation, et pour arrondir les valeurs décimales.</p></li>
+<li><p>Éventuellement,  <code class="docutils literal notranslate"><span class="pre">massimp</span></code> est utilisée pour imputer de grands blocs de non réponse.</p></li>
+<li><p>Une revue finale des données imputées est réalisée avec <code class="docutils literal notranslate"><span class="pre">editstats</span></code> pour s’assurer que les données obtenues à la suite du processus répondent aux normes de qualité souhaitées.</p></li>
+</ol>
+<p>Pour que ce processus fonctionne, l’information doit être relayée d’une étape à l’autre. les codes de statut générés par <code class="docutils literal notranslate"><span class="pre">outlier</span></code> et <code class="docutils literal notranslate"><span class="pre">errorloc</span></code> sont conservés dans les données de statut et sont lus par les procédures de traitement subséquentes. Lorsque l’une des procédures de traitement réussit à imputer un champ nécessitant l’imputation, le code de sélection dans les données de statut est remplacé par le code d’imputation, indiquant ainsi aux procédures subséquentes que le traitement a déjà été effectué.</p>
+<p>La gestion des modifications faites aux données statistiques et aux codes de statut est possible grâce à la modularité des procédures Banff, dont les éléments d’entrée et de sortie sont du même format pour les procédures effectuant les mêmes types de fonction de VDS. Sur les neuf procédures, seulement deux (<code class="docutils literal notranslate"><span class="pre">prorate</span></code> et <code class="docutils literal notranslate"><span class="pre">massimp</span></code>) effectuent les trois types de fonction; ces procédures peuvent être roulées de manière isolée pour revoir les données, sélectionner les enregistrements et/ou les champs pour le traitement et effectuer l’imputation. Les procédures qui font uniquement du traitement (<code class="docutils literal notranslate"><span class="pre">deterministic</span></code>, <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>, et <code class="docutils literal notranslate"><span class="pre">estimator</span></code>) exigent d’abord des codes de sélection générés par l’une des procédures Banff effectuant la sélection (<code class="docutils literal notranslate"><span class="pre">outlier</span></code> ou <code class="docutils literal notranslate"><span class="pre">errorloc</span></code>). La procédure <code class="docutils literal notranslate"><span class="pre">editstats</span></code> examine les données pour détecter d’éventuelles erreurs mais ne produit pas de codes de sélection. Finalement, <code class="docutils literal notranslate"><span class="pre">verifyedits</span></code> ne réalise aucun type de fonction de vérification statistique des données, mais devrait être utilisée avant que le processus de VDS ne commence afin d’examiner et d’améliorer les règles de vérification utilisées par les autres procédures.</p>
+<p>L’utilisateur doit se familiariser avec les deux types de données qui constituent un élément central dans la compréhension du fonctionnement de Banff:</p>
+<ol class="arabic simple">
+<li><p>Les données statistiques <code class="docutils literal notranslate"><span class="pre">indata</span></code> et <code class="docutils literal notranslate"><span class="pre">outdata</span></code>: Ces éléments d’entrée et de sortie représentent les données statistiques, ou les microdonnées, et sont la cible du processus de VDS. À l’exception de <code class="docutils literal notranslate"><span class="pre">verifyedits</span></code>, toutes les procédures agissent sur les données d’entrée requises <code class="docutils literal notranslate"><span class="pre">indata</span></code>. Les données résultantes de l’imputation sont contenues dans <code class="docutils literal notranslate"><span class="pre">outdata</span></code>, et sont uniquement produites par les procédures qui effectuent les fonctions de traitement (<code class="docutils literal notranslate"><span class="pre">deterministic</span></code>, <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>, <code class="docutils literal notranslate"><span class="pre">estimator</span></code>, <code class="docutils literal notranslate"><span class="pre">prorate</span></code>, et <code class="docutils literal notranslate"><span class="pre">massimp</span></code>).</p></li>
+<li><p>Les données de statuts <code class="docutils literal notranslate"><span class="pre">instatus</span></code> et <code class="docutils literal notranslate"><span class="pre">outstatus</span></code>: Ces éléments d’entrée et de sortie contiennent les codes de statut, qui sont des métadonnées importantes permettant d’identifier les champs qui nécessitent le traitement (statuts de sélection) et ceux qui ont déjà fait l’objet de traitement (statuts d’imputation).</p></li>
+</ol>
+<p>Les données statistiques et celles de statuts sont plus amplement abordées dans les sections suivantes.</p>
+</section>
+<section id="donnees-statistiques-indata-et-outdata">
+<h2>Données statistiques <code class="docutils literal notranslate"><span class="pre">indata</span></code> et <code class="docutils literal notranslate"><span class="pre">outdata</span></code><a class="headerlink" href="#donnees-statistiques-indata-et-outdata" title="Link to this heading">#</a></h2>
+<p>À l’exception de <code class="docutils literal notranslate"><span class="pre">verifyedits</span></code>, toutes les procédures Banff s’opèrent sur des données statistiques (aussi appelées microdonnées) arrangées en format tabulaire. L’élément d’entrée principal pour la plupart des procédures est <code class="docutils literal notranslate"><span class="pre">indata</span></code>, qui est la cible du processus de vérification de données. Certaines procédures ont aussi recours à <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code>, qui correspond aux données historiques du même ensemble d’enregistrements. Les procédures qui effectuent des fonctions de traitement produisent les données de sortie <code class="docutils literal notranslate"><span class="pre">outdata</span></code>.</p>
+<p>Les données <code class="docutils literal notranslate"><span class="pre">indata</span></code> doivent consister en des données tabulaires arrangées en lignes et en colonnes. La documentation de Banff désigne les lignes comme <em>enregistrements</em>, tandis que les colonnes sont appelées <em>variables</em>. Dans la plupart des procédures, au moins une variable en caractères doit servir comme identifiant unique spécifié dans le paramètre <code class="docutils literal notranslate"><span class="pre">unit_id</span></code>. Banff utilise cet identifiant pour suivre les métadonnées tout au long du processus de vérification de données. Les noms des variables dans les éléments d’entrée de Banff font l’objet de quelques restrictions; veuillez consulter <a class="reference internal" href="#noms-de-variables-dans-les-donnees-d-entree">cette section</a> pour plus d’informations.</p>
+<p>Les procédures effectuant des fonctions de traitement (<code class="docutils literal notranslate"><span class="pre">deterministic</span></code>, <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>, <code class="docutils literal notranslate"><span class="pre">estimator</span></code>, <code class="docutils literal notranslate"><span class="pre">prorate</span></code> and <code class="docutils literal notranslate"><span class="pre">massimp</span></code>) produisent les données de sortie <code class="docutils literal notranslate"><span class="pre">outdata</span></code>, qui contiennent les résultats de la fonction de traitement. Ces données incluent les valeurs imputées (imputées par exemple par  <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>) et les valeurs modifiées (par exemple ajustées au prorata par <code class="docutils literal notranslate"><span class="pre">prorate</span></code>). Voici quelques remarques importantes à propos de <code class="docutils literal notranslate"><span class="pre">outdata</span></code> :</p>
+<ul class="simple">
+<li><p>Les données <code class="docutils literal notranslate"><span class="pre">outdata</span></code> <strong>ne sont typiquement pas une copie intégrale de <code class="docutils literal notranslate"><span class="pre">indata</span></code></strong>, mais contiennent uniquement les lignes et les colonnes affectées par la procédure. Par exemple, si <code class="docutils literal notranslate"><span class="pre">indata</span></code> est constitué de 2000 lignes et de 25 colonnes, mais que seulement 500 lignes et 10 colonnes sont affectées par la procédure, alors <code class="docutils literal notranslate"><span class="pre">outdata</span></code> comportera uniquement les 500 lignes et les 10 colonnes. Pour continuer le processus de VDS, l’utilisateur doit manuellement mettre à jour les données <code class="docutils literal notranslate"><span class="pre">indata</span></code> à l’aide de l’information provenant de <code class="docutils literal notranslate"><span class="pre">outdata</span></code>. (<em>Note: L’équipe de Banff étudie l’ajout de la mise à jour automatique de <code class="docutils literal notranslate"><span class="pre">indata</span></code> à partir des résultats de <code class="docutils literal notranslate"><span class="pre">outdata</span></code>, et ce dans une future version.</em>)</p></li>
+<li><p>Les données <code class="docutils literal notranslate"><span class="pre">outdata</span></code> contiennent toujours les variables spécifiées dans les paramètres <code class="docutils literal notranslate"><span class="pre">unit_id</span></code> et <code class="docutils literal notranslate"><span class="pre">by</span></code>.</p></li>
+<li><p>Si aucun enregistrement n’est imputé avec succès ou modifié par la procédure, alors <code class="docutils literal notranslate"><span class="pre">outdata</span></code> sera vide. Aucune erreur ne se produira dans ce cas.</p></li>
+</ul>
+</section>
+<section id="codes-de-statut-et-leur-donnees">
+<h2>Codes de statut et leur données<a class="headerlink" href="#codes-de-statut-et-leur-donnees" title="Link to this heading">#</a></h2>
+<p>Banff emploie les codes de statut pour conserver l’information importante des métadonnées qui concerne le processus de VDS. Ces codes de statut capturent l’information contenue dans les statuts de sélection, les statuts de l’exclusion et ceux de l’imputation. Cette information est utilisée de deux manières :</p>
+<ul class="simple">
+<li><p>Comme élément d’entrée des étapes subséquentes du processus de vérification de données. Par exemple, la procédure de localisation des erreurs <code class="docutils literal notranslate"><span class="pre">errorloc</span></code> produit des statuts de sélection pour identifier les variables qui nécessitent l’imputation. Ces statuts de sélection sont lus par les procédures d’imputation comme <code class="docutils literal notranslate"><span class="pre">donorimp</span></code> et <code class="docutils literal notranslate"><span class="pre">estimator</span></code> afin d’effectuer l’imputation.</p></li>
+<li><p>Comme une liste complète des enregistrements affectés à la suite d’un processus de vérification de données. Par exemple, l’historique des codes de statut pour une observation particulière peut expliquer <em>pourquoi</em>, <em>comment</em>, et <em>quand</em> elle a fait l’objet de modifications.</p></li>
+</ul>
+<section id="tableau-des-codes-de-statut-produits-par-banff">
+<h3>Tableau des codes de statut produits par Banff<a class="headerlink" href="#tableau-des-codes-de-statut-produits-par-banff" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Code de statut</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FTI</span></code></p></td>
+<td><p><em>Champ à imputer :</em> Statut de sélection indiquant qu’une observation nécessite un traitement supplémentaire comme l’imputation. Généré par les procédures <code class="docutils literal notranslate"><span class="pre">outlier</span></code> et <code class="docutils literal notranslate"><span class="pre">errorloc</span></code>, ou par une procédure définie par l’utilisateur.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FTE</span></code></p></td>
+<td><p><em>Champ à exclure :</em> Statut de sélection indiquant qu’une observation devrait être exclue de certaines méthodes. Généré par la procédure <code class="docutils literal notranslate"><span class="pre">outlier</span></code> ou par une procédure définie par l’utilisateur.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IDE</span></code></p></td>
+<td><p><em>Imputé par l’imputation déterministe :</em> Champ imputé par la procédure <code class="docutils literal notranslate"><span class="pre">deterministic</span></code> et qui devrait être considéré comme une valeur rapportée (non imputée) dans le cadre des méthodes subséquentes. (Aussi appelée imputation déductive.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IDN</span></code></p></td>
+<td><p><em>Imputé par l’imputation par donneur :</em> Champ imputé par la procédure <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">I--</span></code></p></td>
+<td><p><em>Imputé par l’imputation par estimation :</em> Champ imputé par la procédure <code class="docutils literal notranslate"><span class="pre">estimator</span></code>. Le code exact dépend de l’algorithme spécifié; par exemple un statut ICR indique que l’algorithme <code class="docutils literal notranslate"><span class="pre">CURRATIO</span></code> a été utilisé, tandis qu’un statut IDT correspond à l’algorithme <code class="docutils literal notranslate"><span class="pre">DIFTREND</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IPR</span></code></p></td>
+<td><p><em>Imputé par l’ajustement au prorata :</em> Champ imputé par la procédure <code class="docutils literal notranslate"><span class="pre">prorate</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IMAS</span></code></p></td>
+<td><p><em>Imputé par l’imputation massive :</em> Champ imputé par la procédure <code class="docutils literal notranslate"><span class="pre">massimp</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="donnees-de-statuts-instatus-et-outstatus">
+<h3>Données de statuts <code class="docutils literal notranslate"><span class="pre">instatus</span></code> et <code class="docutils literal notranslate"><span class="pre">outstatus</span></code><a class="headerlink" href="#donnees-de-statuts-instatus-et-outstatus" title="Link to this heading">#</a></h3>
+<p>Les statuts de sélection et d’imputation sont toujours associés aux valeurs individuelles dans <code class="docutils literal notranslate"><span class="pre">indata</span></code>. Puisque <code class="docutils literal notranslate"><span class="pre">indata</span></code> a un format tabulaire, chaque observation est associée à un enregistrement (ligne) et à un champ (colonne) spécifiques. Les enregistrements sont identifiés par l’identifiant unique de l’enregistrement <code class="docutils literal notranslate"><span class="pre">unit_id</span></code> spécifié par l’utilisateur, tandis que les champs sont désignés par leur nom de variable. Les codes de statut sont conservés dans les données de statuts dont les colonnes sont comme suit :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Colonne</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><nobr>&lt;unit-id&gt;</nobr></p></td>
+<td><p>Identifiant de l’enregistrement (c’est-à-dire la ligne) pour lequel le code de statut s’applique. (Le véritable nom de colonne est le nom de la variable spécifié dans le paramètre <code class="docutils literal notranslate"><span class="pre">unit_id</span></code>.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FIELDID</span></code></p></td>
+<td><p>Identifiant du champ (c’est-à-dire la colonne) pour lequel le code de statut s’applique.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STATUS</span></code></p></td>
+<td><p>Codes de statut tels que “FTI”, “FTE”, ou “IDN”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code></p></td>
+<td><p>Valeur de la variable quand le code de statut est généré. Pour les procédures effectuant la sélection (<code class="docutils literal notranslate"><span class="pre">errorloc</span></code> et <code class="docutils literal notranslate"><span class="pre">outlier</span></code>), cette colonne correspond à la valeur de l’observation dans <code class="docutils literal notranslate"><span class="pre">indata</span></code> lorsque la sélection a eu lieu. Pour les procédures effectuant le traitement (<code class="docutils literal notranslate"><span class="pre">deterministic</span></code>, <code class="docutils literal notranslate"><span class="pre">donorimp</span></code>, <code class="docutils literal notranslate"><span class="pre">estimator</span></code>, <code class="docutils literal notranslate"><span class="pre">prorate</span></code> et <code class="docutils literal notranslate"><span class="pre">massimp</span></code>), cette colonne représente la valeur de l’observation dans <code class="docutils literal notranslate"><span class="pre">outdata</span></code>, après que le traitement a eu lieu.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Toutes les procédures effectuant des fonctions de sélection ou de traitement (c’est-à-dire toutes les procédures Banff à l’exception de <code class="docutils literal notranslate"><span class="pre">verifyedits</span></code> et <code class="docutils literal notranslate"><span class="pre">editstats</span></code>) produisent automatiquement des données des statuts de sortie intitulées <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> et contenant les statuts de sélection ou d’imputation. Certaines procédures utilisent les données de statuts (<code class="docutils literal notranslate"><span class="pre">instatus</span></code>) comme éléments d’entrée; selon la procédure en question, ces données peuvent être requises. Un bref résumé du comportement de chaque procédure par rapport aux données de statuts est présenté dans le tableau ci-dessous.</p>
+</section>
+<section id="donnees-de-statuts-par-procedure">
+<h3>Données de statuts par procédure<a class="headerlink" href="#donnees-de-statuts-par-procedure" title="Link to this heading">#</a></h3>
+<p>Le tableau suivant résume les codes de statut lus à partir de <code class="docutils literal notranslate"><span class="pre">instatus</span></code> ou produits dans <code class="docutils literal notranslate"><span class="pre">outstatus</span></code>, et ce pour chaque procédure. Lorsqu’un code de statut est requis par une procédure, alors <code class="docutils literal notranslate"><span class="pre">instatus</span></code> l’est également.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Procédure</p></th>
+<th class="head"><p>Code de statut lu à partir de <code class="docutils literal notranslate"><span class="pre">instatus</span></code></p></th>
+<th class="head"><p>Code de statut produit dans <code class="docutils literal notranslate"><span class="pre">outstatus</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">verifyedits</span></code></p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">editstats</span></code></p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">outlier</span></code></p></td>
+<td><p>N/A</p></td>
+<td><p>FTI, FTE</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">errorloc</span></code></p></td>
+<td><p>FTI (optionnel)</p></td>
+<td><p>FTI</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">deterministic</span></code></p></td>
+<td><p>FTI (requis)</p></td>
+<td><p>IDE</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">donorimp</span></code></p></td>
+<td><p>FTI (requis), FTE (optionnel), I– (optionnel)</p></td>
+<td><p>IDN</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">estimator</span></code></p></td>
+<td><p>FTI (requis), FTE (optionnel), I– (optionnel)</p></td>
+<td><p>I– (le code exact dépend de l’algorithme spécifié)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">prorate</span></code></p></td>
+<td><p>I– (optionnel)</p></td>
+<td><p>IPR</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">massimp</span></code></p></td>
+<td><p>N/A</p></td>
+<td><p>IMAS</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Certains codes de statut sont optionnels, mais peuvent changer le comportement de la procédure. Dans le cadre de <code class="docutils literal notranslate"><span class="pre">prorate</span></code> par exemple, l’utilisateur peut choisir d’ajuster au prorata toutes les valeurs, seulement les valeurs originales ou seulement les valeurs déjà imputées. Si son choix se porte sur l’imputation des valeurs originales ou celles déjà imputées, alors des données de statuts d’entrée <code class="docutils literal notranslate"><span class="pre">instatus</span></code> avec des statuts I– sont requises.</p>
+</section>
+</section>
+<section id="specifier-les-regles-de-verification-lineaires">
+<h2>Spécifier les règles de vérification linéaires<a class="headerlink" href="#specifier-les-regles-de-verification-lineaires" title="Link to this heading">#</a></h2>
+<p>Dans le processus de vérification statistique des données, le terme <em>règle de vérification</em> désigne généralement les contraintes que les enregistrements doivent satisfaire pour être considérés comme valables. Les règles linéaires correspondent aux contraintes qui peuvent être exprimées comme des égalités ou des inégalités linéaires de la forme :</p>
+<p>$$
+a_1 x_1 + a_2 x_2 + … + a_n x_n = b  \ ou \
+a_1 x_1 + a_2 x_2 + … + a_n x_n \le b
+$$</p>
+<p>où les termes $x$<sub>$1$</sub> à $x$<sub>$n$</sub> sont des variables numériques des données cibles, les termes $a$<sub>$1$</sub> à $a$<sub>$n$</sub> et $b$ sont des constantes spécifiées par l’utilisateur. Sur les neuf procédures Banff, six d’entre elles requièrent les règles de vérification comme paramètre d’entrée :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">verifyedits</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">editstats</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">errorloc</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deterministic</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">donorimp</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prorate</span></code>. (Note: les règles de vérification de cette procédure se caractérisent par une syntaxe unique et des restrictions supplémentaires.)</p></li>
+</ul>
+<section id="format">
+<h3>Format<a class="headerlink" href="#format" title="Link to this heading">#</a></h3>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">edits</span></code> est utilisé pour spécifier la liste des règles de vérification selon la syntaxe suivante:</p>
+<ul class="simple">
+<li><p>Comme pour tous les paramètres en chaîne de caractères, la liste des règles de vérification doit être entourée de guillemets <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> ou de triple guillemets <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> pour des règles en plusieurs lignes.</p></li>
+<li><p>Chaque règle individuelle doit être suivie d’un point-virgule <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p></li>
+<li><p>Les règles individuelles doivent inclure l’un des <em>opérateurs</em> suivants :</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code> (inférieur à);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (inférieur ou égal à);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> (égal à);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> (n’est pas égal à);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (supérieur ou égal à);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (supérieur à).</p></li>
+</ul>
+</li>
+<li><p>À l’intérieur de chaque règle individuelle, une ou plusieurs <em>composantes</em> doit apparaître de chaque côté d’un opérateur, séparée par <code class="docutils literal notranslate"><span class="pre">+</span></code> ou <code class="docutils literal notranslate"><span class="pre">-</span></code>. Une composante peut être une <code class="docutils literal notranslate"><span class="pre">constante</span></code>, une <code class="docutils literal notranslate"><span class="pre">variable</span></code> (qu’on retrouve dans <code class="docutils literal notranslate"><span class="pre">indata</span></code>) ou le produit des deux:  <code class="docutils literal notranslate"><span class="pre">constante</span> <span class="pre">*</span> <span class="pre">variable</span></code> ou <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">*</span> <span class="pre">constante</span></code>. Lorsque l’on multiplie une constante par une variable, elles doivent être séparées par un astérisque <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></li>
+<li><p>Optionnellement, l’utilisateur peut ajouter un modificateur (<code class="docutils literal notranslate"><span class="pre">modifier</span></code>) au début de chaque règle individuelle, suivi d’un deux-point <code class="docutils literal notranslate"><span class="pre">:</span></code>. Les modificateurs acceptables sont <code class="docutils literal notranslate"><span class="pre">pass</span></code> et <code class="docutils literal notranslate"><span class="pre">fail</span></code> et ne sont pas sensibles à l’utilisation de lettres minuscules ou majuscules.</p></li>
+</ul>
+<p>Un exemple simple de trois règles de vérification spécifiées dans une ligne est le suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_errorloc</span>  <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">errorloc</span><span class="p">(</span>
+        <span class="n">edits</span><span class="o">=</span> <span class="s2">&quot;Profit = Revenu - Depenses; Profit &gt;= 0; Depenses &gt;= 0;&quot;</span>
+        <span class="o">...</span> <span class="c1"># etc. (paramètres, données de sortie)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessous, les règles de vérification s’étendent sur trois lignes et sont entourées de triple guillemets <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>. Ces règles comportent également des constantes, ainsi que les modificateurs <code class="docutils literal notranslate"><span class="pre">pass</span></code> et <code class="docutils literal notranslate"><span class="pre">fail</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_errorloc</span>  <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">errorloc</span><span class="p">(</span>
+        <span class="n">edits</span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            Profit = Revenu - Depenses; Profit &gt;= 0; Depenses &gt;= 0;</span>
+<span class="s2">            0.9 * Total &lt;= Var1 + Var2 + Var3;</span>
+<span class="s2">            Var1 + Var2 + Var3 &lt;= 1.1 * Total;</span>
+<span class="s2">            Pass: Var4 &gt;= Var5;</span>
+<span class="s2">            Fail: Var4 &gt; Var5;</span>
+<span class="s2">            Fail: Nb_Employes != BR_Employes</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+        <span class="o">...</span> <span class="c1"># etc. (paramètres, données de sortie)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="regles-de-verification-autorisees">
+<h3>Règles de vérification autorisées<a class="headerlink" href="#regles-de-verification-autorisees" title="Link to this heading">#</a></h3>
+<p>Bien que l’utilisateur puisse exprimer les règles de vérification de plusieurs manière, les procédures Banff commencent par les convertir en une <em>forme canonique</em> avant de procéder à la suite; sous cette forme, chaque règle de vérification est exprimée comme une règle avec un modificateur <em>pass</em> et un opérateur <code class="docutils literal notranslate"><span class="pre">=</span></code> ou <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>. Les inégalités strictes ne sont pas permises, ce qui se traduit par les règles ou les modifications suivantes :</p>
+<ul class="simple">
+<li><p>Règle de vérification (modificateur <em>pass</em>) avec <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> ou <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> est remplacé par <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> et <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> respectivement.</p></li>
+<li><p>Règle de vérification (modificateur <em>fail</em>) avec <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> ou <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> est remplacé par <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> et <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> respectivement.</p></li>
+<li><p>Règle de vérification (modificateur <em>pass</em>) avec <code class="docutils literal notranslate"><span class="pre">!=</span></code> ne peut pas être convertie en une forme canonique et produit une erreur.</p></li>
+<li><p>Règle de vérification (modificateur <em>fail</em>) avec <code class="docutils literal notranslate"><span class="pre">=</span></code> ne peut pas être convertie en une forme canonique et produit une erreur.</p></li>
+</ul>
+<p>(<em>Note: L’utilisateur qui souhaite spécifier une inégalité stricte devrait plutôt inclure une petite constante dans leur règle de vérification, c’est-à-dire que <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;</span> <span class="pre">B</span></code> peut être remplacée par <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;=</span> <span class="pre">B</span> <span class="pre">-</span> <span class="pre">0.005</span></code> pour les valeurs qui sont rapportées avec une précision de deux décimales.</em>)</p>
+<p>Le tableau suivant donne des exemples de règles de vérification originales valables et non valables, accompagnées de leur forme canonique lorsque possible:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Règle de vérification originale</p></th>
+<th class="head"><p>Forme canonique</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Pass:</span> <span class="pre">A</span> <span class="pre">&gt;</span> <span class="pre">B</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-A</span> <span class="pre">+</span> <span class="pre">B</span> <span class="pre">&lt;=</span> <span class="pre">-3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Pass:</span> <span class="pre">C</span> <span class="pre">=</span> <span class="pre">D</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">-</span> <span class="pre">D</span> <span class="pre">=</span> <span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Pass:</span> <span class="pre">Z</span> <span class="pre">&lt;</span> <span class="pre">A</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-A</span> <span class="pre">+</span> <span class="pre">Z</span> <span class="pre">&lt;=</span> <span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Pass:</span> <span class="pre">M</span> <span class="pre">!=</span> <span class="pre">N</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALIDE</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Fail:</span> <span class="pre">A</span> <span class="pre">&gt;</span> <span class="pre">B</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">B</span> <span class="pre">&lt;=</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Fail:</span> <span class="pre">C</span> <span class="pre">=</span> <span class="pre">D</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALIDE</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Fail:</span> <span class="pre">Z</span> <span class="pre">&lt;=</span> <span class="pre">A</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">Z</span> <span class="pre">&lt;=</span> <span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Fail:</span> <span class="pre">N</span> <span class="pre">!=</span> <span class="pre">M</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-M</span> <span class="pre">+</span> <span class="pre">N</span> <span class="pre">=</span> <span class="pre">0</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>De plus, l’ensemble des règles de vérification spécifié par l’utilisateur doit être cohérent; autrement dit, les règles de vérification linéaires doivent former un région d’acceptation non vide. Spécifier un ensemble incohérent de règles de vérification produira une erreur. Il est recommandé d’avoir recours à <code class="docutils literal notranslate"><span class="pre">verifyedits</span></code> pour examiner la cohérence, la redondance et les variables déterministes ainsi que les égalités cachées des règles de vérification, et ce avant de les utiliser dans une autre procédure.</p>
+</section>
+</section>
+<section id="execution-par-groupes-de-partition">
+<h2>Exécution par groupes de partition<a class="headerlink" href="#execution-par-groupes-de-partition" title="Link to this heading">#</a></h2>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">by</span></code> qu’on retrouve dans toutes les procédures Banff à l’exception de <code class="docutils literal notranslate"><span class="pre">verifyedits</span></code> permet à l’utilisateur de partitionner les données statistiques d’entrée en plusieurs groupes qui sont traités de manière indépendante. Dans la documentation de Banff, on désigne ces groupes par la dénomination <em>groupes de partition</em>. L’utilisateur peut spécifier une ou plusieurs variables dans <code class="docutils literal notranslate"><span class="pre">indata</span></code> qui seront utilisées pour former les groupes de partition. Par exemple, <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;Province&quot;</span></code> créera un groupe de partition pour chaque valeur unique de la variable <code class="docutils literal notranslate"><span class="pre">Province</span></code> dans <code class="docutils literal notranslate"><span class="pre">indata</span></code>, tandis que <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;Province</span> <span class="pre">Industrie&quot;</span></code> créera un groupe de partition pour chaque combinaison des variables <code class="docutils literal notranslate"><span class="pre">Province</span></code> et <code class="docutils literal notranslate"><span class="pre">Industrie</span></code>.</p>
+<p>Notes sur les groupes de partition:</p>
+<ul class="simple">
+<li><p>Les procédures <code class="docutils literal notranslate"><span class="pre">errorloc</span></code>, <code class="docutils literal notranslate"><span class="pre">deterministic</span></code>, et <code class="docutils literal notranslate"><span class="pre">prorate</span></code> s’opèrent sur chaque enregistrement de <code class="docutils literal notranslate"><span class="pre">indata</span></code> de manière indépendante; utiliser les groupes de partition pour ces procédures n’a aucune incidence sur les données de sortie. Néanmoins, le paramètre <code class="docutils literal notranslate"><span class="pre">by</span></code> est encore possible d’être spécifié dans ces procédures, et pourrait être utilisé dans le futur pour améliorer la performance.</p></li>
+<li><p>Lorsque <code class="docutils literal notranslate"><span class="pre">by</span></code> et <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> sont tous deux spécifiés dans une procédure, alors les données <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> doivent aussi contenir les variables <code class="docutils literal notranslate"><span class="pre">by</span></code>.</p></li>
+<li><p>Les données d’entrée telles que <code class="docutils literal notranslate"><span class="pre">indata</span></code> et <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code> doivent être triées selon les variables <code class="docutils literal notranslate"><span class="pre">by</span></code>, et ce avant l’exécution de la procédure. Par défaut, les procédure Banff effectuent ce tri automatiquement; ce tri peut être désactivé (par exemple, si les données d’entrée sont déjà triées) en spécifiant <code class="docutils literal notranslate"><span class="pre">presort=False</span></code>.</p></li>
+<li><p>Lorsque <code class="docutils literal notranslate"><span class="pre">instatus</span></code> est spécifié, certaines procédures sont plus efficaces si les variables <code class="docutils literal notranslate"><span class="pre">by</span></code> sont incluses dans <code class="docutils literal notranslate"><span class="pre">instatus</span></code>. Par défaut, Banff y ajoutera les variables <code class="docutils literal notranslate"><span class="pre">by</span></code> automatiquement; cet ajout peut être désactivé (par exemple, si les variables sont déjà présentes) en spécifiant <code class="docutils literal notranslate"><span class="pre">prefill_by_vars=False</span></code>.</p></li>
+<li><p>Par défaut, plusieurs procédures ajouteront les diagnostics de chaque groupe de partition au journal; ceci peut être désactivé en spécifiant <code class="docutils literal notranslate"><span class="pre">no_by_stats=True</span></code>.</p></li>
+<li><p>Les données de sotie <code class="docutils literal notranslate"><span class="pre">outdata</span></code> contiendront toujours les variables <code class="docutils literal notranslate"><span class="pre">by</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="guide-technique">
+<h1>Guide technique<a class="headerlink" href="#guide-technique" title="Link to this heading">#</a></h1>
+<section id="execution-des-procedures-banff">
+<h2>Exécution des procédures Banff<a class="headerlink" href="#execution-des-procedures-banff" title="Link to this heading">#</a></h2>
+<p>Pour exécuter une procédure Banff dans un script Python, le paquet Banff doit d’abord être importé, accompagné de tout autre paquet qu’on prévoit utiliser :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">banff</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pandas</span>
+</pre></div>
+</div>
+<p>On crée ensuite un nouvel objet, auquel on associe un nom de notre choix (dans ce cas, “mon_errorloc”), à partir de l’une des procédures Banff et à l’aide de son <a class="reference internal" href="#liste-des-procedures">pseudonyme</a> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_errorloc</span> <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">errorloc</span><span class="p">(</span>
+    <span class="n">indata</span><span class="o">=</span><span class="n">exemple_indata</span><span class="p">,</span>
+    <span class="n">outstatus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">outreject</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">edits</span><span class="o">=</span><span class="s2">&quot;x1&gt;=-5; x1&lt;=15; x2&gt;=30; x1+x2&lt;=50;&quot;</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;x1=1.5;&quot;</span><span class="p">,</span>
+    <span class="n">cardinality</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">time_per_obs</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">unit_id</span><span class="o">=</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span>
+    <span class="n">by</span><span class="o">=</span><span class="s2">&quot;ZONE&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Les procédures doivent être appelées en utilisant le nom du paquet Banff; c’est-à-dire, <code class="docutils literal notranslate"><span class="pre">banff.errorloc()</span></code>.</p></li>
+<li><p>Les paramètres (par exemple, <code class="docutils literal notranslate"><span class="pre">edits</span></code>) et les données (par exemple, <code class="docutils literal notranslate"><span class="pre">indata</span></code>) sont spécifiés comme des paires clé-valeur séparés par des virgules, leur ordre d’apparition n’étant pas important (<code class="docutils literal notranslate"><span class="pre">edits</span></code> avant <code class="docutils literal notranslate"><span class="pre">indata</span></code> ou l’inverse).</p></li>
+</ul>
+<p>Les éléments de sortie peuvent être conservés en mémoire ou sauvegardés sur disque (consulter <a class="reference internal" href="#specifier-les-donnees-de-sortie">cette section</a> pour plus de détails). Lorsque conservés en mémoire, ils seront conservés dans l’objet spécifié par l’utilisateur (par exemple, <code class="docutils literal notranslate"><span class="pre">mon_errorloc</span></code>) et créé lors de l’exécution de la procédure :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mon_errorloc</span><span class="o">.</span><span class="n">outstatus</span><span class="p">)</span> <span class="c1"># Imprime les statuts de sortie outstatus</span>
+<span class="n">errorloc_outstatus</span> <span class="o">=</span> <span class="n">mon_errorloc</span><span class="o">.</span><span class="n">outstatus</span> <span class="c1"># Sauvegarde outstatus comme de nouvelles données PyArrow appelées &quot;errorloc_outstatus&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="noms-de-variables-dans-les-donnees-d-entree">
+<h2>Noms de variables dans les données d’entrée<a class="headerlink" href="#noms-de-variables-dans-les-donnees-d-entree" title="Link to this heading">#</a></h2>
+<p>Dans les procédures Banff, plusieurs paramètres font référence aux variables (c’est-à-dire les colonnes) contenues dans les données d’entrée comme <code class="docutils literal notranslate"><span class="pre">indata</span></code>. Toute variable mentionnée dans l’appel de la procédure Banff doit consister en une seule chaîne de caractères sans espacements ou caractères spéciaux à l’exception du sous-tiret (<code class="docutils literal notranslate"><span class="pre">_</span></code>). Par exemple, <code class="docutils literal notranslate"><span class="pre">&quot;nom_de_famille&quot;</span></code> est un nom valable de variable, tandis que <code class="docutils literal notranslate"><span class="pre">&quot;nom</span> <span class="pre">de</span> <span class="pre">famille&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;nom-de-famille$&quot;</span></code> ou <code class="docutils literal notranslate"><span class="pre">&quot;prénom&quot;</span></code> ne le sont pas. Pour s’assurer que les données d’entrée sont compatibles avec Banff, l’utilisateur pourrait avoir besoin de modifier les noms de variables. Quelques contraintes supplémentaires:</p>
+<ul class="simple">
+<li><p>Les noms de variables ne peuvent pas excéder 64 caractères en longueur.</p></li>
+<li><p>Les noms de variables doivent être uniques à l’intérieur de chaque élément de données d’entrée. (La même variable peut apparaître dans de différents données d’entrée sans problème.)</p></li>
+</ul>
+<p>Des exemples de paramètres Banff qui font référence aux variables sont <code class="docutils literal notranslate"><span class="pre">unit_id</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">weights</span></code>, et <code class="docutils literal notranslate"><span class="pre">by</span></code>. Le nom de variable est simplement utilisée, et lorsqu’il s’agit d’une liste de deux variables ou plus, il suffit de les séparer d’un seul espacement. Par exemple:</p>
+<ul class="simple">
+<li><p>Une seule variable: <code class="docutils literal notranslate"><span class="pre">unit_id</span> <span class="pre">=</span> <span class="pre">&quot;numero_entreprise&quot;</span></code></p></li>
+<li><p>Une liste de variables: <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;province</span> <span class="pre">industrie&quot;</span></code></p></li>
+</ul>
+<p>Noter que les noms de variables ne sont pas sensibles à la casse; lorsque des données d’entrée possèdent deux colonnes ou plus qui diffèrent seulement en matière de casse, il n’est pas clair laquelle des colonnes sera utilisée durant le traitement. (Les utilisateurs sont fortement encouragés à utiliser des noms distincts et non sensibles à la casse pour toute colonne faisant partie des données d’entrée.)</p>
+</section>
+<section id="journal-banff">
+<h2>Journal Banff<a class="headerlink" href="#journal-banff" title="Link to this heading">#</a></h2>
+<p>Les messages du journal sont inscris dans le terminal lors de l’exécution. Ces messages proviennent de deux sources: le code Python et le code C de la procédure. Les messages peuvent être affichés en français ou en anglais.</p>
+<section id="definir-la-langue-du-journal">
+<h3>Définir la langue du journal<a class="headerlink" href="#definir-la-langue-du-journal" title="Link to this heading">#</a></h3>
+<p>Le paquet <code class="docutils literal notranslate"><span class="pre">banff</span></code> produit des messages du journal en français ou en anglais. Le paquet tente de détecter la langue de l’environnement hôte lors de l’importation. Utiliser la fonction <code class="docutils literal notranslate"><span class="pre">banff.set_language()</span></code> pour définir la langue au moment de l’exécution, en spécifiant l’une des deux possibilité de <code class="docutils literal notranslate"><span class="pre">banff.SupportedLanguage</span></code> (c’est-à-dire <code class="docutils literal notranslate"><span class="pre">.fr</span></code> ou <code class="docutils literal notranslate"><span class="pre">.en</span></code>).</p>
+<blockquote>
+<div><p><strong>Exemple</strong>: définir le français comme langue</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">banff</span><span class="o">.</span><span class="n">set_language</span><span class="p">(</span><span class="n">banff</span><span class="o">.</span><span class="n">SupportedLanguage</span><span class="o">.</span><span class="n">fr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="messages-python-du-journal">
+<h3>Messages Python du journal<a class="headerlink" href="#messages-python-du-journal" title="Link to this heading">#</a></h3>
+<p>Python gère le journal à l’aide du paquet standard <a class="reference external" href="https://docs.python.org/3/library/logging.html#"><code class="docutils literal notranslate"><span class="pre">logging</span></code></a>. Tous les messages Python du journal sont associés à un <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging-levels"><em>niveau du journal</em></a>, tel que <em>ERROR</em>, <em>WARNING</em>, <em>INFO</em>, et <em>DEBUG</em>. Les messages issus de Python consistent généralement en une ligne par message, et sont horodatés et préfixés par leur niveau.</p>
+<p>Par défaut, seuls les messages d’avertissement et d’erreur sont affichés. Utiliser le paramètre <code class="docutils literal notranslate"><span class="pre">trace</span></code> pour changer le niveau du journal affiché.</p>
+<blockquote>
+<div><p><strong>Exemple de messages Python</strong><br />
+Dans ce qui suit, 3 messages non liés sont issus des niveaux <em>INFO</em>, <em>DEBUG</em>, et <em>ERROR</em>. Par défaut, seul le troisième message est imprimé au terminal.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2024-11-29 10:47:51,853 [INFO]:  Time zone for log entries: Eastern Standard Time (UTC-5.0)
+2024-11-29 10:48:47,654 [DEBUG   , banff.donorimp._execute._preprocess_inputs]:  Adding BY variables to &#39;instatus&#39; dataset
+2024-11-29 10:49:59,867 [ERROR]:  Procedure &#39;Donor Imputation&#39; encountered an error and terminated early: missing mandatory dataset (return code 4)
+</pre></div>
+</div>
+</div></blockquote>
+<section id="verbosite-du-journal-python-trace">
+<h4>Verbosité du journal Python (<code class="docutils literal notranslate"><span class="pre">trace=</span></code>)<a class="headerlink" href="#verbosite-du-journal-python-trace" title="Link to this heading">#</a></h4>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">trace</span></code> permet de contrôler le niveau du journal à imprimer, grâce à la spécification de l’un des niveaux suivants :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">banff.log_level.ERROR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">banff.log_level.WARNING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">banff.log_level.INFO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">banff.log_level.DEBUG</span></code></p></li>
+</ul>
+<p>Les messages relatifs au niveau spécifié et aux niveaux supérieurs seront imprimés, ce qui ne sera pas le cas des niveaux inférieurs.</p>
+<p>Par souci de commodité, spécifier <code class="docutils literal notranslate"><span class="pre">trace=True</span></code> permet de garder toutes les sorties du journal.</p>
+</section>
+</section>
+<section id="messages-du-journal-issus-des-procedures-c">
+<h3>Messages du journal issus des procédures C<a class="headerlink" href="#messages-du-journal-issus-des-procedures-c" title="Link to this heading">#</a></h3>
+<p>Les messages issus de la procédure C n’ont pas de niveau de journal associé et ne sont pas horodatés. Certains messages sont préfixés par <code class="docutils literal notranslate"><span class="pre">ERROR:</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING:</span></code> et <code class="docutils literal notranslate"><span class="pre">NOTE:</span></code>, alors que d’autres messages n’ont pas de préfixe et peuvent s’étendre sur plusieurs lignes. La plupart des messages sont informatifs. Dès qu’un message avec <code class="docutils literal notranslate"><span class="pre">ERROR:</span></code> est imprimé, il sera accompagné d’un niveau d’erreur lié issu de Python, et une exception sera soulevée.</p>
+<blockquote>
+<div><p><strong>Exemple des messages issus de procédure C</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NOTE: --- Banff System 3.01.001b19.dev6 developed by Statistics Canada ---
+NOTE: PROCEDURE DONORIMPUTATION Version 3.01.001b19.dev6
+. . .
+NOTE: The minimal set of edits is equivalent to the original set of edits specified.
+. . .
+Number of valid observations ......................:      12     100.00%
+Number of donors ..................................:       5      41.67%
+Number of donors to reach DONORLIMIT ..............:       3      60.00%
+Number of recipients ..............................:       7      58.33%
+
+NOTE: The above message was for the following by group:
+      prov=30
+</pre></div>
+</div>
+</div></blockquote>
+<section id="verbosite-du-journal-issu-de-procedure-c">
+<h4>Verbosité du journal issu de procédure C<a class="headerlink" href="#verbosite-du-journal-issu-de-procedure-c" title="Link to this heading">#</a></h4>
+<p>Voir <a class="reference internal" href="#no-by-stats">no_by_stats</a>.</p>
+</section>
+</section>
+<section id="suppression-et-diagnostic-des-messages-du-journal-capture">
+<h3>Suppression et diagnostic des messages du journal (<code class="docutils literal notranslate"><span class="pre">capture=</span></code>)<a class="headerlink" href="#suppression-et-diagnostic-des-messages-du-journal-capture" title="Link to this heading">#</a></h3>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">capture</span></code> peut être utilisé pour supprimer toutes les sorties du journal (en spécifiant <code class="docutils literal notranslate"><span class="pre">capture=None</span></code>). Cette option est désactivée par défaut (<code class="docutils literal notranslate"><span class="pre">capture=False</span></code>).</p>
+<p>Spécifier <code class="docutils literal notranslate"><span class="pre">capture=True</span></code> fera en sorte que les messages du journal soient imprimés en une seule fois à la fin de la procédure, au lieu de les imprimer au fur et à mesure de l’exécution. La différence peut uniquement être constatée lors des appels de procédure qui ont une longue durée d’exécution. Utiliser cette option peut améliorer la performance dans certains cas, notamment lorsque l’on traite un très grand nombre de groupes de partition sans spécifier <code class="docutils literal notranslate"><span class="pre">no_by_stats=True</span></code>.</p>
+<blockquote>
+<div><p><em>Jupyter Notebooks et les messages du journal manquants</em><br />
+Lorsque <em>Jupyter Notebooks</em> est utilisé pour rouler une procédure, les messages du journal issus de procédure C peuvent être manquants, notamment quand l’exécution se fait à partir de Visual Studio Code dans Windows.<br />
+Utiliser l’option <code class="docutils literal notranslate"><span class="pre">capture=True</span></code> permet de remédier à cela.</p>
+<ul class="simple">
+<li><p>Autrement <a class="reference internal" href="#utiliser-votre-propre-logger-logger">utiliser votre propre <em>logger</em></a></p></li>
+</ul>
+</div></blockquote>
+<p>À cause de la manière dont <em>Jupyter Notebooks</em> gère les sorties Python du terminal, les messages issus de procédure C peuvent ne pas s’afficher. Pour remédier à cela, spécifier <code class="docutils literal notranslate"><span class="pre">capture=True</span></code> dans l’appel de la procédure lorsque Jupyter notebook est utilisé pour exécuter la procédure.</p>
+</section>
+<section id="utiliser-votre-propre-logger-logger">
+<h3>Utiliser votre propre <em>logger</em> (<code class="docutils literal notranslate"><span class="pre">logger=</span></code>)<a class="headerlink" href="#utiliser-votre-propre-logger-logger" title="Link to this heading">#</a></h3>
+<p>Utiliser le paramètre <code class="docutils literal notranslate"><span class="pre">logger</span></code> pour spécifier un <a class="reference external" href="https://docs.python.org/3/library/logging.html#logger-objects"><em>logger</em></a> qui a été créé. Tous les messages issus de Python et de C seront envoyés vers ce <em>logger</em>. Ceci permettra la personnalisation des préfixes des messages, la prise en charge de l’écriture dans un fichier, etc.</p>
+<p>Noter que les messages de procédure C sont envoyés au <em>logger</em> dans une seul niveau de message Python du journal.</p>
+<blockquote>
+<div><p><em><strong>Exemple</strong></em>: écriture du journal dans un fichier</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">banff</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">mon_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example.log&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="c1"># rouler la procédure Banff </span>
+<span class="n">appel_banff</span> <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">donorimp</span><span class="p">(</span>
+    <span class="n">logger</span><span class="o">=</span><span class="n">mon_logger</span><span class="p">,</span>
+    <span class="n">indata</span><span class="o">=</span><span class="n">indata</span><span class="p">,</span>
+    <span class="n">instatus</span><span class="o">=</span><span class="n">donorstat</span><span class="p">,</span>
+    <span class="n">outmatching_fields</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="presort">
+<h3>presort<a class="headerlink" href="#presort" title="Link to this heading">#</a></h3>
+<p>Lorsque des variables <code class="docutils literal notranslate"><span class="pre">by</span></code> sont spécifiées, les procédures Banff requièrent des données d’entrée triées selon ces variables, et ce avant l’exécution. Certaines procédures requièrent aussi le tri selon <code class="docutils literal notranslate"><span class="pre">unit_id</span></code>. Spécifier <code class="docutils literal notranslate"><span class="pre">presort</span> <span class="pre">=</span> <span class="pre">True</span></code> permettra de trier automatiquement toutes les données d’entrée (par exemple <code class="docutils literal notranslate"><span class="pre">indata</span></code>, <code class="docutils literal notranslate"><span class="pre">indata_hist</span></code>, et <code class="docutils literal notranslate"><span class="pre">instatus</span></code>) selon les exigences de la procédure. Toutes les procédures Banff ont l’option <code class="docutils literal notranslate"><span class="pre">presort</span> <span class="pre">=</span> <span class="pre">True</span></code> par défaut. L’utilisateur peut désactiver cette option en spécifiant <code class="docutils literal notranslate"><span class="pre">presort</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p>
+</section>
+<section id="prefill-by-vars">
+<h3>prefill_by_vars<a class="headerlink" href="#prefill-by-vars" title="Link to this heading">#</a></h3>
+<p>Spécifier <code class="docutils literal notranslate"><span class="pre">prefill_by_vars</span> <span class="pre">=</span> <span class="pre">True</span></code> permettra d’ajouter automatiquement les variables <code class="docutils literal notranslate"><span class="pre">by</span></code> aux données d’entrée au besoin, et ce avant de rouler la procédure Banff. Dans certains cas, la présence de variables <code class="docutils literal notranslate"><span class="pre">by</span></code> dans les données d’entrée peut améliorer significativement la performance de la procédure. Par défaut, <code class="docutils literal notranslate"><span class="pre">prefill_by_vars</span> <span class="pre">=</span> <span class="pre">True</span></code> est activée pour toutes les procédure Banff. L’utilisateur peut désactiver cette option en spécifiant <code class="docutils literal notranslate"><span class="pre">prefill_by_vars</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p>
+</section>
+<section id="no-by-stats">
+<h3>no_by_stats<a class="headerlink" href="#no-by-stats" title="Link to this heading">#</a></h3>
+<p>La plupart des procédures Banff envoient de l’information au journal de Banff. Lorsque les groupes de partition sont spécifiés à l’aide du paramètre <code class="docutils literal notranslate"><span class="pre">by</span></code>, cette information est typiquement produite pour chaque groupe de partition. Spécifier <code class="docutils literal notranslate"><span class="pre">no_by_stats</span> <span class="pre">=</span> <span class="pre">True</span></code> permet de réduire l’information envoyée au journal en supprimant les messages relatifs aux groupes de partition. Ce paramètre est disponible pour la plupart des procédures qui permettent l’utilisation du paramètre <code class="docutils literal notranslate"><span class="pre">by</span></code>, bien que certaines procédures n’aient que peu de messages spécifiques aux groupes de partition.</p>
+</section>
+</section>
+<section id="expressions">
+<h2>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">#</a></h2>
+<p>Les paramètres <code class="docutils literal notranslate"><span class="pre">exclude_where_indata</span></code> et <code class="docutils literal notranslate"><span class="pre">exclude_where_indata_hist</span></code> appliquent une logique booléenne sur les données d’entrée en utilisant des expressions SQL. La prise en charge des expressions SQL est mise en oeuvre à l’aide de DuckDB. Veuillez vous référer à la <a class="reference external" href="https://duckdb.org/docs/sql/expressions/overview">documentation sur les expressions</a> pour un guide complet de la syntaxe supportée.</p>
+</section>
+<section id="specification-des-donnees-d-entree-et-de-sortie">
+<h2>Spécification des données d’entrée et de sortie<a class="headerlink" href="#specification-des-donnees-d-entree-et-de-sortie" title="Link to this heading">#</a></h2>
+<p>Pour les données d’entrée et de sortie, l’utilisateur peut spécifier des objets en mémoire ou des fichiers sur disque. Pour les deux types de données, plusieurs formats sont pris en charge. Les objets sont associés à des identifiants (par exemple <code class="docutils literal notranslate"><span class="pre">&quot;pandas</span> <span class="pre">dataframe&quot;</span></code>), tandis que les fichiers sont associés à des extensions (par exemple <code class="docutils literal notranslate"><span class="pre">&quot;nom_fichier.parquet&quot;</span></code>); Veuillez vous référer au tableau ci-dessous pour plus de détails. Noter que certains formats sont recommandés à des fins de test uniquement, et que certains formats ne sont pas pris en charge pour les données de sortie.</p>
+<section id="formats-pris-en-charge">
+<h3>Formats pris en charge<a class="headerlink" href="#formats-pris-en-charge" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Identifiant ou extemsion pris en charge</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Table PyArrow</p></td>
+<td><p>Objet</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;pyarrow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;table&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pyarrow</span> <span class="pre">table&quot;</span></code></p></td>
+<td><p>Format recommandé pour les objets en mémoire.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Structure de données Pandas</p></td>
+<td><p>Objet</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;pandas&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;dataframe&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pandas</span> <span class="pre">dataframe&quot;</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Apache Parquet</p></td>
+<td><p>Fichier</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.parquet</span></code>, <code class="docutils literal notranslate"><span class="pre">.parq</span></code></p></td>
+<td><p>Utilisation minimale de la mémoire vive, bonne performance pour les données de grande taille.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Apache Feather</p></td>
+<td><p>Fichier</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.feather</span></code></p></td>
+<td><p>Utilisation minimale de la mémoire vive, bonne performance pour les données de grande taille.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ensemble de données SAS</p></td>
+<td><p>Fichier</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.sas7bdat</span></code></p></td>
+<td><p>Données d’entrée seulement, et à fins de test uniquement; n’est pas recommandé en production.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Valeur séparée par virgule</p></td>
+<td><p>Fichier</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.csv</span></code></p></td>
+<td><p>Pour des fins de test uniquement; n’est pas recommandé en production.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pour des conseils sur les chemins d’accès aux fichiers en Python, consulter <a class="reference internal" href="#caracteres-d-echappement-et-chemins-d-acces-au-fichier">caractère d’échappement et chemins d’accès au fichier</a></p>
+</section>
+<section id="specifier-les-donnees-en-entree">
+<h3>Spécifier les données en entrée<a class="headerlink" href="#specifier-les-donnees-en-entree" title="Link to this heading">#</a></h3>
+<p>Pour utiliser un objet en mémoire comme élément d’entrée, simplement spécifier le nom de l’objet directement dans l’appel de la procédure. La procédure détectera automatiquement le type de l’objet parmi les types pris en charge.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_donorimp</span> <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">donorimp</span><span class="p">(</span>
+        <span class="n">indata</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="c1"># où df est une structure de données Pandas précédemment généré</span>
+        <span class="n">instatus</span><span class="o">=</span><span class="n">table</span><span class="p">,</span> <span class="c1"># où table est une Table PyArrow précédemment générée</span>
+        <span class="o">...</span> <span class="c1"># etc. (paramètres, données de sortie)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>Pour spécidier des données d’entrée à partir d’un fichier, utiliser un chemin d’accès relatif ou complet :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_donorimp</span>  <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">donorimp</span><span class="p">(</span>
+        <span class="n">indata</span><span class="o">=</span><span class="s2">&quot;./input_data.parquet&quot;</span><span class="p">,</span> <span class="c1"># Fichier Parquet avec référence locale</span>
+        <span class="n">instatus</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\temp\input_status.feather&quot;</span><span class="p">,</span> <span class="c1"># Fichier Feather avec référence Windows</span>
+        <span class="o">...</span> <span class="c1"># etc. (paramètres, données de sortie)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>L’utilisateur peut aussi mélanger les deux types de données d’entrée :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_donorimp</span>  <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">donorimp</span><span class="p">(</span>
+        <span class="n">indata</span><span class="o">=</span><span class="s2">&quot;./input_data.parquet&quot;</span><span class="p">,</span> <span class="c1"># Fichier Parquet avec référence locale</span>
+        <span class="n">instatus</span><span class="o">=</span><span class="n">table</span><span class="p">,</span> <span class="c1"># où table est une Table PyArrow précédemment générée</span>
+        <span class="o">...</span> <span class="c1"># etc. (paramètres, données de sortie)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="specifier-les-donnees-de-sortie">
+<h3>Spécifier les données de sortie<a class="headerlink" href="#specifier-les-donnees-de-sortie" title="Link to this heading">#</a></h3>
+<p>Les procédures Banff créent automatiquement un certain nombre de données de sortie. Certaines de ces données sont optionnelles, dans le sens où elles peuvent être désactivées en spécifiant <code class="docutils literal notranslate"><span class="pre">False</span></code>. (Spécifier <code class="docutils literal notranslate"><span class="pre">False</span></code> pour des données de sortie optionnelles les empêchera d’être produites, ce qui pourrait améliorer l’utilisation de la mémoire. Spécifier <code class="docutils literal notranslate"><span class="pre">False</span></code> pour des données de sortie obligatoires se traduira par une erreur.) Le format par défaut des données de sortie est la Table PyArrow en mémoire. Pour produire des données de sortie en mémoire dans un autre format, spécifier leur <em>identifiant</em> associé comme chaîne de caractère. Pour écrire des données de sortie dans un fichier, spécifier le chemin d’accès au fichier ainsi que son <em>extension</em> prise en charge.</p>
+<p>Consulter le <a class="reference internal" href="#formats-pris-en-charge">Tableau des formats pris en charge</a> pour une liste des identifiants et des extensions. Veuillez vous référer au <a class="reference internal" href="output_tables"><span class="std std-doc">document des données sortie</span></a> pour une liste complète des données de sortie par procédure.</p>
+<p>Les exemples suivants contiennent les données de sortie optionnelles et obligatoires, sauvegardées dans un mélange d’objets en mémoire et de fichiers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_estimator</span>  <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span>
+        <span class="n">outdata</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Sauvegardées comme une Table PyArrow </span>
+        <span class="n">outstatus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Sauvegardées comme une Table PyArrow</span>
+        <span class="n">outacceptable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Optionnelles sauvegardées comme une Table PyArrow</span>
+        <span class="n">outest_ef</span><span class="o">=</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">,</span> <span class="c1"># Optionnelles sauvegardées comme une Table PyArrow</span>
+        <span class="n">outest_lr</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="c1"># Optionnelles sauvegardées comme une structure de données Pandas </span>
+        <span class="n">outest_parm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Optionnelles désactivées</span>
+        <span class="n">outrand_err</span><span class="o">=</span><span class="s2">&quot;./output_data.parquet&quot;</span><span class="p">,</span> <span class="c1"># Optionnelles sauvegardées comme un fichier parquet        </span>
+        <span class="o">...</span> <span class="c1"># etc. (paramètres, données de sortie)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Note : puisque toutes les données sont activées par défaut, et que le format de sortie par défaut est la Table PyArrow, l’appel ci-dessous produira des résultats identiques à l’appel précédent :</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_estimator</span>  <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span>
+        <span class="n">outest_lr</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="c1"># Optionnelles sauvegardées comme une structure de données Pandas</span>
+        <span class="n">outest_parm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Optionnelles désactivées</span>
+        <span class="n">outrand_err</span><span class="o">=</span><span class="s2">&quot;./output_data.parquet&quot;</span><span class="p">,</span> <span class="c1"># Optionnelles sauvegardées comme un fichier parquet       </span>
+        <span class="o">...</span> <span class="c1"># etc. (paramètres, données de sortie)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>NOTE: Les données de sortie vont automatiquement écraser les objets et fichiers existants et portant le même nom.</strong></p>
+</section>
+<section id="personnaliser-la-specification-par-defaut-des-donnees-de-sortie">
+<h3>Personnaliser la spécification par défaut des données de sortie<a class="headerlink" href="#personnaliser-la-specification-par-defaut-des-donnees-de-sortie" title="Link to this heading">#</a></h3>
+<p>Pour déterminer le format actuel par défaut des données de sortie</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">banff</span><span class="o">.</span><span class="n">get_default_output_spec</span><span class="p">()</span>
+<span class="go">&#39;pyarrow&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>ceci correspond à <code class="docutils literal notranslate"><span class="pre">pyarrow.Table</span></code></p></li>
+</ul>
+<p>Le format par défaut peut être choisi comme un <em>identifiant</em> parmi ceux dans le <a class="reference internal" href="#formats-pris-en-charge">tableau des formats pris en charge</a></p>
+<blockquote>
+<div><p><strong>Exemple</strong> : Changer le format par défaut des données de sortie au <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">banff</span><span class="o">.</span><span class="n">set_default_output_spec</span><span class="p">(</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="acces-aux-donnees-de-sortie">
+<h3>Accès aux données de sortie<a class="headerlink" href="#acces-aux-donnees-de-sortie" title="Link to this heading">#</a></h3>
+<p>L’utilisateur accède aux objets sauvegardés en mémoire en utilisant le nom des données de sortie d’intérêt :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">appel_estimator</span>  <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span>
+        <span class="n">outdata</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Sauvegardées comme une Table PyArrow</span>
+        <span class="n">outstatus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Sauvegardées comme une Table PyArrow</span>
+        <span class="o">...</span> <span class="c1"># etc.</span>
+        <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">appel_estimator</span><span class="o">.</span><span class="n">outdata</span><span class="p">)</span> <span class="c1"># Imprime outdata dans le terminal</span>
+    <span class="n">ma_table</span> <span class="o">=</span> <span class="n">estimator_call</span><span class="o">.</span><span class="n">outstatus</span> <span class="c1"># Sauvegarde outstatus comme un nouvel objet intitulé ma_table</span>
+</pre></div>
+</div>
+<p><em>Note : puisque <code class="docutils literal notranslate"><span class="pre">outdata</span></code> et <code class="docutils literal notranslate"><span class="pre">outstatus</span></code> sont des données de sortie obligatoires, elles sont encore disponibles par le biais de <code class="docutils literal notranslate"><span class="pre">estimator_call.outdata</span></code> et <code class="docutils literal notranslate"><span class="pre">estimator_call.outstatus</span></code>, même si l’on ne les spécifie pas à l’aide de la déclaration <code class="docutils literal notranslate"><span class="pre">True</span></code>.</em></p>
+</section>
+</section>
+<section id="autre">
+<h2>Autre<a class="headerlink" href="#autre" title="Link to this heading">#</a></h2>
+<section id="caracteres-d-echappement-et-chemins-d-acces-au-fichier">
+<h3>Caractères d’échappement et chemins d’accès au fichier<a class="headerlink" href="#caracteres-d-echappement-et-chemins-d-acces-au-fichier" title="Link to this heading">#</a></h3>
+<p>Dans Windows, la barre oblique inversée (<code class="docutils literal notranslate"><span class="pre">\</span></code>) est typiquement utilisée pour séparer les dossiers et les fichiers dans un chemin d’accès au fichier.</p>
+<ul class="simple">
+<li><p>Exemple <code class="docutils literal notranslate"><span class="pre">&quot;C:\users\stc_user\documents\donnees.csv&quot;</span></code></p></li>
+</ul>
+<p>Cependant, le caractère <code class="docutils literal notranslate"><span class="pre">\</span></code> en Python est un <strong>caractère d’échappement</strong> et est traité particulièrement. Fournir un chemin d’accès au fichier à l’aide de l’exemple ci-dessus peut provoquer une erreur d’exécution. Pour désactiver ce traitement spécial, utiliser une “<em>chaîne de caractère brute</em>” en ajoutant <code class="docutils literal notranslate"><span class="pre">r</span></code> comme préfixe:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r&quot;C:\users\stc_user\documents\donnees.csv&quot;</span></code></p></li>
+</ul>
+<p>Autres possibilités,</p>
+<ul class="simple">
+<li><p>double barres obliques inversées: <code class="docutils literal notranslate"><span class="pre">C:\\users\\stc_user\\documents\\donnees.csv</span></code></p></li>
+<li><p>barre oblique: <code class="docutils literal notranslate"><span class="pre">C:/users/stc_user/documents/donnees.csv</span></code></p></li>
+</ul>
+</section>
+<section id="erreurs-et-exceptions">
+<h3>Erreurs et exceptions<a class="headerlink" href="#erreurs-et-exceptions" title="Link to this heading">#</a></h3>
+<p>De manière générale, Python gère les erreurs d’exécution en “soulevant une exception”. Ceci a été adopté par le paquet <code class="docutils literal notranslate"><span class="pre">banff</span></code>. Chaque fois qu’une erreur se produit, une exception est soulevée. Ceci peut se produire pendant le chargement du paquet, la prétraitement des données d’entrée, l’exécution d’une procédure ou l’écriture des données de sortie.</p>
+<p>Généralement, les exceptions contiendront un message d’erreur informatif. Les exceptions sont souvent “enchaînées” pour fournir un contexte supplémentaire à l’exception.</p>
+<blockquote>
+<div><p><em><strong>Exemple</strong> : Exception lors de l’écriture des données de sortie</em></p>
+<p>Ce qui suit montre la sortie de console générée lorsque le paquet ne parvient pas à écrire les données de sortie à cause d’un dossier de destination introuvable.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[ERROR   , banff.donorimp._execute._write_outputs]:  Error occurred while writing &#39;outmatching_fields&#39; output dataset
+[ERROR   , banff.donorimp._execute._write_outputs]:  Directory of output file does not exist: &#39;C:\temp\definitely\a\fake&#39;
+[ERROR   , banff.donorimp._execute._write_outputs]:  [WinError 3] The system cannot find the path specified: &#39;C:\\temp\\definitely\\a\\fake&#39;
+Traceback (most recent call last):
+  File &quot;C:\git\banff_redesign\Python\src\banff\_common\src\io_util\io_util.py&quot;, line 578, in write_output_dataset
+    dst.parent.resolve(strict=True)  # strict: exception if not exists
+  File &quot;C:\Program Files\Python310\lib\pathlib.py&quot;, line 1077, in resolve
+    s = self._accessor.realpath(self, strict=strict)
+  File &quot;C:\Program Files\Python310\lib\ntpath.py&quot;, line 689, in realpath
+    path = _getfinalpathname(path)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: &#39;C:\\temp\\definitely\\a\\fake&#39;
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &quot;C:\git\banff_redesign\Python\src\banff\_common\src\proc\stc_proc.py&quot;, line 649, in _write_outputs
+    ds.user_output = io.write_output_dataset(ds.ds_intermediate, ds.user_spec, log_lcl)
+  File &quot;C:\git\banff_redesign\Python\src\banff\_common\src\io_util\io_util.py&quot;, line 581, in write_output_dataset
+    raise FileNotFoundError(mesg) from e
+FileNotFoundError: Directory of output file does not exist: &#39;C:\temp\definitely\a\fake&#39;
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &quot;C:\git\banff_redesign\Python\sample_programs\conversion_examples\DonorImp01.py&quot;, line 61, in &lt;module&gt;
+    banff_call = banff.donorimp(
+  File &quot;C:\git\banff_redesign\Python\src\banff\proc\proc_donorimp.py&quot;, line 119, in __init__
+    super().__init__(
+  File &quot;C:\git\banff_redesign\Python\src\banff\proc\banff_proc.py&quot;, line 66, in __init__
+    self._execute()
+  File &quot;C:\git\banff_redesign\Python\src\banff\_common\src\proc\stc_proc.py&quot;, line 367, in _execute
+    self._write_outputs(log=log_lcl)
+  File &quot;C:\git\banff_redesign\Python\src\banff\_common\src\proc\stc_proc.py&quot;, line 654, in _write_outputs
+    raise ProcedureOutputError(mesg) from e
+banff._common.src.exceptions.ProcedureOutputError: Error occurred while writing &#39;outmatching_fields&#39; output dataset
+</pre></div>
+</div>
+<p>Les trois premières lignes sont les messages du journal générés par le paquet <code class="docutils literal notranslate"><span class="pre">banff</span></code>. Le reste des lignes sont une exception standard générée par Python lui-même. De haut en bas, une chaîne de trois exceptions apparaît.<br />
+La première est un niveau inférieur d’erreur indiquant que le chemin d’accès au fichier est introuvable, “<em><code class="docutils literal notranslate"><span class="pre">[WinError</span> <span class="pre">3]</span> <span class="pre">The</span> <span class="pre">system</span> <span class="pre">cannot</span> <span class="pre">find</span> <span class="pre">the</span> <span class="pre">path</span> <span class="pre">specified:</span> <span class="pre">'C:\\temp\\definitely\\a\\fake'</span></code></em>”.<br />
+La deuxième indique spécifiquement que “<em><code class="docutils literal notranslate"><span class="pre">Directory</span> <span class="pre">of</span> <span class="pre">output</span> <span class="pre">file</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">exist:</span> <span class="pre">'C:\temp\definitely\a\fake'</span></code></em>”.<br />
+La troisième fournit du contexte par rapport à ce qui se passait lorsque l’erreur s’est produite, “<em><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">occurred</span> <span class="pre">while</span> <span class="pre">writing</span> <span class="pre">'outmatching_fields'</span> <span class="pre">output</span> <span class="pre">dataset</span></code></em>”.</p>
+</div></blockquote>
+</section>
+<section id="travailler-avec-des-fichiers-sas-dans-python">
+<h3>Travailler avec des fichiers SAS dans Python<a class="headerlink" href="#travailler-avec-des-fichiers-sas-dans-python" title="Link to this heading">#</a></h3>
+<p>Le paquet <code class="docutils literal notranslate"><span class="pre">banff</span></code> fournit quelques fonctions utiles pour la lecture de fichiers SAS en mémoire ou leur conversion à un autre format.</p>
+<p>Pour pouvoir utiliser ces fonctions, le paquet <code class="docutils literal notranslate"><span class="pre">banff</span></code> doit être importé à l’aide de <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">banff</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fonction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">banff.io_util.SAS_file_to_feather_file(file_path,</span> <span class="pre">destination)</span></code></p></td>
+<td><p>Lire l’ensemble de données SAS depuis <code class="docutils literal notranslate"><span class="pre">file_path</span></code> et le convertir en un fichier <em>feather</em> dans <code class="docutils literal notranslate"><span class="pre">destination</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">banff.io_util.SAS_file_to_parquet_file(file_path,</span> <span class="pre">destination)</span></code></p></td>
+<td><p>Lire l’ensemble de données SAS depuis <code class="docutils literal notranslate"><span class="pre">file_path</span></code> et le convertir en un fichier <em>parquet</em> dans <code class="docutils literal notranslate"><span class="pre">destination</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">banff.io_util.DF_from_sas_file(file_path)</span></code></p></td>
+<td><p>Lire l’ensemble de données SAS depuis <code class="docutils literal notranslate"><span class="pre">file_path</span></code> et le retourner comme un <em><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">banff.io_util.PAT_from_sas_file(file_path)</span></code></p></td>
+<td><p>Lire l’ensemble de données SAS depuis <code class="docutils literal notranslate"><span class="pre">file_path</span></code> et le retourner comme une <em><code class="docutils literal notranslate"><span class="pre">pyarrow.Table</span></code></em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="considerations-sur-la-performance">
+<h3>Considérations sur la performance<a class="headerlink" href="#considerations-sur-la-performance" title="Link to this heading">#</a></h3>
+<p>Les formats utilisés dans les données d’entrée et de sortie affecteront la performance.</p>
+<p>Lorsque la mémoire vive disponible n’est pas suffisante (en raison d’une petite taille de la mémoire vive ou des données de grande taille), les données doivent être stockées sur disque. Le format du fichier sélectionné affectera la performance. Les formats de fichier Apache Parquet (<code class="docutils literal notranslate"><span class="pre">.parquet</span></code>) et Apache Feather (<code class="docutils literal notranslate"><span class="pre">.feather</span></code>) offrent actuellement les meilleures performances lors de l’utilisation de fichiers pour les données d’entrée ou de sortie.</p>
+<p>Feather devrait utiliser la plus petite quantité de mémoire vive, ce qui le rend idéal pour les données de grande taille ou les environnements d’exécution avec peu de mémoire vive; c’est le format recommandé pour les fichiers temporaires. Parquet est généralement le format de fichier le plus petit en taille, ce qui ne l’empêche pas d’offrir des performances de lecture et d’écriture impressionnantes dans les environnements multiprocesseurs et une utilisation raisonnablement minimale de la mémoire vive; il est recommandé pour le stockage de données à moyen et long terme.</p>
+<p>L’utilisation du format SAS pour les données d’entrée de grande taille peut entraîner une dégradation de la performance, notamment dans les environnements disposant de peu de mémoire vive. Ce format n’est recommandé que pour les petits ensembles de données (quelques centaines de Mo et moins). L’utilisation du format SAS est généralement déconseillée, au profit des formats Apache Arrow (<em>parquet</em> et <em>feather</em>) qui sont recommandés.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aperçu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-des-matieres">Table des matières</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methodologie">Méthodologie</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-des-procedures">Liste des procédures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-entre-procedures">Interaction entre procédures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-statistiques-indata-et-outdata">Données statistiques <code class="docutils literal notranslate"><span class="pre">indata</span></code> et <code class="docutils literal notranslate"><span class="pre">outdata</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codes-de-statut-et-leur-donnees">Codes de statut et leur données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableau-des-codes-de-statut-produits-par-banff">Tableau des codes de statut produits par Banff</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-de-statuts-instatus-et-outstatus">Données de statuts <code class="docutils literal notranslate"><span class="pre">instatus</span></code> et <code class="docutils literal notranslate"><span class="pre">outstatus</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-de-statuts-par-procedure">Données de statuts par procédure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifier-les-regles-de-verification-lineaires">Spécifier les règles de vérification linéaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">Format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regles-de-verification-autorisees">Règles de vérification autorisées</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-par-groupes-de-partition">Exécution par groupes de partition</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#guide-technique">Guide technique</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-des-procedures-banff">Exécution des procédures Banff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noms-de-variables-dans-les-donnees-d-entree">Noms de variables dans les données d’entrée</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#journal-banff">Journal Banff</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definir-la-langue-du-journal">Définir la langue du journal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messages-python-du-journal">Messages Python du journal</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verbosite-du-journal-python-trace">Verbosité du journal Python (<code class="docutils literal notranslate"><span class="pre">trace=</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messages-du-journal-issus-des-procedures-c">Messages du journal issus des procédures C</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verbosite-du-journal-issu-de-procedure-c">Verbosité du journal issu de procédure C</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-et-diagnostic-des-messages-du-journal-capture">Suppression et diagnostic des messages du journal (<code class="docutils literal notranslate"><span class="pre">capture=</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliser-votre-propre-logger-logger">Utiliser votre propre <em>logger</em> (<code class="docutils literal notranslate"><span class="pre">logger=</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presort">presort</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefill-by-vars">prefill_by_vars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-by-stats">no_by_stats</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-des-donnees-d-entree-et-de-sortie">Spécification des données d’entrée et de sortie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formats-pris-en-charge">Formats pris en charge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifier-les-donnees-en-entree">Spécifier les données en entrée</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifier-les-donnees-de-sortie">Spécifier les données de sortie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#personnaliser-la-specification-par-defaut-des-donnees-de-sortie">Personnaliser la spécification par défaut des données de sortie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acces-aux-donnees-de-sortie">Accès aux données de sortie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autre">Autre</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteres-d-echappement-et-chemins-d-acces-au-fichier">Caractères d’échappement et chemins d’accès au fichier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-et-exceptions">Erreurs et exceptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-des-fichiers-sas-dans-python">Travailler avec des fichiers SAS dans Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-sur-la-performance">Considérations sur la performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FR/user_guide.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

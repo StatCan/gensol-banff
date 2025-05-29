@@ -1,0 +1,1266 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>banff._common.src.testing.assert_helper &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/banff/_common/src/testing/assert_helper';</script>
+    <link rel="index" title="Index" href="../../../../../genindex" />
+    <link rel="search" title="Search" href="../../../../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../index" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../../../banff" class="nav-link">banff</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff._common.src.testing.assert_helper</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for banff._common.src.testing.assert_helper</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>  <span class="c1"># for printing: creating StringIO buffer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>  <span class="c1"># preprocessing console log</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  <span class="c1"># referring to types, like `np.int64`</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow.compute</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pc</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._log</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_misc_logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..io_util</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">load_input_dataset</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..io_util.io_util</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">interm_to_DF</span><span class="p">,</span>
+    <span class="n">interm_to_PAT</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..io_util.processing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">handle_arrow_string_data</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># dictionary of keyword arguments passed in each procedure call</span>
+<span class="n">_default_proc_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_datasets_equal</span><span class="p">(</span><span class="n">ds_list</span><span class="p">,</span> <span class="n">round_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upcase_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Assert that list of dataset pairs are equal.</span>
+
+<span class="sd">    takes a list of dataset pairs (`[test_dataset, control_dataset]`) and comparison options,</span>
+<span class="sd">    calls `assert_dataset_equal()` on each dataset pair in the list.</span>
+<span class="sd">        `ds_list = [[&lt;test_ds_1, control_ds_1], [&lt;test_ds2, control_ds2], ...]`</span>
+<span class="sd">         - *test_dataset* must be correspond to the procedure call&#39;s `_&lt;dataset-name&gt;` member (subclass of `..io_util.StcTable`).</span>
+<span class="sd">         - *control_dataset* must be a type supported by `assert_dataset_equal(control_dataset=)`</span>
+<span class="sd">    # Override options</span>
+<span class="sd">        - To override option parameters for a specific dataset pair, specify a dictionary as a third member in that pair</span>
+<span class="sd">            - for example, to override the `drop_columns` use `[test_dataset, control_dataset, {&#39;drop_columns&#39;:None}]`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># create options dictionary using function parameters</span>
+    <span class="n">options_parm</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;round_data&quot;</span>    <span class="p">:</span> <span class="n">round_data</span><span class="p">,</span>
+        <span class="s2">&quot;drop_columns&quot;</span>  <span class="p">:</span> <span class="n">drop_columns</span><span class="p">,</span>
+        <span class="s2">&quot;upcase_columns&quot;</span><span class="p">:</span> <span class="n">upcase_columns</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># process each dataset pair</span>
+    <span class="k">for</span> <span class="n">ds_item</span> <span class="ow">in</span> <span class="n">ds_list</span><span class="p">:</span>
+        <span class="c1"># extract datasets</span>
+        <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ds_control</span> <span class="o">=</span> <span class="n">ds_item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">ds_control</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>  <span class="c1"># not specified by user, go to next pair</span>
+
+        <span class="c1"># validate dataset types</span>
+        <span class="n">allowed_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_control</span><span class="p">,</span> <span class="n">allowed_types</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_test</span><span class="o">.</span><span class="n">user_output</span><span class="p">,</span> <span class="n">allowed_types</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;control or test dataset not of a valid type, skipping </span><span class="si">{</span><span class="n">ds_test</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  allowed types: </span><span class="si">{</span><span class="n">allowed_types</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  control dataset type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ds_control</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  test dataset type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ds_test</span><span class="o">.</span><span class="n">user_output</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">mesg</span> <span class="o">=</span> <span class="s2">&quot;assert_datasets_equal(): received invalid dataset format&quot;</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+        <span class="c1"># build options dictionary</span>
+        <span class="n">options_run</span> <span class="o">=</span> <span class="n">options_parm</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds_item</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span> <span class="c1"># optional third member is dict of parameter overrides</span>
+            <span class="n">options_run</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ds_item</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="n">assert_dataset_equal</span><span class="p">(</span>
+            <span class="n">round_data</span>      <span class="o">=</span> <span class="n">options_run</span><span class="p">[</span><span class="s2">&quot;round_data&quot;</span><span class="p">],</span>
+            <span class="n">drop_columns</span>    <span class="o">=</span> <span class="n">options_run</span><span class="p">[</span><span class="s2">&quot;drop_columns&quot;</span><span class="p">],</span>
+            <span class="n">upcase_columns</span>  <span class="o">=</span> <span class="n">options_run</span><span class="p">[</span><span class="s2">&quot;upcase_columns&quot;</span><span class="p">],</span>
+            <span class="n">dataset_name</span>    <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">test_dataset</span>    <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">user_output</span><span class="p">,</span>
+            <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">ds_control</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="assert_dataset_equal">
+<a class="viewcode-back" href="../../../../../banff.testing#banff.testing.assert_dataset_equal">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_dataset_equal</span><span class="p">(</span>
+    <span class="n">test_dataset</span><span class="p">,</span>
+    <span class="n">control_dataset</span><span class="p">,</span>
+    <span class="n">dataset_name</span><span class="p">,</span>
+    <span class="n">upcase_columns</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">sort_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">sort_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">round_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">convert_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">drop_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">compare_with</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check that test and control datasets are sufficiently equal.</span>
+
+<span class="sd">    Handles common issues such as</span>
+<span class="sd">        - empty datasets</span>
+<span class="sd">        - some type mismatches</span>
+<span class="sd">        - different column sort order</span>
+<span class="sd">        - float precision issues</span>
+
+<span class="sd">    `dataset_name` : str</span>
+<span class="sd">        used in print statements</span>
+
+<span class="sd">    `sort_columns` : bool</span>
+<span class="sd">        sort both dataset&#39;s columns before comparison</span>
+
+<span class="sd">    `sort_values` : bool</span>
+<span class="sd">        sort values of all columns in both dataset&#39;s before comparison</span>
+
+<span class="sd">    `round_data` : int | None</span>
+<span class="sd">        If integer, round floating point values to `round_data` decimal places</span>
+
+<span class="sd">    `convert_columns` : bool</span>
+<span class="sd">        convert integer columns to floating point columns</span>
+
+<span class="sd">    `drop_columns` : str | list of str</span>
+<span class="sd">        drop these columns, if found, on control datasets prior to comparison</span>
+
+<span class="sd">    `compare_with` : None | `pandas.DataFrame` | `pyarrow.Table`</span>
+<span class="sd">        Convert test and control datasets to the specified format for comparison.</span>
+<span class="sd">        When unspecified (or `None`) use the the type that `test_dataset` uses.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;assert_dataset_equal(dataset_name=</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># determine format/library to use for comparison</span>
+    <span class="k">if</span> <span class="n">compare_with</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">compare_with</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="n">compare_with</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  comparing as </span><span class="si">{</span><span class="n">compare_with</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">compare_with</span> <span class="ow">is</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">:</span>
+            <span class="c1"># convert test and control datasets to proper format</span>
+            <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">interm_to_PAT</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+            <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">interm_to_PAT</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">)</span>
+
+            <span class="c1"># set both dataset&#39;s string data to same type</span>
+            <span class="n">test_dataset</span><span class="o">=</span><span class="n">handle_arrow_string_data</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+            <span class="n">control_dataset</span><span class="o">=</span><span class="n">handle_arrow_string_data</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">)</span>
+
+            <span class="c1"># handle parameter: drop_columns</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">drop_columns</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+                <span class="c1"># promote string to list of strings</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">drop_columns</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">drop_columns</span><span class="o">=</span><span class="n">drop_columns</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   drop columns: </span><span class="si">{</span><span class="n">drop_columns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="c1"># remove columns</span>
+                <span class="k">for</span> <span class="n">drop_col</span> <span class="ow">in</span> <span class="n">drop_columns</span><span class="p">:</span>
+                    <span class="n">drop_col</span> <span class="o">=</span> <span class="n">drop_col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">in_col</span> <span class="ow">in</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">in_col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="n">drop_col</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     dropped column &#39;</span><span class="si">{</span><span class="n">in_col</span><span class="si">}</span><span class="s2">&#39; from control dataset&quot;</span><span class="p">)</span>
+                            <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">drop_columns</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">in_col</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">in_col</span> <span class="ow">in</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">in_col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="n">drop_col</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     dropped column &#39;</span><span class="si">{</span><span class="n">in_col</span><span class="si">}</span><span class="s2">&#39; from test dataset&quot;</span><span class="p">)</span>
+                            <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">drop_columns</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">in_col</span><span class="p">)</span>
+
+            <span class="c1"># handle parameter: round data</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">round_data</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="k">def</span><span class="w"> </span><span class="nf">round_pat</span><span class="p">(</span><span class="n">pat</span><span class="p">):</span>
+                    <span class="n">new_cols</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">pat</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">pa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_floating</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">type</span><span class="p">):</span>
+                            <span class="n">new_cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=</span><span class="n">round_data</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">new_cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+                    <span class="n">pat</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">new_cols</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">pat</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">pat</span>
+                <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">round_pat</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+                <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">round_pat</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">)</span>
+
+            <span class="c1"># handle parameter: upcase_columns</span>
+            <span class="k">if</span> <span class="n">upcase_columns</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   upcase columns: </span><span class="si">{</span><span class="n">upcase_columns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">rename_columns</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">])</span>
+                <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">rename_columns</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">])</span>
+
+            <span class="c1"># handle parameter: sort_columns</span>
+            <span class="k">if</span> <span class="n">sort_columns</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   sort columns: True&quot;</span><span class="p">)</span>
+                <span class="c1"># sort columns</span>
+                <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">))</span>
+                <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">))</span>
+
+            <span class="c1"># handle parameter: sort_values</span>
+            <span class="k">if</span> <span class="n">sort_values</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   sort values: True&quot;</span><span class="p">)</span>
+                <span class="c1"># sort values</span>
+                <span class="n">sort_keys_test</span> <span class="o">=</span> <span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ascending&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">]</span>
+                <span class="n">sort_indices_test</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">sort_indices</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">sort_keys_test</span><span class="p">)</span>
+                <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">sort_indices_test</span><span class="p">)</span>
+
+                <span class="n">sort_keys_control</span> <span class="o">=</span> <span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ascending&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">]</span>
+                <span class="n">sort_indices_control</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">sort_indices</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">,</span> <span class="n">sort_keys_control</span><span class="p">)</span>
+                <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">,</span> <span class="n">sort_indices_control</span><span class="p">)</span>
+
+            <span class="c1"># test for equality</span>
+            <span class="k">assert</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;assert_dataset_equal: </span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2"> dataset does not match expected data&quot;</span>
+        <span class="k">elif</span> <span class="n">compare_with</span> <span class="ow">is</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+            <span class="c1"># convert test and control datasets to proper format</span>
+            <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">interm_to_DF</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+            <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">interm_to_DF</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">)</span>
+            <span class="c1"># handle parameter: drop_columns</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">drop_columns</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+                <span class="c1"># promote string to list of strings</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">drop_columns</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">drop_columns</span><span class="o">=</span><span class="n">drop_columns</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   drop columns: </span><span class="si">{</span><span class="n">drop_columns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="c1"># remove columns</span>
+                <span class="k">for</span> <span class="n">drop_col</span> <span class="ow">in</span> <span class="n">drop_columns</span><span class="p">:</span>
+                    <span class="n">drop_col</span> <span class="o">=</span> <span class="n">drop_col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">in_col</span> <span class="ow">in</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="n">in_col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="n">drop_col</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     dropped column &#39;</span><span class="si">{</span><span class="n">in_col</span><span class="si">}</span><span class="s2">&#39; from control dataset&quot;</span><span class="p">)</span>
+                            <span class="n">control_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">in_col</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">in_col</span> <span class="ow">in</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="n">in_col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="n">drop_col</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     dropped column &#39;</span><span class="si">{</span><span class="n">in_col</span><span class="si">}</span><span class="s2">&#39; from test dataset&quot;</span><span class="p">)</span>
+                            <span class="n">test_dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">in_col</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># handle parameter: upcase_columns</span>
+            <span class="k">if</span> <span class="n">upcase_columns</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   upcase columns: </span><span class="si">{</span><span class="n">upcase_columns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()})</span>
+                <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()})</span>
+
+            <span class="c1"># handle parameter: sort_columns</span>
+            <span class="k">if</span> <span class="n">sort_columns</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   sort columns: True&quot;</span><span class="p">)</span>
+                <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># handle parameter: sort_values</span>
+            <span class="k">if</span> <span class="n">sort_values</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   sort values: True&quot;</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">test_dataset_s</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">)</span>
+                    <span class="n">control_dataset_s</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">)</span>
+                    <span class="c1"># only overwrite original if both sorted without exception</span>
+                    <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset_s</span>
+                    <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">control_dataset_s</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span> <span class="c1"># noqa: BLE001</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;     unable to sort values, continuing with original sort order&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">empty</span> <span class="ow">and</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   both datasets are empty&quot;</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;assert_dataset_equal: </span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2"> datasets both empty, but columns differ&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># set both dataset&#39;s numeric data to same type</span>
+                <span class="k">if</span> <span class="n">convert_columns</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="p">[</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">control_dataset</span><span class="p">]:</span>
+                        <span class="c1"># find integer columns</span>
+                        <span class="n">int_columns</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+                        <span class="c1"># convert them to float columns</span>
+                        <span class="n">ds</span><span class="p">[</span><span class="n">int_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">int_columns</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+                <span class="c1"># handle parameter: round data</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">round_data</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   round data:    </span><span class="si">{}</span><span class="s2"> decimal places&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">round_data</span><span class="p">))</span>
+                    <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="n">round_data</span><span class="p">)</span>
+                    <span class="n">control_dataset</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="n">round_data</span><span class="p">)</span>
+
+                <span class="k">assert</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;assert_dataset_equal: </span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2"> dataset does not match expected data&quot;</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   datasets equal: True&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   datasets equal: False&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">   ************** Inspecting Dataset Differences: START *********************&quot;</span><span class="p">)</span>
+        <span class="n">inspect_dataset_difference</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">=</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">control_dataset</span><span class="o">=</span><span class="n">control_dataset</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   *************** Inspecting Dataset Differences: END **********************</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="assert_dataset_value">
+<a class="viewcode-back" href="../../../../../banff.testing#banff.testing.assert_dataset_value">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_dataset_value</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">row_num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">col_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expected_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate specific dataset value against set of expected values.</span>
+
+<span class="sd">    Specity the row number (int, 0-index) and column name (str)</span>
+<span class="sd">    a list [&#39;of&#39;, &#39;expected&#39;, &#39;values&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;assert_dataset_value(...)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   dataset:   &#39;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">&#39; (row </span><span class="si">{</span><span class="n">row_num</span><span class="si">}</span><span class="s2">, column &#39;</span><span class="si">{</span><span class="n">col_name</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   expecting: </span><span class="si">{</span><span class="n">expected_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ensure dataset in `pandas.DataFrame` format</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">interm_to_DF</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="n">actual_value</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">row_num</span><span class="p">,</span> <span class="n">col_name</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   found: </span><span class="si">{</span><span class="n">actual_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">actual_value</span> <span class="ow">in</span> <span class="n">expected_values</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;assert_dataset_value: unexpected value found: </span><span class="si">{</span><span class="n">actual_value</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="assert_log_contains">
+<a class="viewcode-back" href="../../../../../banff.testing#banff.testing.assert_log_contains">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_log_contains</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">test_log</span><span class="p">,</span> <span class="n">clean_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check for `msg` in `test log`.</span>
+
+<span class="sd">    Assert that it is found</span>
+<span class="sd">    See `assert_log_consistent` for more details</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;assert_log_contains(clean_whitespace=</span><span class="si">{</span><span class="n">clean_whitespace</span><span class="si">}</span><span class="s2">, ...)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   searching for:     </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># preprocess inputs</span>
+    <span class="k">if</span> <span class="n">clean_whitespace</span><span class="p">:</span>
+        <span class="n">msg_P</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">test_log_P</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">test_log</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg_P</span> <span class="o">=</span> <span class="n">msg</span>
+        <span class="n">test_log_P</span> <span class="o">=</span> <span class="n">test_log</span>
+    <span class="c1"># replace &#39;\r\n&#39; with &#39;\n&#39;</span>
+    <span class="n">msg_P</span> <span class="o">=</span> <span class="n">msg_P</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">test_log_P</span> <span class="o">=</span> <span class="n">test_log_P</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># perform the check</span>
+    <span class="n">in_test</span> <span class="o">=</span> <span class="n">msg_P</span> <span class="ow">in</span> <span class="n">test_log_P</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   found in test log: </span><span class="si">{</span><span class="n">in_test</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">in_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;assert_log_contains: could not find &#39;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&#39;&quot;</span></div>
+
+
+<div class="viewcode-block" id="assert_log_consistent">
+<a class="viewcode-back" href="../../../../../banff.testing#banff.testing.assert_log_consistent">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_log_consistent</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">test_log</span><span class="p">,</span> <span class="n">sas_log_path</span><span class="p">,</span> <span class="n">must_exist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">clean_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check for `msg` in `test_log` and in log file found at `sas_log_path`.</span>
+
+<span class="sd">    assert that it is either present in both, or not present in both</span>
+<span class="sd">    i.e. assert fails if there&#39;s an inconsistency w.r.t. presence</span>
+
+<span class="sd">    Tighten the check using `must_exist=True` - assert also fails if `msg` not found in the SAS log</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="ne">Warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`assert_log_consistent` deprecated, using assert_log_contains, ignoring must_exist (</span><span class="si">{</span><span class="n">must_exist</span><span class="si">}</span><span class="s2">) and sas_log_path (</span><span class="si">{</span><span class="n">sas_log_path</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">assert_log_contains</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">,</span> <span class="n">test_log</span><span class="o">=</span><span class="n">test_log</span><span class="p">,</span> <span class="n">clean_whitespace</span><span class="o">=</span><span class="n">clean_whitespace</span><span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_substr_count_consistent</span><span class="p">(</span><span class="n">substr_to_count</span><span class="p">,</span> <span class="n">test_log</span><span class="p">,</span> <span class="n">sas_log_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check count of `substr_to_count` in `test_log` and.</span>
+
+<span class="sd">    in the log file found at `sas_log_path`.</span>
+<span class="sd">    asserts that the counts are equal</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;searching for: </span><span class="si">{</span><span class="n">substr_to_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">sas_log</span> <span class="o">=</span> <span class="n">read_log_file</span><span class="p">(</span><span class="n">sas_log_path</span><span class="p">)</span>
+    <span class="n">sas_log_count</span> <span class="o">=</span> <span class="n">sas_log</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">substr_to_count</span><span class="p">)</span>
+    <span class="n">test_log_count</span> <span class="o">=</span> <span class="n">test_log</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">substr_to_count</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   sas_log_count: </span><span class="si">{</span><span class="n">sas_log_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   test_log_count: </span><span class="si">{</span><span class="n">test_log_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">mesg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;assert_substr_count_consistent: inconsistent count of &#39;</span><span class="si">{</span><span class="n">substr_to_count</span><span class="si">}</span><span class="s2">&#39;, TEST has </span><span class="si">{</span><span class="n">test_log_count</span><span class="si">}</span><span class="s2">, SAS has </span><span class="si">{</span><span class="n">sas_log_count</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">assert</span> <span class="n">sas_log_count</span> <span class="o">==</span> <span class="n">test_log_count</span><span class="p">,</span> <span class="n">mesg</span>
+
+<div class="viewcode-block" id="assert_substr_count">
+<a class="viewcode-back" href="../../../../../banff.testing#banff.testing.assert_substr_count">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">assert_substr_count</span><span class="p">(</span><span class="n">substr_to_count</span><span class="o">=</span><span class="s2">&quot;ERROR:&quot;</span><span class="p">,</span> <span class="n">test_log</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expected_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate count of `substr_to_count` in `test_log`.</span>
+
+<span class="sd">    Asserts that it is equal to `expected_count`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;assert_substr_count(...)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   searching for:   </span><span class="si">{</span><span class="n">substr_to_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   expected_count:  </span><span class="si">{</span><span class="n">expected_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">test_log</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="s2">&quot;test_log must be non-empty `str`&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="n">test_count</span> <span class="o">=</span> <span class="n">test_log</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">substr_to_count</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   test_log count:  </span><span class="si">{</span><span class="n">test_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># the following two lines collectively assert that `test_count == expected_count`, while allowing specific error messaging</span>
+    <span class="k">assert</span> <span class="n">test_count</span> <span class="o">&gt;=</span> <span class="n">expected_count</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;assert_substr_count: found </span><span class="si">{</span><span class="n">expected_count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">test_count</span><span class="si">}</span><span class="s2"> fewer than expected of &#39;</span><span class="si">{</span><span class="n">substr_to_count</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="k">assert</span> <span class="n">test_count</span> <span class="o">&lt;=</span> <span class="n">expected_count</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;assert_substr_count: found </span><span class="si">{</span><span class="n">test_count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">expected_count</span><span class="si">}</span><span class="s2"> more than expected of &#39;</span><span class="si">{</span><span class="n">substr_to_count</span><span class="si">}</span><span class="s2">&#39;&quot;</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_console_log</span><span class="p">(</span><span class="n">pytest_capture</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pytest_capture</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_control_dataset_path</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prepend path to `control_data` directory to `dataset_name` if appropriate.</span>
+
+<span class="sd">    In the case where a filename (without path) is provided, and that file exists</span>
+<span class="sd">    in the `control_data` folder, the path to that file is returned.</span>
+<span class="sd">    Otherwise, the original value is returned.</span>
+
+<span class="sd">    `depth` - varies depending on the stack depth from the original test file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">dataset_name</span>
+
+    <span class="n">control_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;control_data&quot;</span> <span class="o">/</span> <span class="n">dataset_name</span>  <span class="c1"># noqa: SLF001 # don&#39;t mind this sketchy code</span>
+
+    <span class="k">if</span> <span class="n">control_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__package__</span><span class="si">}</span><span class="s2">: dataset &#39;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">&#39; found in control_data folder, will load file at path &#39;</span><span class="si">{</span><span class="n">control_path</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">control_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dataset_name</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_log_path</span><span class="p">(</span><span class="n">sas_log_name</span><span class="p">,</span> <span class="n">stack_level</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a filename, determine the full path.</span>
+
+<span class="sd">    Looks `stack_level` levels up in the call stack, determines function&#39;s file path,</span>
+<span class="sd">    generates path to sas log files</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">(</span><span class="n">stack_level</span><span class="p">)</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;output-sas&quot;</span> <span class="o">/</span> <span class="n">sas_log_name</span><span class="p">)</span>  <span class="c1"># noqa: SLF001 # don&#39;t mind this sketchy code</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">inspect_dataset_difference</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">control_dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inspect two datasets and print summary of various differences, including.</span>
+
+<span class="sd">    - overall equality</span>
+<span class="sd">    - number of rows</span>
+<span class="sd">    - number of columns</span>
+<span class="sd">    - different sets of columns (names)</span>
+<span class="sd">    - different values</span>
+<span class="sd">    - different datatypes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># print info and contents of both datasets, then try and compare them</span>
+    <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;     &quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">unable to inspect difference, test and control datasets are not the same type&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  test dataset type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  control dataset type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+        <span class="c1"># INSPECT: number of rows</span>
+        <span class="n">test_row_count</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">num_rows</span>
+        <span class="n">cntl_row_count</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">num_rows</span>
+        <span class="n">row_count_equal</span> <span class="o">=</span> <span class="n">test_row_count</span> <span class="o">==</span> <span class="n">cntl_row_count</span>
+
+        <span class="k">if</span> <span class="n">row_count_equal</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of rows equal: True&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of rows equal: False&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of control (expected) rows: </span><span class="si">{</span><span class="n">cntl_row_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of test (actual) rows:      </span><span class="si">{</span><span class="n">test_row_count</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+
+        <span class="c1"># INSPECT: number of columns</span>
+        <span class="n">test_col_count</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">num_columns</span>
+        <span class="n">cntl_col_count</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">num_columns</span>
+        <span class="n">col_count_equal</span> <span class="o">=</span> <span class="n">test_col_count</span> <span class="o">==</span> <span class="n">cntl_col_count</span>
+
+        <span class="k">if</span> <span class="n">col_count_equal</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of columns equal: True&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of columns equal: False&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of control (expected) columns: </span><span class="si">{</span><span class="n">cntl_col_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of test (actual) columns:      </span><span class="si">{</span><span class="n">test_col_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+
+        <span class="c1"># INSPECT: names of columns</span>
+        <span class="n">test_col_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">)</span>
+        <span class="n">cntl_col_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">column_names</span><span class="p">)</span>
+        <span class="n">symmetric_difference</span> <span class="o">=</span> <span class="n">test_col_set</span> <span class="o">^</span> <span class="n">cntl_col_set</span>
+        <span class="n">col_names_identical</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">symmetric_difference</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">col_names_identical</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">column names equal: True&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">test_col_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">column names equal: False&quot;</span><span class="p">)</span>
+
+            <span class="c1"># control only</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cntl_col_set</span> <span class="o">-</span> <span class="n">test_col_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on control (expected) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">cntl_col_set</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">test_col_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on control (expected) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}</span><span class="se">{{}}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># test only</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_col_set</span> <span class="o">-</span> <span class="n">cntl_col_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on test (actual) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">test_col_set</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cntl_col_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on test (actual) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}</span><span class="se">{{}}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># common columns</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns common to both datasets:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">test_col_set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">cntl_col_set</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="c1"># no point in continuing to inspect if the names don&#39;t match</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+        <span class="c1"># only continue comparison if all equal so far</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">row_count_equal</span> <span class="ow">and</span> <span class="n">col_count_equal</span> <span class="ow">and</span> <span class="n">col_names_identical</span><span class="p">):</span>
+            <span class="k">return</span>
+
+        <span class="c1"># INSPECT: `pandas.DataFrame.compare()`</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">Temporarily converting to pandas dataframe for value comparison&quot;</span><span class="p">)</span>
+            <span class="n">test_pandas</span> <span class="o">=</span> <span class="n">interm_to_DF</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+            <span class="n">control_pandas</span> <span class="o">=</span> <span class="n">interm_to_DF</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span>
+                <span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span>     <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span>  <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;display.width&quot;</span><span class="p">,</span>        <span class="mi">500</span><span class="p">,</span>
+                <span class="s2">&quot;display.precision&quot;</span><span class="p">,</span>    <span class="mi">20</span><span class="p">,</span>
+            <span class="p">):</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="n">test_pandas</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">control_pandas</span><span class="p">,</span> <span class="n">result_names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;control&quot;</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">The following values differ (printing output of pandas `.compare()`):&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">indent</span> <span class="o">+</span> <span class="n">diff</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     &quot;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># noqa: BLE001 # in the .testing subpackage, we don&#39;t care</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">unable to compare datasets using pandas `.compare()`:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># don&#39;t raise</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+
+        <span class="c1"># INSPECT datatypes</span>
+        <span class="k">if</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">schema</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">datatypes equal: True&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">datatypes equal: False&quot;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">test_type_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+                <span class="n">control_type_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+
+                <span class="c1"># control only</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">control_type_set</span> <span class="o">-</span> <span class="n">test_type_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  column types only on control (expected) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">control_type_set</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">test_type_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  column types only on control (expected) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}</span><span class="se">{{}}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="c1"># test only</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_type_set</span> <span class="o">-</span> <span class="n">control_type_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  column types only on test (actual) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">test_type_set</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">control_type_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  column types only on test (actual) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}</span><span class="se">{{}}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># noqa: BLE001 # in the .testing subpackage, we don&#39;t care</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">unable to compare datatypes:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="c1"># INSPECT: `pandas.DataFrame.info()`</span>
+                <span class="k">for</span> <span class="n">ds</span><span class="p">,</span> <span class="n">ds_name</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">control_dataset</span><span class="p">,</span> <span class="s2">&quot;control&quot;</span><span class="p">)]:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   printing </span><span class="si">{</span><span class="n">ds_name</span><span class="si">}</span><span class="s2"> dataset:&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="c1"># INSPECT: number of rows</span>
+        <span class="n">test_row_count</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cntl_row_count</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">row_count_equal</span> <span class="o">=</span> <span class="n">test_row_count</span> <span class="o">==</span> <span class="n">cntl_row_count</span>
+
+        <span class="k">if</span> <span class="n">row_count_equal</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of rows equal: True&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of rows equal: False&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of control (expected) rows: </span><span class="si">{</span><span class="n">cntl_row_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of test (actual) rows:      </span><span class="si">{</span><span class="n">test_row_count</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+
+        <span class="c1"># INSPECT: number of columns</span>
+        <span class="n">test_col_count</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cntl_col_count</span> <span class="o">=</span> <span class="n">control_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">col_count_equal</span> <span class="o">=</span> <span class="n">test_col_count</span> <span class="o">==</span> <span class="n">cntl_col_count</span>
+
+        <span class="k">if</span> <span class="n">col_count_equal</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of columns equal: True&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">number of columns equal: False&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of control (expected) columns: </span><span class="si">{</span><span class="n">cntl_col_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  number of test (actual) columns:      </span><span class="si">{</span><span class="n">test_col_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+
+        <span class="c1"># INSPECT: names of columns</span>
+        <span class="n">test_col_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+        <span class="n">cntl_col_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+        <span class="n">symmetric_difference</span> <span class="o">=</span> <span class="n">test_col_set</span> <span class="o">^</span> <span class="n">cntl_col_set</span>
+        <span class="n">col_names_identical</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">symmetric_difference</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">col_names_identical</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">column names equal: True&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">test_col_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">column names equal: False&quot;</span><span class="p">)</span>
+
+            <span class="c1"># control only</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cntl_col_set</span> <span class="o">-</span> <span class="n">test_col_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on control (expected) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">cntl_col_set</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">test_col_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on control (expected) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}</span><span class="se">{{}}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># test only</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_col_set</span> <span class="o">-</span> <span class="n">cntl_col_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on test (actual) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">test_col_set</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cntl_col_set</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns only on test (actual) dataset:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}</span><span class="se">{{}}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># common columns</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  columns common to both datasets:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}{</span><span class="n">indent</span><span class="si">}{</span><span class="n">test_col_set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">cntl_col_set</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="c1"># no point in continuing to inspect if the names don&#39;t match</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+        <span class="c1"># only continue comparison if all equal so far</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">row_count_equal</span> <span class="ow">and</span> <span class="n">col_count_equal</span> <span class="ow">and</span> <span class="n">col_names_identical</span><span class="p">):</span>
+            <span class="k">return</span>
+
+        <span class="c1"># INSPECT: `pandas.DataFrame.compare()`</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span>
+                <span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span>     <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span>  <span class="mi">5000</span><span class="p">,</span>
+                <span class="s2">&quot;display.width&quot;</span><span class="p">,</span>        <span class="mi">500</span><span class="p">,</span>
+                <span class="s2">&quot;display.precision&quot;</span><span class="p">,</span>    <span class="mi">20</span><span class="p">,</span>
+            <span class="p">):</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">control_dataset</span><span class="p">,</span> <span class="n">result_names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;control&quot;</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">The following values differ (printing output of pandas `.compare()`):&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">indent</span> <span class="o">+</span> <span class="n">diff</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     &quot;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># noqa: BLE001 # in the .testing subpackage, we don&#39;t care</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">unable to compare datasets using pandas `.compare()`:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># don&#39;t raise</span>
+        <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+
+        <span class="c1"># INSPECT datatypes</span>
+        <span class="k">if</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">dtypes</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">datatypes equal: True&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">datatypes equal: False&quot;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">control_dataset</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">result_names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;control&quot;</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  comparing datatypes&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">indent</span> <span class="o">+</span> <span class="n">diff</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># noqa: BLE001 # in the .testing subpackage, we don&#39;t care</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">unable to compare datatypes automatically using pandas `.dtypes.compare()`:</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="c1"># INSPECT: `pandas.DataFrame.info()`</span>
+                <span class="k">for</span> <span class="n">ds</span><span class="p">,</span> <span class="n">ds_name</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">control_dataset</span><span class="p">,</span> <span class="s2">&quot;control&quot;</span><span class="p">)]:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   printing pandas `.info()` for </span><span class="si">{</span><span class="n">ds_name</span><span class="si">}</span><span class="s2"> dataset:&quot;</span><span class="p">)</span>
+                    <span class="n">print_dataset_info</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">  &quot;</span><span class="p">,</span> <span class="n">print_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span>
+
+    <span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_control_dataset</span><span class="p">(</span><span class="n">ds_ref</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load `ds_ref` using the normal load function.  First however, process `ds_ref`.</span>
+
+<span class="sd">    to search *control_data* folder</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ds_ref</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ds_ref</span>
+
+    <span class="k">return</span> <span class="n">load_input_dataset</span><span class="p">(</span><span class="n">get_control_dataset_path</span><span class="p">(</span><span class="n">ds_ref</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">),</span> <span class="n">get_misc_logger</span><span class="p">())</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">preprocess_input</span><span class="p">(</span><span class="n">str_in</span><span class="p">):</span>
+    <span class="n">str_out</span> <span class="o">=</span> <span class="n">str_in</span>
+    <span class="c1"># remote whitespace</span>
+    <span class="n">str_out</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">str_out</span><span class="p">)</span>
+    <span class="c1"># replace  &quot;text..........:&quot; =&gt; &quot;text.:&quot;</span>
+    <span class="n">str_out</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\.)(\.)+:&quot;</span><span class="p">,</span> <span class="s2">&quot;.:&quot;</span><span class="p">,</span> <span class="n">str_out</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">str_out</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_dataset_contents_verbose</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">print_output</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print a pandas dataframe with many rows, columns, and much precision.</span>
+
+<span class="sd">    Returns a string with the printed dataset.</span>
+<span class="sd">    Prints string by default, specify `print_dataset=False` to suppress printing.</span>
+<span class="sd">    Specify an `indent=&quot;   &quot;` to prepend spaces (or any text) to each line of output.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span>
+        <span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span>     <span class="mi">5000</span><span class="p">,</span>
+        <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span>  <span class="mi">5000</span><span class="p">,</span>
+        <span class="s2">&quot;display.width&quot;</span><span class="p">,</span>        <span class="mi">500</span><span class="p">,</span>
+        <span class="s2">&quot;display.precision&quot;</span><span class="p">,</span>    <span class="mi">20</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># print dataset with indent</span>
+        <span class="n">temp_str</span> <span class="o">=</span> <span class="n">indent</span> <span class="o">+</span> <span class="n">dataset</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">print_output</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">temp_str</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">temp_str</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_dataset_info</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">print_output</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">temp_buff</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">temp_buff</span><span class="p">,</span> <span class="n">memory_usage</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">show_counts</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">out_str</span> <span class="o">=</span> <span class="n">indent</span> <span class="o">+</span> <span class="n">temp_buff</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">print_output</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">out_str</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out_str</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_log_file</span><span class="p">(</span><span class="n">log_path</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">log_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;log file does not exist: </span><span class="si">{</span><span class="n">log_path</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">log_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>  <span class="c1"># noqa: PTH123  # No thanks, I&#39;ll use `open()`</span>
+        <span class="n">log_content</span><span class="o">=</span> <span class="n">log_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">log_content</span>
+
+<div class="viewcode-block" id="run_standard_assertions">
+<a class="viewcode-back" href="../../../../../banff.testing#banff.testing.run_standard_assertions">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_standard_assertions</span><span class="p">(</span><span class="n">expect_zero_rc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">python_log</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">sas_log_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">msg_list_sas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">msg_list_sas_exact</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">msg_list_contains</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">msg_list_contains_exact</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">expect_error_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expect_warning_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">ds_compare_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">round_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upcase_columns</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">pytest_capture</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">msg_list_sas</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg_list_sas</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">msg_list_sas_exact</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg_list_sas_exact</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">msg_list_contains</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg_list_contains</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">msg_list_contains_exact</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg_list_contains_exact</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">ds_compare_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ds_compare_list</span><span class="o">=</span><span class="p">[]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################### RUNNING ASSERTIONS #######################################&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># build SAS log path</span>
+        <span class="k">if</span> <span class="n">sas_log_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sas_log_path</span> <span class="o">=</span> <span class="n">get_log_path</span><span class="p">(</span><span class="n">sas_log_name</span><span class="o">=</span><span class="n">sas_log_path</span><span class="p">,</span> <span class="n">stack_level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="c1"># assert that &quot;cleaned&quot; message exists in both SAS and Python logs</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg_list_sas</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+            <span class="n">msg_list_sas</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg_list_sas</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">msg_list_sas</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">sas_log_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;UNIT TEST SETUP ERROR: `sas_log_path` erroneously blank&quot;</span>
+            <span class="n">assert_log_consistent</span><span class="p">(</span><span class="n">test_log</span><span class="o">=</span><span class="n">python_log</span><span class="p">,</span> <span class="n">sas_log_path</span><span class="o">=</span><span class="n">sas_log_path</span><span class="p">,</span> <span class="n">must_exist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">clean_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="c1"># assert exact message exists in both SAS and Python logs</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg_list_sas_exact</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+            <span class="n">msg_list_sas_exact</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg_list_sas_exact</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">msg_list_sas_exact</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">sas_log_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;UNIT TEST SETUP ERROR: `sas_log_path` erroneously blank&quot;</span>
+            <span class="n">assert_log_consistent</span><span class="p">(</span><span class="n">test_log</span><span class="o">=</span><span class="n">python_log</span><span class="p">,</span> <span class="n">sas_log_path</span><span class="o">=</span><span class="n">sas_log_path</span><span class="p">,</span> <span class="n">must_exist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">clean_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="c1"># assert that &quot;cleaned&quot; message exists in Python log</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg_list_contains</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+            <span class="n">msg_list_contains</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg_list_contains</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">msg_list_contains</span><span class="p">:</span>
+            <span class="n">assert_log_contains</span><span class="p">(</span><span class="n">test_log</span><span class="o">=</span><span class="n">python_log</span><span class="p">,</span> <span class="n">clean_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="c1"># assert that exact message exists in Python log</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg_list_contains_exact</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+            <span class="n">msg_list_contains_exact</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg_list_contains_exact</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">msg_list_contains_exact</span><span class="p">:</span>
+            <span class="n">assert_log_contains</span><span class="p">(</span><span class="n">test_log</span><span class="o">=</span><span class="n">python_log</span><span class="p">,</span> <span class="n">clean_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="c1"># assert return value is correct</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expect_zero_rc</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">expect_zero_rc</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Procedure returned non-zero value when zero was expected: </span><span class="si">{</span><span class="n">rc</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;asserted RC == 0</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Procedure return code should be non-zero, but is: </span><span class="si">{</span><span class="n">rc</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;asserted RC != 0</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="c1"># assert ERROR: count is correct</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expect_error_count</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+            <span class="n">assert_substr_count</span><span class="p">(</span><span class="n">substr_to_count</span><span class="o">=</span><span class="s2">&quot;ERROR:&quot;</span><span class="p">,</span> <span class="n">test_log</span><span class="o">=</span><span class="n">python_log</span><span class="p">,</span> <span class="n">expected_count</span><span class="o">=</span><span class="n">expect_error_count</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="c1"># assert WARNING: count is correct</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expect_warning_count</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+            <span class="n">assert_substr_count</span><span class="p">(</span><span class="n">substr_to_count</span><span class="o">=</span><span class="s2">&quot;WARNING:&quot;</span><span class="p">,</span> <span class="n">test_log</span><span class="o">=</span><span class="n">python_log</span><span class="p">,</span> <span class="n">expected_count</span><span class="o">=</span><span class="n">expect_warning_count</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="c1"># assert test and control datasets match</span>
+        <span class="n">assert_datasets_equal</span><span class="p">(</span>
+            <span class="n">ds_compare_list</span><span class="p">,</span>
+            <span class="n">round_data</span><span class="o">=</span><span class="n">round_data</span><span class="p">,</span>
+            <span class="n">drop_columns</span><span class="o">=</span><span class="n">drop_columns</span><span class="p">,</span>
+            <span class="n">upcase_columns</span><span class="o">=</span><span class="n">upcase_columns</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################ ASSERTIONS COMPLETE WITHOUT ERROR ###############################&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################### ASSERTIONS FAILED ########################################&quot;</span><span class="p">)</span>
+        <span class="k">raise</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">out_assert</span> <span class="o">=</span> <span class="n">get_console_log</span><span class="p">(</span><span class="n">pytest_capture</span><span class="p">)</span> <span class="c1"># get console log for arrange and act</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">python_log</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">out_assert</span><span class="p">)</span></div>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PytestProcedure</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for Procedure Pytest helper functions.</span>
+
+<span class="sd">    SUBCLASS MUST</span>
+<span class="sd">        - populate the `self.ds_compare_list` with list containing a tuple for each output dataset</span>
+<span class="sd">          - for associating expected and actual output datasets</span>
+<span class="sd">          - populate tuple with `(&lt;output-dataset&gt;, expected_&lt;output-dataset&gt;)`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="c1">#### Unit test parameters</span>
+            <span class="n">pytest_capture</span>          <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># for the `capfd` which captures the console log</span>
+            <span class="n">sas_log_name</span>            <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">msg_list_sas</span>            <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">msg_list_sas_exact</span>      <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">msg_list_contains</span>       <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">msg_list_contains_exact</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">expected_error_count</span>    <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">expected_warning_count</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">rc_should_be_zero</span>       <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">round_data</span>              <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">drop_columns</span>            <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">upcase_columns</span>          <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">by</span>                      <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">msg_list_sas</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg_list_sas</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">if</span> <span class="n">msg_list_sas_exact</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg_list_sas_exact</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">if</span> <span class="n">msg_list_contains</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg_list_contains</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">if</span> <span class="n">msg_list_contains_exact</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg_list_contains_exact</span><span class="o">=</span><span class="p">[]</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;############################# PROCEDURE LOG ENDED on previous line ##############################&quot;</span><span class="p">)</span>
+
+        <span class="c1">#### assert</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out_act</span> <span class="o">=</span> <span class="n">get_console_log</span><span class="p">(</span><span class="n">pytest_capture</span><span class="p">)</span> <span class="c1"># get console log for arrange and act</span>
+
+        <span class="c1"># load expected datasets</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_compare_list</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ds_compare_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_control_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_compare_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">drop_columns</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">drop_columns</span> <span class="o">=</span> <span class="n">by</span>
+
+        <span class="n">run_standard_assertions</span><span class="p">(</span>
+            <span class="n">expect_zero_rc</span>      <span class="o">=</span> <span class="n">rc_should_be_zero</span><span class="p">,</span>    <span class="n">rc</span>                      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_return_code</span><span class="p">,</span>
+            <span class="n">python_log</span>          <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_act</span><span class="p">,</span>         <span class="n">sas_log_path</span>            <span class="o">=</span> <span class="n">sas_log_name</span><span class="p">,</span>
+            <span class="n">msg_list_sas</span>        <span class="o">=</span> <span class="n">msg_list_sas</span><span class="p">,</span>         <span class="n">msg_list_sas_exact</span>      <span class="o">=</span> <span class="n">msg_list_sas_exact</span><span class="p">,</span>
+            <span class="n">msg_list_contains</span>   <span class="o">=</span> <span class="n">msg_list_contains</span><span class="p">,</span>    <span class="n">msg_list_contains_exact</span> <span class="o">=</span> <span class="n">msg_list_contains_exact</span><span class="p">,</span>
+            <span class="n">expect_error_count</span>  <span class="o">=</span> <span class="n">expected_error_count</span><span class="p">,</span> <span class="n">expect_warning_count</span>    <span class="o">=</span> <span class="n">expected_warning_count</span><span class="p">,</span>
+            <span class="n">ds_compare_list</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_compare_list</span><span class="p">,</span> <span class="n">round_data</span>              <span class="o">=</span> <span class="n">round_data</span><span class="p">,</span>
+            <span class="n">drop_columns</span>        <span class="o">=</span> <span class="n">drop_columns</span><span class="p">,</span>         <span class="n">upcase_columns</span>          <span class="o">=</span> <span class="n">upcase_columns</span><span class="p">,</span>
+            <span class="n">pytest_capture</span>      <span class="o">=</span> <span class="n">pytest_capture</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

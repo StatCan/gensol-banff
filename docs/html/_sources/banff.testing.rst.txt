@@ -1,0 +1,21 @@
+banff.testing package
+=====================
+
+Submodules
+----------
+
+banff.testing.banff\_testing module
+-----------------------------------
+
+.. automodule:: banff.testing.banff_testing
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: banff.testing
+   :members:
+   :show-inheritance:
+   :undoc-members:

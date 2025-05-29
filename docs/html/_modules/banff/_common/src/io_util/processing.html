@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>banff._common.src.io_util.processing &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/banff/_common/src/io_util/processing';</script>
+    <link rel="index" title="Index" href="../../../../../genindex" />
+    <link rel="search" title="Search" href="../../../../../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../../../../../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../index" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../../../banff" class="nav-link">banff</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff._common.src.io_util.processing</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for banff._common.src.io_util.processing</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;A place for functions which perform pre or post processing in relation to the input or output of datasets to or from Procedures.&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">duckdb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..io_util.normalization</span><span class="w"> </span><span class="kn">import</span> <span class="n">match_case</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..nls</span><span class="w"> </span><span class="kn">import</span> <span class="n">_</span>
+
+
+<div class="viewcode-block" id="add_status_by_vars">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.add_status_by_vars">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_status_by_vars</span><span class="p">(</span><span class="n">ds_stat</span><span class="p">,</span> <span class="n">ds_data</span><span class="p">,</span> <span class="n">unit_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add BY variables to input status dataset.</span>
+
+<span class="sd">        Filters `ds_stat` down to `unit_id`, &#39;FIELDID&#39;, and &#39;STATUS&#39;, then</span>
+<span class="sd">        add `by` variables from `ds_data`, matching on `unit_id` in a safe</span>
+<span class="sd">        case insensitive manner.</span>
+
+<span class="sd">        ds_stat     - instatus or instatus_hist dataset, `pandas.DataFrame`</span>
+<span class="sd">        ds_data     - indata or indata_hist dataset, `pandas.DataFrame`</span>
+<span class="sd">        unit_id     - name of unit_id, `str`</span>
+<span class="sd">        by          - list of 0+ variable names, `str`</span>
+
+<span class="sd">    pandas support via `pandas.DataFrame.join()`</span>
+<span class="sd">        Research indicates this as possibly more efficient than `pandas.merge()`.</span>
+<span class="sd">        Join always happens on the &quot;index&quot;, so `.set_index()` is used to specify which</span>
+<span class="sd">        column to join the dataframes on.</span>
+<span class="sd">            - calls `.reset_index()` on merged dataset, to restore that column</span>
+
+<span class="sd">    pyarrow support via `pyarrow.Table.join()`</span>
+<span class="sd">        Nothing to really note here.</span>
+
+<span class="sd">    Case Insensitivity (safely)</span>
+<span class="sd">        Merging/joining pandas dataframes is a case sensitive operation.</span>
+<span class="sd">        Procedures are case insensitive with respect to variable (column) names provided in:</span>
+<span class="sd">            - datasets</span>
+<span class="sd">            - edit strings</span>
+<span class="sd">            - parameters</span>
+
+<span class="sd">        In this function, case insensitivity is implemented without modifying the</span>
+<span class="sd">        case of either dataset, instead generating dataset-case-specific metadata.</span>
+<span class="sd">        - see `match_case()` for details</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># replace defaults</span>
+    <span class="n">by</span>      <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="n">by</span> <span class="ow">is</span> <span class="kc">None</span>  <span class="k">else</span> <span class="n">by</span>
+    <span class="n">unit_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="n">unit_id</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">unit_id</span>
+
+    <span class="c1"># validate input types</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_stat</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">))</span>
+        <span class="ow">and</span> <span class="nb">isinstance</span> <span class="p">(</span><span class="n">ds_data</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">))</span>
+    <span class="p">):</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Invalid type: `</span><span class="si">{}</span><span class="s2">` only supports types: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;add_status_by_vars()&quot;</span><span class="p">,</span> <span class="s2">&quot;`pandas.DataFrame`, `pyarrow.Table`&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ds_stat</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">ds_data</span><span class="p">):</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Invalid type: `</span><span class="si">{}</span><span class="s2">` requires identically typed datasets&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;add_status_by_vars()&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="c1">## calculate unit_id for each dataset</span>
+    <span class="n">unit_id_data</span> <span class="o">=</span> <span class="n">match_case</span><span class="p">(</span><span class="n">unit_id</span><span class="p">,</span> <span class="n">ds_data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">unit_id_stat</span> <span class="o">=</span> <span class="n">match_case</span><span class="p">(</span><span class="n">unit_id</span><span class="p">,</span> <span class="n">ds_stat</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1">## generate select list for status dataset</span>
+    <span class="n">select_stat</span> <span class="o">=</span> <span class="n">match_case</span><span class="p">(</span>
+        <span class="n">list_source</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unit_id</span><span class="si">}</span><span class="s2"> FiElDiD sTAtuS&quot;</span><span class="p">,</span>
+        <span class="n">target</span><span class="o">=</span><span class="n">ds_stat</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1">## generate select list for data dataset</span>
+    <span class="n">select_data</span> <span class="o">=</span> <span class="n">match_case</span><span class="p">(</span>
+        <span class="n">list_source</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">by</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">unit_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">target</span><span class="o">=</span><span class="n">ds_data</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_stat</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="c1"># `pandas.DataFrame.join()`</span>
+        <span class="c1"># Research indicates this as possibly more efficient than `pandas.merge()`.</span>
+        <span class="c1">#   - call `.set_index()` on both datasets to specify the column to merge on</span>
+        <span class="c1">#   - use `select_data` to filter data dataset down to `unit_id` and `by` vars</span>
+        <span class="c1">#   - use `select_stat` to filter stat dataset down to minimum set of mandatory columns</span>
+        <span class="n">ds_stat</span> <span class="o">=</span> <span class="n">ds_stat</span><span class="p">[</span><span class="n">select_stat</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">unit_id_stat</span><span class="p">)</span>
+        <span class="n">ds_data</span> <span class="o">=</span> <span class="n">ds_data</span><span class="p">[</span><span class="n">select_data</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">unit_id_data</span><span class="p">)</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="n">ds_stat</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ds_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+
+        <span class="c1"># call `.reset_index()` on merged dataset to restore stat&#39;s `unit_id`</span>
+        <span class="k">return</span> <span class="n">merged</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="n">unit_id_stat</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_stat</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+        <span class="n">ds_stat</span> <span class="o">=</span> <span class="n">ds_stat</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">select_stat</span><span class="p">)</span>
+        <span class="n">ds_data</span> <span class="o">=</span> <span class="n">ds_data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">select_data</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">join_pyarrow</span><span class="p">():</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Use inner function to avoid repeating in `try` and `except`.&quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">ds_stat</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">right_table</span><span class="o">=</span><span class="n">ds_data</span><span class="p">,</span>
+                <span class="n">keys</span><span class="o">=</span><span class="n">unit_id_stat</span><span class="p">,</span>
+                <span class="n">right_keys</span><span class="o">=</span><span class="n">unit_id_data</span><span class="p">,</span>
+                <span class="n">join_type</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">merged</span> <span class="o">=</span> <span class="n">join_pyarrow</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">pa</span><span class="o">.</span><span class="n">ArrowInvalid</span><span class="p">:</span>
+            <span class="c1"># likely caused by inconsistent string data types, try again</span>
+            <span class="n">ds_stat</span> <span class="o">=</span> <span class="n">handle_arrow_string_data</span><span class="p">(</span><span class="n">ds_stat</span><span class="p">)</span>
+            <span class="n">ds_data</span> <span class="o">=</span> <span class="n">handle_arrow_string_data</span><span class="p">(</span><span class="n">ds_data</span><span class="p">)</span>
+            <span class="n">merged</span> <span class="o">=</span> <span class="n">join_pyarrow</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">merged</span>
+
+    <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Invalid type: `</span><span class="si">{}</span><span class="s2">` only supports types: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;add_status_by_vars()&quot;</span><span class="p">,</span> <span class="s2">&quot;`pandas.DataFrame`, `pyarrow.Table`&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="flag_rows_where">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.flag_rows_where">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">flag_rows_where</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">where_stmt</span><span class="p">,</span> <span class="n">new_col_name</span><span class="o">=</span><span class="s2">&quot;_exclude&quot;</span><span class="p">,</span> <span class="n">flag_value</span><span class="o">=</span><span class="s2">&quot;E&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a new &#39;flag&#39; string column with a value flagging certain records.</span>
+
+<span class="sd">    Add a new string column, `new_col_name`, to a intermediate dataset.</span>
+<span class="sd">    For records matching `where_stmt`, set the value to `flag_value`.</span>
+<span class="sd">    Unflagged records will have a null (missing) value.</span>
+
+<span class="sd">    Returns the modified dataset and new column name (may differ from `new_col_name`).</span>
+
+<span class="sd">    If `new_col_name` exists</span>
+<span class="sd">        A case insensitive search for `new_col_name` is performed</span>
+<span class="sd">        If any matches are found, a random numeric suffix will be added</span>
+<span class="sd">        to the new column name.  The new random name isn&#39;t validated.</span>
+
+<span class="sd">    Use Case: add &#39;exclude&#39; flag to indata or indata_hist datasets</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">temp_table_name</span><span class="o">=</span><span class="s2">&quot;ds_temp&quot;</span>
+
+    <span class="c1"># import into duckdb table</span>
+    <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CREATE TABLE </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2"> AS SELECT * from ds_in&quot;</span><span class="p">)</span>  <span class="c1"># noqa: S608 # no user arguments here, no concerns</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># if column exists (case insensitive)</span>
+        <span class="k">if</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            SELECT * FROM information_schema.columns</span>
+<span class="s2">            WHERE table_name=&#39;</span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2">&#39; AND LOWER(column_name)=LOWER(&#39;</span><span class="si">{</span><span class="n">new_col_name</span><span class="si">}</span><span class="s2">&#39;)</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">arrow</span><span class="p">()</span><span class="o">.</span><span class="n">num_rows</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+            <span class="c1"># add a random suffix</span>
+            <span class="c1"># Code Quality: ruff rule S311 ignored as this code is not related to security</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+            <span class="n">new_col_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">new_col_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">9999</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># noqa: S311</span>
+
+        <span class="c1"># modify</span>
+        <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ALTER TABLE </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2"> ADD COLUMN </span><span class="si">{</span><span class="n">new_col_name</span><span class="si">}</span><span class="s2"> VARCHAR&quot;</span><span class="p">)</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+        <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;UPDATE </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2"> SET </span><span class="si">{</span><span class="n">new_col_name</span><span class="si">}</span><span class="s2"> = &#39;</span><span class="si">{</span><span class="n">flag_value</span><span class="si">}</span><span class="s2">&#39; WHERE </span><span class="si">{</span><span class="n">where_stmt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+
+        <span class="c1"># export from duckdb</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">ds_out</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * from </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+            <span class="n">ds_out</span> <span class="o">=</span> <span class="n">handle_pandas_string_data</span><span class="p">(</span><span class="n">ds_out</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="n">ds_out</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * from </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">arrow</span><span class="p">()</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># free duckdb table</span>
+        <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DROP TABLE IF EXISTS </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+
+    <span class="k">return</span> <span class="n">ds_out</span><span class="p">,</span> <span class="n">new_col_name</span></div>
+
+
+<div class="viewcode-block" id="handle_arrow_string_data">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.handle_arrow_string_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_arrow_string_data</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">dest_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return new Table with all string data converted to one datatype.</span>
+
+<span class="sd">    Casts pyarrow.Table `ds` string columns (string and large_string) to `dest_type`.</span>
+<span class="sd">    By default `dest_type` is `pa.large_string()`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># default dest_type requires function call</span>
+    <span class="k">if</span> <span class="n">dest_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dest_type</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">large_string</span><span class="p">()</span>
+
+    <span class="n">new_fields</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">schema</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">pa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_large_string</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="n">pa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_string</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">new_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">dest_type</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="n">new_schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="n">new_fields</span><span class="p">)</span>
+
+    <span class="c1"># only cast dataset if changes were made to schema</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">new_schema</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">schema</span><span class="p">):</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">new_schema</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ds</span></div>
+
+
+<div class="viewcode-block" id="handle_pandas_string_data">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.handle_pandas_string_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_pandas_string_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Force string columns to use nullable string datatype.</span>
+
+<span class="sd">    Pandas 2.x often has issues loading &quot;missing&quot; *string* values.  In some cases</span>
+<span class="sd">    the column&#39;s type will become lost and assumed to be numeric.  To avoid this,</span>
+<span class="sd">    code below forceably converts the column to a string type such that it will</span>
+<span class="sd">    be identified as an arrow string when received by C code.</span>
+
+<span class="sd">    Optimize: The memory efficiency of this method has not yet been assessed</span>
+<span class="sd">    Furthermore, SAS itself provided a single space character (&#39; &#39;) to C when a character</span>
+<span class="sd">    value was missing.  If this causes issues, we could convert all missing</span>
+<span class="sd">    character values to a single space, or have C emulate that behaviour for missing char values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># get character columns</span>
+    <span class="n">char_columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+
+    <span class="c1"># convert to string</span>
+        <span class="c1">##### Implementation Choices #####</span>
+        <span class="c1"># To convert character data to properly nullable string types,</span>
+        <span class="c1"># ensuring Pandas 2.x default settings don&#39;t lose track of column type when all rows are &quot;missing&quot;</span>
+        <span class="c1"># the following advice was followed, taken from: https://pandas.pydata.org/docs/user_guide/pyarrow.html</span>
+        <span class="c1">## &gt; The string alias &quot;string[pyarrow]&quot; maps to pd.StringDtype(&quot;pyarrow&quot;)</span>
+        <span class="c1">## &gt; which is not equivalent to specifying dtype=pd.ArrowDtype(pa.string()).</span>
+        <span class="c1">## &gt; Generally, operations on the data will behave similarly</span>
+        <span class="c1">## &gt; except pd.StringDtype(&quot;pyarrow&quot;) can return NumPy-backed nullable types</span>
+        <span class="c1">## &gt; while pd.ArrowDtype(pa.string()) will return ArrowDtype.</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">char_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">char_columns</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">StringDtype</span><span class="p">(</span><span class="n">storage</span><span class="o">=</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="remove_rows_where">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.remove_rows_where">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove_rows_where</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">where_stmt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove (delete/drop) certain records.</span>
+
+<span class="sd">    Remove rows that match `where_stmt`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">temp_table_name</span><span class="o">=</span><span class="s2">&quot;ds_temp&quot;</span>
+
+    <span class="c1"># import into duckdb table</span>
+    <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CREATE TABLE </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2"> AS SELECT * from ds_in&quot;</span><span class="p">)</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># modify</span>
+        <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DELETE FROM </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2"> WHERE </span><span class="si">{</span><span class="n">where_stmt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+
+        <span class="c1"># export from duckdb</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">ds_out</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * from </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+            <span class="n">ds_out</span> <span class="o">=</span> <span class="n">handle_pandas_string_data</span><span class="p">(</span><span class="n">ds_out</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+            <span class="n">ds_out</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * from </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">arrow</span><span class="p">()</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># free duckdb table</span>
+        <span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DROP TABLE IF EXISTS </span><span class="si">{</span><span class="n">temp_table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># noqa: S608 # private temporary database, no concerns</span>
+
+    <span class="k">return</span> <span class="n">ds_out</span></div>
+
+
+<div class="viewcode-block" id="sort_dataset">
+<a class="viewcode-back" href="../../../../../banff.io_util#banff.io_util.sort_dataset">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sort_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sort dataset in ascending order in order of `by` variable list.</span>
+
+<span class="sd">    When `case_sensitive=False` (default), the dataset&#39;s column names</span>
+<span class="sd">    are normalized prior to sorting and restored after.</span>
+
+<span class="sd">    If no variables are passed, the original dataset is returned.</span>
+<span class="sd">    If dataset format is not supported, a `TypeError` is raised.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">by</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dataset</span>
+
+    <span class="c1"># validate input types</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">)):</span>
+        <span class="n">mesg</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Invalid type: `</span><span class="si">{}</span><span class="s2">` only supports types: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;sort_dataset()&quot;</span><span class="p">,</span> <span class="s2">&quot;`pandas.DataFrame`, `pyarrow.Table`&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">mesg</span><span class="p">)</span>
+
+    <span class="c1"># convert by `str` to `list`</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">by</span> <span class="o">=</span> <span class="n">by</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">by</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dataset</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">case_sensitive</span><span class="p">:</span>
+        <span class="n">by</span> <span class="o">=</span> <span class="n">match_case</span><span class="p">(</span><span class="n">list_source</span><span class="o">=</span><span class="n">by</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="c1"># sort dataset</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">sorted_ds</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+            <span class="n">by</span><span class="o">=</span><span class="n">by</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">,</span>
+            <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="p">):</span>
+        <span class="n">pa_by</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">by</span><span class="p">:</span>
+            <span class="c1"># pyarrow needs tuples which contain column and sort order</span>
+            <span class="n">pa_by</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">b</span><span class="p">,</span> <span class="s2">&quot;ascending&quot;</span><span class="p">)]</span>
+
+        <span class="n">sorted_ds</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">sort_by</span><span class="p">(</span><span class="n">pa_by</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sorted_ds</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

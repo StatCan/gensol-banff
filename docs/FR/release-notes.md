@@ -13,4 +13,4 @@
 
 Version de production initiale de la version Python du Banff.
 
-* Pour une description détaillée des nouvelles fonctionnalités et des différences entre les versions basées sur SAS, veuillez consulter notre [guide de migration](/docs/FR/sas_migration_guide.md)
+* Pour une description détaillée des nouvelles fonctionnalités et des différences entre les versions basées sur SAS, veuillez consulter notre [guide de migration](./sas_migration_guide.md)

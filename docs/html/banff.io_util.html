@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>banff.io_util package &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=d4abd058"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'banff.io_util';</script>
+    <link rel="index" title="Index" href="genindex" />
+    <link rel="search" title="Search" href="search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="banff.diagnostics">banff.diagnostics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.exceptions">banff.exceptions package</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">banff.io_util package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.nls">banff.nls package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.proc">banff.proc package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="banff.testing">banff.testing package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff.io_util package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="banff-io-util-package">
+<h1>banff.io_util package<a class="headerlink" href="#banff-io-util-package" title="Link to this heading">#</a></h1>
+<section id="module-banff.io_util">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-banff.io_util" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.DF_from_sas_file">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">DF_from_sas_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#DF_from_sas_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.DF_from_sas_file" title="Link to this definition">#</a></dt>
+<dd><p>Load SAS dataset file into Pandas DataFrame.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="banff.io_util.GensysInputDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">GensysInputDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mandatory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysInputDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysInputDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StcInputTable</span></code></p>
+<p>Wrapper for procedure input datasets.</p>
+<p>Please also read super-class (<cite>StcTable</cite>) documentation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="banff.io_util.GensysInputDataset.free_c_args">
+<span class="sig-name descname"><span class="pre">free_c_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysInputDataset.free_c_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysInputDataset.free_c_args" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="banff.io_util.GensysInputDataset.init_c_args">
+<span class="sig-name descname"><span class="pre">init_c_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysInputDataset.init_c_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysInputDataset.init_c_args" title="Link to this definition">#</a></dt>
+<dd><p>Low-level preparation of C input dataset arguments.</p>
+<p>Given the packed input dataset, cast it to a datatype suitable for C to consume.</p>
+<p>For Apache Arrow “C Array Stream”, we’re creating a pointer to the nanoarrow created
+structure and passing that as a typeless “void pointer”, instead of implementing some complex logic
+for passing the structure directly.
+If the dataset is <cite>None</cite>, send a “null pointer”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="banff.io_util.GensysInputDataset.validate_user_spec">
+<span class="sig-name descname"><span class="pre">validate_user_spec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysInputDataset.validate_user_spec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysInputDataset.validate_user_spec" title="Link to this definition">#</a></dt>
+<dd><p>Validate the user specification.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="banff.io_util.GensysOutputDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">GensysOutputDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_specification</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mandatory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requested_by_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysOutputDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysOutputDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StcOutputTable</span></code></p>
+<p>Wrapper for procedure output datasets.</p>
+<dl class="simple">
+<dt>INTENDED USE:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><cite>user_output</cite> will be populated based on <cite>user_spec</cite> with either</dt><dd><ul>
+<li><p>the requested object format of <cite>ds_intermediate</cite></p></li>
+<li><p>the path which <cite>ds_intermediate</cite> was written to</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>MEMBERS:</dt><dd><p><cite>c_output</cite> - C code generated output dataset
+<cite>requested_by_default</cite> - whether or not to produce, when unspecified by user
+<cite>user_output</cite> - output dataset in user requested format (or user_spec when written to file)</p>
+</dd>
+</dl>
+<p>Please also read super-class (<cite>StcTable</cite>) documentation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="banff.io_util.GensysOutputDataset.extract_c_output">
+<span class="sig-name descname"><span class="pre">extract_c_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysOutputDataset.extract_c_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysOutputDataset.extract_c_output" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="banff.io_util.GensysOutputDataset.free_c_args">
+<span class="sig-name descname"><span class="pre">free_c_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysOutputDataset.free_c_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysOutputDataset.free_c_args" title="Link to this definition">#</a></dt>
+<dd><p>Free C output dataset arguments (NOT THEIR CONTENTS).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="banff.io_util.GensysOutputDataset.init_c_args">
+<span class="sig-name descname"><span class="pre">init_c_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#GensysOutputDataset.init_c_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.GensysOutputDataset.init_c_args" title="Link to this definition">#</a></dt>
+<dd><p>Low-level preparation of C output dataset arguments.</p>
+<p>Some output datasets are optional.
+If a dataset is not requested, C-code must receive <cite>NULL</cite> (C).
+Accomplish this by passing <cite>None</cite> (Python).
+Otherwise, Python passes a string pointer (<cite>ctypes.c_char_p()</cite>) to</p>
+<blockquote>
+<div><p>C code “by reference” (<cite>ctypes.byref()</cite>).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.PAT_from_sas_file">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">PAT_from_sas_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#PAT_from_sas_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.PAT_from_sas_file" title="Link to this definition">#</a></dt>
+<dd><p>Load SAS dataset file into pyarrow Table.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.SAS_file_to_feather_file">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">SAS_file_to_feather_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#SAS_file_to_feather_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.SAS_file_to_feather_file" title="Link to this definition">#</a></dt>
+<dd><p>Read SAS file and write to feather file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.SAS_file_to_parquet_file">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">SAS_file_to_parquet_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#SAS_file_to_parquet_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.SAS_file_to_parquet_file" title="Link to this definition">#</a></dt>
+<dd><p>Read SAS file and write to parquet file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.add_status_by_vars">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">add_status_by_vars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds_stat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/processing#add_status_by_vars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.add_status_by_vars" title="Link to this definition">#</a></dt>
+<dd><p>Add BY variables to input status dataset.</p>
+<blockquote>
+<div><p>Filters <cite>ds_stat</cite> down to <cite>unit_id</cite>, ‘FIELDID’, and ‘STATUS’, then
+add <cite>by</cite> variables from <cite>ds_data</cite>, matching on <cite>unit_id</cite> in a safe
+case insensitive manner.</p>
+<p>ds_stat     - instatus or instatus_hist dataset, <cite>pandas.DataFrame</cite>
+ds_data     - indata or indata_hist dataset, <cite>pandas.DataFrame</cite>
+unit_id     - name of unit_id, <cite>str</cite>
+by          - list of 0+ variable names, <cite>str</cite></p>
+</div></blockquote>
+<dl>
+<dt>pandas support via <cite>pandas.DataFrame.join()</cite></dt><dd><p>Research indicates this as possibly more efficient than <cite>pandas.merge()</cite>.
+Join always happens on the “index”, so <cite>.set_index()</cite> is used to specify which
+column to join the dataframes on.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>calls <cite>.reset_index()</cite> on merged dataset, to restore that column</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>pyarrow support via <cite>pyarrow.Table.join()</cite></dt><dd><p>Nothing to really note here.</p>
+</dd>
+<dt>Case Insensitivity (safely)</dt><dd><p>Merging/joining pandas dataframes is a case sensitive operation.
+Procedures are case insensitive with respect to variable (column) names provided in:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>datasets</p></li>
+<li><p>edit strings</p></li>
+<li><p>parameters</p></li>
+</ul>
+</div></blockquote>
+<p>In this function, case insensitivity is implemented without modifying the
+case of either dataset, instead generating dataset-case-specific metadata.
+- see <cite>match_case()</cite> for details</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.arrow_to_pandas">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">arrow_to_pandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pa_t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#banff.io_util.arrow_to_pandas" title="Link to this definition">#</a></dt>
+<dd><p>Convert PyArrow Table to Pandas DataFrame.</p>
+<dl class="simple">
+<dt>pyarrow option <cite>split_blocks=True</cite> recommended for minimizing memory usage.</dt><dd><p>see <a class="reference external" href="https://arrow.apache.org/docs/python/pandas.html#reducing-memory-use-in-table-to-pandas">https://arrow.apache.org/docs/python/pandas.html#reducing-memory-use-in-table-to-pandas</a></p>
+</dd>
+</dl>
+<p>Uses <cite>types_mapper</cite> to ensure pandas uses <cite>string</cite>, not <cite>object</cite> for string data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.c_argtype_input_dataset">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">c_argtype_input_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#c_argtype_input_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.c_argtype_input_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Return the <em>type</em> of argument C code uses for input datasets.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.c_argtype_output_dataset">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">c_argtype_output_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#c_argtype_output_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.c_argtype_output_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Return the <em>type</em> of argument C code uses for output datasets.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.c_argtype_parameters">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">c_argtype_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#c_argtype_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.c_argtype_parameters" title="Link to this definition">#</a></dt>
+<dd><p>Return the <em>type</em> of argument C code uses for parameters.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.c_return_type">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">c_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#c_return_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.c_return_type" title="Link to this definition">#</a></dt>
+<dd><p>Return the <em>type</em> of value C code returns.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.dest_is_file">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">dest_is_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#dest_is_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.dest_is_file" title="Link to this definition">#</a></dt>
+<dd><p>Whether or not the requested destination appears to be a file path.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.dest_is_object">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">dest_is_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#dest_is_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.dest_is_object" title="Link to this definition">#</a></dt>
+<dd><p>Whether or not the requested destination is an object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.flag_rows_where">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">flag_rows_where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where_stmt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_col_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_exclude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'E'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/processing#flag_rows_where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.flag_rows_where" title="Link to this definition">#</a></dt>
+<dd><p>Add a new ‘flag’ string column with a value flagging certain records.</p>
+<p>Add a new string column, <cite>new_col_name</cite>, to a intermediate dataset.
+For records matching <cite>where_stmt</cite>, set the value to <cite>flag_value</cite>.
+Unflagged records will have a null (missing) value.</p>
+<p>Returns the modified dataset and new column name (may differ from <cite>new_col_name</cite>).</p>
+<dl class="simple">
+<dt>If <cite>new_col_name</cite> exists</dt><dd><p>A case insensitive search for <cite>new_col_name</cite> is performed
+If any matches are found, a random numeric suffix will be added
+to the new column name.  The new random name isn’t validated.</p>
+</dd>
+</dl>
+<p>Use Case: add ‘exclude’ flag to indata or indata_hist datasets</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.get_default_output_spec">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">get_default_output_spec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#get_default_output_spec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.get_default_output_spec" title="Link to this definition">#</a></dt>
+<dd><p>Return current default output dataset specification.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.handle_arrow_string_data">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">handle_arrow_string_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/processing#handle_arrow_string_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.handle_arrow_string_data" title="Link to this definition">#</a></dt>
+<dd><p>Return new Table with all string data converted to one datatype.</p>
+<p>Casts pyarrow.Table <cite>ds</cite> string columns (string and large_string) to <cite>dest_type</cite>.
+By default <cite>dest_type</cite> is <cite>pa.large_string()</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.handle_pandas_string_data">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">handle_pandas_string_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/processing#handle_pandas_string_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.handle_pandas_string_data" title="Link to this definition">#</a></dt>
+<dd><p>Force string columns to use nullable string datatype.</p>
+<p>Pandas 2.x often has issues loading “missing” <em>string</em> values.  In some cases
+the column’s type will become lost and assumed to be numeric.  To avoid this,
+code below forceably converts the column to a string type such that it will
+be identified as an arrow string when received by C code.</p>
+<p>Optimize: The memory efficiency of this method has not yet been assessed
+Furthermore, SAS itself provided a single space character (’ ‘) to C when a character
+value was missing.  If this causes issues, we could convert all missing
+character values to a single space, or have C emulate that behaviour for missing char values.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.interm_to_DF">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">interm_to_DF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#interm_to_DF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.interm_to_DF" title="Link to this definition">#</a></dt>
+<dd><p>Convert intermediate dataset to pandas dataframe.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.interm_to_PAT">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">interm_to_PAT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#interm_to_PAT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.interm_to_PAT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.load_input_dataset">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">load_input_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#load_input_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.load_input_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Inspect and (if applicable) load user specified input dataset into intermediate format.</p>
+<p>This function takes a user-provided input dataset object or file path and returns
+that dataset in an “intermediate” data format.</p>
+<p>The format of the user-provided input dataset determines how it is loaded.
+When a file path is provided, the data is loaded with <cite>interm_from_input_file()</cite>.
+This function will immediately return a dataset which is already in an intermediate format.</p>
+<dl class="simple">
+<dt>Exceptions:</dt><dd><p><cite>TypeError</cite>         - input dataset’s type is not supported: <cite>TypeError</cite> raised
+<cite>FileNotFoundError</cite> - input dataset appears to be a non-existent file path
+<cite>ValueError</cite>        - input dataset is an empty string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.pack_dataset">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">pack_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#pack_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.pack_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Format dataset for consumption by C code.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.pack_parms">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">pack_parms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#pack_parms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.pack_parms" title="Link to this definition">#</a></dt>
+<dd><p>Get parameters in JSON form, encode as utf-8, return it.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.pandas_to_arrow">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">pandas_to_arrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pd_dataframe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#banff.io_util.pandas_to_arrow" title="Link to this definition">#</a></dt>
+<dd><p>Convert Pandas DataFrame to PyArrow Table.</p>
+<dl class="simple">
+<dt><cite>preserve_index=False</cite></dt><dd><ul class="simple">
+<li><p>do not include the pandas “index” as an additional column in the pyarrow table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.remove_rows_where">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">remove_rows_where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where_stmt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/processing#remove_rows_where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.remove_rows_where" title="Link to this definition">#</a></dt>
+<dd><p>Remove (delete/drop) certain records.</p>
+<p>Remove rows that match <cite>where_stmt</cite></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.set_default_output_spec">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">set_default_output_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_spec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/type_converters#set_default_output_spec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.set_default_output_spec" title="Link to this definition">#</a></dt>
+<dd><p>Set default output output dataset specification to a supported object type identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.sort_dataset">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">sort_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/processing#sort_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.sort_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Sort dataset in ascending order in order of <cite>by</cite> variable list.</p>
+<p>When <cite>case_sensitive=False</cite> (default), the dataset’s column names
+are normalized prior to sorting and restored after.</p>
+<p>If no variables are passed, the original dataset is returned.
+If dataset format is not supported, a <cite>TypeError</cite> is raised.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.unpack_output_dataset">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">unpack_output_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#unpack_output_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.unpack_output_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Load C generated output dataset to intermediate format.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="banff.io_util.write_output_dataset">
+<span class="sig-prename descclassname"><span class="pre">banff.io_util.</span></span><span class="sig-name descname"><span class="pre">write_output_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/banff/_common/src/io_util/io_util#write_output_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#banff.io_util.write_output_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Output dataset (<cite>dataset</cite>) according to user specification (<cite>destination</cite>).</p>
+<p>Handle converstion from intermediate-format to user specified output format.
+This function looks at the type of arguent <cite>destination</cite> and calls the appropriate conversion function
+to facilitate further destination inspection or file conversion.
+Returns the dataset object in the output format, or the path to the written file.</p>
+<dl class="simple">
+<dt><cite>dataset</cite></dt><dd><ul class="simple">
+<li><p>must be a valid dataset in one of the “intermediate” formats</p></li>
+<li><p>validation of <cite>dataset</cite> only occurs in the called conversion functions</p></li>
+</ul>
+</dd>
+<dt><cite>destination</cite> is a user provided value which determines various output settings.</dt><dd><ul class="simple">
+<li><p>If <cite>None</cite> a Pandas DataFrame is returned</p></li>
+<li><p>If valid path to a supported file type is provided, dataset written to file, path returned</p></li>
+</ul>
+</dd>
+</dl>
+<p><cite>default_format</cite> allows the caller to set a custom default output format.</p>
+<p>If certain custom exceptions occur during output, an attempt will be made to return a DataFrame of
+the output dataset.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>None</cite> -&gt; Return pandas DataFrame</p></li>
+<li><p>file path to supported file type
+- write output to file
+- return path file was written to</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-banff.io_util">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.DF_from_sas_file"><code class="docutils literal notranslate"><span class="pre">DF_from_sas_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysInputDataset"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysInputDataset.free_c_args"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset.free_c_args()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysInputDataset.init_c_args"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset.init_c_args()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysInputDataset.validate_user_spec"><code class="docutils literal notranslate"><span class="pre">GensysInputDataset.validate_user_spec()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysOutputDataset"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysOutputDataset.extract_c_output"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset.extract_c_output()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysOutputDataset.free_c_args"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset.free_c_args()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.GensysOutputDataset.init_c_args"><code class="docutils literal notranslate"><span class="pre">GensysOutputDataset.init_c_args()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.PAT_from_sas_file"><code class="docutils literal notranslate"><span class="pre">PAT_from_sas_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.SAS_file_to_feather_file"><code class="docutils literal notranslate"><span class="pre">SAS_file_to_feather_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.SAS_file_to_parquet_file"><code class="docutils literal notranslate"><span class="pre">SAS_file_to_parquet_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.add_status_by_vars"><code class="docutils literal notranslate"><span class="pre">add_status_by_vars()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.arrow_to_pandas"><code class="docutils literal notranslate"><span class="pre">arrow_to_pandas()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.c_argtype_input_dataset"><code class="docutils literal notranslate"><span class="pre">c_argtype_input_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.c_argtype_output_dataset"><code class="docutils literal notranslate"><span class="pre">c_argtype_output_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.c_argtype_parameters"><code class="docutils literal notranslate"><span class="pre">c_argtype_parameters()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.c_return_type"><code class="docutils literal notranslate"><span class="pre">c_return_type()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.dest_is_file"><code class="docutils literal notranslate"><span class="pre">dest_is_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.dest_is_object"><code class="docutils literal notranslate"><span class="pre">dest_is_object()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.flag_rows_where"><code class="docutils literal notranslate"><span class="pre">flag_rows_where()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.get_default_output_spec"><code class="docutils literal notranslate"><span class="pre">get_default_output_spec()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.handle_arrow_string_data"><code class="docutils literal notranslate"><span class="pre">handle_arrow_string_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.handle_pandas_string_data"><code class="docutils literal notranslate"><span class="pre">handle_pandas_string_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.interm_to_DF"><code class="docutils literal notranslate"><span class="pre">interm_to_DF()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.interm_to_PAT"><code class="docutils literal notranslate"><span class="pre">interm_to_PAT()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.load_input_dataset"><code class="docutils literal notranslate"><span class="pre">load_input_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.pack_dataset"><code class="docutils literal notranslate"><span class="pre">pack_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.pack_parms"><code class="docutils literal notranslate"><span class="pre">pack_parms()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.pandas_to_arrow"><code class="docutils literal notranslate"><span class="pre">pandas_to_arrow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.remove_rows_where"><code class="docutils literal notranslate"><span class="pre">remove_rows_where()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.set_default_output_spec"><code class="docutils literal notranslate"><span class="pre">set_default_output_spec()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.sort_dataset"><code class="docutils literal notranslate"><span class="pre">sort_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.unpack_output_dataset"><code class="docutils literal notranslate"><span class="pre">unpack_output_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#banff.io_util.write_output_dataset"><code class="docutils literal notranslate"><span class="pre">write_output_dataset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/banff.io_util.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

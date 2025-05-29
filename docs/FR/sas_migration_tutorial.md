@@ -1,6 +1,7 @@
 # Tutoriel
 
-Ce tutoriel montrera l'[équivalent Python](/Python/sample_programs/conversion_examples/Errorloc01.py) du [programme d'exemple 1 en langage SAS Proc Errorloc](/Python/sample_programs/conversion_examples/Errorloc01.sas).
+Ce tutoriel montrera l'équivalent Python (`/Python/sample_programs/conversion_examples/Errorloc01.py`) du programme d'exemple 1 en langage SAS Proc Errorloc (`/Python/sample_programs/conversion_examples/Errorloc01.sas`).
+De nombreux équivalents SAS et Python sont également disponibles dans le dossier `/Python/sample_programs/conversion_examples/`.
 
 L'exemple de programme illustre comment
 - créer un tableau synthétique
@@ -204,7 +205,7 @@ Elles sont stockées dans l'objet `banff_call`, accédez-y en utilisant `banff_c
 
 ### Autres options d'entrée et de sortie
 
-Pour fournir un moyen cohérent de lecture/écriture de fichiers et de conversion entre les formats de tableau, tout en conservant la plus haute précision possible en virgule flottante, la prise en charge de divers formats de tableau d'entrée et de sortie a été implémentée. Pour plus de détails, consultez le [Guide de l'utilisateur](/docs/FR/user_guide.md#supported-formats).
+Pour fournir un moyen cohérent de lecture/écriture de fichiers et de conversion entre les formats de tableau, tout en conservant la plus haute précision possible en virgule flottante, la prise en charge de divers formats de tableau d'entrée et de sortie a été implémentée. Pour plus de détails, consultez le [Guide de l'utilisateur](./user_guide.md#supported-formats).
 
 Le code suivant illustre l'utilisation de fichiers pour les tableaux d'entrée et de sortie en modifiant l'exemple ci-dessus.
 

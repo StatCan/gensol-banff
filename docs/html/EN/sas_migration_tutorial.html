@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutorial &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=d4abd058"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'EN/sas_migration_tutorial';</script>
+    <link rel="index" title="Index" href="../genindex" />
+    <link rel="search" title="Search" href="../search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="../_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Tutorial</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading">#</a></h1>
+<p>This tutorial will show the Python equivalent (<code class="docutils literal notranslate"><span class="pre">/Python/sample_programs/conversion_examples/Errorloc01.py</span></code>) of the SAS language Proc Errorloc sample program 1 (<code class="docutils literal notranslate"><span class="pre">/Python/sample_programs/conversion_examples/Errorloc01.sas</span></code>).<br />
+Numerous additional SAS and Python equivalents are also available in the <code class="docutils literal notranslate"><span class="pre">/Python/sample_programs/conversion_examples/</span></code> folder.</p>
+<p>The example program shows how to</p>
+<ul class="simple">
+<li><p>create a synthetic table</p></li>
+<li><p>sort the table</p></li>
+<li><p>specify</p>
+<ul>
+<li><p>parameters</p></li>
+<li><p>input table</p></li>
+<li><p>output table options</p></li>
+</ul>
+</li>
+<li><p>access results</p></li>
+</ul>
+<p>It will discuss some relevant differences between SAS and Python as well.</p>
+<section id="sas-language-example">
+<h2>SAS Language example<a class="headerlink" href="#sas-language-example" title="Link to this heading">#</a></h2>
+<div class="highlight-sas notranslate"><div class="highlight"><pre><span></span><span class="c">/* create synthetic input table */</span>
+<span class="kr">data </span>example_indata;
+<span class="k">input</span> IDENT $ X1 X2 ZONE $<span class="m">1</span>.;
+<span class="k">cards;</span>
+<span class="x">R03 10 40 B</span>
+<span class="x">R02 -4 49 A</span>
+<span class="x">R04 4 49 A</span>
+<span class="x">R01 16 49 A</span>
+<span class="x">R05 15 51 B</span>
+<span class="x">R07 -4 29 B</span>
+<span class="x">R06 30 70 B</span>
+<span class="x">;</span>
+<span class="x">run;</span>
+
+<span class="x">/* sort by BY and KEY variables */</span>
+<span class="x">proc sort data=example_indata; by ZONE IDENT;run;</span>
+
+<span class="x">/* create Banff call */</span>
+<span class="x">proc errorloc</span>
+<span class="x">data=example_indata</span>
+<span class="x">outstatus=outstatus</span>
+<span class="x">outreject=outreject</span>
+<span class="x">edits=&quot;x1&gt;=-5; x1&lt;=15; x2&gt;=30; x1+x2&lt;=50;&quot;</span>
+<span class="x">weights=&quot;x1=1.5;&quot;</span>
+<span class="x">cardinality=2</span>
+<span class="x">timeperobs=.1</span>
+<span class="x">;</span>
+id IDENT;
+<span class="k">by</span> ZONE;
+
+<span class="c">/* execute Banff call */</span>
+<span class="kr">run;</span> 
+</pre></div>
+</div>
+</section>
+<section id="python-language-equivalent">
+<h2>Python language equivalent<a class="headerlink" href="#python-language-equivalent" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import Banff package</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">banff</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+
+<span class="c1"># create a schema for the indata table</span>
+<span class="n">indata_schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">schema</span><span class="p">([</span>
+            <span class="p">(</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+            <span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">int64</span><span class="p">()),</span>
+            <span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">int64</span><span class="p">()),</span>
+            <span class="p">(</span><span class="s2">&quot;ZONE&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+    <span class="p">])</span>
+
+<span class="c1"># create table using schema and lists of values for each column</span>
+<span class="n">indata</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">table</span><span class="p">(</span>
+    <span class="n">schema</span><span class="o">=</span><span class="n">indata_schema</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;R03&quot;</span><span class="p">,</span> <span class="s2">&quot;R02&quot;</span><span class="p">,</span> <span class="s2">&quot;R04&quot;</span><span class="p">,</span> <span class="s2">&quot;R01&quot;</span><span class="p">,</span> <span class="s2">&quot;R05&quot;</span><span class="p">,</span> <span class="s2">&quot;R07&quot;</span><span class="p">,</span> <span class="s2">&quot;R06&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># sort according to `by` variable and `unit_id`</span>
+<span class="n">indata</span> <span class="o">=</span> <span class="n">indata</span><span class="o">.</span><span class="n">sort_by</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;ZONE&quot;</span><span class="p">,</span> <span class="s2">&quot;ascending&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span> <span class="s2">&quot;ascending&quot;</span><span class="p">),</span>
+<span class="p">])</span>
+
+<span class="c1"># run Banff procedure</span>
+<span class="n">banff_call</span> <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">errorloc</span><span class="p">(</span>
+    <span class="n">indata</span><span class="o">=</span><span class="n">indata</span><span class="p">,</span>
+    <span class="n">edits</span><span class="o">=</span><span class="s2">&quot;x1&gt;=-5; x1&lt;=15; x2&gt;=30; x1+x2&lt;=50;&quot;</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;x1=1.5;&quot;</span><span class="p">,</span>
+    <span class="n">cardinality</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">time_per_obs</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">unit_id</span><span class="o">=</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span>
+    <span class="n">by</span><span class="o">=</span><span class="s2">&quot;ZONE&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="line-by-line-explanation">
+<h2>Line by line explanation<a class="headerlink" href="#line-by-line-explanation" title="Link to this heading">#</a></h2>
+<section id="import-packages">
+<h3>Import packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h3>
+<p>In Python, <em>packages</em> must be <em>imported</em> into a session before they can be used.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">banff</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://pypi.org/project/pyarrow/"><code class="docutils literal notranslate"><span class="pre">pyarrow</span></code></a> package is used for creating and manipulating tables.  Note that the <em>alias</em> <code class="docutils literal notranslate"><span class="pre">pa</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">pyarrow</span></code> package.</p>
+</section>
+<section id="create-synthetic-data">
+<h3>Create synthetic data<a class="headerlink" href="#create-synthetic-data" title="Link to this heading">#</a></h3>
+<p>We create the same synthetic table that was created in SAS.</p>
+<p>A <em>Pyarrow Schema</em> object is created and assigned to the variable <code class="docutils literal notranslate"><span class="pre">indata_schema</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a schema for the indata table</span>
+<span class="n">indata_schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">schema</span><span class="p">([</span>
+            <span class="p">(</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+            <span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">int64</span><span class="p">()),</span>
+            <span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">int64</span><span class="p">()),</span>
+            <span class="p">(</span><span class="s2">&quot;ZONE&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">string</span><span class="p">()),</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>this is used to define the name and datatype of each column in a table</p></li>
+<li><p>Pyarrow offers an <a class="reference external" href="https://arrow.apache.org/docs/python/api/datatypes.html#factory-functions">extensive set of datatypes</a></p></li>
+<li><p>for more details, see <a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.schema.html"><code class="docutils literal notranslate"><span class="pre">pyarrow.schema</span></code> documentation</a></p></li>
+</ul>
+<p>A <em>Pyarrow Table</em> object is created and stored in the <code class="docutils literal notranslate"><span class="pre">indata</span></code> variable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create table using schema and lists of values for each column</span>
+<span class="n">indata</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">table</span><span class="p">(</span>
+    <span class="n">schema</span><span class="o">=</span><span class="n">indata_schema</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;R03&quot;</span><span class="p">,</span> <span class="s2">&quot;R02&quot;</span><span class="p">,</span> <span class="s2">&quot;R04&quot;</span><span class="p">,</span> <span class="s2">&quot;R01&quot;</span><span class="p">,</span> <span class="s2">&quot;R05&quot;</span><span class="p">,</span> <span class="s2">&quot;R07&quot;</span><span class="p">,</span> <span class="s2">&quot;R06&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the order of columns in the schema corresponds to the order of lists of data</p></li>
+<li><p>for more details, see <a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.table.html"><code class="docutils literal notranslate"><span class="pre">pyarrow.table</span></code> documentation</a></p></li>
+<li><p>unlike SAS, where tables are typically stored as files, Pyarrow Tables are typically stored in memory as “<em>objects</em>”, hence the need to assign to the <code class="docutils literal notranslate"><span class="pre">indata</span></code> variable</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">indata</span></code> table is sorted using its <code class="docutils literal notranslate"><span class="pre">sort_by()</span></code> <em>method</em> and assigned back to itself.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort according to `by` variable and `unit_id`</span>
+<span class="n">indata</span> <span class="o">=</span> <span class="n">indata</span><span class="o">.</span><span class="n">sort_by</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;ZONE&quot;</span><span class="p">,</span> <span class="s2">&quot;ascending&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span> <span class="s2">&quot;ascending&quot;</span><span class="p">),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>in SAS this would be analogous to using <code class="docutils literal notranslate"><span class="pre">proc</span> <span class="pre">sort</span> <span class="pre">data=indata</span></code> without specifying the <code class="docutils literal notranslate"><span class="pre">out</span></code> option</p></li>
+<li><p>most operations in pyarrow return a sort of copy of the table, meaning the source table is not modified</p></li>
+<li><p>to retain the unsorted table, simply assign the sorted table to a different variable</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">indata_sorted</span> <span class="pre">=</span> <span class="pre">indata.sort_by(...</span></code> will give you a new copy which is sorted and leave the original <code class="docutils literal notranslate"><span class="pre">indata</span></code> copy as-is</p></li>
+</ul>
+</li>
+</ul>
+<section id="python-concepts">
+<h4>Python Concepts<a class="headerlink" href="#python-concepts" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p>in Python, variables are often <em>objects</em>, containing not only data but also <em>methods</em></p></li>
+<li><p>methods are often useful for getting information about, or performing operations on, the data</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">indata</span></code> variable is a <em>Pyarrow Table</em> (<code class="docutils literal notranslate"><span class="pre">pyarrow.Table</span></code>) object, and accordingly has its own <a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.Table.html#pyarrow.Table.sort_by"><code class="docutils literal notranslate"><span class="pre">sort_by()</span></code> method</a></p>
+<ul>
+<li><p>documentation on other methods available for Pyarrow Tables can be found <a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.Table.html#pyarrow.Table">here</a>.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="running-the-banff-procedure">
+<h3>Running The Banff Procedure<a class="headerlink" href="#running-the-banff-procedure" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">banff_call</span> <span class="o">=</span> <span class="n">banff</span><span class="o">.</span><span class="n">errorloc</span><span class="p">(</span>
+    <span class="n">indata</span><span class="o">=</span><span class="n">indata</span><span class="p">,</span>
+    <span class="n">edits</span><span class="o">=</span><span class="s2">&quot;x1&gt;=-5; x1&lt;=15; x2&gt;=30; x1+x2&lt;=50;&quot;</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;x1=1.5;&quot;</span><span class="p">,</span>
+    <span class="n">cardinality</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">time_per_obs</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">unit_id</span><span class="o">=</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span>
+    <span class="n">by</span><span class="o">=</span><span class="s2">&quot;ZONE&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">banff.errorloc()</span></code> results in the errorloc procedure executing and an object being assigned to the <code class="docutils literal notranslate"><span class="pre">banff_call</span></code> variable.  The object can be used to access output tables.</p>
+<ul class="simple">
+<li><p>note that all parameters and tables are specified as comma separated key-value pairs</p></li>
+<li><p>they can appear in any order</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indata=indata</span></code> specifies that the <code class="docutils literal notranslate"><span class="pre">indata</span></code> table (recently sorted) should be provided as the “indata” table</p></li>
+</ul>
+</section>
+<section id="procedure-execution">
+<h3>Procedure Execution<a class="headerlink" href="#procedure-execution" title="Link to this heading">#</a></h3>
+<p>During procedure execution, the text written to the console by the procedure should be nearly identical to the SAS log from the equivalent example.</p>
+</section>
+<section id="accessing-output-tables">
+<h3>Accessing output tables<a class="headerlink" href="#accessing-output-tables" title="Link to this heading">#</a></h3>
+<p>After execution completes, output table options are processed.  The default option was specified above, so the output tables are available as pyarrow tables.</p>
+<p>They are stored in the <code class="docutils literal notranslate"><span class="pre">banff_call</span></code> object, access them using <code class="docutils literal notranslate"><span class="pre">banff_call.outstatus</span></code> and <code class="docutils literal notranslate"><span class="pre">banff_call.outreject</span></code>.  From here they can be handled by users like any other pyarrow table, for example:</p>
+<ul class="simple">
+<li><p>written to file</p></li>
+<li><p>manipulated (sorted, merged, etc.)</p></li>
+<li><p>used as input for another procedure (<code class="docutils literal notranslate"><span class="pre">instatus=banff_call.outstatus</span></code>)</p></li>
+</ul>
+</section>
+<section id="other-input-and-output-options">
+<h3>Other input and output options<a class="headerlink" href="#other-input-and-output-options" title="Link to this heading">#</a></h3>
+<p>To provide a consistent means of reading/writing files and converting between table formats, while maintaining the highest possible floating-point precision, support for various input and output table formats has been implemented.  For complete details, see the <a class="reference internal" href="user_guide#supported-formats"><span class="std std-ref">User Guide</span></a>.</p>
+<p>The following code will demonstrate the use of files for input and output tables by modifying the above example.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">banff</span><span class="o">.</span><span class="n">errorloc</span><span class="p">(</span> 
+    <span class="n">indata</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\temp\in_data.feather&quot;</span><span class="p">,</span>
+    <span class="n">outstatus</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\temp\out_status.parquet&quot;</span><span class="p">,</span>
+    <span class="n">outreject</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\temp\out_reject.parquet&quot;</span><span class="p">,</span>
+    <span class="n">edits</span><span class="o">=</span><span class="s2">&quot;x1&gt;=-5; x1&lt;=15; x2&gt;=30; x1+x2&lt;=50;&quot;</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;x1=1.5;&quot;</span><span class="p">,</span>
+    <span class="n">cardinality</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">time_per_obs</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">unit_id</span><span class="o">=</span><span class="s2">&quot;IDENT&quot;</span><span class="p">,</span>
+    <span class="n">by</span><span class="o">=</span><span class="s2">&quot;ZONE&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>note that there is no need to assign the object returned by <code class="docutils literal notranslate"><span class="pre">banff.errorloc()</span></code> to a variable because output data is written to disk</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sas-language-example">SAS Language example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-language-equivalent">Python language equivalent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-by-line-explanation">Line by line explanation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-synthetic-data">Create synthetic data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-concepts">Python Concepts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-banff-procedure">Running The Banff Procedure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-execution">Procedure Execution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-output-tables">Accessing output tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-input-and-output-options">Other input and output options</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/EN/sas_migration_tutorial.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

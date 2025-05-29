@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>banff &#8212; Banff 3.01.002 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=2a807888" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=d4abd058"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules';</script>
+    <link rel="index" title="Index" href="genindex" />
+    <link rel="search" title="Search" href="search" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/banff_white.png" class="logo__image only-light" alt="Banff 3.01.002 documentation - Home"/>
+    <img src="_static/banff_white.png" class="logo__image only-dark pst-js-only" alt="Banff 3.01.002 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="EN/index">
+    English
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="FR/index">
+    Français
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/StatCan/gensol-banff" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">banff</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="banff">
+<h1>banff<a class="headerlink" href="#banff" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="banff">banff package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="banff#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff.diagnostics">banff.diagnostics package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.diagnostics#module-banff.diagnostics">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.exceptions">banff.exceptions package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.exceptions#module-banff.exceptions">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.io_util">banff.io_util package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.io_util#module-banff.io_util">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.nls">banff.nls package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.nls#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.nls#module-banff.nls.nls">banff.nls.nls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.nls#module-banff.nls">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.proc">banff.proc package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.banff_proc">banff.proc.banff_proc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_determin">banff.proc.proc_determin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_donorimp">banff.proc.proc_donorimp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_editstat">banff.proc.proc_editstat module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_errorloc">banff.proc.proc_errorloc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_estimato">banff.proc.proc_estimato module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_massimpu">banff.proc.proc_massimpu module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_outlier">banff.proc.proc_outlier module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_prorate">banff.proc.proc_prorate module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc.proc_verifyed">banff.proc.proc_verifyed module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.proc#module-banff.proc">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff.testing">banff.testing package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff.testing#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.testing#module-banff.testing.banff_testing">banff.testing.banff_testing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff.testing#module-banff.testing">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="banff#module-banff">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.SupportedLanguage"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="banff#banff.SupportedLanguage.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.UNKNOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff#banff.SupportedLanguage.en"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.en</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="banff#banff.SupportedLanguage.fr"><code class="docutils literal notranslate"><span class="pre">SupportedLanguage.fr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.determin"><code class="docutils literal notranslate"><span class="pre">determin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.deterministic"><code class="docutils literal notranslate"><span class="pre">deterministic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.donorimp"><code class="docutils literal notranslate"><span class="pre">donorimp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.editstat"><code class="docutils literal notranslate"><span class="pre">editstat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.editstats"><code class="docutils literal notranslate"><span class="pre">editstats</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.errorloc"><code class="docutils literal notranslate"><span class="pre">errorloc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.estimato"><code class="docutils literal notranslate"><span class="pre">estimato</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.estimator"><code class="docutils literal notranslate"><span class="pre">estimator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.get_default_output_spec"><code class="docutils literal notranslate"><span class="pre">get_default_output_spec()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.massimp"><code class="docutils literal notranslate"><span class="pre">massimp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.massimpu"><code class="docutils literal notranslate"><span class="pre">massimpu</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.outlier"><code class="docutils literal notranslate"><span class="pre">outlier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.prorate"><code class="docutils literal notranslate"><span class="pre">prorate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.set_default_output_spec"><code class="docutils literal notranslate"><span class="pre">set_default_output_spec()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.set_language"><code class="docutils literal notranslate"><span class="pre">set_language()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.verifyed"><code class="docutils literal notranslate"><span class="pre">verifyed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="banff#banff.verifyedits"><code class="docutils literal notranslate"><span class="pre">verifyedits</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Statistics Canada / Statistique Canada.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
