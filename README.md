@@ -125,11 +125,9 @@ La documentation en français et en anglais se trouve dans [ce dossier](./docs) 
 | ------------------------- | --------------------------------------------------------------------------------------------- |
 | [Guide de l'utilisateur](./docs/FR/user_guide.md)| Aperçu du paquet Banff, détaillant les concepts et les paramètres communs à toutes les procédures. |
 | [Guides de procédure](./docs/FR/Procedure%20Guides/)| Guide pour chaque procédure Banff. |
-| [Description des fonctions](./docs/EN/Banff%20Functional%20Description.pdf)| Guide détaillé des méthodes statistiques utilisées dans Banff, avec des exemples.|
+| [Description des fonctions](./docs/FR/Description%20des%20fonctions%20Banff.pdf)| Guide détaillé des méthodes statistiques utilisées dans Banff, avec des exemples.|
 | [Guide de migration](./docs/FR/sas_migration_tutorial.md)| Guide pour les utilisateurs existants passant de la version de Banff basée sur SAS. |
 | [Notes de version](./docs/FR/release-notes.md)| Liste détaillée des modifications apportées à chaque nouvelle version de Banff, à partir de la version 3.0. |
-
-L'information sur les versions SAS de Banff précédemment publiées sont disponibles dans confluence: https://confluenceb.statcan.ca/display/GENSYS/Banff
 
 ## Liste des procédures
 
