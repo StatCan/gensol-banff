@@ -24,6 +24,8 @@ jobs:
       - name: build python
         run: |
           #pip install build
+          # Fix relative links for PyPi
+          sed -i 's|(./|(https://github.com/StatCan/gensol-banff/blob/main/|g' ./README.md
           cd Python
           cp ../README.md .
           cp ../LICENSE .

@@ -33,11 +33,15 @@ jobs:
       - name: check cl        
         run: cl     
       - name: build c        
-        run: cmd.exe /c build.cmd        
+        run: cmd.exe /c build.cmd
+      - name: Fix relative links for PyPi
+        run: |
+          (Get-Content README.md) -replace '\(\./', '(https://github.com/StatCan/gensol-banff/blob/main/' | Set-Content README.md
+        shell: pwsh                
       - name: build python
         run: |
           pip install build
-          pip install wheel          
+          pip install wheel
           pushd Python
           cp ..\README.md .
           cp ..\LICENSE .
