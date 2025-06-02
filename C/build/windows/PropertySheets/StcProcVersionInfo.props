@@ -2,9 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <BanffVersion>3.01.002</BanffVersion>
-    <ProcVersion>3.01.002</ProcVersion>
-    <BanffExports>301001</BanffExports>
+    <BanffVersion>3.01.003</BanffVersion>
+    <ProcVersion>3.01.003</ProcVersion>
+    <BanffExports>301003</BanffExports>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />

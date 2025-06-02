@@ -4,7 +4,7 @@ requires = ["setuptools>=70.00", "wheel", "pip>=23.3"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "banff"
-version = "3.01.002"
+version = "3.01.003"
 maintainers = [
   {name = "Banff Support, Statistics Canada", email = "statcan.banff-banff.statcan@statcan.gc.ca"}
 ]
