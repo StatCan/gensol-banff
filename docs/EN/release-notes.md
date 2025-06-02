@@ -1,5 +1,9 @@
 # Banff (Procedures) Release Notes
 
+## 2025-June-2 (Version `3.01.003`)
+
+* Various documentation updates for public github release
+
 ## 2025-January-24 (Version `3.01.002`)
 
 * Documentation:
